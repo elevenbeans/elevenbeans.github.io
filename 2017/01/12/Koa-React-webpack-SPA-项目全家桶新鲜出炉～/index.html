@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>SPA 项目全家桶新鲜出炉（Koa+React+webpack） ～ | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="来豚厂还不满半年就又一次被 “拥抱变化”。
+不过，无论是之前的无线 H5 团队，还是现在的机票 H5 团队。始终维持着一个创业型团队的规模 （一只手数得清）。
+新老板提到：机票 H5 team 作为一个小团队，会类似“小白鼠”的角色，需要快速迭代、敏捷开发，作为创新项目的试验田。
+对于我个人来讲，最深刻的，其实是无尽的危机感。
+跟在阿里的师兄从 React 的易用性，讨论到前端新技术技术迭代升级的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SPA 项目全家桶新鲜出炉（Koa+React+webpack） ～">
+<meta property="og:url" content="http://yoursite.com/2017/01/12/Koa-React-webpack-SPA-项目全家桶新鲜出炉～/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="来豚厂还不满半年就又一次被 “拥抱变化”。
+不过，无论是之前的无线 H5 团队，还是现在的机票 H5 团队。始终维持着一个创业型团队的规模 （一只手数得清）。
+新老板提到：机票 H5 team 作为一个小团队，会类似“小白鼠”的角色，需要快速迭代、敏捷开发，作为创新项目的试验田。
+对于我个人来讲，最深刻的，其实是无尽的危机感。
+跟在阿里的师兄从 React 的易用性，讨论到前端新技术技术迭代升级的">
+<meta property="og:updated_time" content="2017-01-13T07:46:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SPA 项目全家桶新鲜出炉（Koa+React+webpack） ～">
+<meta name="twitter:description" content="来豚厂还不满半年就又一次被 “拥抱变化”。
+不过，无论是之前的无线 H5 团队，还是现在的机票 H5 团队。始终维持着一个创业型团队的规模 （一只手数得清）。
+新老板提到：机票 H5 team 作为一个小团队，会类似“小白鼠”的角色，需要快速迭代、敏捷开发，作为创新项目的试验田。
+对于我个人来讲，最深刻的，其实是无尽的危机感。
+跟在阿里的师兄从 React 的易用性，讨论到前端新技术技术迭代升级的">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://img.alicdn.com/tps/TB1SVqYJFXXXXa_XXXXXXXXXXXX-700-700.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Elevenbeans</a></h1>
+		</hgroup>
+
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/tech">技术分享</a></li>
+				        
+							<li><a href="/categories/life">生活感悟</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/elevenBeans" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2381593582" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiao-jian-li-29" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Elevenbeans</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://img.alicdn.com/tps/TB1SVqYJFXXXXa_XXXXXXXXXXXX-700-700.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Elevenbeans</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/tech">技术分享</a></li>
+		        
+					<li><a href="/categories/life">生活感悟</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/elevenBeans" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2381593582" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiao-jian-li-29" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Koa-React-webpack-SPA-项目全家桶新鲜出炉～" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/12/Koa-React-webpack-SPA-项目全家桶新鲜出炉～/" class="article-date">
+  	<time datetime="2017-01-12T15:55:48.000Z" itemprop="datePublished">2017-01-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SPA 项目全家桶新鲜出炉（Koa+React+webpack） ～
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Koa/">Koa</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/tech/">tech</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><p>来豚厂还不满半年就又一次被 “拥抱变化”。</p>
+<p>不过，无论是之前的无线 H5 团队，还是现在的机票 H5 团队。始终维持着一个创业型团队的规模 （一只手数得清）。</p>
+<p>新老板提到：机票 H5 team 作为一个小团队，会类似“小白鼠”的角色，需要快速迭代、敏捷开发，作为创新项目的试验田。</p>
+<p>对于我个人来讲，最深刻的，其实是无尽的危机感。</p>
+<p>跟在阿里的师兄从 React 的易用性，讨论到前端新技术技术迭代升级的意义，最后总结到到一切技术都是辣鸡，升级说的直白一点就是换一种砖继续搬。深感无奈～</p>
+<p>一线的开发是资源、是螺丝钉，没毛病。</p>
+<p>先做一颗万能螺丝钉行不行？</p>
+<p>抑或说，假如现在有机会让我一个初创公司的技术 leader， 我应该做到什么呢？</p>
+<p>想太多不幸福，不如直接干～</p>
+<a id="more"></a>
+<h2 id="The-way-to-full-stack"><a href="#The-way-to-full-stack" class="headerlink" title="The way to full stack"></a>The way to full stack</h2><p>SPA 项目全家桶新鲜出炉： <strong>Node + Koa + ES6 + React</strong></p>
+<h3 id="后端框架-Koa"><a href="#后端框架-Koa" class="headerlink" title="后端框架 Koa"></a>后端框架 <a href="http://koa.rednode.cn/" target="_blank" rel="external">Koa</a></h3><p><em>由 Express 原班人马打造的 koa,仅提供了一个轻量优雅的函数库，使得编写 Web 应用变得得心应手。</em></p>
+<ul>
+<li><p>使用Koa 框架搭建后端服务，作为 SPA 的入口和容器。</p>
+</li>
+<li><p>使用单一职责的 Koa-Router，配合前端 React-router。处理外部直接 Landing、原地重刷新以及区分 404 页面:</p>
+</li>
+</ul>
+<pre><code>var ThrowToHomePage = async function (ctx, next) {
+  console.log(&apos;EVR in router:&apos;,process.env.NODE_ENV);
+  ctx.state = {
+    env: process.env.NODE_ENV,
+    cdnUrl: CDN_URL
+  };
+  await ctx.render(&apos;index&apos;, { //去前端根路由
+  });
+};
+
+var ThrowToErroPage = async function (ctx, next) {
+  console.log(&apos;EVR in router:&apos;,process.env.NODE_ENV);
+  ctx.state = {
+      env: process.env.NODE_ENV,
+    cdnUrl: CDN_URL,
+    message: &apos;error&apos;,
+    error: {status:404,stack:&apos;stack:&apos;}
+  };
+  await ctx.render(&apos;error&apos;, { //去 404
+  });
+};
+
+router.get(&apos;/&apos;, ThrowToHomePage);
+router.get(&apos;flight&apos;, ThrowToHomePage);
+router.get(&apos;hotel&apos;, ThrowToHomePage);
+router.get(&apos;train&apos;, ThrowToHomePage);
+
+router.get(&apos;*&apos;, ThrowToErroPage);
+</code></pre><ul>
+<li>使用 ejs 模版引擎作为主应用的后端唯一 View:</li>
+</ul>
+<pre><code>&lt;%- include(&apos;header&apos;) -%&gt;
+
+  &lt;div id=&apos;app&apos;&gt;&lt;/div&gt;
+
+&lt;%- include(&apos;footer&apos;) -%&gt;
+</code></pre><h3 id="前端相关技术架构"><a href="#前端相关技术架构" class="headerlink" title="前端相关技术架构"></a>前端相关技术架构</h3><ul>
+<li>使用日趋成熟的 JS 语言标准 ES6， 使用 Less 预处理语言: <a href="https://github.com/elevenBeans/TW2FS/blob/master/public/javascripts/home/index.jsx" target="_blank" rel="external">示例代码</a></li>
+<li>使用 React + ReactDOM 进行框架前端组件化开发</li>
+<li>React-Router：SPA 的核心，由后端路由 Koa-router 配合完成</li>
+</ul>
+<pre><code>&lt;Router key={Math.random()} history={browserHistory} &gt;
+  &lt;Route path=&quot;/&quot; component={App}&gt;
+    &lt;IndexRoute component={Home}/&gt;
+
+    &lt;Route path=&quot;flight&quot; component={Flight}&gt;
+    &lt;/Route&gt;
+
+    &lt;Route path=&quot;flight/:citys&quot; component={FlightList}&gt;
+    &lt;/Route&gt;
+
+    &lt;Route path=&quot;train&quot; component={Train}&gt;
+    &lt;/Route&gt;
+
+    &lt;Route path=&quot;hotel&quot; component={Hotel}&gt;
+    &lt;/Route&gt;
+  &lt;/Route&gt;
+&lt;/Router&gt;
+</code></pre><ul>
+<li>模块化：ES6 module</li>
+<li>转场过渡效果：React-router-transition，作为一个 SPA，就是要做到如丝般顺滑～</li>
+</ul>
+<pre><code>var App = function ({ children, location }) { //children = React.children
+  styles = location.action === &apos;POP&apos;? presets.slideRight: presets.slideLeft;
+  return (
+  &lt;div&gt;
+    &lt;Header /&gt;
+    &lt;RouteTransition
+      className=&quot;transition-wrapper&quot;
+      pathname={location.pathname}
+      runOnMount={false}
+      {...styles}&gt;
+      {children}
+    &lt;/RouteTransition&gt;
+  &lt;/div&gt;
+  )
+}
+</code></pre><h3 id="编译构建：Webpack-Babel"><a href="#编译构建：Webpack-Babel" class="headerlink" title="编译构建：Webpack + Babel"></a>编译构建：Webpack + Babel</h3><p>Webpack 简直就是为了 SPA 和 ES6 量身打造的打包工具 ！！！<br>对于 webpack.config.js 的配置：</p>
+<ul>
+<li>库文件 external</li>
+</ul>
+<pre><code>externals: {
+  &apos;zepto&apos;: &apos;window.$&apos;,
+  &apos;react&apos;:&apos;window.React&apos;,
+  &apos;react-dom&apos;:&apos;window.ReactDOM&apos;
+},
+</code></pre><p>  像是 Jquery、zepto、React 这种官方已有编译好库文件的，直接挂载到全局对象引用即可。没有必要再通过 webpack 的流程在编译一次。</p>
+<ul>
+<li>公共组件 CommonsChunkPlugin</li>
+</ul>
+<pre><code>entry: {
+  router: [&apos;react-router&apos;] // CommonsChunkPlugin
+},  
+plugins:  [
+  new webpack.optimize.CommonsChunkPlugin(&apos;router&apos;,&apos;[name].bundle.js&apos;)// CommonsChunk
+]
+</code></pre><p>  对于 React-router 这种非官方的插件，最好还是下载 stable 版本的源码，自行编译。</p>
+<ul>
+<li>样式文件单独打包</li>
+</ul>
+<pre><code>new ExtractTextPlugin(&quot;./css/IBU.H5.flight.css&quot;)
+</code></pre><ul>
+<li>Hot Module Replacement</li>
+</ul>
+<p><strong>狂!!! 拽!!! 酷炫!!! 吊炸天!!! 的新功能</strong>，详情请戳 –&gt;<a href="http://webpack.github.io/docs/hot-module-replacement-with-webpack.html#tutorial" target="_blank" rel="external">tutorial</a>。</p>
+<p>据说可以在生产环境中使用，但是官方承认还不稳定. 耿直！<a href="http://webpack.github.io/docs/hot-module-replacement-with-webpack.html#caveats" target="_blank" rel="external">请戳戳</a></p>
+<p>官方的才是可信赖的，嗯。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/10/24/1024/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">1024</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Koa-React-webpack-SPA-项目全家桶新鲜出炉～" data-title="SPA 项目全家桶新鲜出炉（Koa+React+webpack） ～" data-url="http://yoursite.com/2017/01/12/Koa-React-webpack-SPA-项目全家桶新鲜出炉～/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Elevenbeans
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+  <script>hljs.initHighlightingOnLoad();</script>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>由 $(document).ready 发散开去 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="缘起上周面了上海一家大型互联网公司，并顺利拿到了达到预期的 Offer。
+不过这并不是重点，
+CTO 本尊的一个技术问题让我印象深刻：“JQuery 中的 DomReady 在什么时候触发？”。
+今天抽空梳理一下。
+若干年前踩过的小坑不失一般性，在我开始接触前端的时候，学会的第一个框架或者类库 ——Jquery。每次用 JQ 时候用 $(document).ready() 对于逻辑代码进行包裹几乎">
+<meta property="og:type" content="article">
+<meta property="og:title" content="由 $(document).ready 发散开去">
+<meta property="og:url" content="http://yoursite.com/2016/06/03/DomReady/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="缘起上周面了上海一家大型互联网公司，并顺利拿到了达到预期的 Offer。
+不过这并不是重点，
+CTO 本尊的一个技术问题让我印象深刻：“JQuery 中的 DomReady 在什么时候触发？”。
+今天抽空梳理一下。
+若干年前踩过的小坑不失一般性，在我开始接触前端的时候，学会的第一个框架或者类库 ——Jquery。每次用 JQ 时候用 $(document).ready() 对于逻辑代码进行包裹几乎">
+<meta property="og:updated_time" content="2016-08-19T05:52:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="由 $(document).ready 发散开去">
+<meta name="twitter:description" content="缘起上周面了上海一家大型互联网公司，并顺利拿到了达到预期的 Offer。
+不过这并不是重点，
+CTO 本尊的一个技术问题让我印象深刻：“JQuery 中的 DomReady 在什么时候触发？”。
+今天抽空梳理一下。
+若干年前踩过的小坑不失一般性，在我开始接触前端的时候，学会的第一个框架或者类库 ——Jquery。每次用 JQ 时候用 $(document).ready() 对于逻辑代码进行包裹几乎">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://img.alicdn.com/tps/TB1SVqYJFXXXXa_XXXXXXXXXXXX-700-700.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Elevenbeans</a></h1>
+		</hgroup>
+
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/tech">技术分享</a></li>
+				        
+							<li><a href="/categories/life">生活感悟</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/elevenBeans" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2381593582" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiao-jian-li-29" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Elevenbeans</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://img.alicdn.com/tps/TB1SVqYJFXXXXa_XXXXXXXXXXXX-700-700.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Elevenbeans</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/tech">技术分享</a></li>
+		        
+					<li><a href="/categories/life">生活感悟</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/elevenBeans" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2381593582" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiao-jian-li-29" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-DomReady" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/03/DomReady/" class="article-date">
+  	<time datetime="2016-06-03T08:08:08.000Z" itemprop="datePublished">2016-06-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      由 $(document).ready 发散开去
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DomReady/">DomReady</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/tech/">tech</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>上周面了上海一家大型互联网公司，并顺利拿到了达到预期的 Offer。</p>
+<p>不过这并不是重点，</p>
+<p>CTO 本尊的一个技术问题让我印象深刻：“JQuery 中的 DomReady 在什么时候触发？”。</p>
+<p>今天抽空梳理一下。</p>
+<h2 id="若干年前踩过的小坑"><a href="#若干年前踩过的小坑" class="headerlink" title="若干年前踩过的小坑"></a>若干年前踩过的小坑</h2><p>不失一般性，在我开始接触前端的时候，学会的第一个框架或者类库 ——Jquery。每次用 JQ 时候用 <code>$(document).ready()</code> 对于逻辑代码进行包裹几乎也是标配。很长一段时间都没有深究过，只想当然的认为加上这个代码块包裹就是等文档准备完成在执行内部逻辑。和原生的<code>window.onload</code> 差不多，甚至猜测其就是对于原生<code>onload</code> 方法的封装。</p>
+<p>然而。。。<br><a id="more"></a><br>上代码：</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head lang=&quot;en&quot;&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0&quot; name=&quot;viewport&quot; /&gt;
+  &lt;title&gt;test3&lt;/title&gt;
+  &lt;script src = &quot;http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div&gt;
+  &lt;img src= &quot;http://img5.imgtn.bdimg.com/it/u=950694448,746521765&amp;fm=21&amp;gp=0.jpg&quot;/&gt;
+&lt;/div&gt;
+&lt;script&gt;
+$(document).ready(function(){ //文档树加载完
+  //console.log(&apos;ready&apos;);
+  var height = $(&apos;body&apos;).height();
+  console.log(&apos;height:::&apos;,height); // -&gt; ???
+})
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>你会发现在 Chrome 的控制台打出的不是一个确定的值（时而是222，时而是16）。</p>
+<p>宝宝当时就蒙了。。。</p>
+<h2 id="document-ready何时触发？"><a href="#document-ready何时触发？" class="headerlink" title="$(document).ready何时触发？"></a><code>$(document).ready</code>何时触发？</h2><p>Copy 了 Jquery 源码 <a href="https://github.com/jquery/jquery/blob/master/src/core/ready.js" target="_blank" rel="external">https://github.com/jquery/jquery/blob/master/src/core/ready.js</a> 中的代码片段如下：</p>
+<pre><code>&lt;script&gt;
+if ( document.readyState === &quot;complete&quot; ||
+  ( document.readyState !== &quot;loading&quot; &amp;&amp; !document.documentElement.doScroll ) ) {
+  //Handle it asynchronously to allow scripts the opportunity to delay ready;
+  window.setTimeout( jQuery.ready );
+} else { //Use the handy event callback
+  document.addEventListener( &quot;DOMContentLoaded&quot;, completed );
+  //A fallback to window.onload, that will always work
+  window.addEventListener( &quot;load&quot;, completed );
+}
+&lt;/script&gt;
+</code></pre><p>可以看到：我们常用的 jQuery 的<code>$(document).ready()</code>方法，就是对 <code>DOMContentLoaded</code> 事件的监听（当然，其内部还会提供其他降级方案）。扩展阅读：<a href="http://www.cnblogs.com/haogj/archive/2013/01/15/2861950.html" target="_blank" rel="external">jQuery 的 ready 函数是如何工作的？</a></p>
+<p>而 <code>DOMContentLoaded</code>事件的触发条件是：<em>“The DOMContentLoaded event is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading. Note: Synchronous Javascript pauses parsing of the DOM.”</em> <a href="https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded</a><br>这就意味着：<code>DOMContentLoaded</code>事件将会在所有的 DOM 全部加载完毕并且同步的 JS 加载执行后触发，并不会等待样式和图片的加载。</p>
+<p><strong>所以这就解释了前文里面为什么<code>height()</code>会 get 不到正确的高度了,因为 img 还没加载好啊！！！</strong></p>
+<p>PS： 如果 js 是通过动态加载进来的话，不会影响到<code>DOMContentLoaded</code>的触发时间，换句话说：动态加载 JS 可提前触发该事件。</p>
+<h2 id="window-onload何时触发？"><a href="#window-onload何时触发？" class="headerlink" title="window.onload何时触发？"></a><code>window.onload</code>何时触发？</h2><p><em>“They fire after all objects in the DOM hierarchy (images, sub-frames, …) have finished loading and the document object has been built up. ”</em></p>
+<p>详细请见：</p>
+<p><a href="http://help.dottoro.com/ljawbmqm.php" target="_blank" rel="external">http://help.dottoro.com/ljawbmqm.php</a></p>
+<h2 id="DOM-的加载详细过程"><a href="#DOM-的加载详细过程" class="headerlink" title="DOM 的加载详细过程"></a>DOM 的加载详细过程</h2><p>1.首先浏览器会解析静态的 html 结构 比如 <code>head</code> <code>body</code> <code>footer</code>等 html 标签</p>
+<p>2.当 html 结构加载完成我们需要渲染页面使其美观，因此此时需要加载 各种样式表文件。</p>
+<p>3.然后再解析并执行 js 或者其他脚本代码。</p>
+<p>4.构造 html dom 对象，也就是 ready 操作，自此 <code>DOMContentLoaded</code> 被触发。</p>
+<p>5.加载 html 和 css 中引用的外部资源文件(img 等)。</p>
+<p>6.页面加载完成( 然后 <code>window.onload</code> 被触发)，js 进行一些事件的绑定和处理。</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h3><p><a href="https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded</a></p>
+<p><a href="http://www.alloyteam.com/2014/03/effect-js-css-and-img-event-of-domcontentloaded/" target="_blank" rel="external">http://www.alloyteam.com/2014/03/effect-js-css-and-img-event-of-domcontentloaded/</a></p>
+<p><a href="http://www.alixixi.com/web/a/2014060493448.shtml" target="_blank" rel="external">http://www.alixixi.com/web/a/2014060493448.shtml</a></p>
+<p><a href="http://www.cnblogs.com/haogj/archive/2013/01/15/2861950.html" target="_blank" rel="external">http://www.cnblogs.com/haogj/archive/2013/01/15/2861950.html</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/12/生活本应如此/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          生活本应如此
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/31/node-mysql-CRUD/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">node 小试牛刀之 mysql 增删改查</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="DomReady" data-title="由 $(document).ready 发散开去" data-url="http://yoursite.com/2016/06/03/DomReady/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Elevenbeans
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+  <script>hljs.initHighlightingOnLoad();</script>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

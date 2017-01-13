@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>scroll 事件处理之 throttle 和 debounce | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概念请点这里
+现状描述天猫几乎所有的频道都有 下拉刷新 的逻辑。其中，品牌特卖和焕新在做下拉刷新的时候均使用了一个叫做 bottomloader 的组件。该组件中采用了 throttle 方法对于连续的scroll事件所触发业务逻辑（包含数据加载）的次数进行了稀释，从原生的像素级别的滑动触发，稀释到了间隔几百毫秒触发一次，从而极大的降低了scroll事件对业务逻辑的高频触发，提高了滑动流畅度以及页">
+<meta property="og:type" content="article">
+<meta property="og:title" content="scroll 事件处理之 throttle 和 debounce">
+<meta property="og:url" content="http://yoursite.com/2016/05/05/scroll事件处理之-throttle-和-debounce/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="概念请点这里
+现状描述天猫几乎所有的频道都有 下拉刷新 的逻辑。其中，品牌特卖和焕新在做下拉刷新的时候均使用了一个叫做 bottomloader 的组件。该组件中采用了 throttle 方法对于连续的scroll事件所触发业务逻辑（包含数据加载）的次数进行了稀释，从原生的像素级别的滑动触发，稀释到了间隔几百毫秒触发一次，从而极大的降低了scroll事件对业务逻辑的高频触发，提高了滑动流畅度以及页">
+<meta property="og:updated_time" content="2016-08-19T06:08:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="scroll 事件处理之 throttle 和 debounce">
+<meta name="twitter:description" content="概念请点这里
+现状描述天猫几乎所有的频道都有 下拉刷新 的逻辑。其中，品牌特卖和焕新在做下拉刷新的时候均使用了一个叫做 bottomloader 的组件。该组件中采用了 throttle 方法对于连续的scroll事件所触发业务逻辑（包含数据加载）的次数进行了稀释，从原生的像素级别的滑动触发，稀释到了间隔几百毫秒触发一次，从而极大的降低了scroll事件对业务逻辑的高频触发，提高了滑动流畅度以及页">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://img.alicdn.com/tps/TB1SVqYJFXXXXa_XXXXXXXXXXXX-700-700.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Elevenbeans</a></h1>
+		</hgroup>
+
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/tech">技术分享</a></li>
+				        
+							<li><a href="/categories/life">生活感悟</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/elevenBeans" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2381593582" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiao-jian-li-29" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Elevenbeans</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://img.alicdn.com/tps/TB1SVqYJFXXXXa_XXXXXXXXXXXX-700-700.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Elevenbeans</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/tech">技术分享</a></li>
+		        
+					<li><a href="/categories/life">生活感悟</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/elevenBeans" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2381593582" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiao-jian-li-29" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-scroll事件处理之-throttle-和-debounce" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/05/scroll事件处理之-throttle-和-debounce/" class="article-date">
+  	<time datetime="2016-05-05T09:30:16.000Z" itemprop="datePublished">2016-05-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      scroll 事件处理之 throttle 和 debounce
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debounce/">debounce</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/scroll/">scroll</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/throttle/">throttle</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/tech/">tech</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><p><a href="http://www.cnblogs.com/fsjohnhuang/p/4147810.html" target="_blank" rel="external">概念请点这里</a></p>
+<h2 id="现状描述"><a href="#现状描述" class="headerlink" title="现状描述"></a><strong>现状描述</strong></h2><p>天猫几乎所有的频道都有 <strong><em>下拉刷新</em></strong> 的逻辑。其中，品牌特卖和焕新在做下拉刷新的时候均使用了一个叫做 <code>bottomloader</code> 的组件。该组件中采用了 <strong><em>throttle</em></strong> 方法对于连续的<code>scroll</code>事件所触发业务逻辑（包含数据加载）的次数进行了稀释，从原生的像素级别的滑动触发，稀释到了间隔几百毫秒触发一次，从而极大的降低了<code>scroll</code>事件对业务逻辑的高频触发，提高了滑动流畅度以及页面性能。</p>
+<p>代码如下：</p>
+<pre><code>var detect = throttle(function(){ 
+  //添加业务逻辑
+}, 200);
+
+window.addEventListener(&apos;scroll&apos;, detect, false);
+
+function throttle(action, delay){
+  var self = this;
+  var curr = +new Date();
+  if (curr - self.last &gt; delay){
+    action.apply(this, arguments);
+    self.last = curr ;
+  }
+}
+</code></pre><h2 id="问题发现"><a href="#问题发现" class="headerlink" title="问题发现"></a><strong>问题发现</strong></h2><p>这两个频道的测试同学做回归的时候均曾提出，当屏幕被快速滑动到底部时候，下一个Page的资源会经常加载不出来。特别是在 Chrome 模拟器中，通过鼠标拖动可以达到极快的滑动速度时，资源加载不出的情况更是发生频率很高。经排查，原因也很简单，就是由于代码中采用 <strong><em>throttle</em></strong> 方法做了节流。当使用者滑动超快，一次滑动事件的时间低于设定的节流阈值（ 比如 500 毫秒），滑动事件就无法触发具体的业务逻辑，无法加载新数据。<br><a id="more"></a></p>
+<h2 id="调整方式"><a href="#调整方式" class="headerlink" title="调整方式"></a><strong>调整方式</strong></h2><p>目前的修改办法是简单的将阈值改小，降至 100 毫秒，将数据加载不出的可能性降低。但是并不能根本的解决这个问题。因为极端情况下，100 毫秒以内的<code>scroll</code>事件也可以产生。同时，页面性能也会因为阈值小、<code>scroll</code>事件触发业务逻辑频率升高造成页面性能下降。</p>
+<h2 id="根本解决"><a href="#根本解决" class="headerlink" title="根本解决"></a><strong>根本解决</strong></h2><p>个人倾向于采用 <strong><em>debounce</em></strong> 的方式，<strong><em>为每一个<code>scroll</code>事件触发的业务逻辑设定一个执行的 timeout，并将所有与前一个<code>scroll</code>事件间隔小于该阈值（即 timeout）的<code>scroll</code>事件触发的业务逻辑都进行丢弃</em></strong>，直到上一个事件完成后经过的时间已经超过该阈值。</p>
+<p> 代码如下：</p>
+<pre><code>var timer = null;
+window.addEventListener(&apos;scroll&apos;, function () {
+  if (typeof timer === &apos;number&apos;) {
+    clearTimeout(timer);
+  }
+  timer = setTimeout(function () {
+    //添加业务逻辑
+  },200);
+}, false);
+</code></pre><p> 如此则有：</p>
+<ol>
+<li>无论用户/测试人员以多快速度滑动页面，一旦到页面底部，滑动事件均会由于页面无新内容而被迫停止。此时，采用了<strong><em>debounce</em></strong> 方式，<code>scroll</code>事件触发的业务逻辑确保能被执行；</li>
+<li>丢弃与前一个<code>scroll</code>事件间隔小于特定阈值的后一个事件的业务逻辑，即就是对<code>scroll</code>事件触发业务逻辑次数进行了稀释，也同样提高了页面效率。</li>
+</ol>
+<p><strong>At last,</strong></p>
+<p>一个简易的、同时支持 <code>debounce</code> 和 <code>throttle</code> 的 bottomloader 组件: <a href="https://github.com/elevenBeans/MyUtils/blob/master/src/Utils.js" target="_blank" rel="external">请戳这里</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/19/js 中的小技巧汇总/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JS 中的小技巧汇总
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/04/css-中的垂直居中法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">css 中的垂直居中法</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="scroll事件处理之-throttle-和-debounce" data-title="scroll 事件处理之 throttle 和 debounce" data-url="http://yoursite.com/2016/05/05/scroll事件处理之-throttle-和-debounce/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Elevenbeans
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+  <script>hljs.initHighlightingOnLoad();</script>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

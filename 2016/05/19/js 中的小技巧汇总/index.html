@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JS 中的小技巧汇总 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用!!操作符转换布尔值有时候我们需要对一个变量查检其是否存在或者检查其值是否有一个有效值，如果存在就返回true值。可以使用!!前缀做检测，只要变量的值为:0、null、&amp;quot;&amp;quot;、undefined或者NaN都将返回的是false，反之返回的是true。如下：
+var temp = &amp;quot;this is awsome!&amp;quot;;
+console.log(temp); /">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS 中的小技巧汇总">
+<meta property="og:url" content="http://yoursite.com/2016/05/19/js 中的小技巧汇总/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="使用!!操作符转换布尔值有时候我们需要对一个变量查检其是否存在或者检查其值是否有一个有效值，如果存在就返回true值。可以使用!!前缀做检测，只要变量的值为:0、null、&amp;quot;&amp;quot;、undefined或者NaN都将返回的是false，反之返回的是true。如下：
+var temp = &amp;quot;this is awsome!&amp;quot;;
+console.log(temp); /">
+<meta property="og:updated_time" content="2016-08-19T06:06:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS 中的小技巧汇总">
+<meta name="twitter:description" content="使用!!操作符转换布尔值有时候我们需要对一个变量查检其是否存在或者检查其值是否有一个有效值，如果存在就返回true值。可以使用!!前缀做检测，只要变量的值为:0、null、&amp;quot;&amp;quot;、undefined或者NaN都将返回的是false，反之返回的是true。如下：
+var temp = &amp;quot;this is awsome!&amp;quot;;
+console.log(temp); /">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://img.alicdn.com/tps/TB1SVqYJFXXXXa_XXXXXXXXXXXX-700-700.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Elevenbeans</a></h1>
+		</hgroup>
+
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/tech">技术分享</a></li>
+				        
+							<li><a href="/categories/life">生活感悟</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/elevenBeans" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2381593582" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiao-jian-li-29" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Elevenbeans</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://img.alicdn.com/tps/TB1SVqYJFXXXXa_XXXXXXXXXXXX-700-700.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Elevenbeans</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/tech">技术分享</a></li>
+		        
+					<li><a href="/categories/life">生活感悟</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/elevenBeans" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2381593582" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiao-jian-li-29" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-js 中的小技巧汇总" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/19/js 中的小技巧汇总/" class="article-date">
+  	<time datetime="2016-05-19T11:48:53.000Z" itemprop="datePublished">2016-05-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JS 中的小技巧汇总
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS-技巧/">JS 技巧</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/tech/">tech</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="使用-操作符转换布尔值"><a href="#使用-操作符转换布尔值" class="headerlink" title="使用!!操作符转换布尔值"></a>使用<code>!!</code>操作符转换布尔值</h2><p>有时候我们需要对一个变量查检其是否存在或者检查其值是否有一个有效值，如果存在就返回<code>true</code>值。可以使用<code>!!</code>前缀做检测，只要变量的值为:<code>0</code>、<code>null</code>、<code>&quot;&quot;</code>、<code>undefined</code>或者<code>NaN</code>都将返回的是<code>false</code>，反之返回的是<code>true</code>。如下：</p>
+<pre><code>var temp = &quot;this is awsome!&quot;;
+console.log(temp); // this is awsome
+console.log(!!temp); // true
+
+var temp = 0;
+console.log(temp); // 0
+console.log(!!temp); // false
+
+var temp = &quot;&quot;;
+console.log(temp); // &quot;&quot;
+console.log(!!temp); // false
+...
+</code></pre><p>当然，<code>!</code> 操作符也可以进行上述转换，不过它恰好会得到相反的布尔值。</p>
+<h2 id="使用-将字符串转换成数字"><a href="#使用-将字符串转换成数字" class="headerlink" title="使用+将字符串转换成数字"></a>使用<code>+</code>将字符串转换成数字</h2><p>这个技巧适合用于数字形式的字符串 or 布尔值转数字，否则将返回 <code>NaN</code>：</p>
+<pre><code>var temp = &quot;112&quot;;
+console.log(temp); // 112
+console.log(typeof(temp)); // string
+console.log(+temp); // 112
+console.log(typeof(+temp)); // number
+
+var temp = &quot;asdf&quot;;
+console.log(+temp);//NaN
+
+var temp = false;
+console.log(+temp);//0
+
+var temp = true;
+console.log(+temp);//1
+</code></pre><p>也适用于<code>Date</code>，它将返回的是时间戳数字：</p>
+<pre><code>console.log(new Date()) // Sat May 21 2016 21:24:41 GMT+0800 (CST)
+console.log(+new Date()) // 1463837110400
+</code></pre><h2 id="并-amp-amp-条件符"><a href="#并-amp-amp-条件符" class="headerlink" title="并 &amp;&amp; 条件符"></a>并 <code>&amp;&amp;</code> 条件符</h2><p>如果你有一段这样的代码：</p>
+<pre><code>if (isReady) {
+    login();
+}
+</code></pre><p>可以简写成这样：</p>
+<p><code>isReady &amp;&amp; login();</code></p>
+<p>你也可以这样检测一些属性或函数是否存在于一个对象中，如下：</p>
+<p> <code>user &amp;&amp; user.name</code> 或者 <code>user &amp;&amp; user.login();</code></p>
+<p> <strong><em>这个技巧在实际项目中十分常见，它可以有效防止后端接口异常时，返回的数据对象结构变化，或属性 or 方法置空 or 改变导致程序报错终止。</em></strong></p>
+<a id="more"></a>
+<h2 id="使用-运算符"><a href="#使用-运算符" class="headerlink" title="使用||运算符"></a>使用<code>||</code>运算符</h2><p>在 ES6 中有默认参数这一特性。为了在旧的浏览器中模拟这一特性，可以使用<code>||</code>操作符，并且将默认值当做第二个参数传入。如果第一个参数返回的值为<code>false</code>，那么第二个值将会认为是一个默认值。如下：</p>
+<pre><code>var fullname; //未初始化 null
+var temp = fullname || &quot;Oliver Queen&quot;;
+console.log(temp); // Oliver Queen
+
+var fullname = &quot;elevenbeans&quot;
+var temp = fullname || &quot;Oliver Queen&quot;;
+console.log(temp); // elevenbeans
+</code></pre><h2 id="优先使用-，而不是＝＝"><a href="#优先使用-，而不是＝＝" class="headerlink" title="优先使用===，而不是＝＝"></a>优先使用<code>===</code>，而不是<code>＝＝</code></h2><p><code>==</code>（或<code>!=</code>）操作符在需要的时候会自动执行类型转换。<code>===</code>（或<code>!==</code>）操作不会执行任何转换。它将比较值和类型，而且在速度上也被认为优于<code>==</code>。</p>
+<p>所以，在类型相同的情况下比较两个值是否相同，优先使用<code>===</code>。</p>
+<p>##能使用 <code>switch/case</code> 语句优先用，否则考虑 <code>if/else</code></p>
+<h2 id="在循环中缓存array-length"><a href="#在循环中缓存array-length" class="headerlink" title="在循环中缓存array.length"></a>在循环中缓存<code>array.length</code></h2><p>在处理一个数组循环时，如果每一次都<code>array.length</code>去判断大小，代码的性能是非常不好的：</p>
+<pre><code>for(var i = 0; i &lt; array.length; i++) {
+    console.log(array[i]);
+}
+</code></pre><p>如果是一个小型数组，这样做还不会有多大影响，如果你要处理的是一个大的数组，这将会导致一些延误。为了避免这种现象出现，可以将array.length做一个缓存：</p>
+<pre><code>var length = array.length;
+for(var i = 0; i &lt; length; i++) {
+    console.log(array[i]);
+}
+</code></pre><h2 id="检测对象中属性"><a href="#检测对象中属性" class="headerlink" title="检测对象中属性"></a>检测对象中属性</h2><p>当你需要检测一些属性是否存在，避免运行未定义的函数或属性时，这个小技巧就显得很有用。例如，你想使用<code>document.querySelector()</code>来选择一个id，并且让它能兼容 IE6 浏览器，就可以使用如下代码：</p>
+<pre><code>if (&apos;querySelector&apos; in document) {
+    document.querySelector(&quot;#id&quot;);
+} else {
+    document.getElementById(&quot;id&quot;);
+}
+</code></pre><p>在这个示例中，如果document不存在<code>querySelector</code>函数，那么就会调用<code>docuemnt.getElementById(&quot;id&quot;)</code>。</p>
+<p>类似得，前文提到的并条件符 <code>&amp;&amp;</code>，也可解决这个问题：</p>
+<pre><code>if (document &amp;&amp; document.querySelector) {
+    document.querySelector(&quot;#id&quot;);
+} else {
+    document.getElementById(&quot;id&quot;);
+}
+</code></pre><h2 id="获取数组中最后一个元素"><a href="#获取数组中最后一个元素" class="headerlink" title="获取数组中最后一个元素"></a>获取数组中最后一个元素</h2><p><code>Array.prototype.slice(begin,end)</code>用来获取 begin 和 end 之间的数组元素。如果你不设置end 参数，将会将数组的默认长度值当作 end 值。如果你设置一个负值作为 begin 的值，那么你可以获取数组的最后 N 个元素。如：</p>
+<pre><code>var array = [1,2,3,4,5,6];
+console.log(array.slice(-1)); // [6]
+console.log(array.slice(-2)); // [5,6]
+console.log(array.slice(-3)); // [4,5,6]
+</code></pre><h2 id="数组截断"><a href="#数组截断" class="headerlink" title="数组截断"></a>数组截断</h2><p>通过<code>array.length = n</code>来截断数组，这个小技巧主要用来锁定数组的大小，如果用于删除数组中的一些元素来说，是非常有用的。如下：</p>
+<pre><code>var array = [1,2,3,4,5,6];
+console.log(array.length); // 6
+array.length = 3;
+console.log(array.length); // 3
+console.log(array); // [1,2,3]
+</code></pre><h2 id="替换所有"><a href="#替换所有" class="headerlink" title="替换所有"></a>替换所有</h2><p><code>String.replace()</code>函数允许你使用字符串或正则表达式来替换字符串，本身这个函数只替换第一次出现的字符串，你可以使用正则表达多中的 <code>/g</code> 来模拟<code>replaceAll()</code>函数功能：</p>
+<pre><code>var string = &quot;john john&quot;;
+console.log(string.replace(/hn/, &quot;ana&quot;)); // &quot;joana john&quot;
+console.log(string.replace(/hn/g, &quot;ana&quot;)); // &quot;joana joana&quot;
+</code></pre><h2 id="合并数组"><a href="#合并数组" class="headerlink" title="合并数组"></a>合并数组</h2><p>如果你要合并两个数组，一般情况之下你都会使用Array.concat()函数：</p>
+<pre><code>var array1 = [1,2,3];
+var array2 = [4,5,6];
+console.log(array1.concat(array2)); // [1,2,3,4,5,6];
+</code></pre><p>然后这个函数并不适合用来合并两个大型的数组，因为其将消耗大量的内存来存储新创建的数组。在这种情况之个，可以使用<code>Array.push().apply(arr1,arr2)</code>来替代创建一个新数组。这种方法不是用来创建一个新的数组，其只是将第一个第二个数组合并在一起，同时减少内存的使用：</p>
+<pre><code>var array1 = [1,2,3];
+var array2 = [4,5,6];
+console.log(array1.push.apply(array1, array2)); // [1,2,3,4,5,6];
+</code></pre><h2 id="将-DomNodeList-转换成数组"><a href="#将-DomNodeList-转换成数组" class="headerlink" title="将 DomNodeList 转换成数组"></a>将 DomNodeList 转换成数组</h2><p>如果你运行<code>document.querySelectorAll(“p”)</code>函数时，它可能返回 DOM 元素的数组，也就是NodeList 对象。但这个对象不具有数组的函数功能，比如<code>sort()</code>、<code>reduce()</code>、<code>map()</code>、<code>filter()</code>等。为了让这些原生的数组函数功能也能用于其上面，需要将节点列表转换成数组。可以使用<code>[].slice.call(elements)</code>来实现：</p>
+<pre><code>var elements = document.querySelectorAll(&quot;p&quot;); // NodeList
+var arrayElements = [].slice.call(elements); // Now the NodeList is an array
+var arrayElements = Array.from(elements); // This is another way of converting NodeList to Array
+</code></pre><h2 id="数组元素的洗牌"><a href="#数组元素的洗牌" class="headerlink" title="数组元素的洗牌"></a>数组元素的洗牌</h2><p>对于数组元素的洗牌，不需要使用任何外部的库，比如 Lodash，只要这样做：</p>
+<pre><code>var list = [1,2,3,4,5,6];
+console.log(list.sort(function() { return Math.random() - 0.5 })); // [2,1,3,5,4,6]
+</code></pre><p><em>各种随机相关：</em><br>从数组中获取一个随机</p>
+<pre><code>var items = [12, 548 , &apos;&amp;#039;a&amp;#039;&apos; , 2 , 5478 , &apos;&amp;#039;&apos;, &apos;foo&amp;#039;&apos; , 8852, &apos;&amp;#039;&apos;, &apos;Doe&amp;#039;&apos; , 2145 , 119];
+var randomItem = items[Math.floor(Math.random() * items.length)];
+</code></pre><p>在特定范围内获取一个随机数</p>
+<pre><code>var x = Math.floor(Math.random() * (max - min + 1)) + min;
+</code></pre><p>在0和设定的最大值之间生成一个数字数组</p>
+<pre><code>var numbersArray = [] , max = 100;
+
+for( var i=1; numbersArray.push(i++) &amp;lt; max;);  // numbers = [0,1,2,3 ... 100]
+</code></pre><p>生成一个随机的数字字母字符串</p>
+<pre><code>function generateRandomAlphaNum(len) {
+    var rdmstring = &amp;quot;&amp;quot;;
+    for( ; rdmString.length &amp;amp;lt; len; rdmString  += Math.random().toString(36).substr(2));
+    return  rdmString.substr(0, len);
+}
+</code></pre><h2 id="使用-map-方法来遍历一个数组里的项"><a href="#使用-map-方法来遍历一个数组里的项" class="headerlink" title="使用 map() 方法来遍历一个数组里的项"></a>使用 map() 方法来遍历一个数组里的项</h2><pre><code>var squares = [1,2,3,4].map(function (val) {
+    return val * val;
+});
+// squares will be equal to [1, 4, 9, 16]
+</code></pre><h2 id="基于JSON的序列化和反序列化（serialization-and-deserialization）"><a href="#基于JSON的序列化和反序列化（serialization-and-deserialization）" class="headerlink" title="基于JSON的序列化和反序列化（serialization and deserialization）"></a>基于JSON的序列化和反序列化（serialization and deserialization）</h2><pre><code>var person = {name :&amp;#039;Saad&amp;#039;, age : 26, department : {ID : 15, name : &amp;quot;R&amp;amp;D&amp;quot;} };
+var stringFromPerson = JSON.stringify(person);
+/* stringFromPerson is equal to &amp;quot;{&amp;quot;name&amp;quot;:&amp;quot;Saad&amp;quot;,&amp;quot;age&amp;quot;:26,&amp;quot;department&amp;quot;:{&amp;quot;ID&amp;quot;:15,&amp;quot;name&amp;quot;:&amp;quot;R&amp;amp;D&amp;quot;}}&amp;quot;   */
+var personFromString = JSON.parse(stringFromPerson);
+/* personFromString is equal to person object  */
+</code></pre><h2 id="自调用的匿名函数"><a href="#自调用的匿名函数" class="headerlink" title="自调用的匿名函数"></a>自调用的匿名函数</h2><p>这个经常被称为自调用匿名函数（Self-Invoked Anonymous Function）或者即时调用函数表达式（IIFE-Immediately Invoked Function Expression)。这是一个在创建后立即自动执行的函数，通常如下：</p>
+<pre><code>(function(){
+    // some private code that will be executed automatically
+})();
+(function(a,b){
+    var result = a+b;
+    return result;
+})(10,20)
+</code></pre><p><strong>作用：</strong></p>
+<p>Javascript 中没用块级作用域的概念，如果在多人开发的项目上，你在全局或局部作用域中声明了一些变量，可能会被其他人不小心用同名的变量给覆盖掉，产生严重的冲突。</p>
+<p>根据 Javascript 函数作用域链的特性，可以使用这种技术可以模仿一个私有作用域，用匿名函数作为一个“容器”，“容器”内部可以访问外部的变量，而外部环境不能访问“容器”内部的变量，所以<code>( function(){…} )()</code>内部定义的变量不会和外部的变量发生冲突，俗称“匿名包裹器”或“命名空间”。<br>著名的 JS 库 JQuery 使用的就是这种方法，将JQuery代码包裹在<code>( function (window,undefined){…jquery代码…} (window)</code>中，在全局作用域中调用 JQuery 代码时，可以达到保护 JQuery 内部变量的作用。</p>
+<h2 id="HTML转义函数"><a href="#HTML转义函数" class="headerlink" title="HTML转义函数"></a>HTML转义函数</h2><p>这个作用，不言自明啊哈！ 直接上代码~</p>
+<pre><code>html_encode:function (str){   
+  var s = &quot;&quot;;   
+  if (str.length == 0) return &quot;&quot;;
+  s = str.replace(/&amp;/g, &quot;&amp;amp;&quot;)
+  .replace(/&lt;/g, &quot;&amp;lt;&quot;)
+  .replace(/&gt;/g, &quot;&amp;gt;&quot;)
+  .replace(/ /g, &quot;&amp;nbsp;&quot;)
+  .replace(/\&apos;/g, &quot;&amp;apos;&quot;)
+  .replace(/\&quot;/g, &quot;&amp;quot;&quot;)
+  .replace(/\n/g, &quot;&lt;br&gt;&quot;);   
+  return s;   
+},
+html_decode: function (str){   
+  var s = &quot;&quot;;   
+  if (str.length == 0) return &quot;&quot;;
+  s = str.replace(/&amp;amp;/g, &quot;&amp;&quot;)
+  .replace(/&amp;lt;/g, &quot;&lt;&quot;)
+  .replace(/&amp;gt;/g, &quot;&gt;&quot;)
+  .replace(/&amp;nbsp;/g, &quot; &quot;)
+  .replace(/&amp;#39;/g, &quot;\&apos;&quot;)
+  .replace(/&amp;quot;/g, &quot;\&quot;&quot;)
+  .replace(/&lt;br&gt;/g, &quot;\n&quot;);  
+  return s;   
+}
+</code></pre><p><strong>Reference：</strong></p>
+<ul>
+<li><a href="http://www.w3cplus.com/javascript/12-extremely-useful-hacks-for-javascript.html" target="_blank" rel="external">12个JavaScript技巧</a>  by 大漠</li>
+<li><a href="http://blog.jobbole.com/54495/" target="_blank" rel="external">45个实用的JavaScript技巧、窍门和最佳实践</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/22/2015-2016-小结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          2015-2016 小结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/05/scroll事件处理之-throttle-和-debounce/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">scroll 事件处理之 throttle 和 debounce</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="js 中的小技巧汇总" data-title="JS 中的小技巧汇总" data-url="http://yoursite.com/2016/05/19/js 中的小技巧汇总/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Elevenbeans
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+  <script>hljs.initHighlightingOnLoad();</script>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

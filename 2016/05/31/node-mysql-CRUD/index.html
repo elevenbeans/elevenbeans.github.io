@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>node 小试牛刀之 mysql 增删改查 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="node 应该是如今最火热的技术了。
+看完了朴灵的《深入浅出 nodejs》，终是要练练手吧。
+第一反应是操作数据库，废话不多说，直接开始。
+Mysql 服务搭建先用brew安装mysql1brew install mysql
+安装完，尝试登录使用，启动。1mysql.server start">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node 小试牛刀之 mysql 增删改查">
+<meta property="og:url" content="http://yoursite.com/2016/05/31/node-mysql-CRUD/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="node 应该是如今最火热的技术了。
+看完了朴灵的《深入浅出 nodejs》，终是要练练手吧。
+第一反应是操作数据库，废话不多说，直接开始。
+Mysql 服务搭建先用brew安装mysql1brew install mysql
+安装完，尝试登录使用，启动。1mysql.server start">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB1WLuRKXXXXXcKXFXXXXXXXXXX-1122-500.png">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB1.7GSKXXXXXcKXFXXXXXXXXXX-566-466.png">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB1hT90KXXXXXcvXpXXXXXXXXXX-584-522.png">
+<meta property="og:image" content="https://gw.alicdn.com/tps/TB119SUKXXXXXbVXFXXXXXXXXXX-928-402.png">
+<meta property="og:updated_time" content="2016-08-19T05:56:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="node 小试牛刀之 mysql 增删改查">
+<meta name="twitter:description" content="node 应该是如今最火热的技术了。
+看完了朴灵的《深入浅出 nodejs》，终是要练练手吧。
+第一反应是操作数据库，废话不多说，直接开始。
+Mysql 服务搭建先用brew安装mysql1brew install mysql
+安装完，尝试登录使用，启动。1mysql.server start">
+<meta name="twitter:image" content="https://img.alicdn.com/tps/TB1WLuRKXXXXXcKXFXXXXXXXXXX-1122-500.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://img.alicdn.com/tps/TB1SVqYJFXXXXa_XXXXXXXXXXXX-700-700.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Elevenbeans</a></h1>
+		</hgroup>
+
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/tech">技术分享</a></li>
+				        
+							<li><a href="/categories/life">生活感悟</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/elevenBeans" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2381593582" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiao-jian-li-29" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Elevenbeans</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://img.alicdn.com/tps/TB1SVqYJFXXXXa_XXXXXXXXXXXX-700-700.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Elevenbeans</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/tech">技术分享</a></li>
+		        
+					<li><a href="/categories/life">生活感悟</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/elevenBeans" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2381593582" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiao-jian-li-29" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-node-mysql-CRUD" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/31/node-mysql-CRUD/" class="article-date">
+  	<time datetime="2016-05-30T16:22:24.000Z" itemprop="datePublished">2016-05-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      node 小试牛刀之 mysql 增删改查
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/增删查改/">增删查改</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/tech/">tech</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><p>node 应该是如今最火热的技术了。</p>
+<p>看完了朴灵的《深入浅出 nodejs》，终是要练练手吧。</p>
+<p>第一反应是操作数据库，废话不多说，直接开始。</p>
+<h2 id="Mysql-服务搭建"><a href="#Mysql-服务搭建" class="headerlink" title="Mysql 服务搭建"></a>Mysql 服务搭建</h2><h3 id="先用brew安装mysql"><a href="#先用brew安装mysql" class="headerlink" title="先用brew安装mysql"></a>先用<code>brew</code>安装mysql</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install mysql</div></pre></td></tr></table></figure>
+<h3 id="安装完，尝试登录使用，启动。"><a href="#安装完，尝试登录使用，启动。" class="headerlink" title="安装完，尝试登录使用，启动。"></a>安装完，尝试登录使用，启动。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql.server start</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="这时就可以登录使用mysql了，"><a href="#这时就可以登录使用mysql了，" class="headerlink" title="这时就可以登录使用mysql了，"></a>这时就可以登录使用mysql了，</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -h localhost -u root -p XXX</div></pre></td></tr></table></figure>
+<p>其中 -h 后参数是地址的意思，-u 后是用户名（默认root），-p后是密码(初始为空)</p>
+<p><img src="https://img.alicdn.com/tps/TB1WLuRKXXXXXcKXFXXXXXXXXXX-1122-500.png" alt="img1"></p>
+<h3 id="可以试着查看数据库。"><a href="#可以试着查看数据库。" class="headerlink" title="可以试着查看数据库。"></a>可以试着查看数据库。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">show databases</div></pre></td></tr></table></figure>
+<p><img src="https://img.alicdn.com/tps/TB1.7GSKXXXXXcKXFXXXXXXXXXX-566-466.png" alt="img2"></p>
+<h3 id="可以试着查看数据库中的表。"><a href="#可以试着查看数据库中的表。" class="headerlink" title="可以试着查看数据库中的表。"></a>可以试着查看数据库中的表。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">use &lt;databaseName&gt;</div><div class="line">show tables</div></pre></td></tr></table></figure>
+<p><img src="https://img.alicdn.com/tps/TB1hT90KXXXXXcvXpXXXXXXXXXX-584-522.png" alt="img3"></p>
+<h2 id="node-代码"><a href="#node-代码" class="headerlink" title="node 代码"></a>node 代码</h2><h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><pre><code>var mysql = require(&apos;mysql&apos;);
+
+var connection = mysql.createConnection({
+    host     : &apos;localhost&apos;,
+    user     : &apos;root&apos;,
+    password : &apos;&apos;,
+    database : &apos;school&apos;,
+    port:&apos;3306&apos;
+});
+connection.connect();
+</code></pre><h3 id="插入一个user"><a href="#插入一个user" class="headerlink" title="插入一个user"></a>插入一个user</h3><pre><code>var usr = {id:&apos;2334&apos;,name:&apos;zhangsan&apos;,address:&apos;zhangsan&apos;,year:&apos;2016-06-01&apos;};
+
+connection.query(&apos;insert into teacher set ?&apos;, usr, function(err, result) {
+    if (err) throw err;
+    console.log(&apos;inserted zhangsan&apos;);
+    console.log(result);
+    console.log(&apos;\n&apos;);
+});
+
+connection.query(&apos;select * from teacher&apos;, function(err, rows, fields) {
+    if (err) throw err;
+    console.log(&apos;selected after inserted&apos;);
+    for(var i= 0,usr;usr=rows[i++];){
+        console.log(&apos;user name=&apos;+usr.name + &apos;, address=&apos;+usr.address);
+    }
+    console.log(&apos;\n&apos;);
+});
+</code></pre><p><img src="https://gw.alicdn.com/tps/TB119SUKXXXXXbVXFXXXXXXXXXX-928-402.png" alt="img4"></p>
+<h3 id="更新user，带条件"><a href="#更新user，带条件" class="headerlink" title="更新user，带条件"></a>更新user，带条件</h3><pre><code>connection.query(&apos;update teacher set address=&quot;hangzhou&quot; where name=&quot;libin&quot;&apos;, {address:&apos;shanghai&apos;}, function(err, result) {
+     if (err) throw err;
+
+     console.log(&apos;updated zhangsan\&apos;s address to ddd&apos;);
+     console.log(result);
+     console.log(&apos;\n&apos;);
+ });
+
+ connection.query(&apos;select * from teacher&apos;, function(err, rows, fields) {
+     if (err) throw err;
+
+     console.log(&apos;selected after updated&apos;);
+     for(var i= 0,usr;usr=rows[i++];){
+         console.log(&apos;user name=&apos;+usr.name + &apos;, address=&apos;+usr.address);
+     }
+
+     console.log(&apos;\n&apos;);
+ });
+</code></pre><h3 id="删除-user，带条件"><a href="#删除-user，带条件" class="headerlink" title="删除 user，带条件"></a>删除 user，带条件</h3><pre><code>connection.query(&apos;delete from  teacher where name=&quot;zhangsan&quot;&apos;, {address:&apos;zhangsan&apos;}, function(err, result) {
+     if (err) throw err;
+     console.log(&apos;deleted zhangsan&apos;);
+     console.log(result);
+     console.log(&apos;\n&apos;);
+});
+</code></pre><h3 id="查询user，所有"><a href="#查询user，所有" class="headerlink" title="查询user，所有"></a>查询user，所有</h3><pre><code> connection.query(&apos;select * from teacher&apos;, function(err, rows, fields) {
+   if (err) throw err;
+     console.log(&apos;selected after deleted&apos;);
+     for(var i= 0,usr;usr=rows[i++];){
+         console.log(&apos;user name=&apos;+usr.name + &apos;, address=&apos;+usr.address);
+   }
+   console.log(&apos;\n&apos;);
+
+});
+</code></pre><h3 id="关闭连接"><a href="#关闭连接" class="headerlink" title="关闭连接"></a>关闭连接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">connection.end();</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/03/DomReady/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          由 $(document).ready 发散开去
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/22/2015-2016-小结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2015-2016 小结</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="node-mysql-CRUD" data-title="node 小试牛刀之 mysql 增删改查" data-url="http://yoursite.com/2016/05/31/node-mysql-CRUD/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Elevenbeans
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+  <script>hljs.initHighlightingOnLoad();</script>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>UC 手机浏览器调试经验 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="缘起接了一个业务方的小需求，做一个代替 JS 原生confirm 功能的弹框。
+弹框样式 UED 提供，不表，开发过程 easy，不表。
+在做视觉还原＋多机适配的时候，发现某手机中安装的 UC 浏览器下点击确认／取消／关闭弹框均不消失。于是在众多机器均安装了 UC 回归测试， 定位问题确实出在 UC 上面。
+UC 调试环境准备早前所在部门 App 均采用 UC 内核，有相关调试经验。然而因同属一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UC 手机浏览器调试经验">
+<meta property="og:url" content="http://yoursite.com/2016/08/11/UC-手机浏览器调试经验/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="缘起接了一个业务方的小需求，做一个代替 JS 原生confirm 功能的弹框。
+弹框样式 UED 提供，不表，开发过程 easy，不表。
+在做视觉还原＋多机适配的时候，发现某手机中安装的 UC 浏览器下点击确认／取消／关闭弹框均不消失。于是在众多机器均安装了 UC 回归测试， 定位问题确实出在 UC 上面。
+UC 调试环境准备早前所在部门 App 均采用 UC 内核，有相关调试经验。然而因同属一个">
+<meta property="og:image" content="http://bin11.cn/img/suc.png">
+<meta property="og:image" content="http://bin11.cn/img/UC.png">
+<meta property="og:image" content="http://bin11.cn/img/bug.png">
+<meta property="og:updated_time" content="2016-10-24T07:06:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UC 手机浏览器调试经验">
+<meta name="twitter:description" content="缘起接了一个业务方的小需求，做一个代替 JS 原生confirm 功能的弹框。
+弹框样式 UED 提供，不表，开发过程 easy，不表。
+在做视觉还原＋多机适配的时候，发现某手机中安装的 UC 浏览器下点击确认／取消／关闭弹框均不消失。于是在众多机器均安装了 UC 回归测试， 定位问题确实出在 UC 上面。
+UC 调试环境准备早前所在部门 App 均采用 UC 内核，有相关调试经验。然而因同属一个">
+<meta name="twitter:image" content="http://bin11.cn/img/suc.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://img.alicdn.com/tps/TB1SVqYJFXXXXa_XXXXXXXXXXXX-700-700.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Elevenbeans</a></h1>
+		</hgroup>
+
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/tech">技术分享</a></li>
+				        
+							<li><a href="/categories/life">生活感悟</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/elevenBeans" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2381593582" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiao-jian-li-29" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Elevenbeans</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://img.alicdn.com/tps/TB1SVqYJFXXXXa_XXXXXXXXXXXX-700-700.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Elevenbeans</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/tech">技术分享</a></li>
+		        
+					<li><a href="/categories/life">生活感悟</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/elevenBeans" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2381593582" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiao-jian-li-29" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-UC-手机浏览器调试经验" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/11/UC-手机浏览器调试经验/" class="article-date">
+  	<time datetime="2016-08-11T02:25:25.000Z" itemprop="datePublished">2016-08-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UC 手机浏览器调试经验
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UC-Debug/">UC Debug</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/adb/">adb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/device-offline/">device offline</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/tech/">tech</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>接了一个业务方的小需求，做一个代替 JS 原生<code>confirm</code> 功能的弹框。</p>
+<p>弹框样式 UED 提供，不表，开发过程 easy，不表。</p>
+<p>在做视觉还原＋多机适配的时候，发现某手机中安装的 UC 浏览器下点击确认／取消／关闭弹框均不消失。于是在众多机器均安装了 UC 回归测试， 定位问题确实出在 UC 上面。</p>
+<h2 id="UC-调试环境准备"><a href="#UC-调试环境准备" class="headerlink" title="UC 调试环境准备"></a>UC 调试环境准备</h2><p>早前所在部门 App 均采用 UC 内核，有相关调试经验。然而因同属一个集团，相关的 debug 包，调试方法，均有 UC 技术部的支持。</p>
+<p>自己尝试，过程如下：</p>
+<a id="more"></a>
+<h3 id="1-移动端下载并安装-UC-浏览器-Debug-版"><a href="#1-移动端下载并安装-UC-浏览器-Debug-版" class="headerlink" title="1. 移动端下载并安装 UC 浏览器 Debug 版"></a>1. 移动端下载并安装 UC 浏览器 Debug 版</h3><p><a href="http://wap.uc.cn/index.php?action=PackageDown&amp;do=ByPfid&amp;product=UCBrowser&amp;pfid=145&amp;lang=zh-cn&amp;bid=33533&amp;direct=true&amp;from=dev-slp-dir-pc" target="_blank" rel="external">Download 地址</a></p>
+<p>注意： 安装成功不代表能用，试了自己的手机，打开的时候显示初始化失败。借了测试人员的测试机器，成功。手机应该还是 <strong>需要 root 权限</strong>的 ＝,＝</p>
+<h3 id="2-PC-安装-adb-工具包"><a href="#2-PC-安装-adb-工具包" class="headerlink" title="2. PC 安装 adb 工具包"></a>2. PC 安装 adb 工具包</h3><p>这个工具包网上一搜一大把，但是注意 <strong>文件及动态链接库是否齐全</strong>.</p>
+<p>例如：window 下需有 adb.exe + AdbWinApi.dll + AdbWinUsbApi.dll + fastboot.exe</p>
+<p>下载解压到你想存放的任何文件夹均可。</p>
+<h3 id="3-连接移动设备开启调试"><a href="#3-连接移动设备开启调试" class="headerlink" title="3. 连接移动设备开启调试"></a>3. 连接移动设备开启调试</h3><ul>
+<li>移动设备连接 PC：采用 USB 直连，<strong>移动设备需开启USB调试模式</strong>，采用WI-FI连接，<strong>移动设备和 PC 需在同一网段</strong></li>
+<li>运行 adb：打开 PC 终端， <strong>进入 adb 可执行文件(如 adb.exe/adb.sh)所在目录</strong>，输入命令 <code>adb</code>，提示 “Android Debug Bridge …” 表示安装成功</li>
+<li>运行 端口映射：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb forward tcp:9998 tcp:9998</div></pre></td></tr></table></figure>
+<p>成功如下：</p>
+<p><img src="http://bin11.cn/img/suc.png" alt="成功开启 adb"></p>
+<p>当然，你也可键入 <code>adb devices</code> 命令，查看当前设备连接状态。</p>
+<p>如果 device 状态正常，此时，在手机上启动UC浏览器开发者版，并打开需要调试的页面,</p>
+<p>PC 浏览器(推荐 Chrome)中输入 <code>locahost:9998</code>，便可开始前端调试。</p>
+<p><img src="http://bin11.cn/img/UC.png" alt="成功开启 adb"></p>
+<p><strong>常见问题：</strong></p>
+<ul>
+<li>UC 开发者版，安装好后打开失败：请用有 root 权限的手机</li>
+<li>failed to start damon： 一定是 adb 运行所需库文件缺失，或者路径配置不对，详细 check 一下吧</li>
+<li>device not found：检查你的手机和电脑的连接是否 OK，确认OK，检查一下是否正确安装了 UC debug 版，如果以上都 OK，那建议换手机</li>
+<li>device offline: 检查手机是否开启 USB 调试模式，如果确认开启，则开关 USB 调试按钮重试，还是不OK的话，请检查 adb 工具版本是否足够新。最后，换手机 …</li>
+</ul>
+<h2 id="水落石出"><a href="#水落石出" class="headerlink" title="水落石出"></a>水落石出</h2><p><img src="http://bin11.cn/img/bug.png" alt="成功开启 "></p>
+<p> 如图所示：UC 内核不支持 <code>domObj.remove()</code> 方法，哎。。。。。</p>
+<p> 统一使用：<code>document.body.removeChild(element)</code> 代替。</p>
+<p> Over ~</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/18/URL-Scheme-唤起问题踩坑/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          URL Scheme 主动唤起 APP 问题踩坑
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/08/helloCtrip/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello, Ctrip!</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="UC-手机浏览器调试经验" data-title="UC 手机浏览器调试经验" data-url="http://yoursite.com/2016/08/11/UC-手机浏览器调试经验/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Elevenbeans
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+  <script>hljs.initHighlightingOnLoad();</script>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

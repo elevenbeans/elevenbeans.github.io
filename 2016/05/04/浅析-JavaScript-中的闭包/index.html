@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>浅析 JavaScript 中的闭包 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="闭包的概念Wikipedia)：In programming languages, closures (also lexical closures or function closures) are a technique for implementing lexically scoped name binding in languages with first-class functions.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅析 JavaScript 中的闭包">
+<meta property="og:url" content="http://yoursite.com/2016/05/04/浅析-JavaScript-中的闭包/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="闭包的概念Wikipedia)：In programming languages, closures (also lexical closures or function closures) are a technique for implementing lexically scoped name binding in languages with first-class functions.">
+<meta property="og:updated_time" content="2016-08-19T06:31:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅析 JavaScript 中的闭包">
+<meta name="twitter:description" content="闭包的概念Wikipedia)：In programming languages, closures (also lexical closures or function closures) are a technique for implementing lexically scoped name binding in languages with first-class functions.">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://img.alicdn.com/tps/TB1SVqYJFXXXXa_XXXXXXXXXXXX-700-700.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Elevenbeans</a></h1>
+		</hgroup>
+
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/tech">技术分享</a></li>
+				        
+							<li><a href="/categories/life">生活感悟</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/elevenBeans" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2381593582" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiao-jian-li-29" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Elevenbeans</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://img.alicdn.com/tps/TB1SVqYJFXXXXa_XXXXXXXXXXXX-700-700.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Elevenbeans</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/tech">技术分享</a></li>
+		        
+					<li><a href="/categories/life">生活感悟</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/elevenBeans" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2381593582" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiao-jian-li-29" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-浅析-JavaScript-中的闭包" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/04/浅析-JavaScript-中的闭包/" class="article-date">
+  	<time datetime="2016-05-04T03:24:45.000Z" itemprop="datePublished">2016-05-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      浅析 JavaScript 中的闭包
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/闭包/">闭包</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/tech/">tech</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="闭包的概念"><a href="#闭包的概念" class="headerlink" title="闭包的概念"></a>闭包的概念</h2><p><a href="https://en.wikipedia.org/wiki/Closure_(computer_programming" target="_blank" rel="external">Wikipedia</a>)：<em>In programming languages, closures (also lexical closures or function closures) are a technique for implementing lexically scoped name binding in languages with first-class functions</em>. </p>
+<p>译文：”在编程语言中，闭包（也词法闭包或函数闭包）是结合拥有 <a href="https://en.wikipedia.org/wiki/First-class_function" target="_blank" rel="external">First-class function</a> 的语言，实现词法作用域名的一种技术。”</p>
+<p><a href="https://www.zhihu.com/question/27460623/answer/36747015" target="_blank" rel="external">扩展: 什么是 first-class ?</a></p>
+<ul>
+<li>First-class 指的是可以作为参数传递，可以使用<code>return</code>里返回，可以赋给变量的类型</li>
+<li>Second-class 该等级类型的值可以作为参数传递，但是不能从子程序里返回，也不能赋给变量 </li>
+<li>Third-class 该等级类型的值连作为参数传递也不行</li>
+</ul>
+<p><strong>百度百科：</strong> <em><a href="http://baike.baidu.com/link?url=wheoR5tCOFANd56LTm1x3_9k5OdwdaO5JnBzDs4kIC7KMbLT74G6cLD0whz8KgzSBO2B10iSTfeT0B-M-eLxm_" target="_blank" rel="external">闭包</a> 指可以包含自由（未绑定到特定对象）变量的代码块；这些变量不是在这个代码块内或者任何全局上下文中定义的，而是在定义代码块的环境中定义（局部变量）。</em></p>
+<p>从概念上来看，维基百科的解释更加偏向于理论层面的抽象概念，而百度百科的定义则偏重实际编码中的实体。</p>
+<p>那么闭包（closure）究竟是什么？<br><a id="more"></a></p>
+<h2 id="JavaScript中的闭包"><a href="#JavaScript中的闭包" class="headerlink" title="JavaScript中的闭包"></a>JavaScript中的闭包</h2><p>以 JavaScript 语言为例，谈一谈闭包。</p>
+<p>首先，在 JavaScript 中几乎所有类型都可为 first-class 类型 (包括function)， 所以，JavaScript 中闭包是确定可构造出来的。</p>
+<p>由于闭包 (closure)本身与作用域(scope)息息相关，所以有必要先谈谈 JS 的作用域。</p>
+<h3 id="无块级作用域"><a href="#无块级作用域" class="headerlink" title="无块级作用域"></a>无块级作用域</h3><p>与众多语言不同的是: JavaScript 默认并无块级作用域，也就是说在花括号<code>{}</code>不能形成一个独立的作用域（例如 Java、C++ 中的作用域）。JavaScript是函数级作用域, 也就是每次创建一个 function 才会形成一个新的 “块级“ 作用域。</p>
+<p>例如：</p>
+<pre><code>var scope =&quot;global&quot;;  
+if(true){  
+    var scope =&quot;local&quot;;  
+    console.log(scope)  //输出local
+}  
+console.log(scope); //输出local
+</code></pre><p>假设 JavaScript 有块级作用域，明显<code>if</code>语句中将创建一个局部的变量<code>scope</code>, 在这个块中会覆盖全局定义的<code>scope</code>值, 所以会首先输出 “local”。但这时候块中的局部变量并不会修改在这个块外定义的变量 <code>scope</code>,  第二个<code>console</code>应该输出 “global”。</p>
+<p>可是实际上没有这样, 两个<code>console</code>都会输出 “local” ，效果和去掉了<code>{}</code>相同。</p>
+<p>所以 JS 没有块级作用域。</p>
+<h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><p>所谓函数作用域就是说：创建一个新的函数时，在函数体内部会生成新的局部作用域，其中的变量在声明它们的函数体以及这个函数体嵌套的任意函数体内都是有定义的。</p>
+<p>比如：</p>
+<pre><code>var scope=&quot;global&quot;;  
+function t(){  
+    var scope=&quot;local&quot; ; 
+    console.log(scope);  //local
+}  
+t(); 
+console.log(scope);  //global
+</code></pre><p>全局定义变量<code>scope</code>， 函数内部又定义一次<code>scope</code>, 那么在函数内部的作用域中，旧的定义会被覆盖。 外部的仍然输出 “global”。</p>
+<p>来一个稍微复杂的函数作用域的例子吧：</p>
+<pre><code>var g = 0; //全局作用域
+function f1() {
+    // 这里面就形成了一个函数作用域, 能够保护其中的变量不能被外部访问
+    var a = 1;
+    console.log(g); // 函数作用域内能够访问全局作用域的变量
+
+    // 嵌套函数作用域
+    function f2() {
+        // 这里面再度形成了一个函数作用域，其中可以访问外部的f1函数作用域
+        var b = 2;
+        console.log(a);
+    }
+    console.log(b); // 出了 f2 的作用域就不能访问其中的东西了，报错 undefined
+}
+f1();
+console.log(a); // 报错 ReferenceError: a is not defined
+</code></pre><h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>回顾一下前文中的概念：<em>闭包 是指可以包含自由（未绑定到特定对象）变量的代码块；这些变量不是在这个代码块内或者任何全局上下文中定义的，而是在定义代码块的环境中定义（局部变量）。</em></p>
+<p>上面的例子中，函数<code>f2</code>就是一个闭包，原因是：</p>
+<ul>
+<li><code>f2</code>中包含自由变量<code>a</code>; </li>
+<li><code>a</code>不是在<code>f2</code>的代码块内定义；</li>
+<li><code>a</code>不是在任何全局上下文中定义；</li>
+<li><code>a</code>是在函数<code>f1</code>的内部定义(局部变量)，函数<code>f1</code>的内部即就是定义<code>f2</code>这个代码块的环境</li>
+</ul>
+<p>由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成“能够读取其他函数内部变量的子函数”。</p>
+<p>当函数<code>f1</code>的内部函数<code>f2</code>被函数<code>f1</code>外的一个变量引用的时候，就创建了一个闭包。</p>
+<h3 id="经典示例："><a href="#经典示例：" class="headerlink" title="经典示例："></a>经典示例：</h3><p>以最经典的<code>for</code>循环为例. 大家可以试试下面这段代码，取自JavaScript 秘密花园循环中的闭包</p>
+<pre><code>for(var i = 0; i &lt; 10; i++) {
+    setTimeout(function() {
+        console.log(i);
+    }, 1000);
+}
+</code></pre><p>首先说说为什么最终输出的是 10 次 10, 而不是你想象中的 0, 1, 2, 3, 4, 5, 6, 7, 8, 9</p>
+<p>因为<code>setTimeout</code>是异步的!</p>
+<p>你可以想象由于<code>setTimeout</code>是异步的，因此我们将这个<code>for</code>循环拆成 2 个部分，第一个部分专门处理 <code>i</code> 值的变化，第二个部分专门来做<code>setTimeout</code>。因此我们可以得到如下代码：</p>
+<pre><code>// 第一个部分
+i++;
+... 
+i++; // 总共做10次
+
+// 第二个部分
+setTimeout(function() {
+ console.log(i);
+}, 1000); 
+... // 总共做10次
+</code></pre><p>   由于循环中的变量 <code>i</code>一直在变, 最终会变成 10, 而循环每每执行<code>setTimeout</code>时, 其中的方法还只是装入延时执行的队列，没有真正运行, 等真正到时间执行时, <code>i</code>的值已经变成 10 了。<code>i</code> 变化的整个过程是瞬间完成的, 总之同步比异步要快, 就算<code>setTimout</code>是 0 毫秒也一样, 会先于你执行完成。</p>
+<p>如何解决？闭包！</p>
+<p>如果我们定义一个外部函数, 让 <code>i</code> 作为参数传入即可 “闭包” 我们要的变量了。</p>
+<pre><code>for (var i = 0; i &lt; 10; i++) {
+  (function(a) {
+      // 变量 i 的值在传递到这个作用域时被复制给了 a,
+      // 因此这个值就不会随外部变量而变化了
+      setTimeout(function() {
+          console.log(a);
+      }, 1000);
+  })(i); // 我们在这里传入参数来&quot;闭包&quot;变量
+}
+</code></pre><p>那么为什么<code>setTimeout</code>中匿名<code>function</code>没有形成闭包呢?</p>
+<p>因为<code>setTimeout</code>中的匿名<code>function</code>没有将 <code>i</code> 作为参数传入来固定这个变量的值，让其保留下来，而是直接引用了外部作用域中的 <code>i</code>，因此<code>i</code> 变化时，也影响到了匿名<code>function</code>。</p>
+<p>一个经典的闭包面试题：</p>
+<pre><code>function fun(n,o) {
+  console.log(o)
+  return {
+    fun:function(m){
+      return fun(m,n);
+    }
+  };
+}
+var a = fun(0);  a.fun(1);  a.fun(2);  a.fun(3);//undefined,?,?,?
+var b = fun(0).fun(1).fun(2).fun(3);//undefined,?,?,?
+var c = fun(0).fun(1);  c.fun(2);  c.fun(3);//undefined,?,?,?
+</code></pre><h2 id="闭包的风险"><a href="#闭包的风险" class="headerlink" title="闭包的风险:"></a>闭包的风险:</h2><ul>
+<li><p>由于闭包会使得函数中的变量会被更长时间保存在内存中，消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中更是可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。</p>
+</li>
+<li><p>闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/04/css-中的垂直居中法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          css 中的垂直居中法
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="浅析-JavaScript-中的闭包" data-title="浅析 JavaScript 中的闭包" data-url="http://yoursite.com/2016/05/04/浅析-JavaScript-中的闭包/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Elevenbeans
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+  <script>hljs.initHighlightingOnLoad();</script>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

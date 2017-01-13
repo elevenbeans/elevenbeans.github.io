@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>URL Scheme 主动唤起 APP 问题踩坑 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Web 移动应用任重而道远在前东家接手的最后一个项目是天猫 H5 向 Tmall App 引流, 其中涉及到 URL Scheme 技术, 以及各种入口的来源统计，结算及个性化展示等。
+碰巧的是，携程国际这边接手的第一个 Page Landing 项目基本需求和早前的引流项目不谋而合。
+好好的 H5 不用，为啥要导流到 App ？
+要啥自行车？？？？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="URL Scheme 主动唤起 APP 问题踩坑">
+<meta property="og:url" content="http://yoursite.com/2016/08/18/URL-Scheme-唤起问题踩坑/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Web 移动应用任重而道远在前东家接手的最后一个项目是天猫 H5 向 Tmall App 引流, 其中涉及到 URL Scheme 技术, 以及各种入口的来源统计，结算及个性化展示等。
+碰巧的是，携程国际这边接手的第一个 Page Landing 项目基本需求和早前的引流项目不谋而合。
+好好的 H5 不用，为啥要导流到 App ？
+要啥自行车？？？？">
+<meta property="og:image" content="http://bin11.cn/img/androidChromeCancel.png">
+<meta property="og:image" content="http://i1.wp.com/fokkezb.nl/wp-content/uploads/2013/09/Screenshot-2013.09.20-11.26.43.png?zoom=2&resize=640%2C465">
+<meta property="og:updated_time" content="2017-01-12T17:03:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="URL Scheme 主动唤起 APP 问题踩坑">
+<meta name="twitter:description" content="Web 移动应用任重而道远在前东家接手的最后一个项目是天猫 H5 向 Tmall App 引流, 其中涉及到 URL Scheme 技术, 以及各种入口的来源统计，结算及个性化展示等。
+碰巧的是，携程国际这边接手的第一个 Page Landing 项目基本需求和早前的引流项目不谋而合。
+好好的 H5 不用，为啥要导流到 App ？
+要啥自行车？？？？">
+<meta name="twitter:image" content="http://bin11.cn/img/androidChromeCancel.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://img.alicdn.com/tps/TB1SVqYJFXXXXa_XXXXXXXXXXXX-700-700.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Elevenbeans</a></h1>
+		</hgroup>
+
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/tech">技术分享</a></li>
+				        
+							<li><a href="/categories/life">生活感悟</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/elevenBeans" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2381593582" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiao-jian-li-29" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Elevenbeans</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://img.alicdn.com/tps/TB1SVqYJFXXXXa_XXXXXXXXXXXX-700-700.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Elevenbeans</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/tech">技术分享</a></li>
+		        
+					<li><a href="/categories/life">生活感悟</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/elevenBeans" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2381593582" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiao-jian-li-29" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-URL-Scheme-唤起问题踩坑" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/18/URL-Scheme-唤起问题踩坑/" class="article-date">
+  	<time datetime="2016-08-18T02:58:54.000Z" itemprop="datePublished">2016-08-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      URL Scheme 主动唤起 APP 问题踩坑
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5/">H5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/URL-Scheme/">URL Scheme</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/唤起APP/">唤起APP</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/tech/">tech</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="Web-移动应用任重而道远"><a href="#Web-移动应用任重而道远" class="headerlink" title="Web 移动应用任重而道远"></a>Web 移动应用任重而道远</h2><p>在前东家接手的最后一个项目是天猫 H5 向 Tmall App 引流, 其中涉及到 URL Scheme 技术, 以及各种入口的来源统计，结算及个性化展示等。</p>
+<p>碰巧的是，携程国际这边接手的第一个 Page Landing 项目基本需求和早前的引流项目不谋而合。</p>
+<p>好好的 H5 不用，为啥要导流到 App ？</p>
+<p>要啥自行车？？？？</p>
+<a id="more"></a>
+<p>可现实就是：移动端 APP 化已是大势所趋了，用户的习惯已然被培养了起来。一旦 native 开发能解决发版迭代不够灵活迅速的问题，那 Web App 真的就亚历山大。。。</p>
+<p>不是还留有余地么？ 比如：Hybrid？ 呵呵哒～</p>
+<p>跑题了 =,=</p>
+<h2 id="关于-URL-Scheme"><a href="#关于-URL-Scheme" class="headerlink" title="关于 URL Scheme"></a>关于 URL Scheme</h2><p>科普请戳：<a href="http://fokkezb.nl/2013/08/26/url-schemes-for-ios-and-android-1/" target="_blank" rel="external">这里</a></p>
+<p>对于一个正确的 URL Scheme，我们在网页中完全可以按照一般的超链接来使用，比如放在<code>&lt;a&gt;</code> 标签的 <code>href</code> 属性中，用户可以通过点击按钮或者超链接唤起 APP。</p>
+<p>然而到了 JS 控制主动唤起 APP 这里，就出现了很多浏览器的兼容问题。。。</p>
+<p>先来一段抄来的代码：</p>
+<pre><code>var UA = navigator.userAgent;
+var IS_IPAD = UA.match(/iPad/i) != null,
+    IS_IPHONE = !IS_IPAD &amp;&amp; ((UA.match(/iPhone/i) != null) || (UA.match(/iPod/i) != null)),
+    IS_IOS = IS_IPAD || IS_IPHONE,
+    IS_ANDROID = !IS_IOS &amp;&amp; UA.match(/android/i) != null,
+    IS_MOBILE = IS_IOS || IS_ANDROID;
+</code></pre><p><br></p>
+<pre><code>function open() {
+  // If it&apos;s not an universal app, use IS_IPAD or IS_IPHONE
+  if (IS_IOS) {
+    window.location = &quot;myapp://view?id=123&quot;;
+    setTimeout(function() {
+        // If the user is still here, open the App Store
+        if (!document.webkitHidden) {
+            // Replace the Apple ID following &apos;/id&apos;
+            window.location = &apos;http://itunes.apple.com/app/id1234567&apos;;
+        }
+    }, 25);
+
+  } else if (IS_ANDROID) {
+    // Instead of using the actual URL scheme, use &apos;intent://&apos; for better UX
+    window.location = &apos;intent://view?id=123#Intent;package=my.app.id;scheme=myapp;launchFlags=268435456;end;&apos;;
+  }
+}
+</code></pre><p>如上所示。</p>
+<p>这样的代码，我保证你多浏览器调试会碰一鼻子灰。</p>
+<h2 id="数一数踩过的坑"><a href="#数一数踩过的坑" class="headerlink" title="数一数踩过的坑"></a>数一数踩过的坑</h2><p>歪果仁踩的的坑也是满满的：<a href="https://bugs.chromium.org/p/chromium/issues/detail?id=459156" target="_blank" rel="external">传送门(可能需要翻墙)</a></p>
+<h3 id="1-Android-Chrome"><a href="#1-Android-Chrome" class="headerlink" title="1. Android Chrome"></a>1. Android Chrome</h3><p>Chrome 不必多说，当之无愧是自动唤起失败率最高的浏览器。</p>
+<p>Google 的官方文档如是解释：<a href="https://developer.chrome.com/multidevice/android/intents" target="_blank" rel="external">android intents</a>。不得不说这个世界上最好的互联网公司其说词也是逼格满满的。但是好好的 URL Scheme 你不姿持，搞出来个 Intents 做啥子？</p>
+<p>找客户端同学支持 intent 协议么？？？ 求人不如求己。</p>
+<h4 id="试一试无痕请求大法："><a href="#试一试无痕请求大法：" class="headerlink" title="试一试无痕请求大法："></a>试一试无痕请求大法：</h4><pre><code>var ifr = document.createElement(&apos;iframe&apos;);
+    ifr.style.display = &apos;none&apos;;
+    ifr.src = &quot;myapp://view?id=123&quot;;
+
+document.body.appendChild(ifr);
+</code></pre><p>在 Android Chrome 调试如下：</p>
+<p><img src="http://bin11.cn/img/androidChromeCancel.png" alt="啊哈"><br><strong>是的，</strong></p>
+<p><strong>你没看错，</strong></p>
+<p><strong>被屏蔽了。。。</strong></p>
+<h4 id="老生常谈的唤起方式"><a href="#老生常谈的唤起方式" class="headerlink" title="老生常谈的唤起方式:"></a>老生常谈的唤起方式:</h4><p><code>window.location = &#39;myapp://view?id=123</code></p>
+<p>同样请求状态为 <code>‘canceled’</code></p>
+<h4 id="打开一个新窗口怎么样？"><a href="#打开一个新窗口怎么样？" class="headerlink" title="打开一个新窗口怎么样？"></a>打开一个新窗口怎么样？</h4><p><code>window.open(&#39;myapp://view?id=123&#39;,&#39;_blank&#39;);</code></p>
+<p>居然成功了。。。</p>
+<p>但是紧接着就发现只能成功一次，也就是安装 Chrome 的第一次请求会成功。</p>
+<p>其后每次都只会打开一个空白页。</p>
+<p>那就控制第一次发请求，以后都不发了吧。。。</p>
+<h3 id="2-IOS-Chrome-一个极其隐蔽的问题"><a href="#2-IOS-Chrome-一个极其隐蔽的问题" class="headerlink" title="2. IOS Chrome 一个极其隐蔽的问题"></a>2. IOS Chrome 一个极其隐蔽的问题</h3><p><code>window.location = &#39;myapp://view?id=123</code></p>
+<p>上述代码在页面进行<strong>非跨域的异步请求</strong>时千万<strong>别调用！！！！！！！！</strong></p>
+<p>在 IOS Chrome 下你会死得很难看。。。</p>
+<p>别问我怎么知道的～ 烦</p>
+<p>反正同域的异步请求都完成了你再调用就没问题。</p>
+<p>BTW，IOS Chrome 的 UA 真的亮了：</p>
+<p><code>iOS / Chrome 34: Mozilla/5.0 (iPad; CPU OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) CriOS/34.0.1847.18 Mobile/11B554a Safari/9537.53</code></p>
+<p>CriOS …</p>
+<h3 id="3-IOS9-safari"><a href="#3-IOS9-safari" class="headerlink" title="3. IOS9+ safari"></a>3. IOS9+ safari</h3><p>据说最好的打开方式是在<code>&lt;head&gt;</code>中添加：</p>
+<pre><code>&lt;meta name=&quot;apple-itunes-app&quot; content=&quot;app-id=1234567, app-argument=myapp://view?id=123&quot;/&gt;
+</code></pre><p>效果：<br><img src="http://i1.wp.com/fokkezb.nl/wp-content/uploads/2013/09/Screenshot-2013.09.20-11.26.43.png?zoom=2&amp;resize=640%2C465" alt=""></p>
+<p>可是宝宝要自动唤起啊。。。你让我点击我不愿意啊。。。。</p>
+<p>T_T</p>
+<p>亲测前文中无痕请求方式在低版本的 IOS Safari OK,</p>
+<p>But IOS9 以上不行。</p>
+<p>And, <code>window.location</code> 方式，在 IOS9 以上会有一个原生的提示弹框：‘是否打开 XXX 中的链接？’，点击是则唤起正常。</p>
+<p>Over ~</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/10/24/1024/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          1024
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/11/UC-手机浏览器调试经验/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">UC 手机浏览器调试经验</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="URL-Scheme-唤起问题踩坑" data-title="URL Scheme 主动唤起 APP 问题踩坑" data-url="http://yoursite.com/2016/08/18/URL-Scheme-唤起问题踩坑/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Elevenbeans
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+  <script>hljs.initHighlightingOnLoad();</script>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
