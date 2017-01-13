@@ -20,7 +20,7 @@
 新老板提到：机票 H5 team 作为一个小团队，会类似“小白鼠”的角色，需要快速迭代、敏捷开发，作为创新项目的试验田。
 对于我个人来讲，最深刻的，其实是无尽的危机感。
 跟在阿里的师兄从 React 的易用性，讨论到前端新技术技术迭代升级的">
-<meta property="og:updated_time" content="2017-01-13T12:00:10.000Z">
+<meta property="og:updated_time" content="2017-01-13T12:06:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SPA 项目全家桶新鲜出炉（Koa+React+webpack） ～">
 <meta name="twitter:description" content="来豚厂还不满半年就又一次被 “拥抱变化”。
@@ -268,7 +268,7 @@ router.get(&apos;*&apos;, ThrowToErroPage);
 </code></pre><h3 id="前端相关技术架构"><a href="#前端相关技术架构" class="headerlink" title="前端相关技术架构"></a>前端相关技术架构</h3><ul>
 <li>使用日趋成熟的 JS 语言标准 ES6， 使用 Less 预处理语言: <a href="https://github.com/elevenBeans/TW2FS/blob/master/public/javascripts/home/index.jsx" target="_blank" rel="external">示例代码</a></li>
 <li>使用 React + ReactDOM 进行框架前端组件化开发</li>
-<li>React-Router：<strong>SPA 的核心</strong>，由后端路由 Koa-router 配合完成</li>
+<li>React-Router：<strong>SPA 的核心</strong>，与后端路由配合完成应用 Router</li>
 </ul>
 <pre><code>&lt;Router key={Math.random()} history={browserHistory} &gt;
   &lt;Route path=&quot;/&quot; component={App}&gt;
@@ -331,7 +331,7 @@ plugins:  [
 </ul>
 <pre><code>new ExtractTextPlugin(&quot;./css/IBU.H5.flight.css&quot;)
 </code></pre><ul>
-<li>Hot Module Replacement</li>
+<li><strong>Hot Module Replacement</strong></li>
 </ul>
 <p><strong>狂!!! 拽!!! 酷炫!!! 吊炸天!!! 的新功能</strong>，详情请戳 –&gt;<a href="http://webpack.github.io/docs/hot-module-replacement-with-webpack.html#tutorial" target="_blank" rel="external">tutorial</a>。</p>
 <p>据说可以在生产环境中使用，但是官方承认还不稳定. 耿直！<a href="http://webpack.github.io/docs/hot-module-replacement-with-webpack.html#caveats" target="_blank" rel="external">请戳戳</a></p>
