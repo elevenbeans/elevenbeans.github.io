@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>scroll 事件处理之 throttle 和 debounce | Hexo</title>
+  <title>scroll 事件处理之 throttle 和 debounce | Elevenbeans&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="概念请点这里
 现状描述天猫几乎所有的频道都有 下拉刷新 的逻辑。其中，品牌特卖和焕新在做下拉刷新的时候均使用了一个叫做 bottomloader 的组件。该组件中采用了 throttle 方法对于连续的scroll事件所触发业务逻辑（包含数据加载）的次数进行了稀释，从原生的像素级别的滑动触发，稀释到了间隔几百毫秒触发一次，从而极大的降低了scroll事件对业务逻辑的高频触发，提高了滑动流畅度以及页">
 <meta property="og:type" content="article">
 <meta property="og:title" content="scroll 事件处理之 throttle 和 debounce">
 <meta property="og:url" content="http://yoursite.com/2016/05/05/scroll事件处理之-throttle-和-debounce/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Elevenbeans' Blog">
 <meta property="og:description" content="概念请点这里
 现状描述天猫几乎所有的频道都有 下拉刷新 的逻辑。其中，品牌特卖和焕新在做下拉刷新的时候均使用了一个叫做 bottomloader 的组件。该组件中采用了 throttle 方法对于连续的scroll事件所触发业务逻辑（包含数据加载）的次数进行了稀释，从原生的像素级别的滑动触发，稀释到了间隔几百毫秒触发一次，从而极大的降低了scroll事件对业务逻辑的高频触发，提高了滑动流畅度以及页">
 <meta property="og:updated_time" content="2016-08-19T06:08:21.000Z">
@@ -20,7 +20,7 @@
 <meta name="twitter:description" content="概念请点这里
 现状描述天猫几乎所有的频道都有 下拉刷新 的逻辑。其中，品牌特卖和焕新在做下拉刷新的时候均使用了一个叫做 bottomloader 的组件。该组件中采用了 throttle 方法对于连续的scroll事件所触发业务逻辑（包含数据加载）的次数进行了稀释，从原生的像素级别的滑动触发，稀释到了间隔几百毫秒触发一次，从而极大的降低了scroll事件对业务逻辑的高频触发，提高了滑动流畅度以及页">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Elevenbeans&#39; Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
