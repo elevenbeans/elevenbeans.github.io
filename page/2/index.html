@@ -6,12 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Elevenbeans&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="Blog, life, tech">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Elevenbeans' Blog">
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Elevenbeans' Blog">
+<meta property="og:description" content="Blog, life, tech">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Elevenbeans' Blog">
+<meta name="twitter:description" content="Blog, life, tech">
   
     <link rel="alternative" href="/atom.xml" title="Elevenbeans&#39; Blog" type="application/atom+xml">
   
@@ -155,6 +158,110 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-js 中的小技巧汇总" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/19/js 中的小技巧汇总/" class="article-date">
+  	<time datetime="2016-05-19T11:48:53.000Z" itemprop="datePublished">2016-05-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/19/js 中的小技巧汇总/">JS 中的小技巧汇总</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="使用-操作符转换布尔值"><a href="#使用-操作符转换布尔值" class="headerlink" title="使用!!操作符转换布尔值"></a>使用<code>!!</code>操作符转换布尔值</h2><p>有时候我们需要对一个变量查检其是否存在或者检查其值是否有一个有效值，如果存在就返回<code>true</code>值。可以使用<code>!!</code>前缀做检测，只要变量的值为:<code>0</code>、<code>null</code>、<code>&quot;&quot;</code>、<code>undefined</code>或者<code>NaN</code>都将返回的是<code>false</code>，反之返回的是<code>true</code>。如下：</p>
+<pre><code>var temp = &quot;this is awsome!&quot;;
+console.log(temp); // this is awsome
+console.log(!!temp); // true
+
+var temp = 0;
+console.log(temp); // 0
+console.log(!!temp); // false
+
+var temp = &quot;&quot;;
+console.log(temp); // &quot;&quot;
+console.log(!!temp); // false
+...
+</code></pre><p>当然，<code>!</code> 操作符也可以进行上述转换，不过它恰好会得到相反的布尔值。</p>
+<h2 id="使用-将字符串转换成数字"><a href="#使用-将字符串转换成数字" class="headerlink" title="使用+将字符串转换成数字"></a>使用<code>+</code>将字符串转换成数字</h2><p>这个技巧适合用于数字形式的字符串 or 布尔值转数字，否则将返回 <code>NaN</code>：</p>
+<pre><code>var temp = &quot;112&quot;;
+console.log(temp); // 112
+console.log(typeof(temp)); // string
+console.log(+temp); // 112
+console.log(typeof(+temp)); // number
+
+var temp = &quot;asdf&quot;;
+console.log(+temp);//NaN
+
+var temp = false;
+console.log(+temp);//0
+
+var temp = true;
+console.log(+temp);//1
+</code></pre><p>也适用于<code>Date</code>，它将返回的是时间戳数字：</p>
+<pre><code>console.log(new Date()) // Sat May 21 2016 21:24:41 GMT+0800 (CST)
+console.log(+new Date()) // 1463837110400
+</code></pre><h2 id="并-amp-amp-条件符"><a href="#并-amp-amp-条件符" class="headerlink" title="并 &amp;&amp; 条件符"></a>并 <code>&amp;&amp;</code> 条件符</h2><p>如果你有一段这样的代码：</p>
+<pre><code>if (isReady) {
+    login();
+}
+</code></pre><p>可以简写成这样：</p>
+<p><code>isReady &amp;&amp; login();</code></p>
+<p>你也可以这样检测一些属性或函数是否存在于一个对象中，如下：</p>
+<p> <code>user &amp;&amp; user.name</code> 或者 <code>user &amp;&amp; user.login();</code></p>
+<p> <strong><em>这个技巧在实际项目中十分常见，它可以有效防止后端接口异常时，返回的数据对象结构变化，或属性 or 方法置空 or 改变导致程序报错终止。</em></strong></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS-技巧/">JS 技巧</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/tech/">tech</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/05/19/js 中的小技巧汇总/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-scroll事件处理之-throttle-和-debounce" class="article article-type-post" itemscope itemprop="blogPost">
   
