@@ -185,96 +185,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="/assets/js/APlayer.min.js"> </script><p>发布冻结了，虽然马上过年了，还是不能闲着。<br>复习一下计算机基础。</p>
-<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><pre><code>bubbleSort: function(arr){
-    for(var i = 0; i &lt; arr.length - 1; i++){
-        for(var j = 1; j &lt; arr.length - 2; j++){
-            if(arr[j-1] &gt; arr[j]){
-                temp = arr[j];
-                arr[j] = arr[j-1];
-                arr[j-1] = temp;
-            }
-        }
-    }
-    return arr;
-},
-</code></pre><h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><pre><code>    quickSort: function(arr){
-        if(arr.length &lt; 2) return arr;
-        var middleIndex = Math.floor(arr.length / 2);
-        var middleValue = arr.splice(middleIndex,1)[0];
-
-        var left = [];
-        var right = [];
-        for(var i = 0; i &lt; arr.length; i++){
-            if(arr[i] &lt; middleValue){
-                left.push(arr[i]);
-            }else{
-                right.push(arr[i]);
-            }
-        }
-        return this.quickSort(left).concat(middleValue,this.quickSort(right));
-}
-</code></pre><h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><pre><code>insertionSort(arr) {
-var len = arr.length;
-var preIndex, current;
-for (var i = 1; i &lt; len; i++) {
-    preIndex = i - 1;
-    current = arr[i];
-    while(preIndex &gt;= 0 &amp;&amp; arr[preIndex] &gt; current) { // 找位置
-        arr[preIndex + 1] = arr[preIndex];
-        preIndex--;
-    }
-    arr[preIndex + 1] = current; // 插入
-}
-return arr;
-}
-</code></pre><h2 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h2><pre><code>shellSort: function(arr) {
-    var len = arr.length;
-for (var fraction = Math.floor(len / 2); fraction &gt; 0; 
-        fraction = Math.floor(fraction / 2)) {
-  for (var i = fraction; i &lt; len; i++) {
-    for (var j = i - fraction; j &gt;= 0 &amp;&amp; 
-            arr[j] &gt; arr[fraction + j]; j -= fraction) {
-      var temp = arr[j];                
-      arr[j] = arr[fraction + j];
-    arr[fraction + j] = temp;
-    }
-  }
-}
-  return arr;
-}
-</code></pre><h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><pre><code>selectionSort: function(arr){
-    var minIndex, temp;
-    for(var n = 0; n &lt; arr.length - 1; n++){
-        minIndex = n;
-        for(var i = n + 1; i &lt; arr.length; i++ ){
-          if(arr[i] &lt; arr[minIndex]){
-              minIndex = i;
-          }
-      };
-        temp = arr[minIndex];
-        arr[minIndex] = arr[n];
-        arr[n] = temp;
-    }
-    return arr;
-}
-</code></pre><h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><pre><code>binarySearch(data, dest){
-  var h = data.length - 1,
-      l = 0;
-  while(l &lt;= h){
-    var m = Math.floor((h + l) / 2);
-  if(data[m] == dest){
-  return m;
-}
-  if(dest &gt; data[m]){
-  l = m + 1;
-}else{
-  h = m - 1;
-}
-}   
-  return false;
-}
-</code></pre>
+        <p>发布冻结了，虽然马上过年了，还是不能闲着。<br>复习一下计算机基础。<br>来几个小算法～<br>
       
     </div>
     
@@ -291,6 +202,10 @@ for (var fraction = Math.floor(len / 2); fraction &gt; 0;
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/2017/01/22/常用算法汇总/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
