@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Elevenbeans' Blog">
 <meta property="og:description" content="概念请点这里
 现状描述天猫几乎所有的频道都有 下拉刷新 的逻辑。其中，品牌特卖和焕新在做下拉刷新的时候均使用了一个叫做 bottomloader 的组件。该组件中采用了 throttle 方法对于连续的scroll事件所触发业务逻辑（包含数据加载）的次数进行了稀释，从原生的像素级别的滑动触发，稀释到了间隔几百毫秒触发一次，从而极大的降低了scroll事件对业务逻辑的高频触发，提高了滑动流畅度以及页">
-<meta property="og:updated_time" content="2016-08-19T06:08:21.000Z">
+<meta property="og:updated_time" content="2017-02-23T05:59:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="scroll 事件处理之 throttle 和 debounce">
 <meta name="twitter:description" content="概念请点这里
@@ -238,8 +238,15 @@ window.addEventListener(&apos;scroll&apos;, function () {
 <li>丢弃与前一个<code>scroll</code>事件间隔小于特定阈值的后一个事件的业务逻辑，即就是对<code>scroll</code>事件触发业务逻辑次数进行了稀释，也同样提高了页面效率。</li>
 </ol>
 <p><strong>At last,</strong></p>
-<p>一个简易的、同时支持 <code>debounce</code> 和 <code>throttle</code> 的 bottomloader 组件: <a href="https://github.com/elevenBeans/MyUtils/blob/master/src/Utils.js" target="_blank" rel="external">请戳这里</a></p>
-
+<p>一个简易的、同时支持 <code>debounce</code> 和 <code>throttle</code> 的 bottomloader 组件: <a href="https://github.com/elevenBeans/MyUtils/blob/master/src/BottomLoader.js" target="_blank" rel="external">请戳这里</a></p>
+<pre><code>var bl = new BottomLoader(1);
+bl.addCallback(function(c){
+    // your code here...
+},{
+    diff:300, // 触发距离（距离底部）
+    immediately:true
+});
+</code></pre>
       
     </div>
     
