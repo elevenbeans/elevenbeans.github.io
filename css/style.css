@@ -180,6 +180,9 @@ a {
   color: #258fb8;
   outline: none;
 }
+.article a {
+  text-decoration: underline;
+}
 .alignleft {
   float: left;
 }
