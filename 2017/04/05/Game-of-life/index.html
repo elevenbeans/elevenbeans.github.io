@@ -15,7 +15,7 @@
 
 如果活细胞周围八个位置有超过三个活细胞，则该位置活细胞死亡
 
-如果死细胞周围正好有三个活细胞，则该位置死细胞复">
+如果死细胞周围正好有三个活细胞，则该位置死细胞复活">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Game of life">
 <meta property="og:url" content="http://yoursite.com/2017/04/05/Game-of-life/index.html">
@@ -29,9 +29,9 @@
 
 如果活细胞周围八个位置有超过三个活细胞，则该位置活细胞死亡
 
-如果死细胞周围正好有三个活细胞，则该位置死细胞复">
+如果死细胞周围正好有三个活细胞，则该位置死细胞复活">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Game_of_Life/master/src/images/GOL.png">
-<meta property="og:updated_time" content="2017-04-06T07:30:03.000Z">
+<meta property="og:updated_time" content="2017-04-10T07:54:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Game of life">
 <meta name="twitter:description" content="这是有名的康威生命游戏, 描述的是一种细胞自动机。
@@ -43,7 +43,7 @@
 
 如果活细胞周围八个位置有超过三个活细胞，则该位置活细胞死亡
 
-如果死细胞周围正好有三个活细胞，则该位置死细胞复">
+如果死细胞周围正好有三个活细胞，则该位置死细胞复活">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/elevenBeans/Game_of_Life/master/src/images/GOL.png">
   
     <link rel="alternative" href="/atom.xml" title="Elevenbeans&#39; Blog" type="application/atom+xml">
@@ -240,6 +240,7 @@
 <li><p>如果死细胞周围正好有三个活细胞，则该位置死细胞复活</p>
 </li>
 </ol>
+<a id="more"></a>
 <p>我们用置换方法 in-place 来解题，不新建一个相同大小的数组，只更新原有数组。所有的位置在同一个周期必须被同时更新，但是在循环程序中我们还是一个位置一个位置更新的，那么当一个位置更新了，这个位置成为其他位置的 neighbor 时，我们怎么知道其未更新的状态呢，我们可以使用状态机转换：</p>
 <p>状态0： 死细胞转为死细胞 （dead 黑色）</p>
 <p>状态1： 活细胞转为活细胞 （old 红色）</p>

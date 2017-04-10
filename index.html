@@ -185,11 +185,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="/assets/js/APlayer.min.js"> </script><h2 id="一个老生常谈的话题-…"><a href="#一个老生常谈的话题-…" class="headerlink" title="一个老生常谈的话题 …"></a>一个老生常谈的话题 …</h2><ul>
-<li><a href="https://www.zhihu.com/question/21965679" target="_blank" rel="external">中国开源现状如何？</a></li>
-<li><a href="https://www.zhihu.com/question/45153728" target="_blank" rel="external">开源是否会让程序员丢掉工作？</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/25768464" target="_blank" rel="external">我所讨厌的那些开发者</a></li>
-</ul>
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="一个老生常谈的话题-…"><a href="#一个老生常谈的话题-…" class="headerlink" title="一个老生常谈的话题 …"></a>一个老生常谈的话题 …</h2><p>依稀记得早前我还是一只在校生，所在实验室是一个相对封闭的环境：不用 git，用内网 svn，所有软件代码都有著作权，所谓核心算法和创新点都有专利保护。和开源精神基本上不搭嘎，甚至相悖。在很多热爱程序的同学心底，如此用着开源的IDE (QT), 用着开源的的是音频编解码软件（ffmpeg），造出的应用却关起门来收费，可谓是开源世界的 “蛀虫”。</p>
+<p>还记得，突然有那么一段时间，GitHub 被墙的时候，实验室老师感慨：多少高校的项目都要用 GitHub 上面的开源代码，真要全面封杀的话，会被学术界骂死。当然，VPN 又要花经费喽 ～</p>
+<p>黑色幽默 …</p>
+<p>以至于很久以来，我个人对于开源世界的现状，特别是国内开源一直有深深的误解。现在看来，除了他人的观念影响以外，自己缺乏独立思考和观察也算是一个失误。</p>
+<p>不吹不黑，从 <a href="https://www.zhihu.com/question/21965679" target="_blank" rel="external">中国开源现状如何</a>中那个高票答案的数据可以十分明显的看出，国人在开源世界的贡献可圈可点。顺便给阿里巴巴点个赞 : )</p>
+<p>这一篇，送给对于开源仍然心存畏惧的人：</p>
+<p><a href="https://www.zhihu.com/question/45153728" target="_blank" rel="external">开源是否会让程序员丢掉工作？</a></p>
+<p>最后一篇，哈哈，请对号入座。</p>
+<p><a href="https://zhuanlan.zhihu.com/p/25768464" target="_blank" rel="external">我所讨厌的那些开发者</a></p>
 <h2 id="Benefits-from-open-source-community"><a href="#Benefits-from-open-source-community" class="headerlink" title="Benefits from open source community"></a>Benefits from open source community</h2><p><strong>##Freecodecamp##</strong>: freeCodeCamp is a friendly open source community where you learn to code and help nonprofits. <a href="https://github.com/freeCodeCamp/freeCodeCamp" target="_blank" rel="external">GitHub repository</a></p>
 <p><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/FED-certificate.png" alt="img1"><br>我的证书地址：<a href="https://www.freecodecamp.com/elevenbeans/front-end-certification" target="_blank" rel="external">Digital certificate</a></p>
 <h2 id="Become-a-contributor"><a href="#Become-a-contributor" class="headerlink" title="Become a contributor"></a>Become a contributor</h2><p><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/contributor.png" alt="img1"></p>
@@ -254,7 +258,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="/assets/js/APlayer.min.js"> </script><p>这是有名的康威生命游戏, 描述的是一种细胞自动机。</p>
+        <p>这是有名的康威生命游戏, 描述的是一种细胞自动机。</p>
 <p>对一个 M*N 的区域，每一个位置有两种状态，1为活细胞，0为死细胞，对于每个位置都满足如下的条件：</p>
 <ol>
 <li><p>如果活细胞周围八个位置的活细胞数少于两个，则该位置活细胞死亡</p>
@@ -266,17 +270,6 @@
 <li><p>如果死细胞周围正好有三个活细胞，则该位置死细胞复活</p>
 </li>
 </ol>
-<p>我们用置换方法 in-place 来解题，不新建一个相同大小的数组，只更新原有数组。所有的位置在同一个周期必须被同时更新，但是在循环程序中我们还是一个位置一个位置更新的，那么当一个位置更新了，这个位置成为其他位置的 neighbor 时，我们怎么知道其未更新的状态呢，我们可以使用状态机转换：</p>
-<p>状态0： 死细胞转为死细胞 （dead 黑色）</p>
-<p>状态1： 活细胞转为活细胞 （old 红色）</p>
-<p>状态2： 活细胞转为死细胞 （dead 黑色）</p>
-<p>状态3： 死细胞转为活细胞 （young 粉色）</p>
-<p>最后我们对所有状态对2取余，那么状态0和2就变成死细胞，状态1和3就是活细胞。</p>
-<p>我们先对原数组进行逐个扫描，对于每一个位置，扫描其周围八个位置，前序细胞（左上／中上／右上／左）如果遇到状态1或2，就计数器累加1，后续细胞（右／右下／中下／左下）遇到取余为1，计数器也累加1。<br>扫完8个邻居，如果少于两个活细胞或者大于三个活细胞，而且当前位置是活细胞的话，标记状态2，如果正好有三个活细胞且当前是死细胞的话，标记状态3。</p>
-<p>完成一遍扫描后对数据更新一遍，变成我们想要的结果。</p>
-<p><a href="https://github.com/elevenBeans/Game_of_Life" target="_blank" rel="external">GitHub repository</a></p>
-<p><a href="https://elevenbeans.github.io/Game_of_Life/" target="_blank" rel="external">Demo地址</a><br><img src="https://raw.githubusercontent.com/elevenBeans/Game_of_Life/master/src/images/GOL.png" alt="img1"></p>
-
       
     </div>
     
@@ -293,6 +286,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/2017/04/05/Game-of-life/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
