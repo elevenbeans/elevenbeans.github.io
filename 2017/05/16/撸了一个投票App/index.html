@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>全栈开发实例：如何独立开发/发布一个WebAPP | Elevenbeans&#39; Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="背景全栈工程师，也叫全端工程师(同时具备前端和后台能力)，英文 Full Stack developer。是指掌握多种技能，并能利用多种技能独立完成产品的人.  （From 百度）
+敲黑板：利用多种技能独立完成产品。
+So, 至少需要一个人 cover 掉 前端 + 后端 + 数据库吧 ～
+搞一个活生生的投票应用送给各位 : )
+具体功能为：
+
+对于已经授权用户可以：
+
+新建一个 poll，可自定">
+<meta property="og:type" content="article">
+<meta property="og:title" content="全栈开发实例：如何独立开发/发布一个WebAPP">
+<meta property="og:url" content="http://yoursite.com/2017/05/16/撸了一个投票App/index.html">
+<meta property="og:site_name" content="Elevenbeans' Blog">
+<meta property="og:description" content="背景全栈工程师，也叫全端工程师(同时具备前端和后台能力)，英文 Full Stack developer。是指掌握多种技能，并能利用多种技能独立完成产品的人.  （From 百度）
+敲黑板：利用多种技能独立完成产品。
+So, 至少需要一个人 cover 掉 前端 + 后端 + 数据库吧 ～
+搞一个活生生的投票应用送给各位 : )
+具体功能为：
+
+对于已经授权用户可以：
+
+新建一个 poll，可自定">
+<meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/voteApp.png">
+<meta property="og:updated_time" content="2017-05-17T10:16:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="全栈开发实例：如何独立开发/发布一个WebAPP">
+<meta name="twitter:description" content="背景全栈工程师，也叫全端工程师(同时具备前端和后台能力)，英文 Full Stack developer。是指掌握多种技能，并能利用多种技能独立完成产品的人.  （From 百度）
+敲黑板：利用多种技能独立完成产品。
+So, 至少需要一个人 cover 掉 前端 + 后端 + 数据库吧 ～
+搞一个活生生的投票应用送给各位 : )
+具体功能为：
+
+对于已经授权用户可以：
+
+新建一个 poll，可自定">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/voteApp.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Elevenbeans&#39; Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://img.alicdn.com/tps/TB1SVqYJFXXXXa_XXXXXXXXXXXX-700-700.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Elevenbeans</a></h1>
+		</hgroup>
+
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/tech">技术分享</a></li>
+				        
+							<li><a href="/categories/life">生活感悟</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/elevenBeans" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2381593582" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/shi-yike-dou-zi/activities" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Elevenbeans</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://img.alicdn.com/tps/TB1SVqYJFXXXXa_XXXXXXXXXXXX-700-700.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Elevenbeans</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/tech">技术分享</a></li>
+		        
+					<li><a href="/categories/life">生活感悟</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/elevenBeans" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2381593582" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/shi-yike-dou-zi/activities" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-撸了一个投票App" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/16/撸了一个投票App/" class="article-date">
+  	<time datetime="2017-05-16T07:30:42.000Z" itemprop="datePublished">2017-05-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      全栈开发实例：如何独立开发/发布一个WebAPP
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webApp/">webApp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/全栈开发/">全栈开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/投票/">投票</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/tech/">tech</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p><em>全栈工程师，也叫全端工程师(同时具备前端和后台能力)，英文 Full Stack developer。是指掌握多种技能，并能利用多种技能独立完成产品的人.</em>  （From 百度）</p>
+<p>敲黑板：<strong>利用多种技能独立完成产品</strong>。</p>
+<p>So, 至少需要一个人 cover 掉 前端 + 后端 + 数据库吧 ～</p>
+<p>搞一个活生生的投票应用送给各位 : )</p>
+<p>具体功能为：</p>
+<ul>
+<li><p>对于已经授权用户可以：</p>
+<ul>
+<li>新建一个 poll，可自定义其中的选项</li>
+<li>存储发起的 polls，下次登陆仍旧可以看到自己发起的 polls 集合</li>
+<li>看到应用中所有用户创建的 polls 的实时投票结果 （用图表展示）</li>
+<li>向所有 polls 投票（每个 poll 每个用户号只能投一票）.</li>
+<li>可分享 poll (poll 详情页支持外部 landing)</li>
+</ul>
+</li>
+<li><p>非授权用户只能：</p>
+<ul>
+<li>看到应用中所有用户创建的 polls 的实时投票结果 （用图表展示）</li>
+<li>向所有 polls 投票（每个 poll 每个用户号只能投一票）.</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://we-voting-ele.herokuapp.com/" target="_blank" rel="external">Demo 在此</a></p>
+<a id="more"></a>
+<h1 id="开发过程"><a href="#开发过程" class="headerlink" title="开发过程"></a>开发过程</h1><p><strong>整体技术目标：React + Express + Mongodb 完成一个投票 SPA</strong></p>
+<h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><ul>
+<li>概述<ul>
+<li>使用 JS 语言标准 <a href="http://www.nodeclass.com/api/ECMAScript6.html" target="_blank" rel="external">ES6</a></li>
+<li>模块化：ES6 module</li>
+<li>使用 React + ReactDOM 进行框架前端组件化开发</li>
+<li>React-Router：SPA 的核心，与后端路由配合完成应用路由</li>
+<li>React-router-transition：转场过渡效果就是要做到如丝般顺滑～</li>
+</ul>
+</li>
+<li><p>前端入口 <a href="https://github.com/elevenBeans/WeVoting/blob/master/client/index.jsx#L25" target="_blank" rel="external">(View source)</a></p>
+<p>利用 React router 将首页指向 Home 组件，定义三个新路由 list、detail、new，分别指向对应页面组件。</p>
+</li>
+</ul>
+<pre><code>&lt;Router key={Math.random()} history={browserHistory} &gt;
+  &lt;Route path=&quot;/&quot; component={App}&gt;
+    &lt;IndexRoute component={Home}/&gt;
+
+    &lt;Route path=&quot;/list(/:name)&quot; component={List}&gt;
+    &lt;/Route&gt;
+
+    &lt;Route path=&quot;/detail(/:id)&quot; component={Detail}&gt;
+    &lt;/Route&gt;
+
+    &lt;Route path=&quot;/new&quot; component={New}&gt;&lt;/Route&gt;
+
+  &lt;/Route&gt;
+&lt;/Router&gt;
+</code></pre><ul>
+<li><p>页面级组件<br>每一个页面级组件对应一个应用页面，均继承自 <code>React.Component</code></p>
+<ul>
+<li>home <a href="https://github.com/elevenBeans/WeVoting/blob/master/client/home.jsx" target="_blank" rel="external">(View source)</a><ul>
+<li>作为应用的首页, 列出应用主要功能和信息</li>
+<li>对应 router: <code>/</code></li>
+</ul>
+</li>
+<li>list <a href="https://github.com/elevenBeans/WeVoting/blob/master/client/list.jsx" target="_blank" rel="external">(View source)</a><ul>
+<li>列表页展示所有 polls 及对应 title、owner 等概要信息</li>
+<li>对应 router: <code>/list(/:name)</code></li>
+</ul>
+</li>
+<li>detail <a href="https://github.com/elevenBeans/WeVoting/blob/master/client/detail.jsx" target="_blank" rel="external">(View source)</a><ul>
+<li>详情页展示指定 poll 的详细信息</li>
+<li>对应 router: <code>/detail(/:id)</code></li>
+</ul>
+</li>
+<li>new <a href="https://github.com/elevenBeans/WeVoting/blob/master/client/new.jsx" target="_blank" rel="external">(View source)</a><ul>
+<li>新建页收集新建 poll 的必要信息</li>
+<li>对应 router: <code>/new</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>公共组件</p>
+<ul>
+<li><p>header <a href="https://github.com/elevenBeans/WeVoting/blob/master/client/components/header.jsx" target="_blank" rel="external">(View source)</a>: 所有页面的共同头部，包含个性化 menu、用户头像姓名，登入登出按钮等等</p>
+</li>
+<li><p>footer <a href="https://github.com/elevenBeans/WeVoting/blob/master/client/components/footer.jsx" target="_blank" rel="external">(View source)</a>: 可复用的页面底部，包含 copyright 信息</p>
+</li>
+<li>loading: 加载动效 （推荐一个工具 <a href="https://loading.io/" target="_blank" rel="external">loading.io</a>）</li>
+<li>spning: 按钮等待动效</li>
+</ul>
+</li>
+<li>异步请求<ul>
+<li><a href="http://www.phperz.com/article/15/0813/148111.html#$.ajax" target="_blank" rel="external">zepto ajax</a> (均采用 POST, 整站开发, 不跨域)</li>
+</ul>
+</li>
+</ul>
+<h2 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h2><ul>
+<li>概述<ul>
+<li>使用 Express 框架搭建后端服务，作为 SPA 的入口和容器。</li>
+<li>使用单一职责的 <code>express.Router()</code>，配合前端 React-router。处理外部直接 Landing、原地重刷新以及区分 404 页面:</li>
+<li>使用 ejs 模版引擎作为主应用的后端 View:</li>
+</ul>
+</li>
+<li>Views<ul>
+<li>index <a href="https://github.com/elevenBeans/WeVoting/blob/master/views/index.ejs" target="_blank" rel="external">(View source)</a>: 后端入口模版，提供 <code>React.reader()</code> 的目标 DOM 节点</li>
+<li>header <a href="https://github.com/elevenBeans/WeVoting/blob/master/views/header.ejs" target="_blank" rel="external">(View source)</a>: 模版公共头部：HTML 的 <code>&lt;head&gt;</code> 信息，以及在其中需要同步加载的 js、css 资源</li>
+<li>footer <a href="https://github.com/elevenBeans/WeVoting/blob/master/views/footer.ejs" target="_blank" rel="external">(View source)</a>: 模版公共尾部： 主要用于加载 HTML 尾部 js 资源</li>
+<li>error <a href="https://github.com/elevenBeans/WeVoting/blob/master/views/error.ejs" target="_blank" rel="external">(View source)</a>: 错误页模版</li>
+</ul>
+</li>
+<li><p>Views Router <a href="https://github.com/elevenBeans/WeVoting/blob/master/controller/routes/view.js" target="_blank" rel="external">(View source)</a></p>
+<p>所有 Landing 或者页面刷新的链接都由后端同一收口到 views 中的 index，再由前端统一处理。</p>
+</li>
+</ul>
+<pre><code>router.get(&apos;/detail/:id&apos;, throwToHome);
+router.get(&apos;/detail&apos;, throwToHome);
+router.get(&apos;/list/:name&apos;, throwToHome);
+router.get(&apos;/list&apos;, throwToHome);
+router.get(&apos;/new&apos;, throwToHome);
+
+router.get(&apos;/&apos;, throwToHome);
+router.get(&apos;*&apos;, throwToError);
+
+function throwToHome(request, response){
+  response.render(&apos;index&apos;,
+  {
+    cdnUrl: config.CDN_URL
+  }
+  );
+}
+function throwToError(request, response){
+  response.render(&apos;error&apos;,
+  {
+    cdnUrl: config.CDN_URL
+  }
+  );
+}
+</code></pre><ul>
+<li>第三方用户登陆<ul>
+<li>选择 Github API，详细见 <a href="https://developer.github.com/v3/oauth/#web-application-flow" target="_blank" rel="external">Github OAuth - Web Application Flow</a>  </li>
+</ul>
+</li>
+<li><strong>API</strong> <a href="https://github.com/elevenBeans/WeVoting/blob/master/controller/routes/api.js" target="_blank" rel="external">(View source)</a><ul>
+<li><code>/getPollList</code>: 获取 polls 列表<ul>
+<li>入参: <code>userName</code> (用户名)，可获取该用户创建的所有 polls; 缺省 <code>userName</code> 则获取所有存在的 polls</li>
+<li>返回: 符合条件的 polls 列表</li>
+</ul>
+</li>
+<li><code>/getPollByID</code>: 获取指定的 poll 的详细信息<ul>
+<li>入参: <code>pollID</code> (poll 唯一标识)</li>
+<li>返回: 一个包含指定 poll 的单元素列表</li>
+</ul>
+</li>
+<li><code>/upDatePollByID</code>: 更新一个 poll (投票)<ul>
+<li>入参 <code>pollID</code>  (poll 唯一标识); <code>index</code>（用户具体投给的选项编号）; <code>voter</code>（传递投票的用户名，避免用户对同一个 poll 多次投票)</li>
+<li>返回 <code>result</code>: <code>bool</code> 类型值，告诉你是否更新成功</li>
+</ul>
+</li>
+<li><code>/insertPoll</code>: 新建一个 poll<ul>
+<li>入参<code>title</code>(poll 题目),<code>description</code>(poll 描述),<code>options</code>: (poll 中的选项),<code>ownerName</code>(创建用户), <code>voterList</code>(投票用户，初始为空数组)</li>
+<li>返回 <code>result</code>: <code>bool</code> 类型值，告诉你是否创建成功</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><ul>
+<li><p>Mongodb<br>MongoDB 是一个基于分布式文件存储的数据库。由 C++ 语言编写。旨在为 WEB 应用提供可扩展的高性能数据存储解决方案。MongoDB 是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的。</p>
+</li>
+<li><p>环境安装和配置</p>
+<ul>
+<li>下载：<a href="https://docs.mongodb.com/" target="_blank" rel="external">Download</a></li>
+<li>安装：解压压缩文件至你任何想要存放的地方</li>
+<li>配置：二进制文件可以直接执行, 配置你的 <code>.bashrc</code>文件：<code>export PATH=&lt;mongodb-install-directory&gt;/bin:$PATH</code>, 例如我的是 <code>export PATH=$HOME/mongodb/bin:$PATH</code></li>
+<li><p>运行 mongodb 服务, 默认 27017 端口</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongod</div></pre></td></tr></table></figure>
+</li>
+<li><p>运行 Cli， 用命令行对于数据库的常用操作</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongo // 进入 Cli</div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">show dbs // 显示所有数据库</div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">use &lt;dbName&gt; // 进入指定数据库</div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">show collections // 显示所有 collections (table)</div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.&lt;collectionName&gt;.find(&#123;&#125;) // 查询</div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.&lt;dbname&gt;.deleteOne(&#123;&#125;) // 删除</div></pre></td></tr></table></figure>
+<ul>
+<li>Express 连接 Mongodb <a href="https://github.com/elevenBeans/WeVoting/blob/master/controller/DBhandler.js" target="_blank" rel="external">(View source)</a>：</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>var dbUrl = &apos;mongodb://localhost:27017/voting&apos; 
+var mongo = require(&quot;mongodb&quot;).MongoClient;
+mongo.connect(dbUrl, function(err, db){
+
+  var pullList = db.collection(&apos;pollList&apos;);
+  pullList.find({ownerName: ownerName},{}).sort({timestamp: -1}).toArray(function(err, docs){
+  if(err){
+      db.close();
+      errCal(err);
+  } else {
+      db.close();
+      sucCal(docs);
+  }
+  });
+});    
+</code></pre><ul>
+<li>数据库 collection (table) 设计<br>userList schema:</li>
+</ul>
+<pre><code>{
+    &quot;type&quot;: &quot;array&quot;,
+    &quot;items&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+            &quot;_id&quot;: {
+                &quot;type&quot;: &quot;integer&quot;
+            },
+            &quot;email&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;name&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;timestamp&quot;: {
+                &quot;type&quot;: &quot;integer&quot;
+            }
+        }
+    }
+}
+</code></pre><p>pollList schema:</p>
+<pre><code>{
+    &quot;type&quot;: &quot;array&quot;,
+    &quot;items&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+            &quot;_id&quot;: {
+                &quot;type&quot;: &quot;integer&quot;
+            },
+            &quot;description&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;options&quot;: {
+                &quot;type&quot;: &quot;array&quot;,
+                &quot;items&quot;: {
+                    &quot;type&quot;: &quot;object&quot;,
+                    &quot;properties&quot;: {
+                        &quot;count&quot;: {
+                            &quot;type&quot;: &quot;integer&quot;
+                        },
+                        &quot;index&quot;: {
+                            &quot;type&quot;: &quot;integer&quot;
+                        },
+                        &quot;option&quot;: {
+                            &quot;type&quot;: &quot;string&quot;
+                        }
+                    }
+                }
+            },
+            &quot;ownerName&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;pollID&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;title&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;voterList&quot;: {
+                &quot;type&quot;: &quot;array&quot;,
+                &quot;items&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                }
+            }
+        }
+    }
+}
+</code></pre><h1 id="发布过程"><a href="#发布过程" class="headerlink" title="发布过程"></a>发布过程</h1><h2 id="heroku-发布代码至云服务"><a href="#heroku-发布代码至云服务" class="headerlink" title="heroku 发布代码至云服务"></a>heroku 发布代码至云服务</h2><p><a href="http://www.heroku.com/" target="_blank" rel="external">官网</a> (可能需要梯子)</p>
+<ul>
+<li>下载 Heroku Cli <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up" target="_blank" rel="external">Download</a></li>
+<li><p>进入项目根目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd WeVoting</div></pre></td></tr></table></figure>
+</li>
+<li><p>执行 <code>heroku login</code> 进行登录，无账号则去官网申请</p>
+</li>
+<li><p>执行 <code>heroku create &lt;yourAppName&gt;</code> 创建 App，这里的<code>appName</code> 也是你在<code>herokuapp.com</code> 下的三级域名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">heroku create we-voting-ele</div></pre></td></tr></table></figure>
+<p>  最终域名为：<a href="https://we-voting-ele.herokuapp.com" target="_blank" rel="external">https://we-voting-ele.herokuapp.com</a></p>
+</li>
+<li>推送代码到 heroku 进行发布</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push heroku master</div></pre></td></tr></table></figure>
+<ul>
+<li><p>打开应用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">heroku open</div></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个 Procfile 设置服务开启命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">web: node index.js</div></pre></td></tr></table></figure>
+</li>
+<li><p>Scale the app</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">heroku ps:scale web=1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="heroku-addons-部署-mongodb-云服务-mLab-MongoDB"><a href="#heroku-addons-部署-mongodb-云服务-mLab-MongoDB" class="headerlink" title="heroku addons 部署 mongodb 云服务 mLab MongoDB"></a>heroku addons 部署 mongodb 云服务 <a href="https://elements.heroku.com/addons/mongolab" target="_blank" rel="external">mLab MongoDB</a></h2><ul>
+<li><p>一行命令部署 mLab MongoDB 免费版</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">heroku addons:create mongolab:sandbox</div></pre></td></tr></table></figure>
+</li>
+<li><p>获取云数据库服务链接 <code>Mongodb_uri</code>, 用于后台代码连接 Mongodb 服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">heroku config</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>详情请见：<a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction" target="_blank" rel="external">Getting Started on Heroku with Node.js</a> </p>
+<p>Done ~</p>
+<p><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/voteApp.png" alt="img1"></p>
+<h1 id="LISENCE"><a href="#LISENCE" class="headerlink" title="LISENCE"></a>LISENCE</h1><p>代码开源，<a href="http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html" target="_blank" rel="external">一张图告诉你开源协议怎么选 by ryfeng</a></p>
+<p>看完了就去 <a href="https://github.com/elevenBeans/WeVoting" target="_blank" rel="external">Git repository</a> 加个星星吧 : )<br>能互相 follow 就更好了 ～</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/04/10/开源精神从我做起/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">开源精神, 从我做起</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="撸了一个投票App" data-title="全栈开发实例：如何独立开发/发布一个WebAPP" data-url="http://yoursite.com/2017/05/16/撸了一个投票App/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Elevenbeans
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+  <script>hljs.initHighlightingOnLoad();</script>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
