@@ -1,223 +1,172 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>开源精神, 从我做起 | Elevenbeans&#39; Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个老生常谈的话题 …依稀记得早前我还是一只硕士狗，所在实验室是一个相对封闭的环境：不用 git，用内网 svn，所有软件代码都有著作权，所谓核心算法和创新点都有专利保护。和开源精神基本上不搭嘎，甚至相悖。在很多热爱程序的人心底，如此用着开源的IDE (QT creator), 用着开源的的是音频编解码软件（ffmpeg），造出的应用却关起门来收费，可谓是开源世界的 “蛀虫”。
-还记得，突然有那">
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="开源精神, 从我做起"/>
+
+
+
+
+  <meta name="keywords" content="freecodecamp,open source," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Elevenbeans' Blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2017/04/10/开源精神从我做起/"/>
+
+
+<meta name="description" content="一个老生常谈的话题 …依稀记得早前我还是一只硕士狗，所在实验室是一个相对封闭的环境：不用 git，用内网 svn，所有软件代码都有著作权，所谓核心算法和创新点都有专利保护。和开源精神基本上不搭嘎，甚至相悖。在很多热爱程序的人心底，如此用着开源的IDE (QT creator), 用着开源的的是音频编解码软件（ffmpeg），造出的应用却关起门来收费，可谓是开源世界的 “蛀虫”。
+还记得，突然有那么">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开源精神, 从我做起">
 <meta property="og:url" content="http://yoursite.com/2017/04/10/开源精神从我做起/index.html">
 <meta property="og:site_name" content="Elevenbeans' Blog">
 <meta property="og:description" content="一个老生常谈的话题 …依稀记得早前我还是一只硕士狗，所在实验室是一个相对封闭的环境：不用 git，用内网 svn，所有软件代码都有著作权，所谓核心算法和创新点都有专利保护。和开源精神基本上不搭嘎，甚至相悖。在很多热爱程序的人心底，如此用着开源的IDE (QT creator), 用着开源的的是音频编解码软件（ffmpeg），造出的应用却关起门来收费，可谓是开源世界的 “蛀虫”。
-还记得，突然有那">
+还记得，突然有那么">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/FED-certificate.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/contributor.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/firstPR.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/Donation.png">
-<meta property="og:updated_time" content="2017-04-19T09:54:13.000Z">
+<meta property="og:updated_time" content="2017-06-06T14:55:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开源精神, 从我做起">
 <meta name="twitter:description" content="一个老生常谈的话题 …依稀记得早前我还是一只硕士狗，所在实验室是一个相对封闭的环境：不用 git，用内网 svn，所有软件代码都有著作权，所谓核心算法和创新点都有专利保护。和开源精神基本上不搭嘎，甚至相悖。在很多热爱程序的人心底，如此用着开源的IDE (QT creator), 用着开源的的是音频编解码软件（ffmpeg），造出的应用却关起门来收费，可谓是开源世界的 “蛀虫”。
-还记得，突然有那">
+还记得，突然有那么">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/FED-certificate.png">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
   
-    <link rel="alternative" href="/atom.xml" title="Elevenbeans&#39; Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
-  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
 
-</head>
 
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-			<img lazy-src="https://img.alicdn.com/tps/TB1SVqYJFXXXXa_XXXXXXXXXXXX-700-700.jpg" class="js-avatar">
-			
-		</a>
 
-		<hgroup>
-		  <h1 class="header-author"><a href="/">Elevenbeans</a></h1>
-		</hgroup>
+    <title> 开源精神, 从我做起 - Elevenbeans' Blog </title>
+  </head>
 
-		
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">Elevenbeans' Blog</a>
+    </h1>
 
-		
-
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">主页</a></li>
-				        
-							<li><a href="/archives">所有文章</a></li>
-				        
-							<li><a href="/categories/tech">技术分享</a></li>
-				        
-							<li><a href="/categories/life">生活感悟</a></li>
-				        
-							<li><a href="/about">About me</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-								<a class="github" target="_blank" href="https://github.com/elevenBeans" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="http://weibo.com/u/2381593582" title="weibo">weibo</a>
-					        
-								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/shi-yike-dou-zi/activities" title="zhihu">zhihu</a>
-					        
-								<a class="mail" target="_blank" href="mailto://elevenbeansf2e@gmai.com" title="mail">mail</a>
-					        
-						</div>
-					</nav>
-				</section>
-				
-				
-				
-				
-				<section class="switch-part switch-part3">
-					<div id="js-friends">
-					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
-			        
-			        </div>
-				</section>
-				
-
-				
-				
-				<section class="switch-part switch-part4">
-				
-					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
-				</section>
-				
-			</div>
-		</div>
-	</header>				
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/">
+                            
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                All
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/categories/tech">
+                            
+                            
+                                Tech
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/categories/life">
+                            
+                            
+                                Life
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About me
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
 </div>
 
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">Elevenbeans</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-			
-				<img lazy-src="https://img.alicdn.com/tps/TB1SVqYJFXXXXa_XXXXXXXXXXXX-700-700.jpg" class="js-avatar">
-			
-			</div>
-			<hgroup>
-			  <h1 class="header-author">Elevenbeans</h1>
-			</hgroup>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">主页</a></li>
-		        
-					<li><a href="/archives">所有文章</a></li>
-		        
-					<li><a href="/categories/tech">技术分享</a></li>
-		        
-					<li><a href="/categories/life">生活感悟</a></li>
-		        
-					<li><a href="/about">About me</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="https://github.com/elevenBeans" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="http://weibo.com/u/2381593582" title="weibo">weibo</a>
-			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/shi-yike-dou-zi/activities" title="zhihu">zhihu</a>
-			        
-						<a class="mail" target="_blank" href="mailto://elevenbeansf2e@gmai.com" title="mail">mail</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
-</nav>
-
-      <div class="body-wrap"><article id="post-开源精神从我做起" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/10/开源精神从我做起/" class="article-date">
-  	<time datetime="2017-04-10T03:53:10.000Z" itemprop="datePublished">2017-04-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      开源精神, 从我做起
-    </h1>
-  
-
       </header>
-      
-      <div class="article-info article-info-post">
+      <div id="content">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/freecodecamp/">freecodecamp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/open-source/">open source</a></li></ul>
-	</div>
-
+    <div id="primary">
         
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/life/">life</a>
-	</div>
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          开源精神, 从我做起
+        
+      </h1>
+
+      <time class="post-time">
+          Apr 10 2017
+      </time>
+    </header>
 
 
-        <div class="clearfix"></div>
-      </div>
-      
+
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><h2 id="一个老生常谈的话题-…"><a href="#一个老生常谈的话题-…" class="headerlink" title="一个老生常谈的话题 …"></a>一个老生常谈的话题 …</h2><p>依稀记得早前我还是一只硕士狗，所在实验室是一个相对封闭的环境：不用 git，用内网 svn，所有软件代码都有著作权，所谓核心算法和创新点都有专利保护。和开源精神基本上不搭嘎，甚至相悖。在很多热爱程序的人心底，如此用着开源的IDE (QT creator), 用着开源的的是音频编解码软件（ffmpeg），造出的应用却关起门来收费，可谓是开源世界的 “蛀虫”。</p>
+            <div class="post-content">
+            <script src="/assets/js/APlayer.min.js"> </script><h2 id="一个老生常谈的话题-…"><a href="#一个老生常谈的话题-…" class="headerlink" title="一个老生常谈的话题 …"></a>一个老生常谈的话题 …</h2><p>依稀记得早前我还是一只硕士狗，所在实验室是一个相对封闭的环境：不用 git，用内网 svn，所有软件代码都有著作权，所谓核心算法和创新点都有专利保护。和开源精神基本上不搭嘎，甚至相悖。在很多热爱程序的人心底，如此用着开源的IDE (QT creator), 用着开源的的是音频编解码软件（ffmpeg），造出的应用却关起门来收费，可谓是开源世界的 “蛀虫”。</p>
 <p>还记得，突然有那么一段时间，GitHub 被墙的时候，实验室老师感慨：多少高校的项目都要用 GitHub 上面的开源代码，真要全面封杀的话，会被学术界骂死。当然，要花钱搞 VPN 增加预算喽 ～</p>
 <p>黑色幽默 …</p>
+<a id="more"></a>
 <p>以至于很久以来，我个人对于开源世界的现状，特别是国内开源一直有深深的误解。现在看来，除了他人的观念影响以外，自己缺乏独立思考和观察也算是一个失误。</p>
 <p>不吹不黑，从 <a href="https://www.zhihu.com/question/21965679" target="_blank" rel="external">中国开源现状如何</a>中那个高票答案的数据可以十分明显的看出，国人在开源世界的贡献可圈可点。顺便给阿里巴巴点个赞 : )</p>
 <p>这一篇，送给对于开源仍然心存畏惧的人：</p>
@@ -229,142 +178,87 @@
 <h2 id="Become-a-contributor"><a href="#Become-a-contributor" class="headerlink" title="Become a contributor"></a>Become a contributor</h2><p><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/contributor.png" alt="img1"><br><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/firstPR.png" alt="img1"></p>
 <h2 id="Become-a-supporter"><a href="#Become-a-supporter" class="headerlink" title="Become a supporter"></a>Become a supporter</h2><p><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/Donation.png" alt="img1"></p>
 
-      
-    </div>
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/freecodecamp/">freecodecamp</a>
+          
+            <a href="/tags/open-source/">open source</a>
+          
+        </div>
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/05/16/撸了一个投票App/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">全栈开发实例：如何独立开发/发布一个WebAPP</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2017/04/05/Game-of-life/">
+        <span class="next-text nav-default">Game of life</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
     
   </div>
-  
+
+
+      </footer>
     
-<nav id="article-nav">
-  
-    <a href="/2017/05/16/撸了一个投票App/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          全栈开发实例：如何独立开发/发布一个WebAPP
-        
+  </article>
+
+    </div>
+
       </div>
-    </a>
-  
-  
-    <a href="/2017/04/05/Game-of-life/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Game of life</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
 
-  
-</article>
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2017
+    <span class="footer-author">Elevenbeans.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+</span>
 
+      </footer>
 
-<div class="share_jia">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">Share to: &nbsp; </span>
-		<a class="jiathis_button_facebook"></a> 
-    <a class="jiathis_button_twitter"></a>
-    <a class="jiathis_button_plus"></a> 
-    <a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-
-
-
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="开源精神从我做起" data-title="开源精神, 从我做起" data-url="http://yoursite.com/2017/04/10/开源精神从我做起/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
-
-</div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2017 Elevenbeans
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
-    </div>
-  </div>
-  <script>hljs.initHighlightingOnLoad();</script>
-</footer>
-
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
-<script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: true,
-		animate: true,
-		isHome: false,
-		isPost: true,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false
-	}
-</script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script src="/js/main.js"></script>
+    
 
 
 
 
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
 
+  
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-  </div>
-</body>
+  </body>
 </html>
