@@ -26,7 +26,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/bitbug_favicon.ico?v=1.1" />
 
 
 
@@ -93,25 +93,7 @@
                         <a href="/archives">
                             
                             
-                                All
-                            
-                        </a>
-                    </li>
-                
-                    <li class="menu-item">
-                        <a href="/categories/tech">
-                            
-                            
-                                Tech
-                            
-                        </a>
-                    </li>
-                
-                    <li class="menu-item">
-                        <a href="/categories/life">
-                            
-                            
-                                Life
+                                Archives
                             
                         </a>
                     </li>
@@ -120,7 +102,7 @@
                         <a href="/about">
                             
                             
-                                About me
+                                About
                             
                         </a>
                     </li>
@@ -388,46 +370,6 @@
 
             
               <h2 id="使用-操作符转换布尔值"><a href="#使用-操作符转换布尔值" class="headerlink" title="使用!!操作符转换布尔值"></a>使用<code>!!</code>操作符转换布尔值</h2><p>有时候我们需要对一个变量查检其是否存在或者检查其值是否有一个有效值，如果存在就返回<code>true</code>值。可以使用<code>!!</code>前缀做检测，只要变量的值为:<code>0</code>、<code>null</code>、<code>&quot;&quot;</code>、<code>undefined</code>或者<code>NaN</code>都将返回的是<code>false</code>，反之返回的是<code>true</code>。如下：</p>
-<pre><code>var temp = &quot;this is awsome!&quot;;
-console.log(temp); // this is awsome
-console.log(!!temp); // true
-
-var temp = 0;
-console.log(temp); // 0
-console.log(!!temp); // false
-
-var temp = &quot;&quot;;
-console.log(temp); // &quot;&quot;
-console.log(!!temp); // false
-...
-</code></pre><p>当然，<code>!</code> 操作符也可以进行上述转换，不过它恰好会得到相反的布尔值。</p>
-<h2 id="使用-将字符串转换成数字"><a href="#使用-将字符串转换成数字" class="headerlink" title="使用+将字符串转换成数字"></a>使用<code>+</code>将字符串转换成数字</h2><p>这个技巧适合用于数字形式的字符串 or 布尔值转数字，否则将返回 <code>NaN</code>：</p>
-<pre><code>var temp = &quot;112&quot;;
-console.log(temp); // 112
-console.log(typeof(temp)); // string
-console.log(+temp); // 112
-console.log(typeof(+temp)); // number
-
-var temp = &quot;asdf&quot;;
-console.log(+temp);//NaN
-
-var temp = false;
-console.log(+temp);//0
-
-var temp = true;
-console.log(+temp);//1
-</code></pre><p>也适用于<code>Date</code>，它将返回的是时间戳数字：</p>
-<pre><code>console.log(new Date()) // Sat May 21 2016 21:24:41 GMT+0800 (CST)
-console.log(+new Date()) // 1463837110400
-</code></pre><h2 id="并-amp-amp-条件符"><a href="#并-amp-amp-条件符" class="headerlink" title="并 &amp;&amp; 条件符"></a>并 <code>&amp;&amp;</code> 条件符</h2><p>如果你有一段这样的代码：</p>
-<pre><code>if (isReady) {
-    login();
-}
-</code></pre><p>可以简写成这样：</p>
-<p><code>isReady &amp;&amp; login();</code></p>
-<p>你也可以这样检测一些属性或函数是否存在于一个对象中，如下：</p>
-<p> <code>user &amp;&amp; user.name</code> 或者 <code>user &amp;&amp; user.login();</code></p>
-<p> <strong><em>这个技巧在实际项目中十分常见，它可以有效防止后端接口异常时，返回的数据对象结构变化，或属性 or 方法置空 or 改变导致程序报错终止。</em></strong></p>
         </div>
             
           
@@ -463,21 +405,6 @@ console.log(+new Date()) // 1463837110400
               <p><a href="http://www.cnblogs.com/fsjohnhuang/p/4147810.html">概念请点这里</a></p>
 <h2 id="现状描述"><a href="#现状描述" class="headerlink" title="现状描述"></a><strong>现状描述</strong></h2><p>天猫几乎所有的频道都有 <strong><em>下拉刷新</em></strong> 的逻辑。其中，品牌特卖和焕新在做下拉刷新的时候均使用了一个叫做 <code>bottomloader</code> 的组件。该组件中采用了 <strong><em>throttle</em></strong> 方法对于连续的<code>scroll</code>事件所触发业务逻辑（包含数据加载）的次数进行了稀释，从原生的像素级别的滑动触发，稀释到了间隔几百毫秒触发一次，从而极大的降低了<code>scroll</code>事件对业务逻辑的高频触发，提高了滑动流畅度以及页面性能。</p>
 <p>代码如下：</p>
-<pre><code>var detect = throttle(function(){ 
-  //添加业务逻辑
-}, 200);
-
-window.addEventListener(&apos;scroll&apos;, detect, false);
-
-function throttle(action, delay){
-  var self = this;
-  var curr = +new Date();
-  if (curr - self.last &gt; delay){
-    action.apply(this, arguments);
-    self.last = curr ;
-  }
-}
-</code></pre><h2 id="问题发现"><a href="#问题发现" class="headerlink" title="问题发现"></a><strong>问题发现</strong></h2><p>这两个频道的测试同学做回归的时候均曾提出，当屏幕被快速滑动到底部时候，下一个Page的资源会经常加载不出来。特别是在 Chrome 模拟器中，通过鼠标拖动可以达到极快的滑动速度时，资源加载不出的情况更是发生频率很高。经排查，原因也很简单，就是由于代码中采用 <strong><em>throttle</em></strong> 方法做了节流。当使用者滑动超快，一次滑动事件的时间低于设定的节流阈值（ 比如 500 毫秒），滑动事件就无法触发具体的业务逻辑，无法加载新数据。<br>
         </div>
             
           
@@ -584,17 +511,22 @@ function throttle(action, delay){
     <div id="secondary">
     
     <section id="about" class="widget-area">
-        <h3 class="widget-title"></h3>
-        
+        <h3 class="widget-title">Contact</h3>
+        <div style="display:inline-block;background:#333;border-radius:12px;width:24px;height:24px"> <a href="https://github.com/elevenBeans" target="_blank"> <img style="position:relative;left:4px" src="img/github.png" /> </a> </div> <div style="display:inline-block;background:#d14836;border-radius:12px;width:24px;height:24px"> <a href="mailto://elevenbeansf2e@gmail.com" target="_blank"> <img style="position:relative;left:4px" src="img/mail.png" /> </a> </div> <div style="display:inline-block;background:#4267b2;border-radius:12px;width:24px;height:24px"> <a href="https://www.facebook.com/profile.php?id=100001896103903" target="_blank"> <img style="position:relative;left:4px" src="img/facebook.png" /> </a> </div> <div style="display:inline-block;background:#ff8140;border-radius:12px;width:24px;height:24px"> <a href="http://weibo.com/u/2381593582" target="_blank"> <img style="position:relative;left:4px" src="img/weibo.png" /> </a> </div>
     </section>
 
 
     
+    <section id="tags" class="widget-area widget_categories">
+        <h3 class="widget-title">Categories</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/life/">life</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tech/">tech</a><span class="category-list-count">14</span></li></ul>
+    </section>
+
 
     
     <section id="tags" class="widget-area widget_tags">
         <h3 class="widget-title">Tags</h3>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/1024/">1024</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/第一篇/">第一篇</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/宋冬野/">宋冬野</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一年小结/">一年小结</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DomReady/">DomReady</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/">game</a><span class="tag-list-count">1</span></li></ul>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS-技巧/">JS 技巧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/1024/">1024</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/第一篇/">第一篇</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/宋冬野/">宋冬野</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一年小结/">一年小结</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DomReady/">DomReady</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/">game</a><span class="tag-list-count">1</span></li></ul>
     </section>
 
 
