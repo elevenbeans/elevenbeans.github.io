@@ -61,6 +61,8 @@
 				        
 							<li><a href="/categories/life">生活感悟</a></li>
 				        
+							<li><a href="/about">About me</a></li>
+				        
 						</ul>
 					</nav>
 					<nav class="header-nav">
@@ -71,6 +73,8 @@
 								<a class="weibo" target="_blank" href="http://weibo.com/u/2381593582" title="weibo">weibo</a>
 					        
 								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/shi-yike-dou-zi/activities" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="mailto://elevenbeansf2e@gmai.com" title="mail">mail</a>
 					        
 						</div>
 					</nav>
@@ -139,6 +143,8 @@
 		        
 					<li><a href="/categories/life">生活感悟</a></li>
 		        
+					<li><a href="/about">About me</a></li>
+		        
 		        <div class="clearfix"></div>
 				</ul>
 			</nav>
@@ -151,6 +157,8 @@
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/shi-yike-dou-zi/activities" title="zhihu">zhihu</a>
 			        
+						<a class="mail" target="_blank" href="mailto://elevenbeansf2e@gmai.com" title="mail">mail</a>
+			        
 				</div>
 			</nav>
 		</header>				
@@ -158,6 +166,223 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-移动端浏览器调试方法汇总" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/06/移动端浏览器调试方法汇总/" class="article-date">
+  	<time datetime="2017-06-06T05:50:01.000Z" itemprop="datePublished">2017-06-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/06/移动端浏览器调试方法汇总/">移动端浏览器调试方法汇总</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><p>浏览器兼容性一直以来都是让 Web 前端开发人员头疼的问题。虽然移动端其内核趋于统一（webkit），兼容问题也不再像 PC 端那么严重。但在生产环境当中，考虑到第三方浏览器在内核上面的 “优化”，如（wechat、UC、QQ、360 等），兼容问题依旧是无法忽略。</p>
+<p>本文汇总一下目前比较常见的 Web 移动端调试方法。</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><table>
+<thead>
+<tr>
+<th>方法分类</th>
+<th>调试难度</th>
+<th>可调试目标</th>
+<th>调试效果</th>
+<th><strong>建议使用优先级</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chrome 模拟器</td>
+<td>简单</td>
+<td>所有</td>
+<td>模拟效果，基本能调试 UI 及标准 JS 所有问题</td>
+<td>极高</td>
+</tr>
+<tr>
+<td>Android 上的 Chrome</td>
+<td>一般</td>
+<td>Android Chrome</td>
+<td>真机效果，支持单步调试</td>
+<td>较高</td>
+</tr>
+<tr>
+<td>IOS 上的 Safari</td>
+<td>一般，需要 Mac</td>
+<td>IOS Safari</td>
+<td>真机效果，支持单步调试</td>
+<td>高</td>
+</tr>
+<tr>
+<td>Android 上的 UC</td>
+<td>困难，需要 adb 辅助工具</td>
+<td>Android UC</td>
+<td>真机效果，支持单步调试</td>
+<td>中等</td>
+</tr>
+<tr>
+<td>Android APP里的 webview</td>
+<td>困难</td>
+<td>Android Webview</td>
+<td>真机效果</td>
+<td>低</td>
+</tr>
+<tr>
+<td>Android 上的 x5 内核（微信等）</td>
+<td>困难</td>
+<td>Android x5 browser</td>
+<td>真机效果</td>
+<td>低</td>
+</tr>
+<tr>
+<td>spy-debugger</td>
+<td>一般</td>
+<td>所有</td>
+<td>真机效果，不支持单步调试</td>
+<td>最低</td>
+</tr>
+</tbody>
+</table>
+<h1 id="详细方法"><a href="#详细方法" class="headerlink" title="详细方法"></a>详细方法</h1><h4 id="Chrome-模拟器"><a href="#Chrome-模拟器" class="headerlink" title="Chrome 模拟器"></a>Chrome 模拟器</h4><ol>
+<li><p>在 PC 上打开 Chrome 浏览器，打开想要调试的页面，然后右上角设置中打开开发人员工具(More Tools –&gt; Developer Tools), 或者:</p>
+<ul>
+<li>点击鼠标右键点击“检查” (inspect)，即可开始调试</li>
+<li>使用快捷键: Windows 是 <code>Ctrl + shift + I</code>, Mac 为 <code>option + command + I</code></li>
+</ul>
+</li>
+<li><p>默认在页面左侧顶部可以看到设备选择下拉菜单 Device, 右侧会有 HTML、CSS 的调试界面，右下侧会有 JS 的 <code>console</code> 面板</p>
+</li>
+</ol>
+<h4 id="Android-上的-Chrome-（需要梯子）"><a href="#Android-上的-Chrome-（需要梯子）" class="headerlink" title="Android 上的 Chrome （需要梯子）"></a>Android 上的 Chrome （需要梯子）</h4><ol>
+<li>在 Android 和 PC 设备上均需安装 <a href="http://www.google.cn/chrome/" target="_blank" rel="external">Chrome 浏览器</a>。在 Android 上安装对应的设备驱动（如果找不到，<a href="https://www.wandoujia.com/" target="_blank" rel="external">豌豆荚</a>是首选辅助工具）</li>
+<li>用 USB 线连接 Android 和 PC 设备，开启当前 Android 设备的 USB 调试。</li>
+<li>在 PC 上的 Chrome 地址栏输入 <code>chrome://inspect</code> 然后回车，或通过菜单图标→工具→检查设备，进入调试界面</li>
+<li>在移动设备任何时候弹出的“是否允许远程调试”上，选择“允许”</li>
+<li>PC 的 inspect 页面列表将展示已在 Android 上的 Chrome 中打开的页面。点击对应的 “inspect” 按钮则可开始调试</li>
+</ol>
+<h4 id="IOS-上的-Safari"><a href="#IOS-上的-Safari" class="headerlink" title="IOS 上的 Safari"></a>IOS 上的 Safari</h4><ol>
+<li>在 IOS 设备上打开允许调试：设置 –&gt; Safari –&gt; 高级 –&gt; 打开 “web检查器”</li>
+<li>在 MAC 上打开 Safari 的开发菜单：顶部菜单栏 “Safari” –&gt; 偏好设置 –&gt; 高级 –&gt; 打开 在菜单栏中显示“开发”菜单 (show develop menu in menu bar)</li>
+<li>在 IOS 设备上的 Safari 浏览器中打开要调试的页面，然后切换到 MAC 的 Safari，在顶部菜单栏选择 “开发” –&gt; 找到你的 IOS 设备名称 –&gt; 右边二级菜单选择需要调试的对应标签页，即可开始远程调试</li>
+</ol>
+<h4 id="Android-上的-UC"><a href="#Android-上的-UC" class="headerlink" title="Android 上的 UC"></a>Android 上的 UC</h4><p>早前一篇有过详细描述，具体请戳 → <a href="/2016/08/11/UC-手机浏览器调试经验/">Here</a></p>
+<h4 id="Android-APP-里的-Webview-（类似-Android-上的-Chrome-需要梯子）"><a href="#Android-APP-里的-Webview-（类似-Android-上的-Chrome-需要梯子）" class="headerlink" title="Android APP 里的 Webview （类似 Android 上的 Chrome, 需要梯子）"></a>Android APP 里的 Webview （类似 Android 上的 Chrome, 需要梯子）</h4><ol>
+<li>通过修改代码，在APP内设置允许远程调试（安卓 &gt;= 4.4）, <a href="https://developers.google.com/web/tools/chrome-devtools/remote-debugging/?utm_source=dcc&amp;utm_medium=redirect&amp;utm_campaign=2016q3#configure-webview" target="_blank" rel="external">具体方法在这里</a> 。然后安装 APP</li>
+<li>在 PC 上安装 Chrome 浏览器（版本&gt;=32）和对应的 Android 设备驱动（如果找不到，可以 <a href="https://www.wandoujia.com/" target="_blank" rel="external">豌豆荚大法</a>）</li>
+<li>用 USB 线连接 Android 设备，开启当前 Android 设备的 USB 调试，在 PC 上的chrome地址栏输入 <code>chrome://inspect</code> 然后回车进入调试界面</li>
+<li>在移动设备上弹出的是否允许远程调试上，选择“允许”</li>
+<li>PC 的 inspect 页面列表将展示已在 Android webview 中打开的页面。点击对应的 “inspect” 按钮则可开始调试</li>
+</ol>
+<h4 id="Android-上的-x5-内核（主要针对微信等）"><a href="#Android-上的-x5-内核（主要针对微信等）" class="headerlink" title="Android 上的 x5 内核（主要针对微信等）"></a>Android 上的 x5 内核（主要针对微信等）</h4><p>过程略繁琐，但是这个方案应该是目前调试webview最强大的工具，支持断点调试、控制台打印等。以下步骤以微信举例：</p>
+<ul>
+<li><p>前期准备</p>
+<ul>
+<li>下载 <a href="http://res.imtt.qq.com///tbs_inspect/TbsSuiteNew.zip" target="_blank" rel="external">TbsSuiteNew.apk</a> 安装到手机</li>
+<li>打开微信，进入任意聊天界面，输入框内输入 <code>//deletetbs</code>，点发送</li>
+<li>打开 TbsSuiteNew，安装本地 tbs 内核</li>
+</ul>
+</li>
+</ul>
+<p>应用包名 微信：com.tencent.mm，qq：com.tencent.mobileqq，qq 空间：com.qzone<br>我们选择微信即可</p>
+<ul>
+<li>启动应用，用微信访问一个页面，停留1分钟左右，目的是让微信来静默安装刚导入进去的tbs_xxxx_inspector.apk 包</li>
+<li>一分钟过后打开TbsSuiteNew 检查是否安装成功。</li>
+</ul>
+<p>这里还需要在检查下 打开微信 随便进入一个 webview 页面 然后长按页面文字是否有水滴 ，若有则成功</p>
+<ul>
+<li><p>ADB安装</p>
+<ul>
+<li>官网下载 android-sdk ，执行tools文件夹下面的 android，然后选择 android sdk platform tools 安装（ 示意图 ）</li>
+<li>配置android环境变量 vim ~/.bash_profile</li>
+</ul>
+</li>
+</ul>
+<pre><code>export ANDROID_TOOLS=/Users/sherlock/dev/android-sdk-macosx/platform-tools
+export PATH=$PATH:$ANDROID_TOOLS
+</code></pre><ul>
+<li>输入source .bash_profile，执行下环境变量；接着在终端输入 adb，看是否已经配置ok；</li>
+<li>usb连接手机，启动调试模式。终端输入adb devices，就能看到已经连接的设备。</li>
+</ul>
+<p>有时 adb devices不能显示连接设备，需要拔掉数据线，多插几次，并且退出终端，然后重新打开，重启adb。</p>
+<ul>
+<li><p>python启动调试服务</p>
+<ul>
+<li>下载 <a href="http://res.imtt.qq.com///tbs_inspect/wx_sq_webview_debug.zip" target="_blank" rel="external">调试包</a> ，解压，找到其中的 inspector_client20150401 解压，然后进入</li>
+<li>执行以下 python 命令，</li>
+</ul>
+</li>
+</ul>
+<pre><code>python ./inspector.py —abd 你自己的adb路径
+python ./inspector.py --adb /Users/sherlock/dev/android-sdk-macosx/platform-tools/adb
+</code></pre><ul>
+<li>启动成功，PC 打开 Chrome 浏览器，访问 <a href="http://localhost:9222/" target="_blank" rel="external">http://localhost:9222/</a>; 手机打开微信任意 webview，就能在 Chrome 看到这个页面的选项卡，点进去就是熟悉的调试界面～</li>
+</ul>
+<h4 id="spy-debugger-（最后的大招-Github-repo）"><a href="#spy-debugger-（最后的大招-Github-repo）" class="headerlink" title="spy-debugger （最后的大招, Github repo）"></a>spy-debugger （最后的大招, <a href="https://github.com/wuchangming/spy-debugger" target="_blank" rel="external">Github repo</a>）</h4><p>集成并简化了 weinre 繁琐的配置过程。通过代理的方式拦截所有html自动注入weinre所需的js代码。 </p>
+<ol>
+<li><p>安装<br><code>Windows: npm install spy-debugger -g</code><br><code>Mac: sudo npm install spy-debugger -g</code></p>
+</li>
+<li><p>手机和 PC 保持在同一网络下（比如同时连到一个Wi-Fi下）</p>
+</li>
+<li><p>命令行输入<code>spy-debugger</code>, 按命令行提示用浏览器打开相应地址。</p>
+</li>
+<li><p>设置手机的 HTTP 代理，代理 IP 地址设置为 PC 的 IP 地址，端口为s py-debugger的启动端口。</p>
+</li>
+<li><p>用手机浏览器访问你要调试的页面即可。</p>
+</li>
+</ol>
+<p>下图是亲测 QQ 浏览器的调试</p>
+<div style="display:flex"><br><div style="flex:1"><br><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/spy-debugger-pannel.png" alt="img"><br></div><br><div style="flex:1"><br><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/phoneView.jpeg" alt="img2"><br></div><br></div>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器/">浏览器</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/调试/">调试</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/tech/">tech</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-撸了一个投票App" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -189,8 +414,7 @@
 <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p><em>全栈工程师，也叫全端工程师(同时具备前端和后台能力)，英文 Full Stack developer。是指掌握多种技能，并能利用多种技能独立完成产品的人.</em>  （From 百度）</p>
 <p>敲黑板：<strong>利用多种技能独立完成产品</strong>。</p>
 <p>So, 至少需要一个人 cover 掉 前端 + 后端 + 数据库吧 ～</p>
-<p>搞一个活生生的投票应用送给各位 : )</p>
-<p>具体功能为：</p>
+<p>搞一个活生生的投票应用送给各位 : ) 具体功能为：</p>
 <ul>
 <li><p>对于已经授权用户可以：</p>
 <ul>
@@ -772,74 +996,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/08/18/URL-Scheme-唤起问题踩坑/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-UC-手机浏览器调试经验" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/11/UC-手机浏览器调试经验/" class="article-date">
-  	<time datetime="2016-08-11T02:25:25.000Z" itemprop="datePublished">2016-08-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/11/UC-手机浏览器调试经验/">UC 手机浏览器调试经验</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>接了一个业务方的小需求，做一个代替 JS 原生<code>confirm</code> 功能的弹框。</p>
-<p>弹框样式 UED 提供，不表，开发过程 easy，不表。</p>
-<p>在做视觉还原＋多机适配的时候，发现某手机中安装的 UC 浏览器下点击确认／取消／关闭弹框均不消失。于是在众多机器均安装了 UC 回归测试， 定位问题确实出在 UC 上面。</p>
-<h2 id="UC-调试环境准备"><a href="#UC-调试环境准备" class="headerlink" title="UC 调试环境准备"></a>UC 调试环境准备</h2><p>早前所在部门 App 均采用 UC 内核，有相关调试经验。然而因同属一个集团，相关的 debug 包，调试方法，均有 UC 技术部的支持。</p>
-<p>自己尝试，过程如下：</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UC-Debug/">UC Debug</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/adb/">adb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/device-offline/">device offline</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/tech/">tech</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/08/11/UC-手机浏览器调试经验/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
