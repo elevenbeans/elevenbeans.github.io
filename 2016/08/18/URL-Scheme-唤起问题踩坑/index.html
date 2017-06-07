@@ -47,7 +47,7 @@
 好好的 H5 不用，为啥要导流到 App ？ 要啥自行车？？？？">
 <meta property="og:image" content="http://bin11.cn/img/androidChromeCancel.png">
 <meta property="og:image" content="http://i1.wp.com/fokkezb.nl/wp-content/uploads/2013/09/Screenshot-2013.09.20-11.26.43.png?zoom=2&resize=640%2C465">
-<meta property="og:updated_time" content="2017-06-06T15:47:23.000Z">
+<meta property="og:updated_time" content="2017-06-07T09:05:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="URL Scheme 主动唤起 APP 问题踩坑">
 <meta name="twitter:description" content="Web 移动应用任重而道远在前东家接手的最后一个项目是天猫 H5 向 Tmall App 引流, 其中涉及到 URL Scheme 技术, 以及各种入口的来源统计，结算及个性化展示等。
@@ -156,43 +156,46 @@
 
     
             <div class="post-content">
-            <script src="/assets/js/APlayer.min.js"> </script><h2 id="Web-移动应用任重而道远"><a href="#Web-移动应用任重而道远" class="headerlink" title="Web 移动应用任重而道远"></a>Web 移动应用任重而道远</h2><p>在前东家接手的最后一个项目是天猫 H5 向 Tmall App 引流, 其中涉及到 URL Scheme 技术, 以及各种入口的来源统计，结算及个性化展示等。</p>
+            <script src="/assets/js/APlayer.min.js"> </script><h4 id="Web-移动应用任重而道远"><a href="#Web-移动应用任重而道远" class="headerlink" title="Web 移动应用任重而道远"></a>Web 移动应用任重而道远</h4><p>在前东家接手的最后一个项目是天猫 H5 向 Tmall App 引流, 其中涉及到 URL Scheme 技术, 以及各种入口的来源统计，结算及个性化展示等。</p>
 <p>碰巧的是，携程国际这边接手的第一个 Page Landing 项目基本需求和早前的引流项目不谋而合。</p>
 <p>好好的 H5 不用，为啥要导流到 App ？ 要啥自行车？？？？</p>
 <a id="more"></a>
 <p>可现实就是：移动端 APP 化已是大势所趋了，用户的习惯已然被培养了起来。一旦 native 开发能解决发版迭代不够灵活迅速的问题，那 Web App 真的就亚历山大。。。</p>
 <p>不是还留有余地么？ 比如：Hybrid？ 呵呵哒～</p>
 <p>跑题了 =,=</p>
-<h2 id="关于-URL-Scheme"><a href="#关于-URL-Scheme" class="headerlink" title="关于 URL Scheme"></a>关于 URL Scheme</h2><p>科普请戳：<a href="http://fokkezb.nl/2013/08/26/url-schemes-for-ios-and-android-1/" target="_blank" rel="external">这里</a></p>
+<h4 id="关于-URL-Scheme"><a href="#关于-URL-Scheme" class="headerlink" title="关于 URL Scheme"></a>关于 URL Scheme</h4><p>科普请戳：<a href="http://fokkezb.nl/2013/08/26/url-schemes-for-ios-and-android-1/" target="_blank" rel="external">这里</a></p>
 <p>对于一个正确的 URL Scheme，我们在网页中完全可以按照一般的超链接来使用，比如放在<code>&lt;a&gt;</code> 标签的 <code>href</code> 属性中，用户可以通过点击按钮或者超链接唤起 APP。</p>
 <p>然而到了 JS 控制主动唤起 APP 这里，就出现了很多浏览器的兼容问题。。。</p>
 <p>先来一段抄来的代码：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> UA = navigator.userAgent;</div><div class="line"><span class="keyword">var</span> IS_IPAD = UA.match(<span class="regexp">/iPad/i</span>) != <span class="literal">null</span>,</div><div class="line">    IS_IPHONE = !IS_IPAD &amp;&amp; ((UA.match(<span class="regexp">/iPhone/i</span>) != <span class="literal">null</span>) || (UA.match(<span class="regexp">/iPod/i</span>) != <span class="literal">null</span>)),</div><div class="line">    IS_IOS = IS_IPAD || IS_IPHONE,</div><div class="line">    IS_ANDROID = !IS_IOS &amp;&amp; UA.match(<span class="regexp">/android/i</span>) != <span class="literal">null</span>,</div><div class="line">    IS_MOBILE = IS_IOS || IS_ANDROID;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">open</span>(<span class="params"></span>) </span>&#123;</div><div class="line">     <span class="comment">// If it's not an universal app, use IS_IPAD or IS_IPHONE</span></div><div class="line">     <span class="keyword">if</span> (IS_IOS) &#123;</div><div class="line">       <span class="built_in">window</span>.location = <span class="string">"myapp://view?id=123"</span>;</div><div class="line">       setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">           <span class="comment">// If the user is still here, open the App Store</span></div><div class="line">           <span class="keyword">if</span> (!<span class="built_in">document</span>.webkitHidden) &#123;</div><div class="line">               <span class="comment">// Replace the Apple ID following '/id'</span></div><div class="line">               <span class="built_in">window</span>.location = <span class="string">'http://itunes.apple.com/app/id1234567'</span>;</div><div class="line">           &#125;</div><div class="line">       &#125;, <span class="number">25</span>);</div><div class="line"></div><div class="line">     &#125; <span class="keyword">else</span> <span class="keyword">if</span> (IS_ANDROID) &#123;</div><div class="line">       <span class="comment">// Instead of using the actual URL scheme, use 'intent://' for better UX</span></div><div class="line">       <span class="built_in">window</span>.location = <span class="string">'intent://view?id=123#Intent;package=my.app.id;scheme=myapp;launchFlags=268435456;end;'</span>;</div><div class="line">     &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
 <p>如上所示。</p>
 <p>这样的代码，我保证你多浏览器调试会碰一鼻子灰。</p>
-<h2 id="数一数踩过的坑"><a href="#数一数踩过的坑" class="headerlink" title="数一数踩过的坑"></a>数一数踩过的坑</h2><p>歪果仁踩的的坑也是满满的：<a href="https://bugs.chromium.org/p/chromium/issues/detail?id=459156" target="_blank" rel="external">传送门(可能需要翻墙)</a></p>
-<h3 id="1-Android-Chrome"><a href="#1-Android-Chrome" class="headerlink" title="1. Android Chrome"></a>1. Android Chrome</h3><p>Chrome 不必多说，当之无愧是自动唤起失败率最高的浏览器。</p>
+<h4 id="数一数踩过的坑"><a href="#数一数踩过的坑" class="headerlink" title="数一数踩过的坑"></a>数一数踩过的坑</h4><p>歪果仁踩的的坑也是满满的：<a href="https://bugs.chromium.org/p/chromium/issues/detail?id=459156" target="_blank" rel="external">传送门(可能需要翻墙)</a></p>
+<h5 id="1-Android-Chrome"><a href="#1-Android-Chrome" class="headerlink" title="1. Android Chrome"></a>1. Android Chrome</h5><p>Chrome 不必多说，当之无愧是自动唤起失败率最高的浏览器。</p>
 <p>Google 的官方文档如是解释：<a href="https://developer.chrome.com/multidevice/android/intents" target="_blank" rel="external">android intents</a>。不得不说这个世界上最好的互联网公司其说词也是逼格满满的。但是好好的 URL Scheme 你不姿持，搞出来个 Intents 做啥子？</p>
 <p>找客户端同学支持 intent 协议么？？？ 求人不如求己。</p>
-<h4 id="试一试无痕请求大法："><a href="#试一试无痕请求大法：" class="headerlink" title="试一试无痕请求大法："></a>试一试无痕请求大法：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ifr = <span class="built_in">document</span>.createElement(<span class="string">'iframe'</span>);</div><div class="line">	ifr.style.display = <span class="string">'none'</span>;</div><div class="line">	ifr.src = <span class="string">"myapp://view?id=123"</span>;</div><div class="line"></div><div class="line"><span class="built_in">document</span>.body.appendChild(ifr);</div></pre></td></tr></table></figure>
+<p>试一试无痕请求大法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ifr = <span class="built_in">document</span>.createElement(<span class="string">'iframe'</span>);</div><div class="line">	ifr.style.display = <span class="string">'none'</span>;</div><div class="line">	ifr.src = <span class="string">"myapp://view?id=123"</span>;</div><div class="line"></div><div class="line"><span class="built_in">document</span>.body.appendChild(ifr);</div></pre></td></tr></table></figure>
 <p>在 Android Chrome 调试如下：</p>
 <p><img src="http://bin11.cn/img/androidChromeCancel.png" alt="啊哈"><br><strong>是的，</strong></p>
 <p><strong>你没看错，</strong></p>
 <p><strong>被屏蔽了。。。</strong></p>
-<h4 id="老生常谈的唤起方式"><a href="#老生常谈的唤起方式" class="headerlink" title="老生常谈的唤起方式:"></a>老生常谈的唤起方式:</h4><p><code>window.location = &#39;myapp://view?id=123</code></p>
+<p>老生常谈的唤起方式:</p>
+<p><code>window.location = &#39;myapp://view?id=123</code></p>
 <p>同样请求状态为 <code>‘canceled’</code></p>
-<h4 id="打开一个新窗口怎么样？"><a href="#打开一个新窗口怎么样？" class="headerlink" title="打开一个新窗口怎么样？"></a>打开一个新窗口怎么样？</h4><p><code>window.open(&#39;myapp://view?id=123&#39;,&#39;_blank&#39;);</code></p>
+<p>打开一个新窗口怎么样？</p>
+<p><code>window.open(&#39;myapp://view?id=123&#39;,&#39;_blank&#39;);</code></p>
 <p>居然成功了。。。</p>
 <p>但是紧接着就发现只能成功一次，也就是安装 Chrome 的第一次请求会成功,其后每次都只会打开一个空白页。</p>
 <p>那就控制第一次发请求，以后都不发了吧。。。</p>
-<h3 id="2-IOS-Chrome-一个极其隐蔽的问题"><a href="#2-IOS-Chrome-一个极其隐蔽的问题" class="headerlink" title="2. IOS Chrome 一个极其隐蔽的问题"></a>2. IOS Chrome 一个极其隐蔽的问题</h3><p><code>window.location = &#39;myapp://view?id=123</code></p>
+<h5 id="2-IOS-Chrome-一个极其隐蔽的问题"><a href="#2-IOS-Chrome-一个极其隐蔽的问题" class="headerlink" title="2. IOS Chrome 一个极其隐蔽的问题"></a>2. IOS Chrome 一个极其隐蔽的问题</h5><p><code>window.location = &#39;myapp://view?id=123</code></p>
 <p>上述代码在页面进行<strong>非跨域的异步请求</strong>时千万<strong>别调用！！！！！！！！</strong></p>
 <p>在 IOS Chrome 下你会死得很难看。。。别问我怎么知道的～ 烦</p>
 <p>反正同域的异步请求都完成了你再调用就没问题。</p>
 <p>BTW，IOS Chrome 的 UA 真的亮了：</p>
 <p><code>iOS / Chrome 34: Mozilla/5.0 (iPad; CPU OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) CriOS/34.0.1847.18 Mobile/11B554a Safari/9537.53</code></p>
 <p>CriOS …</p>
-<h3 id="3-IOS9-safari"><a href="#3-IOS9-safari" class="headerlink" title="3. IOS9+ safari"></a>3. IOS9+ safari</h3><p>据说最好的打开方式是在<code>&lt;head&gt;</code>中添加：</p>
+<h5 id="3-IOS9-safari"><a href="#3-IOS9-safari" class="headerlink" title="3. IOS9+ safari"></a>3. IOS9+ safari</h5><p>据说最好的打开方式是在<code>&lt;head&gt;</code>中添加：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-itunes-app"</span> <span class="attr">content</span>=<span class="string">"app-id=1234567, app-argument=myapp://view?id=123"</span>/&gt;</span></div></pre></td></tr></table></figure>
 <p>效果：<br><img src="http://i1.wp.com/fokkezb.nl/wp-content/uploads/2013/09/Screenshot-2013.09.20-11.26.43.png?zoom=2&amp;resize=640%2C465" alt=""></p>
 <p>可是宝宝要自动唤起啊。。。你让我点击我不愿意啊。。。。</p>
