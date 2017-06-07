@@ -43,14 +43,17 @@
 <meta property="og:site_name" content="Elevenbeans' Blog">
 <meta property="og:description" content="浏览器兼容性一直以来都是让 Web 前端开发人员头疼的问题。虽然移动端其内核趋于统一（webkit），兼容问题也不再像 PC 端那么严重。但在生产环境当中，考虑到第三方浏览器在内核上面的 “优化”，如（wechat、UC、QQ、360 等），兼容问题依旧是无法忽略。
 本文汇总一下目前比较常见的 Web 移动端调试方法。">
+<meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/wechat-debugger.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/wechat-debugger-pannel.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/wechat-debugger-view.jpeg">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/spy-debugger-pannel.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/phoneView.jpeg">
-<meta property="og:updated_time" content="2017-06-06T18:10:52.000Z">
+<meta property="og:updated_time" content="2017-06-07T03:52:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端浏览器调试方法汇总">
 <meta name="twitter:description" content="浏览器兼容性一直以来都是让 Web 前端开发人员头疼的问题。虽然移动端其内核趋于统一（webkit），兼容问题也不再像 PC 端那么严重。但在生产环境当中，考虑到第三方浏览器在内核上面的 “优化”，如（wechat、UC、QQ、360 等），兼容问题依旧是无法忽略。
 本文汇总一下目前比较常见的 Web 移动端调试方法。">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/spy-debugger-pannel.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/wechat-debugger.png">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
@@ -72,6 +75,16 @@
 
 
   
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-100591386-1', 'auto');
+        ga('send', 'pageview');
+  </script>
 
 
 
@@ -168,21 +181,21 @@
 <td>Android 上的 Chrome</td>
 <td>一般</td>
 <td>Android Chrome</td>
-<td>真机效果，支持单步调试</td>
+<td>真机效果，支持单步</td>
 <td>较高</td>
 </tr>
 <tr>
 <td>IOS 上的 Safari</td>
 <td>一般，需要 Mac</td>
 <td>IOS Safari</td>
-<td>真机效果，支持单步调试</td>
+<td>真机效果，支持单步</td>
 <td>高</td>
 </tr>
 <tr>
 <td>Android 上的 UC</td>
 <td>困难，需要 adb 辅助工具</td>
 <td>Android UC</td>
-<td>真机效果，支持单步调试</td>
+<td>真机效果，支持单步</td>
 <td>中等</td>
 </tr>
 <tr>
@@ -196,14 +209,14 @@
 <td>Android 上的 x5 内核（微信等）</td>
 <td>困难</td>
 <td>Android x5 browser</td>
-<td>真机效果</td>
+<td>真机效果, 支持单步</td>
 <td>低</td>
 </tr>
 <tr>
 <td>spy-debugger</td>
 <td>一般</td>
 <td>所有</td>
-<td>真机效果，不支持单步调试</td>
+<td>真机效果，<strong>不支持单步调试</strong></td>
 <td>最低</td>
 </tr>
 </tbody>
@@ -244,17 +257,13 @@
 <ul>
 <li>下载 <a href="http://res.imtt.qq.com///tbs_inspect/TbsSuiteNew.zip" target="_blank" rel="external">TbsSuiteNew.apk</a> 安装到手机</li>
 <li>打开微信，进入任意聊天界面，输入框内输入 <code>//deletetbs</code>，点发送</li>
-<li>打开 TbsSuiteNew，安装本地 tbs 内核</li>
+<li><p>打开 TbsSuiteNew，安装本地 tbs 内核<br><em>应用包名 微信：com.tencent.mm，qq：com.tencent.mobileqq，qq 空间：com.qzone，本例中选择微信即可</em></p>
+</li>
+<li><p>启动应用，用微信访问一个页面，停留1分钟左右，目的是让微信来静默安装刚导入进去的tbs_xxxx_inspector.apk 包</p>
+</li>
+<li>一分钟过后打开TbsSuiteNew 检查是否安装成功。<br><em>这里还需要在检查下 打开微信 随便进入一个 webview 页面 然后长按页面文字是否有水滴 ，若有则成功</em></li>
 </ul>
 </li>
-</ul>
-<p>应用包名 微信：com.tencent.mm，qq：com.tencent.mobileqq，qq 空间：com.qzone<br>我们选择微信即可</p>
-<ul>
-<li>启动应用，用微信访问一个页面，停留1分钟左右，目的是让微信来静默安装刚导入进去的tbs_xxxx_inspector.apk 包</li>
-<li>一分钟过后打开TbsSuiteNew 检查是否安装成功。</li>
-</ul>
-<p>这里还需要在检查下 打开微信 随便进入一个 webview 页面 然后长按页面文字是否有水滴 ，若有则成功</p>
-<ul>
 <li><p>ADB安装</p>
 <ul>
 <li>官网下载 android-sdk ，执行tools文件夹下面的 android，然后选择 android sdk platform tools 安装（ 示意图 ）</li>
@@ -263,12 +272,9 @@
 </li>
 <li><p>输入source .bash_profile，执行下环境变量；接着在终端输入 adb，看是否已经配置ok；</p>
 </li>
-<li>usb连接手机，启动调试模式。终端输入adb devices，就能看到已经连接的设备。</li>
+<li>usb连接手机，启动调试模式。终端输入adb devices，就能看到已经连接的设备。<br><em>有时 adb devices不能显示连接设备，需要拔掉数据线，多插几次，并且退出终端，然后重新打开，重启adb。</em></li>
 </ul>
 </li>
-</ul>
-<p>有时 adb devices不能显示连接设备，需要拔掉数据线，多插几次，并且退出终端，然后重新打开，重启adb。</p>
-<ul>
 <li><p>python启动调试服务</p>
 <ul>
 <li>下载 <a href="http://res.imtt.qq.com///tbs_inspect/wx_sq_webview_debug.zip" target="_blank" rel="external">调试包</a> ，解压，找到其中的 inspector_client20150401 解压，然后进入</li>
@@ -280,6 +286,11 @@
 <ul>
 <li>启动成功，PC 打开 Chrome 浏览器，访问 <a href="http://localhost:9222/" target="_blank" rel="external">http://localhost:9222/</a>; 手机打开微信任意 webview，就能在 Chrome 看到这个页面的选项卡，点进去就是熟悉的调试界面～</li>
 </ul>
+<p>有图有真相：</p>
+<div style="display:flex"><br><div style="flex:1"><br><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/wechat-debugger.png" alt="img"><br></div><br><div style="flex:2"><br><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/wechat-debugger-pannel.png" alt="img"><br></div><br><div style="flex:1"><br><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/wechat-debugger-view.jpeg" alt="img"><br></div><br></div>
+
+
+
 <h4 id="spy-debugger-（最后的大招-Github-repo）"><a href="#spy-debugger-（最后的大招-Github-repo）" class="headerlink" title="spy-debugger （最后的大招, Github repo）"></a>spy-debugger （最后的大招, <a href="https://github.com/wuchangming/spy-debugger" target="_blank" rel="external">Github repo</a>）</h4><p>集成并简化了 weinre 繁琐的配置过程。通过代理的方式拦截所有html自动注入weinre所需的js代码。 </p>
 <ol>
 <li><p>安装<br><code>Windows: npm install spy-debugger -g</code><br><code>Mac: sudo npm install spy-debugger -g</code></p>
@@ -293,7 +304,7 @@
 <li><p>用手机浏览器访问你要调试的页面即可。</p>
 </li>
 </ol>
-<p>下图是亲测 QQ 浏览器的调试</p>
+<p>下图是亲测 QQ 浏览器的调试：</p>
 <div style="display:flex"><br><div style="flex:1"><br><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/spy-debugger-pannel.png" alt="img"><br></div><br><div style="flex:1"><br><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/phoneView.jpeg" alt="img2"><br></div><br></div>
 
 
