@@ -1,6 +1,6 @@
 # 个人博客说明
 
-**A blog base on [Hexo](https://hexo.io/).**
+**A blog based on [Hexo](https://hexo.io/).**
 
 ## Screenshot
 
