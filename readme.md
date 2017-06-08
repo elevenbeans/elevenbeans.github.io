@@ -2,6 +2,8 @@
 
 **A blog based on [Hexo](https://hexo.io/).**
 
+[博客地址](http://elevenbeans.github.io/)
+
 ## Screenshot
 
 ![](./img/ScreenShot.png)
