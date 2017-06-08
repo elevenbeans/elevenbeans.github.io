@@ -48,7 +48,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/wechat-debugger-view.jpeg">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/spy-debugger-pannel.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/phoneView.jpeg">
-<meta property="og:updated_time" content="2017-06-08T03:17:41.000Z">
+<meta property="og:updated_time" content="2017-06-08T03:45:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端浏览器调试方法汇总">
 <meta name="twitter:description" content="浏览器兼容性一直以来都是让 Web 前端开发人员头疼的问题。虽然移动端其内核趋于统一（webkit），兼容问题也不再像 PC 端那么严重。但在生产环境当中，考虑到第三方浏览器在内核上面的 “优化”，如（wechat、UC、QQ、360 等），兼容问题依旧是无法忽略。
@@ -251,7 +251,11 @@
 <li>在移动设备上弹出的是否允许远程调试上，选择“允许”</li>
 <li>PC 的 inspect 页面列表将展示已在 Android webview 中打开的页面。点击对应的 “inspect” 按钮则可开始调试</li>
 </ol>
-<h4 id="Android-上的-x5-内核（主要针对微信等）"><a href="#Android-上的-x5-内核（主要针对微信等）" class="headerlink" title="Android 上的 x5 内核（主要针对微信等）"></a>Android 上的 x5 内核（主要针对微信等）</h4><p>过程略繁琐，但是这个方案应该是目前调试webview最强大的工具，支持断点调试、控制台打印等。以下步骤以微信举例：</p>
+<h4 id="Android-上的-x5-内核（主要针对微信等）"><a href="#Android-上的-x5-内核（主要针对微信等）" class="headerlink" title="Android 上的 x5 内核（主要针对微信等）"></a>Android 上的 x5 内核（主要针对微信等）</h4><p>===================== <em>Updated 2017-06-08</em> ===================</p>
+<p><strong>感谢掘金用户 @夏空君 提醒，目前 X5 有 TBS_Studio 这种整体解决方案了</strong></p>
+<p>给个传送门吧: <a href="http://bbs.mb.qq.com/thread-1416936-1-1.html" target="_blank" rel="external">TBS开发调试利器——TBS Studio开篇</a></p>
+<p>===================== <em>End</em> ===================</p>
+<p>过程略繁琐，但是这个方案应该是目前调试webview最强大的工具，支持断点调试、控制台打印等。以下步骤以微信举例：</p>
 <ul>
 <li><p>前期准备</p>
 <ul>
