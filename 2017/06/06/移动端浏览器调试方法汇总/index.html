@@ -48,7 +48,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/wechat-debugger-view.jpeg">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/spy-debugger-pannel.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/phoneView.jpeg">
-<meta property="og:updated_time" content="2017-06-08T14:02:14.000Z">
+<meta property="og:updated_time" content="2017-06-09T02:02:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端浏览器调试方法汇总">
 <meta name="twitter:description" content="浏览器兼容性一直以来都是让 Web 前端开发人员头疼的问题。虽然移动端其内核趋于统一（webkit），兼容问题也不再像 PC 端那么严重。但在生产环境当中，考虑到第三方浏览器在内核上面的 “优化”，如（wechat、UC、QQ、360 等），兼容问题依旧是无法忽略。
@@ -244,7 +244,7 @@
 <li>在 IOS 设备上的 Safari 浏览器中打开要调试的页面，然后切换到 MAC 的 Safari，在顶部菜单栏选择 “开发” –&gt; 找到你的 IOS 设备名称 –&gt; 右边二级菜单选择需要调试的对应标签页，即可开始远程调试</li>
 </ol>
 <h4 id="Android-上的-UC"><a href="#Android-上的-UC" class="headerlink" title="Android 上的 UC"></a>Android 上的 UC</h4><p>早前一篇有过详细描述，具体请戳 → <a href="/2016/08/11/UC-手机浏览器调试经验/">Here</a></p>
-<h4 id="Android-APP（类似-Android-上的-Chrome-需要梯子-IOS-APP-Webview-同理）"><a href="#Android-APP（类似-Android-上的-Chrome-需要梯子-IOS-APP-Webview-同理）" class="headerlink" title="Android APP（类似 Android 上的 Chrome, 需要梯子, IOS APP Webview 同理）"></a>Android APP（类似 Android 上的 Chrome, 需要梯子, IOS APP Webview 同理）</h4><ol>
+<h4 id="Android-APP-Webview（类似-Android-上的-Chrome-需要梯子-IOS-APP-Webview-同理）"><a href="#Android-APP-Webview（类似-Android-上的-Chrome-需要梯子-IOS-APP-Webview-同理）" class="headerlink" title="Android APP Webview（类似 Android 上的 Chrome, 需要梯子, IOS APP Webview 同理）"></a>Android APP Webview（类似 Android 上的 Chrome, 需要梯子, IOS APP Webview 同理）</h4><ol>
 <li>通过修改代码，在APP内设置允许远程调试（安卓 &gt;= 4.4）, <a href="https://developers.google.com/web/tools/chrome-devtools/remote-debugging/?utm_source=dcc&amp;utm_medium=redirect&amp;utm_campaign=2016q3#configure-webview" target="_blank" rel="external">具体方法在这里</a> 。然后安装 APP</li>
 <li>在 PC 上安装 Chrome 浏览器（版本&gt;=32）和对应的 Android 设备驱动（如果找不到，可以 <a href="https://www.wandoujia.com/" target="_blank" rel="external">豌豆荚大法</a>）</li>
 <li>用 USB 线连接 Android 设备，开启当前 Android 设备的 USB 调试，在 PC 上的chrome地址栏输入 <code>chrome://inspect</code> 然后回车进入调试界面</li>
@@ -294,6 +294,9 @@
 <div style="display:flex"><br><div style="flex:1"><br><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/wechat-debugger.png" alt="img"><br></div><br><div style="flex:2"><br><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/wechat-debugger-pannel.png" alt="img"><br></div><br><div style="flex:1"><br><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/wechat-debugger-view.jpeg" alt="img"><br></div><br></div>
 
 <h4 id="spy-debugger-（最后的大招-Github-repo）"><a href="#spy-debugger-（最后的大招-Github-repo）" class="headerlink" title="spy-debugger （最后的大招, Github repo）"></a>spy-debugger （最后的大招, <a href="https://github.com/wuchangming/spy-debugger" target="_blank" rel="external">Github repo</a>）</h4><p>集成并简化了 weinre 繁琐的配置过程。通过代理的方式拦截所有html自动注入weinre所需的js代码。 </p>
+<p>===================== <em>Updated 2017-06-09</em> ===================</p>
+<p><strong>感谢阿里师兄 @首长 提醒，同样通过 代理服务器 + JS侵入 这种方式的，目前还有微软出品的 <a href="http://www.vorlonjs.com/" target="_blank" rel="external">vorlon</a> 工具</strong></p>
+<p>===================== <em>End</em> ===================</p>
 <ol>
 <li><p>安装<br><code>Windows: npm install spy-debugger -g</code><br><code>Mac: sudo npm install spy-debugger -g</code></p>
 </li>
