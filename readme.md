@@ -1,6 +1,6 @@
 # 个人博客说明
 
-**A blog based on [Hexo](https://hexo.io/).**
+**A blog powed by [Hexo](https://hexo.io/).**
 
 [博客地址](http://elevenbeans.github.io/)
 
@@ -20,16 +20,15 @@
 
 ### Categories
 
-+ Tech
++ Tech 
+	+ [管中窥豹，一叶知秋：用 GA 得出几个和掘金社区相关的有趣结论](http://elevenbeans.github.io/2017/06/08/GA-for-juejin/) *2017-6-9*
 	+ [移动端浏览器调试方法汇总](http://elevenbeans.github.io/2017/06/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/) *2017-6-6*
 	+ [全栈开发实例：如何独立开发/发布一个WebAPP](http://elevenbeans.github.io/2017/05/16/%E6%92%B8%E4%BA%86%E4%B8%80%E4%B8%AA%E6%8A%95%E7%A5%A8App/) *2017-5-16*
-	+ [SPA 项目全家桶新鲜出炉 (Koa+React+webpack)～](http://elevenbeans.github.io/2017/01/12/Koa-React-webpack-SPA-%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%96%B0%E9%B2%9C%E5%87%BA%E7%82%89%EF%BD%9E/) *2017-1-12*
 	+ [URL Scheme 主动唤起 APP 问题踩坑](http://elevenbeans.github.io/2016/08/18/URL-Scheme-%E5%94%A4%E8%B5%B7%E9%97%AE%E9%A2%98%E8%B8%A9%E5%9D%91/) *2016-8-18*
 	+ [由 $(document).ready 发散开去](http://elevenbeans.github.io/2016/06/03/DomReady/) *2016-6-3*
 	+ [JS 中的小技巧汇总](http://elevenbeans.github.io/2016/05/19/js%20%E4%B8%AD%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7%E6%B1%87%E6%80%BB/) *2016-5-19*
 	+ [Scroll 事件处理之 throttle 和 debounce](http://elevenbeans.github.io/2016/05/05/scroll%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B9%8B-throttle-%E5%92%8C-debounce/) *2016-5-5*
 	+ [CSS 中的垂直居中法](http://elevenbeans.github.io/2016/05/04/css-%E4%B8%AD%E7%9A%84%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%B3%95/) *2016-5-4*
-	+ [浅析 JavaScript 中的闭包](http://elevenbeans.github.io/2016/05/04/%E6%B5%85%E6%9E%90-JavaScript-%E4%B8%AD%E7%9A%84%E9%97%AD%E5%8C%85/) *2016-5-4*
 	+ ...
 
 + Life
@@ -78,6 +77,10 @@ widget_custom:
         </a>
       </div>
 ```
+
+### Tags
+
+标签：即对于博文的话题的分类聚合
 
 ## At last
 
