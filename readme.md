@@ -32,6 +32,7 @@
 	+ ...
 
 + Life
+	+ [2016-2017 小结](http://elevenbeans.github.io/2017/06/12/summary-of-my-2016-2017/) *2017-4-14*
 	+ [开源精神, 从我做起](http://elevenbeans.github.io/2017/04/10/%E5%BC%80%E6%BA%90%E7%B2%BE%E7%A5%9E%E4%BB%8E%E6%88%91%E5%81%9A%E8%B5%B7/) *2017-4-10*
 	+ [话不多说先上车](http://elevenbeans.github.io/2017/02/09/%E6%88%BF%E5%AD%90/) *2017-2-9*
 	+ [1024](http://elevenbeans.github.io/2016/10/24/1024/) *2016-10-24*
