@@ -6,7 +6,7 @@
 
 ## Screenshot
 
-![](./img/ScreenShot.png)
+![](https://raw.githubusercontent.com/elevenBeans/Grocery/master/contactLogo/ScreenShot.png)
 
 ## Theme
 
