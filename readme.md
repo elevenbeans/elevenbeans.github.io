@@ -2,7 +2,7 @@
 
 **Elevenbeans' blog powed by [Hexo](https://hexo.io/).**
 
-[博客地址](http://elevenbeans.github.io/)
+博客地址: <http://elevenbeans.github.io>
 
 ## Screenshot
 
