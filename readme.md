@@ -1,6 +1,6 @@
 # 个人博客说明
 
-**A blog powed by [Hexo](https://hexo.io/).**
+**Elevenbeans' blog powed by [Hexo](https://hexo.io/).**
 
 [博客地址](http://elevenbeans.github.io/)
 
