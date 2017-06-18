@@ -2,11 +2,11 @@
 
 **Elevenbeans' blog powed by [Hexo](https://hexo.io/).**
 
-博客地址: <http://elevenbeans.github.io>
+博客地址: <http://blog.elevenbeans.me>
 
 ## Screenshot
 
-![](https://raw.githubusercontent.com/elevenBeans/Grocery/master/contactLogo/ScreenShot.png)
+![](https://raw.githubusercontent.com/elevenbeans/grocery/master/contactLogo/ScreenShot.png)
 
 ## Theme
 
@@ -20,7 +20,7 @@
 
 ### Categories
 
-+ Tech 
++ Tech
 	+ [管中窥豹，一叶知秋：用 GA 得出几个和掘金社区相关的有趣结论](http://elevenbeans.github.io/2017/06/08/GA-for-juejin/) *2017-6-9*
 	+ [移动端浏览器调试方法汇总](http://elevenbeans.github.io/2017/06/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/) *2017-6-6*
 	+ [全栈开发实例：如何独立开发/发布一个WebAPP](http://elevenbeans.github.io/2017/05/16/%E6%92%B8%E4%BA%86%E4%B8%80%E4%B8%AA%E6%8A%95%E7%A5%A8App/) *2017-5-16*
@@ -44,7 +44,7 @@
 
 重要的 social 信息我觉得是必不可少的。然而，本主题并未提供这个 widget，Contact 是我自己自定义的 widget。包括：
 
-+ [Github](https://github.com/elevenBeans)
++ [Github](https://github.com/elevenbeans)
 + [GMail](mailto://elevenbeansf2e@gmail.com)
 + [Facebook](https://www.facebook.com/profile.php?id=100001896103903)
 + [Sina](http://weibo.com/2381593582/profile?topnav=1&wvr=6)
@@ -56,9 +56,9 @@
 ```html
 widget_custom:
     title: Contact
-    content: 
+    content:
       <div style="display:inline-block;background:#333;border-radius:12px;width:24px;height:24px">
-        <a href="https://github.com/elevenBeans" target="_blank">
+        <a href="https://github.com/elevenbeans" target="_blank">
           <img style="position:relative;left:4px" src="img/github.png" />
         </a>
       </div>
