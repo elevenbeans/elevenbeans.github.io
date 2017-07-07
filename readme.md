@@ -21,7 +21,7 @@
 ### Categories
 
 + Tech
-  + [两分钟解惑 JS 小数计算精度问题](http://elevenbeans.github.io/2017/07/07/floating-point-issue/)
+  + [两分钟解惑 JS 小数计算精度问题](http://elevenbeans.github.io/2017/07/07/floating-point-issue/) *2017-07-07*
   + [【译】50行 CSS 代码撸一个阴阳八卦动效](http://elevenbeans.github.io/2017/06/22/Yin-and-Yang-by-CSS/) *2017-06-22*
   + [管中窥豹，一叶知秋：用 GA 得出几个和掘金社区相关的有趣结论](http://elevenbeans.github.io/2017/06/08/GA-for-juejin/) *2017-06-09*
   + [移动端浏览器调试方法汇总](http://elevenbeans.github.io/2017/06/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/) *2017-06-06*
