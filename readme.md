@@ -26,7 +26,7 @@
   + [管中窥豹，一叶知秋：用 GA 得出几个和掘金社区相关的有趣结论](http://elevenbeans.github.io/2017/06/08/GA-for-juejin/) *2017-06-09*
   + [移动端浏览器调试方法汇总](http://elevenbeans.github.io/2017/06/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/) *2017-06-06*
   + [全栈开发实例：如何独立开发/发布一个WebAPP](http://elevenbeans.github.io/2017/05/16/%E6%92%B8%E4%BA%86%E4%B8%80%E4%B8%AA%E6%8A%95%E7%A5%A8App/) *2017-05-16*
-  + [URL Scheme 主动唤起 APP 问题踩坑](http://elevenbeans.github.io/2016/08/18/URL-Scheme-%E5%94%A4%E8%B5%B7%E9%97%AE%E9%A2%98%E8%B8%A9%E5%9D%91/) *2016-08-18*
+  + [URL Scheme 主动唤起 APP 问题踩坑](http://elevenbeans.github.io/2016/08/18/URL-Scheme-%E5%94%A4%E8%B5%B7%E9%97%AE%E9%A2%98%E8%B8%A9%E5%9D%91/) *2016-06-18*
   + [由 $(document).ready 发散开去](http://elevenbeans.github.io/2016/06/03/DomReady/) *2016-06-03*
   + [JS 中的小技巧汇总](http://elevenbeans.github.io/2016/05/19/js%20%E4%B8%AD%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7%E6%B1%87%E6%80%BB/) *2016-05-19*
   + [Scroll 事件处理之 throttle 和 debounce](http://elevenbeans.github.io/2016/05/05/scroll%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B9%8B-throttle-%E5%92%8C-debounce/) *2016-05-05*
