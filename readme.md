@@ -21,7 +21,7 @@
 ### Categories
 
 + Tech
-  + [【译】为什么我选择 React 而不是 Vue](http://elevenbeans.github.io/2017/07/19/Why-React/)
+  + [【译】为什么我选择 React 而不是 Vue](http://elevenbeans.github.io/2017/07/19/Why-React/) *2017-07-19*
   + [两分钟解惑 JS 小数计算精度问题](http://elevenbeans.github.io/2017/07/07/floating-point-issue/) *2017-07-07*
   + [【译】50行 CSS 代码撸一个阴阳八卦动效](http://elevenbeans.github.io/2017/06/22/Yin-and-Yang-by-CSS/) *2017-06-22*
   + [管中窥豹，一叶知秋：用 GA 得出几个和掘金社区相关的有趣结论](http://elevenbeans.github.io/2017/06/08/GA-for-juejin/) *2017-06-09*
