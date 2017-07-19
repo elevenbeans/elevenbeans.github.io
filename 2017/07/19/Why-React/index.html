@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="【译】为什么我选择 React 而不是 Vue"/>
+
+
+
+
+  <meta name="keywords" content="React,Vue," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Elevenbeans' blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/bitbug_favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2017/07/19/Why-React/"/>
+
+
+<meta name="description" content="原文链接请戳：Why I Chose React Over Vue（by Steven Poulton)
+正文你们有注意到我过份官方的题目(可能指措辞 chose， 未使用 better than)了么？这是我企图就着个人的 “倾向性”（而不是信仰）来进行讨论，客观上要强于希望将本次讨论转化成框架派系的又一次 “火拼”。我认为后者没有任何作用。
+React 和 Vue 表面上非常相似，我有项目中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】为什么我选择 React 而不是 Vue">
+<meta property="og:url" content="http://yoursite.com/2017/07/19/Why-React/index.html">
+<meta property="og:site_name" content="Elevenbeans' blog">
+<meta property="og:description" content="原文链接请戳：Why I Chose React Over Vue（by Steven Poulton)
+正文你们有注意到我过份官方的题目(可能指措辞 chose， 未使用 better than)了么？这是我企图就着个人的 “倾向性”（而不是信仰）来进行讨论，客观上要强于希望将本次讨论转化成框架派系的又一次 “火拼”。我认为后者没有任何作用。
+React 和 Vue 表面上非常相似，我有项目中">
+<meta property="og:updated_time" content="2017-07-19T08:02:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【译】为什么我选择 React 而不是 Vue">
+<meta name="twitter:description" content="原文链接请戳：Why I Chose React Over Vue（by Steven Poulton)
+正文你们有注意到我过份官方的题目(可能指措辞 chose， 未使用 better than)了么？这是我企图就着个人的 “倾向性”（而不是信仰）来进行讨论，客观上要强于希望将本次讨论转化成框架派系的又一次 “火拼”。我认为后者没有任何作用。
+React 和 Vue 表面上非常相似，我有项目中">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-100591386-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+
+    <title> 【译】为什么我选择 React 而不是 Vue - Elevenbeans' blog </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo"><img width="40px" src="//raw.githubusercontent.com/elevenBeans/Grocery/master/logo.png"/> Elevenbeans' blog</a>
+    </h1>
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/">
+                            
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+    </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          【译】为什么我选择 React 而不是 Vue
+        
+      </h1>
+
+      <time class="post-time">
+          Jul 19 2017
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <script src="/assets/js/APlayer.min.js"> </script><p><em>原文链接请戳：<a href="https://medium.com/@CalinLeafshade/why-i-chose-react-over-vue-3dd9a230b507" target="_blank" rel="external">Why I Chose React Over Vue（by Steven Poulton)</a></em></p>
+<h4 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h4><p>你们有注意到我过份官方的题目(可能指措辞 chose， 未使用 better than)了么？这是我企图就着个人的 “倾向性”（而不是信仰）来进行讨论，客观上要强于希望将本次讨论转化成框架派系的又一次 “火拼”。我认为后者没有任何作用。</p>
+<p>React 和 Vue 表面上非常相似，我有项目中两个均在使用。他们都使用虚拟 DOM，它们都是专注在视图上的 JS 库。</p>
+<p>它们作为一种灵活的 HTML 渲染工具，都是对于相同的问题的解决方案。但我相信它们有一个简单的定义（理念）上的差异，会通过你的整个开发流程体现出来：</p>
+<p>React 完全拥抱了 Javascript，而 Vue 并没有。</p>
+<p>在 React 用户中经常听到的常见口头禅是 “只有 Javascript”，这是非常真实的。Vue 似乎有很多不必要的魔法，这使得组件更难理解。</p>
+<p>比如：</p>
+<ul>
+<li>Templates：</li>
+</ul>
+<p>一个 React 组件可以简单地被认为是返回元素的函数（或至少有一个具有这样功能的类）。这个功能性方法对于 Javascript 开发人员是非常自然的。数据输入，元素输出。如果你有一组数据，你可以简单地将它们映射到元素列表。如果要排除其中的某些项目，您可以使用 <code>Array</code> 类型的过滤器 <code>filter</code>，并将结果 <code>map</code> 到指定元素。这个功能性工作流程完美地反映了您对应用程序的其他部分的理解。这种方法是对 Javascript 的优势的补充。</p>
+<p>Vue 组件更像是可以引用数据结构中的数据的模板。它包含一个 DSL（Domain specific languag），尽管次要, 但是完全不必要的。我不需要 <code>v-for</code>，因为我有原生的 <code>map()</code>。我不需要 <code>v-if</code>，因为我有老生常谈的常规 <code>if</code>。模板至少会引入一定程度的认知负荷，有限或无益。</p>
+<p>模板还引入了作用域问题。如果我将一些静态数据导入到我的 React 组件中，我可以在我的渲染函数中使用它，因为所有标准的 JavaScript 范围规则都适用。它只是一个 <code>function</code>，与其他 <code>function</code> 完全一样。 Vue 的模板在一个与 JavaScript 分开的作用域中进行运作，因此你必须先将该静态数据合并到 Vue 组件中并将其作为计算字段返回。这些东西虽然都不是特别痛苦，但都是很不必要的。</p>
+<ul>
+<li>Tooling</li>
+</ul>
+<p>因为 React 是 “Just Javascript”，所以在我的经验中，开发体验要好得多。例如，prettier-js（一个代码格式化程序）只适用于 JSX，但是在 Vue 模板中与嵌入式表达式相悖，因为 Vue 模板不是“Just Javascript”。另外，因为模板和 Javascript 在不同的作用域内运行，所以对于一个 <code>linter</code> 来说，去检测模板中缺少或者拼错变量是不可能的（目前至少是这样）。这是另一个轻微的不爽，但这是不必要的。</p>
+<ul>
+<li>最大的败笔(这么翻译会不会被打=，=)：可变 state</li>
+</ul>
+<p>React and Redux 以不可变为核心。以相同的方式，React 渲染函数是将 props 转换为元素的 reducer，React 状态更改只是将旧状态和操作降级到新状态的函数。</p>
+<p>然而，Vue（和 Vuex）具有反应状态，这意味着您可以按照强制方式修改状态。这与 Javascript 中其他地方使用的功能风格不兼容。</p>
+<p>我非常习惯于不可变数据结构，他们让我感到十分安全。因为所有 Vuex 为<code>store</code> 中添加的<code>getter/setter</code>的方法，Vuex 几乎在强迫你不要使用它们。</p>
+<p>而在 React/Redux 中， <code>state/store</code> “仅仅就是 Javascript 对象而已”。</p>
+<h5 id="BTW-夹带点儿私货"><a href="#BTW-夹带点儿私货" class="headerlink" title="BTW, 夹带点儿私货"></a>BTW, 夹带点儿私货</h5><p>随手翻了原文下面的评论，果然还是开撕了, 哈哈。</p>
+<p><em>Justin Walters:<br>Unfortunately, it did not work. Mainly because you did not frame any of your arguments as opinion. <strong>And, frankly, many of your core points are completely and objectively incorrect. Please understand that with my following comment I do not mean to demean you or your work.</strong></em></p>
+<p>Vue 粉无疑，近乎全盘否定上文观点，并且逐条批判。</p>
+<p><em>Ed:<br>Let me tell you the real reason you chose React: you know it better<br>And that’s a legitimate way of choosing a framework 🙂.<br>FYI You can do jsx in Vue as well, linting works nicely with vue components and you can use redux with Vue too.</em></p>
+<p>这个就没有就事论事了，纯属臆测。</p>
+<p>不过总的来说，所有回复基本上都没有多少酸味儿，也没有讽刺挖苦，当然，更没有人身攻击。</p>
+<p>撕撕要健康，撕撕更健康。</p>
+<p>The end.</p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/React/">React</a>
+          
+            <a href="/tags/Vue/">Vue</a>
+          
+        </div>
+
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2017/07/07/floating-point-issue/">
+        <span class="next-text nav-default">两分钟解惑 JS 小数计算精度问题</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2017
+    <span class="footer-author">elevenbeans.</span>
+    <span class="power-by">
+        由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a> 强力驱动
+    </span>
+    <div style="text-align:center;height:0px">
+        <img width="420px" height="420px" style="opacity:0" src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/logo.png"/> 
+    </div>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
