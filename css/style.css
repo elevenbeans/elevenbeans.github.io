@@ -22,6 +22,9 @@
 .post-footer .post-tags .more:before {
   content: "" !important; }
 
+.gitment-container {
+  font-family: "Open Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif !important; }
+
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
