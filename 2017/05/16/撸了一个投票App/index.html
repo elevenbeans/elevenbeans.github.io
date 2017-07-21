@@ -63,6 +63,9 @@ So, 至少需要一个人 cover 掉 前端 + 后端 + 数据库吧 ～
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
 <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+
 
 
 
@@ -389,16 +392,7 @@ So, 至少需要一个人 cover 掉 前端 + 后端 + 数据库吧 ～
          
   <div class="comments" id="comments">
     
-    <div style="text-align:center;">
-        <button class="btn" id="load-disqus" onclick="disqus.load();">加载 Disqus 评论</button>
-    </div>
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    
+    <div id="comment-container"></div>
   </div>
 
 
@@ -423,9 +417,21 @@ So, 至少需要一个人 cover 掉 前端 + 后端 + 数据库吧 ～
         Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
     </span>
     <div style="text-align:center;height:0px">
-        <img width="420px" height="420px" style="opacity:0" src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/logo.png"/> 
+        <img width="420px" height="420px" style="opacity:0" src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/logo.png"/>
     </div>
 </span>
+<script>
+var gitment = new Gitment({
+  id: location.href, // 可选。默认为 location.href
+  owner: 'elevenbeans',
+  repo: 'elevenbeans.github.io',
+  oauth: {
+    client_id: '34a6c343407ce5dcf922',
+    client_secret: '9669a9498f09f3b21711bd666a50db5929e78256',
+  },
+})
+gitment.render('comment-container')
+</script>
 
       </footer>
 
@@ -434,37 +440,6 @@ So, 至少需要一个人 cover 掉 前端 + 后端 + 数据库吧 ～
       </div>
     </div>
     
-
-<script type="text/javascript">
-  var disqus_shortname = 'elevenbeans';
-  var disqus_identifier = '2017/05/16/撸了一个投票App/';
-
-  var disqus_title = "全栈开发实例：如何独立开发/发布一个 WebAPP";
-
-
-  var disqus = {
-    load : function disqus(){
-        if(typeof DISQUS !== 'object') {
-          (function () {
-          var s = document.createElement('script'); s.async = true;
-          s.type = 'text/javascript';
-          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-          }());
-          $('#load-disqus').remove(); ///加载后移除按钮
-        }
-    }
-  }
-
-  
-    var disqus_config = function () {
-        this.page.url = disqus_url;
-        this.page.identifier = disqus_identifier;
-        this.page.title = disqus_title;
-    };
-  
-
-</script>
 
 
     
