@@ -70,16 +70,7 @@ widget_custom:
           <img style="position:relative;left:4px" src="img/mail.png" />
         </a>
       </div>
-      <div style="display:inline-block;background:#4267b2;border-radius:12px;width:24px;height:24px">
-        <a href="https://www.facebook.com/profile.php?id=100001896103903" target="_blank">
-          <img style="position:relative;left:4px" src="img/facebook.png" />
-        </a>
-      </div>
-      <div style="display:inline-block;background:#ff8140;border-radius:12px;width:24px;height:24px">
-        <a href="http://weibo.com/u/2381593582" target="_blank">
-          <img style="position:relative;left:4px" src="img/weibo.png" />
-        </a>
-      </div>
+     ...
 ```
 
 ### Milestone
