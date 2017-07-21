@@ -219,6 +219,16 @@ Mysql 服务搭建先用brew安装mysql1brew install mysql
          
   <div class="comments" id="comments">
     
+    <div style="text-align:center;">
+        <button class="btn" id="load-disqus" onclick="disqus.load();">加载 Disqus 评论</button>
+    </div>
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
   </div>
 
 
@@ -254,6 +264,37 @@ Mysql 服务搭建先用brew安装mysql1brew install mysql
       </div>
     </div>
     
+
+<script type="text/javascript">
+  var disqus_shortname = 'elevenbeans';
+  var disqus_identifier = '2016/05/31/node-mysql-CRUD/';
+
+  var disqus_title = "node 小试牛刀之 mysql 增删改查";
+
+
+  var disqus = {
+    load : function disqus(){
+        if(typeof DISQUS !== 'object') {
+          (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.type = 'text/javascript';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+          }());
+          $('#load-disqus').remove(); ///加载后移除按钮
+        }
+    }
+  }
+
+  
+    var disqus_config = function () {
+        this.page.url = disqus_url;
+        this.page.identifier = disqus_identifier;
+        this.page.title = disqus_title;
+    };
+  
+
+</script>
 
 
     
