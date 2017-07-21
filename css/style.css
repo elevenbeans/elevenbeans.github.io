@@ -16,7 +16,8 @@
 .post-footer .post-tags .more {
   color: #4D89FB;
   position: absolute;
-  right: 0; }
+  right: 0;
+  bottom: 0; }
 
 .post-footer .post-tags .more:before {
   content: "" !important; }
