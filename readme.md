@@ -82,6 +82,12 @@ widget_custom:
       </div>
 ```
 
+### Milestone
+
++ First published in *2016-05-04*
++ Used Google Analytics in *2017-06-06*
++ Added Gitment in *2017-07-21*
+
 ### Tags
 
 标签：即对于博文的话题的分类聚合
