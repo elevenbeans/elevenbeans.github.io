@@ -1,3 +1,26 @@
+.post-link {
+  font-size: 28px; }
+
+.home .post .post-footer {
+  border-top: 0 !important; }
+
+.home .post .post-footer .post-tags {
+  padding: 0 !important; }
+
+.post-excerpt {
+  position: relative; }
+
+.post-footer .post-tags {
+  position: relative; }
+
+.post-footer .post-tags .more {
+  color: #4D89FB;
+  position: absolute;
+  right: 0; }
+
+.post-footer .post-tags .more:before {
+  content: "" !important; }
+
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
