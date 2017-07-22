@@ -6,10 +6,10 @@
 
 ## Milestone
 
-+ 创建于 *2016-05-04*
-+ 添加 Google Analytics *2017-06-06*
-+ 日访问 over 1000 *2017-07-20*
-+ 添加 Gitment *2017-07-21*
++ *2016-05-04* First publish
++ *2017-06-06* 添加 Google Analytics
++ *2017-07-20* 日访问 over 1000
++ *2017-07-21* 添加 Gitment
 
 ## Screenshot
 
