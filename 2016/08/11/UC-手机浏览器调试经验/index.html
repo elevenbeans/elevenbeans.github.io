@@ -47,17 +47,13 @@ UC 调试环境准备早前所在部门 App 均采用 UC 内核，有相关调�
 弹框样式 UED 提供，不表，开发过程 easy，不表。
 在做视觉还原＋多机适配的时候，发现某手机中安装的 UC 浏览器下点击确认／取消／关闭弹框均不消失。于是在众多机器均安装了 UC 回归测试， 定位问题确实出在 UC 上面。
 UC 调试环境准备早前所在部门 App 均采用 UC 内核，有相关调试经验。然而因同属一个">
-<meta property="og:image" content="http://bin11.cn/img/suc.png">
-<meta property="og:image" content="http://bin11.cn/img/UC.png">
-<meta property="og:image" content="http://bin11.cn/img/bug.png">
-<meta property="og:updated_time" content="2017-06-07T09:07:10.000Z">
+<meta property="og:updated_time" content="2017-08-28T10:06:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UC 手机浏览器调试经验">
 <meta name="twitter:description" content="缘起接了一个业务方的小需求，做一个代替 JS 原生confirm 功能的弹框。
 弹框样式 UED 提供，不表，开发过程 easy，不表。
 在做视觉还原＋多机适配的时候，发现某手机中安装的 UC 浏览器下点击确认／取消／关闭弹框均不消失。于是在众多机器均安装了 UC 回归测试， 定位问题确实出在 UC 上面。
 UC 调试环境准备早前所在部门 App 均采用 UC 内核，有相关调试经验。然而因同属一个">
-<meta name="twitter:image" content="http://bin11.cn/img/suc.png">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
@@ -186,11 +182,8 @@ UC 调试环境准备早前所在部门 App 均采用 UC 内核，有相关调�
 <li>运行 端口映射：</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb forward tcp:9998 tcp:9998</div></pre></td></tr></table></figure>
-<p>成功如下：</p>
-<p><img src="http://bin11.cn/img/suc.png" alt="成功开启 adb"></p>
 <p>当然，你也可键入 <code>adb devices</code> 命令，查看当前设备连接状态。如果 device 状态正常，此时，在手机上启动UC浏览器开发者版，并打开需要调试的页面,</p>
 <p>PC 浏览器(推荐 Chrome)中输入 <code>locahost:9998</code>，便可开始前端调试。</p>
-<p><img src="http://bin11.cn/img/UC.png" alt="成功开启 adb"></p>
 <p><strong>常见问题：</strong></p>
 <ul>
 <li>UC 开发者版，安装好后打开失败：请用有 root 权限的手机</li>
@@ -203,9 +196,8 @@ UC 调试环境准备早前所在部门 App 均采用 UC 内核，有相关调�
 <li>新增一个 <a href="https://www.wandoujia.com/" target="_blank" rel="external">豌豆荚</a> 大法，精准选择最合适的设备驱动</li>
 </ul>
 <p>===================== <em>End</em> ===================</p>
-<h4 id="水落石出"><a href="#水落石出" class="headerlink" title="水落石出"></a>水落石出</h4><p><img src="http://bin11.cn/img/bug.png" alt="成功开启 "></p>
-<p> 如图所示：UC 内核不支持 <code>domObj.remove()</code> 方法，哎。。。。。</p>
-<p> 统一使用：<code>document.body.removeChild(element)</code> 代替。</p>
+<h4 id="水落石出"><a href="#水落石出" class="headerlink" title="水落石出"></a>水落石出</h4><p>UC 内核不支持 <code>domObj.remove()</code> 方法，哎。。。。。</p>
+<p>统一使用：<code>document.body.removeChild(element)</code> 代替。</p>
 <p> Over ~</p>
 
             </div>
