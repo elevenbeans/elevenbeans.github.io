@@ -28,6 +28,7 @@
 ### Categories
 
 + Tech
+  + [React 路/粉/黑 都该了解的 React license 争议](http://elevenbeans.github.io/2017/08/29/Explaining-React-s-license/) *2017-08-29*
   + [【译】为什么我选择 React 而不是 Vue](http://elevenbeans.github.io/2017/07/19/Why-React/) *2017-07-19*
   + [两分钟解惑 JS 小数计算精度问题](http://elevenbeans.github.io/2017/07/07/floating-point-issue/) *2017-07-07*
   + [管中窥豹，一叶知秋：用 GA 得出几个和掘金社区相关的有趣结论](http://elevenbeans.github.io/2017/06/08/GA-for-juejin/) *2017-06-09*
@@ -41,6 +42,7 @@
   + ...
 
 + Life
+  + [Rocker && Jaber](http://elevenbeans.github.io/2017/08/28/Rocker-Jaber-0/) *2017-08-28*
 	+ [2016-2017 小结](http://elevenbeans.github.io/2017/06/12/summary-of-my-2016-2017/) *2017-06-14*
 	+ [开源精神, 从我做起](http://elevenbeans.github.io/2017/04/10/%E5%BC%80%E6%BA%90%E7%B2%BE%E7%A5%9E%E4%BB%8E%E6%88%91%E5%81%9A%E8%B5%B7/) *2017-04-10*
 	+ [话不多说先上车](http://elevenbeans.github.io/2017/02/09/%E6%88%BF%E5%AD%90/) *2017-02-09*
