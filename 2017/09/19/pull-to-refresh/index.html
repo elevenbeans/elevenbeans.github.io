@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="60 行 JS 代码搞定一个下拉刷新组件"/>
+
+
+
+
+  <meta name="keywords" content="JS,下拉刷新," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Elevenbeans' blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/bitbug_favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2017/09/19/pull-to-refresh/"/>
+
+
+<meta name="description" content="神马？ 浏览器不都有自带的刷新按钮么？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="60 行 JS 代码搞定一个下拉刷新组件">
+<meta property="og:url" content="http://yoursite.com/2017/09/19/pull-to-refresh/index.html">
+<meta property="og:site_name" content="Elevenbeans' blog">
+<meta property="og:description" content="神马？ 浏览器不都有自带的刷新按钮么？">
+<meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/iscroll.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/iscroll+lazyload.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/native_scroll+ptr.png">
+<meta property="og:updated_time" content="2017-09-19T15:55:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="60 行 JS 代码搞定一个下拉刷新组件">
+<meta name="twitter:description" content="神马？ 浏览器不都有自带的刷新按钮么？">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/iscroll.png">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-100591386-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+
+    <title> 60 行 JS 代码搞定一个下拉刷新组件 - Elevenbeans' blog </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo"><img width="40px" src="//raw.githubusercontent.com/elevenBeans/Grocery/master/logo.png"/> Elevenbeans' blog</a>
+    </h1>
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/">
+                            
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+    </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          60 行 JS 代码搞定一个下拉刷新组件
+        
+      </h1>
+
+      <time class="post-time">
+          Sep 19 2017
+      </time>
+    </header>
+
+    
+            <div class="post-content">
+            <script src="/assets/js/APlayer.min.js"> </script><p>神马？ 浏览器不都有自带的刷新按钮么？<br><a id="more"></a></p>
+<h4 id="Web-页为什么要下（zi）拉（xing）刷（che）新"><a href="#Web-页为什么要下（zi）拉（xing）刷（che）新" class="headerlink" title="Web 页为什么要下（zi）拉（xing）刷（che）新 ?"></a>Web 页为什么要下（zi）拉（xing）刷（che）新 ?</h4><p>这里特指移动端，原因如下：</p>
+<ul>
+<li>相较于点击右上角刷新按钮（还有可能要点两次，第一次先展开 menu bar，然后才能看到 refresh 按钮），直接了当地下拉刷新无疑提供了更好的用户体验</li>
+<li>点击刷新按钮<strong>同步重载页面</strong>必然存在一定<strong>白屏时间</strong>，而通过下拉刷新的逻辑完全可以对于页面内容进行<strong>异步更新</strong>，其体验毫无疑问更加优秀</li>
+<li>移动端特有 touch 相关事件，用户在移动设备上的触摸、滑动操作频繁，习惯已经养成，下拉刷新在提供更好的体验的同时，丝毫没有增加用户的学习成本</li>
+<li>很多内容 + 社交的业务场景里面，<strong>主页面的存留时长极高且内容实时性强</strong>（如微博、知乎、头条等）, 这些 Native App 已经普遍向用户提供了这种(下拉刷新)更新页面内容的交互方式。作为一个 Web 开发者，如有志于在移动领域让 Web App 和 Native App 在体验方面一较高下，那 H5 页（异步）下拉刷新功能也算是不可或缺的一环</li>
+<li>当然，还可以应对一些特殊场景 … （如 Webview 不提供刷新按钮 =,=）</li>
+</ul>
+<p><em>精简成人话其实就是：被交互逼的</em></p>
+<h4 id="现有哪些轮子可以做到？"><a href="#现有哪些轮子可以做到？" class="headerlink" title="现有哪些轮子可以做到？"></a>现有哪些轮子可以做到？</h4><ul>
+<li><a href="https://github.com/BoxFactura/pulltorefresh.js" target="_blank" rel="external">pulltorefresh.js</a>: </li>
+</ul>
+<p>目测这个是目前 Github 上最流行的 JS 下拉刷新组件了(<strong>15K stars</strong>)。<em>highly customizable and dependency-free!</em><br>看使用方法，真的是简洁明了：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">PullToRefresh.init(&#123;</div><div class="line">  <span class="attr">mainElement</span>: <span class="string">'body'</span>, <span class="comment">// 想拖动（刷新）目标元素</span></div><div class="line">  onRefresh: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">window</span>.location.reload(); <span class="comment">// 刷新动作完后的会执行的回调函数</span></div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>不过这种单功能组件暴露了 <a href="https://github.com/BoxFactura/pulltorefresh.js#api" target="_blank" rel="external">20 个 API</a>，着实有点多了。当然源码中有默认的一系列 default setting，个人觉得负担不大但不必要。</p>
+<ul>
+<li><a href="https://github.com/bryaneaton13/react-pull-to-refresh" target="_blank" rel="external">react-pull-to-refresh</a></li>
+</ul>
+<p>看到一个 React 版本的就简直看到了亲人呐。虽然“只有” 200 stars，但是咱也不能完全以“星”取人啊，果断开始捣鼓。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ReactPullToRefresh</span></span></div><div class="line">  <span class="attr">onRefresh</span>=<span class="string">&#123;this.handleRefresh&#125;</span></div><div class="line">  <span class="attr">className</span>=<span class="string">"your-own-class-if-you-want"</span></div><div class="line">  <span class="attr">style</span>=<span class="string">&#123;&#123;</span></div><div class="line">    <span class="attr">textAlign:</span> '<span class="attr">center</span>'</div><div class="line">  &#125;&#125;&gt;</div><div class="line">  <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Pull down to refresh<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;items&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>etc.<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ReactPullToRefresh</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://github.com/cubiq/iscroll" target="_blank" rel="external">iscroll</a></li>
+</ul>
+<p><em>iScroll is a <strong>high performance</strong>, small footprint, dependency free, multi-platform javascript scroller. It works on desktop, mobile and smart TV.</em>（并不是我喜欢复制粘贴凑篇幅，而是当我真正用过 TA 以后再回过头来再看这句话，就不厚道地笑了。平台通吃的东西在移动端性能真的可以很好么？？？）</p>
+<p><strong>不过，目前为止唯一一个让我成功完成任务的轮子。</strong> 然而还是放弃了，比较可惜，原因汇总如下：</p>
+<h4 id="我为什么不用上面的轮子？"><a href="#我为什么不用上面的轮子？" class="headerlink" title="我为什么不用上面的轮子？"></a>我为什么不用上面的轮子？</h4><ul>
+<li><p>pulltorefresh.js：很遗憾的是，我在 React 里面使用，页面第一次加载 OK，但下拉一次异步请求数据之后，再次下拉，整个组件源码报错了: “<strong>Cannot read property … of undefined …</strong>” 找不到目标 dom 元素了 =^=。目测应该和 React 组件更新机制有关，懒得追究，遂放弃</p>
+</li>
+<li><p>react-pull-to-refresh：我遇到了一个很多人都遇到过的问题：<a href="https://github.com/bryaneaton13/react-pull-to-refresh/issues/12" target="_blank" rel="external">issues#12: Can’t scroll on mobile</a>。作者的回复是: <em>this is a <strong>due to the default touch-action in hammerjs is ‘none’</strong>. A fix could be to set the default to ‘pan-y’. Like this: let hammer = require(‘hammerjs’); hammer.defaults.touchAction = ‘pan-y’;</em> 实力甩锅 hammerjs，懒得继续死磕下去了，如果一行布丁代码就能解决的问题，干嘛不在自己组件里面兼容掉？果断弃之，不可惜。</p>
+</li>
+<li><p>iscroll：性能问题</p>
+</li>
+</ul>
+<div style="display:flex"><br><div style="flex:1"><br><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/iscroll.png" alt="img"><br></div><br><div style="flex:1"><br><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/iscroll+lazyload.png" alt="img"><br></div><br><div style="flex:1"><br><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/native_scroll+ptr.png" alt="img"><br></div><br></div>
+
+<p>对于一个 150 个元素的列表，左图为 <a href="https://github.com/cubiq/iscroll" target="_blank" rel="external">iScroll</a> 的 FPS；中间图为<a href="https://github.com/cubiq/iscroll" target="_blank" rel="external">iScroll</a>+<a href="https://github.com/jasonslyvia/react-lazyload" target="_blank" rel="external">lazyload</a> 的 FPS；最有图为 native scroll +<a href="https://github.com/elevenbeans/my-utils/blob/master/src/pulltorefresh.js" target="_blank" rel="external">my pulltorefresh</a> 的 FPS，看曲线，别看瞬时帧频，其实差距挺大但没有那么大。</p>
+<h4 id="不得已而为之，自造轮子"><a href="#不得已而为之，自造轮子" class="headerlink" title="不得已而为之，自造轮子"></a>不得已而为之，自造轮子</h4><p><em>要把大象装冰箱，总共分几步？</em></p>
+<ol>
+<li>监听原生 <code>touchstart</code> 事件，记录下拉起始位置</li>
+<li>监听原生 <code>touchmove</code>  事件，记录最新滑动位置与起始位置的像素差，如果大于 0 则为下拉，此时将结果同步设置成目标元素 <code>translateY</code> 值，实现元素跟随手势向下移动。</li>
+<li>监听原生 <code>touchend</code> 事件，如果元素已在页面顶部，且下拉像素大于一个阈值（默认 60px），则触发 callback，并且将 <code>translateY</code> 的取值还原为 0，恢复目标元素位置 （有过渡效果是坠吼滴！）</li>
+</ol>
+<p>源码很简单，短短 60 行，具体请戳 <a href="https://github.com/elevenbeans/my-utils/blob/master/src/pulltorefresh.js" target="_blank" rel="external">这里</a>。在线 Demo <a href="http://elevenbeans.github.io/my-utils/src/pulltorefresh.html" target="_blank" rel="external">请戳这里</a>（移动设备或模拟器查看）</p>
+<p><strong>这可能是史上最简陋的 JS 下拉刷新组件了吧 =,=</strong></p>
+<p>生产环境也在使用：<a href="https://english.ctrip.com/flightsh5/status/?opentest=1" target="_blank" rel="external">大豚厂 IBU H5 首发航班动态求公测</a>～</p>
+<p>示例代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span> = <span class="string">"ptr-instructions"</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!--your loading icon here--&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>= <span class="string">"ptr-instructions-text"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span> = <span class="string">"main"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> = <span class="string">"item"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> = <span class="string">"item"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> = <span class="string">"item"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> = <span class="string">"item"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> = <span class="string">"item"</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> = <span class="string">"item"</span>&gt;</span>6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> = <span class="string">"item"</span>&gt;</span>7<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> = <span class="string">"item"</span>&gt;</span>8<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> = <span class="string">"item"</span>&gt;</span>9<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> = <span class="string">"item"</span>&gt;</span>10<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> = <span class="string">"item"</span>&gt;</span>11<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> = <span class="string">"item"</span>&gt;</span>12<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> = <span class="string">"item"</span>&gt;</span>13<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">pullToRefresh.init(&#123;</div><div class="line">	<span class="comment">// required</span></div><div class="line">	ptrElement: <span class="string">'#ptr-instructions'</span>, <span class="comment">// 'pull to refresh' intructions element</span></div><div class="line">	ptrTextElement: <span class="string">'.ptr-instructions-text'</span>, <span class="comment">// intructions' text element</span></div><div class="line">	targetElement: <span class="string">'#main'</span>, <span class="comment">// target element that will be refresh</span></div><div class="line">	<span class="comment">// optional</span></div><div class="line">	instructionsPullToRefresh: <span class="string">'pull to refresh'</span>, <span class="comment">// text</span></div><div class="line">	instructionsReleaseToRefresh: <span class="string">'Release to refresh'</span>, <span class="comment">//text</span></div><div class="line">	instructionsRefreshing: <span class="string">'refreshing'</span>, <span class="comment">// text</span></div><div class="line">	threshold: <span class="number">60</span>, <span class="comment">// minimum distance required to trigger the refresh.</span></div><div class="line">	onPull: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">// callback fn</span></div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'onPull fired'</span>);</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Done ～</p>
+<h2 id="At-last"><a href="#At-last" class="headerlink" title="At last"></a>At last</h2><p>360 度托马斯回旋跪地求赞赞： <a href="https://github.com/elevenBeans/elevenbeans.github.io" target="_blank" rel="external">Github Repo</a></p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/JS/">JS</a>
+          
+            <a href="/tags/下拉刷新/">下拉刷新</a>
+          
+          
+        </div>
+       
+         
+         
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2017/08/29/Explaining-React-s-license/">
+        <span class="next-text nav-default">React 路/粉/黑 都该了解的 React license 争议</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+         
+  <div class="comments" id="comments">
+    
+    <div id="comment-container"></div>
+  </div>
+
+
+       
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2017
+    <span class="footer-author"><a href="https://github.com/elevenbeans" target="_blank">@elevenbeans</a>.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+    <div style="text-align:center;height:0px">
+        <img width="420px" height="420px" style="opacity:0" src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/logo.png"/>
+    </div>
+</span>
+<script>
+var gitment = new Gitment({
+  id: location.href, // 可选。默认为 location.href
+  owner: 'elevenbeans',
+  repo: 'elevenbeans.github.io',
+  oauth: {
+    client_id: '34a6c343407ce5dcf922',
+    client_secret: '9669a9498f09f3b21711bd666a50db5929e78256',
+  },
+})
+gitment.render('comment-container')
+</script>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
