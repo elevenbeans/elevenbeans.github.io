@@ -44,7 +44,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/iscroll.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/iscroll+lazyload.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/native_scroll+ptr.png">
-<meta property="og:updated_time" content="2017-09-20T07:44:12.000Z">
+<meta property="og:updated_time" content="2017-09-21T03:43:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="60 行 JS 代码搞定一个下拉刷新组件">
 <meta name="twitter:description" content="神马？ 浏览器不都有自带的刷新按钮么？">
@@ -187,11 +187,7 @@
 <p>所以，iscroll， 1 秒 3 帧。。。泪流满面，着实让我体会了一把页面卡成 PPT 的感觉。</p>
 <p>对了，测试机器也提一句，是我的备用机。为了避免广告，我只能说是手机界说相声说的最好的那个胖子旗下的低端千元机。</p>
 <h4 id="不得已而为之，自造轮子"><a href="#不得已而为之，自造轮子" class="headerlink" title="不得已而为之，自造轮子"></a>不得已而为之，自造轮子</h4><p><em>要把大象装冰箱，总共分几步？</em></p>
-<ol>
-<li>监听原生 <code>touchstart</code> 事件，记录滑动起始位置</li>
-<li>监听原生 <code>touchmove</code>  事件，记录最新滑动位置与起始位置<code>ev.touches[0].pageY</code>的像素差，如果大于 0 则为向下拖动，此时将结果同步设置成目标元素 <code>translateY</code> 值，实现元素跟随手势向下移动。当然，元素移动距离是要有上限的。</li>
-<li>监听原生 <code>touchend</code> 事件，如果元素已在页面顶部，且下拉像素大于一个阈值（默认 60px），则触发 callback，并且将 <code>translateY</code> 的取值还原为 0，恢复目标元素位置 （有过渡效果是坠吼滴！）</li>
-</ol>
+<p>第 1 步：监听原生 <code>touchstart</code> 事件，记录滑动起始位置<br>第 2 步：监听原生 <code>touchmove</code>  事件，记录最新滑动位置与起始位置<code>ev.touches[0].pageY</code>的像素差，如果大于 0 则为向下拖动，此时将结果同步设置成目标元素 <code>translateY</code> 值，实现元素跟随手势向下移动。当然，元素移动距离是要有上限的。<br>第 3 步：监听原生 <code>touchend</code> 事件，如果元素已在页面顶部，且下拉像素大于一个阈值（默认 60px），则触发 callback，并且将 <code>translateY</code> 的取值还原为 0，恢复目标元素位置 （有过渡效果是坠吼滴！）</p>
 <p>源码很简单，短短 65 行，具体请戳 <a href="https://github.com/elevenbeans/my-utils/blob/master/src/pulltorefresh.js" target="_blank" rel="external">这里</a>。在线 Demo <a href="http://elevenbeans.github.io/my-utils/src/pulltorefresh.html" target="_blank" rel="external">请戳这里</a>（移动设备或模拟器查看）</p>
 <p><strong>这可能是史上最简陋的 JS 下拉刷新组件了吧 =,=</strong></p>
 <p>生产环境也在使用：<a href="https://english.ctrip.com/flightsh5/status/?opentest=1" target="_blank" rel="external">大豚厂 IBU H5 首发航班动态求公测</a>～</p>
