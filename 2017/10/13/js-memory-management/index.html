@@ -17,7 +17,7 @@
 
 
 
-  <meta name="keywords" content="JS,内存泄漏," />
+  <meta name="keywords" content="内存泄漏,JS," />
 
 
 
@@ -48,7 +48,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/memory-management/5.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/memory-management/6.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/memory-management/7.png">
-<meta property="og:updated_time" content="2017-10-24T09:49:25.000Z">
+<meta property="og:updated_time" content="2017-10-24T09:53:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【译】JS 中的内存管理 && 常见的 4 种内存泄露处理方式">
 <meta name="twitter:description" content="几周前，我们开始了一系列旨在深入挖掘 JavaScript 及其实际工作原理(的研究)：我们认为，通过了解 JavaScript 的构建块以及其集成方法，您将能够编写更好的代码和应用程​​序。">
@@ -170,7 +170,7 @@
 <li>释放内存 - 现在是释放您不需要的整个内存的时间，以便它可以再次可用并可用。与分配内存操作一样，这种操作在低级语言中是显式的。</li>
 </ul>
 <p>要快速了解调用堆栈和内存堆的概念，您可以阅读我们关于该主题的<a href="https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf" target="_blank" rel="external">第一篇文章</a>。</p>
-<h4 id="内存是什么"><a href="#内存是什么" class="headerlink" title="内存是什么"></a>内存是什么</h4><p>在直接跳转到 JavaScript 中内存相关问题之前，我们将简要讨论一般内存以及它的工作原理。<br>在硬件层面上，计算机内存由大量的内存组成人字拖。 每个触发器包含几个晶体管，并且能够存储一个位。 单个触发器可通过唯一的标识符寻址，因此我们可以读取并覆盖它们。 因此，在概念上，我们可以将整个计算机内存看作是我们可以阅读和写入的一大堆数组。<br>既然作为人类，我们不是很善于把我们所有的思考和算术都放在一起，我们把它们组织成更大的组，它们可以一起用来表示数字。 8位称为1字节。 除了字节之外，还有字（有时是16位，有时是32位）。</p>
+<h4 id="内存是什么"><a href="#内存是什么" class="headerlink" title="内存是什么"></a>内存是什么</h4><p>在直接跳转到 JavaScript 中内存相关问题之前，我们将简要讨论一般内存以及它的工作原理。<br>在硬件层面上，计算机内存由大量的内存组成人字拖。 每个触发器包含几个晶体管，并且能够存储一个位。 单个触发器可通过唯一的标识符寻址，因此我们可以读取并覆盖它们。 因此，在概念上，我们可以将整个计算机内存看作是我们可以阅读和写入的一大堆数组。<br>既然作为人类，我们不是很善于把我们所有的思考和算术都放在一起，我们把它们组织成更大的组，它们可以一起用来表示数字。 8 位称为 1 字节。 除了字节之外，还有字（有时是 16 位，有时是 32 位）。</p>
 <p>很多东西都存储在这个内存中：</p>
 <ol>
 <li>所有程序使用的所有变量和其他数据。</li>
@@ -179,7 +179,7 @@
 <p>编译器和操作系统共同合作，为大多数内存管理提供帮助，但我们建议您查看引擎盖下的内容。<br>编译代码时，编译器可以检查原始数据类型，并提前计算出需要多少内存。 然后将所需的数量分配给调用堆栈空间中的程序。 这些变量分配的空间称为堆栈空间，因为随着函数被调用，它们的内存被添加到现有存储器的顶部。 当它们终止时，它们以 LIFO（先入先出）顺序被移除。 例如，考虑以下声明：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> n; <span class="comment">// 4 bytes</span></div><div class="line"><span class="keyword">int</span> x[<span class="number">4</span>]; <span class="comment">// array of 4 elements, each 4 bytes</span></div><div class="line"><span class="keyword">double</span> m; <span class="comment">// 8 bytes</span></div></pre></td></tr></table></figure>
 <p>编译器可以立即看到代码需要 4 + 4 × 4 + 8 = 28 字节。</p>
-<p>这是它与当前大小的整数和双精度的工作原理。大约20年前，整数通常为 2 字节，双字节为 4 字节。您的代码不应该依赖于此时基本数据类型的大小。</p>
+<p>这是它与当前大小的整数和双精度的工作原理。大约 20 年前，整数通常为 2 字节，双字节为 4 字节。您的代码不应该依赖于此时基本数据类型的大小。</p>
 <p>编译器将插入与操作系统交互的代码，以便在堆栈中请求要存储的变量所需的字节数。<br>在上面的示例中，编译器知道每个变量的精确内存地址。事实上，每当我们写入变量n时，这个内部变换成“内存地址4127963”。</p>
 <p>请注意，如果我们尝试访问<code>x[4]</code>，我们将访问与m相关联的数据。这是因为我们正在访问数组中不存在的元素 - 比数组中最后一个实际分配的元素（<code>x[3]</code>）还要 4 个字节，可能会读取（或覆盖）一些 m 位。这几乎肯定会对其他计划产生非常不良的后果。</p>
 <p><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/memory-management/2.png" alt="img"></p>
@@ -189,7 +189,7 @@
 <p>在编译时，编译器不知道数组需要多少内存，因为它由用户提供的值决定。<br>因此，它不能为堆栈上的变量分配空间。 相反，我们的程序需要在运行时明确地要求操作系统获得适当的空间量。 这个内存是从堆空间分配的。 静态和动态内存分配的区别如下表所示：</p>
 <p><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/memory-management/3.png" alt="img"></p>
 <p>为了充分了解动态内存分配的工作原理，我们需要花更多的时间在指针上，这可能与这篇文章的主题有太多的偏离。 如果您有兴趣了解更多信息，请在评论中通知我们，我们可以在未来的文章中详细介绍指针。</p>
-<h4 id="JavaScript-内存回收"><a href="#JavaScript-内存回收" class="headerlink" title="JavaScript 内存回收"></a>JavaScript 内存回收</h4><p>现在我们来解释第一步（分配内存）在JavaScript中的工作原理。<br>JavaScript可以缓解开发人员处理内存分配的责任 - JavaScript本身就是声明值。</p>
+<h4 id="JavaScript-内存回收"><a href="#JavaScript-内存回收" class="headerlink" title="JavaScript 内存回收"></a>JavaScript 内存回收</h4><p>现在我们来解释第一步（分配内存）在 JavaScript 中的工作原理。<br>JavaScript可以缓解开发人员处理内存分配的责任 - JavaScript 本身就是声明值。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> n = <span class="number">374</span>; <span class="comment">// allocates memory for a number</span></div><div class="line"><span class="keyword">var</span> s = <span class="string">'sessionstack'</span>; <span class="comment">// allocates memory for a string </span></div><div class="line"><span class="keyword">var</span> o = &#123;</div><div class="line">  <span class="attr">a</span>: <span class="number">1</span>,</div><div class="line">  <span class="attr">b</span>: <span class="literal">null</span></div><div class="line">&#125;; <span class="comment">// allocates memory for an object and its contained values</span></div><div class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="literal">null</span>, <span class="string">'str'</span>];  <span class="comment">// (like object) allocates memory for the</span></div><div class="line">                           <span class="comment">// array and its contained values</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> a + <span class="number">3</span>;</div><div class="line">&#125; <span class="comment">// allocates a function (which is a callable object)</span></div><div class="line"><span class="comment">// function expressions also allocate an object</span></div><div class="line">someElement.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  someElement.style.backgroundColor = <span class="string">'blue'</span>;</div><div class="line">&#125;, <span class="literal">false</span>);</div></pre></td></tr></table></figure>
 <p>一些函数调用也导致对象分配：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// allocates a Date object</span></div><div class="line"><span class="keyword">var</span> e = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>); <span class="comment">// allocates a DOM element</span></div></pre></td></tr></table></figure>
@@ -230,7 +230,7 @@
 <p>此示例说明了定时器可能发生的情况：引用节点或不再需要的数据的计时器。<br>渲染器表示的对象可能会在将来被删除，从而使整个块不在间隔处理程序中。但是，由于间隔仍然有效，因此无法收集处理程序（需要停止间隔才能发生）。如果无法收集间隔处理程序，则不能收集其依赖关系。这意味着无法收集服务器数据（可能存储大量数据）。<br>在观察者的情况下，重要的是进行显式调用，以便在不再需要时删除它们（或者相关对象即将无法访问）。<br>过去，以前特别重要的是某些浏览器（好的旧 IE 6）无法管理好循环引用（有关更多信息，请参见下文）。如今，大多数浏览器一旦观察到的对象变得无法访问，就能收集观察者处理程序，即使侦听器没有被明确删除。但是，在处理对象之前，明确删除这些观察者仍然是一个很好的做法。例如：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> element = <span class="built_in">document</span>.getElementById(<span class="string">'launch-button'</span>);</div><div class="line"><span class="keyword">var</span> counter = <span class="number">0</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">onClick</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">   counter++;</div><div class="line">   element.innerHtml = <span class="string">'text '</span> + counter;</div><div class="line">&#125;</div><div class="line">element.addEventListener(<span class="string">'click'</span>, onClick);</div><div class="line"><span class="comment">// Do stuff</span></div><div class="line">element.removeEventListener(<span class="string">'click'</span>, onClick);</div><div class="line">element.parentNode.removeChild(element);</div><div class="line"><span class="comment">// Now when element goes out of scope,</span></div><div class="line"><span class="comment">// both element and onClick will be collected even in old browsers // that don't handle cycles well.</span></div></pre></td></tr></table></figure>
 <p>如今，现代浏览器（包括 Internet Explorer 和 Microsoft Edge）使用现代垃圾收集算法，可以检测这些周期并正确处理它们。 换句话说，在使节点无法访问之前，不必要调用<code>removeEventListener</code>。<br>框架和库（如 jQuery）在处理节点之前（在为其使用特定的 API 时）会删除侦听器。 这是由库内部处理的，这也确保没有泄漏，即使在有问题的浏览器下运行，如…是的，IE 6。</p>
-<h5 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h5><p>JavaScript开发的一个关键方面是闭包：一个可以访问外部（封闭）函数变量的内部函数。 由于JavaScript运行时的实现细节，可以通过以下方式泄漏内存：</p>
+<h5 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h5><p>JavaScript 开发的一个关键方面是闭包：一个可以访问外部（封闭）函数变量的内部函数。 由于 JavaScript 运行时的实现细节，可以通过以下方式泄漏内存：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> theThing = <span class="literal">null</span>;</div><div class="line"><span class="keyword">var</span> replaceThing = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> originalThing = theThing;</div><div class="line">  <span class="keyword">var</span> unused = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (originalThing) <span class="comment">// a reference to 'originalThing'</span></div><div class="line">      <span class="built_in">console</span>.log(<span class="string">"hi"</span>);</div><div class="line">  &#125;;</div><div class="line">  theThing = &#123;</div><div class="line">    <span class="attr">longStr</span>: <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1000000</span>).join(<span class="string">'*'</span>),</div><div class="line">    <span class="attr">someMethod</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">"message"</span>);</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line">setInterval(replaceThing, <span class="number">1000</span>);</div></pre></td></tr></table></figure>
 <p>这个代码片段有一件事：每次调用<code>replaceThing</code>时，<code>TheThing</code>都会获得一个新对象，它包含一个大的数组和一个新的闭包（<code>someMethod</code>）。同时，未使用的变量保留一个引用了<code>originalThing</code>的闭包（来自前一次调用<code>replaceThing的Thing</code>）。已经有点混乱了吗？重要的是，一旦为同一个父范围内的闭包创建了一个范围，该范围将被共享。<br>在这种情况下，为关闭<code>someMethod</code>创建的范围与未使用共享。未使用的是引用<code>originalThing</code>。即使未使用未使用，一些方法也可以通过<code>replaceThing</code>范围之外的<code>Thing</code>（例如全局某处）使用。并且由于<code>someMethod</code>与未使用的共享封闭范围，未使用的引用必须将<code>originalThing</code>强制它保持活动（两个闭包之间的整个共享范围）。这样可以防止其收集。<br>当这个代码段重复运行时，可以观察到内存使用量的稳定增长。当GC运行时，这不会变小。实质上，创建了一个关闭的链接列表（其根源以<code>TheThing</code>变量的形式），并且这些闭包的范围中的每一个都对大阵列进行间接引用，导致相当大的泄漏。<br>这个问题由<code>Meteor</code>团队发现，他们有一篇伟大的文章，详细描述了这个问题。</p>
 <h5 id="4-超出DOM引用"><a href="#4-超出DOM引用" class="headerlink" title="4. 超出DOM引用"></a>4. 超出DOM引用</h5><p>有时将 DOM 节点存储在数据结构中可能是有用的。 假设要快速更新表中的几行内容。 存储对字典或数组中每个 DOM 行的引用可能是有意义的。 当发生这种情况时，会保留对同一 DOM 元素的两个引用：一个在 DOM 树中，另一个在字典中。 如果将来某个时候您决定删除这些行，则需要使两个引用不可达。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> elements = &#123;</div><div class="line">    <span class="attr">button</span>: <span class="built_in">document</span>.getElementById(<span class="string">'button'</span>),</div><div class="line">    <span class="attr">image</span>: <span class="built_in">document</span>.getElementById(<span class="string">'image'</span>)</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">doStuff</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    elements.image.src = <span class="string">'http://example.com/image_name.png'</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeImage</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// The image is a direct child of the body element.</span></div><div class="line">    <span class="built_in">document</span>.body.removeChild(<span class="built_in">document</span>.getElementById(<span class="string">'image'</span>));</div><div class="line">    <span class="comment">// At this point, we still have a reference to #button in the</span></div><div class="line">    <span class="comment">//global elements object. In other words, the button element is</span></div><div class="line">    <span class="comment">//still in memory and cannot be collected by the GC.</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -249,9 +249,9 @@
       <footer class="post-footer">
         <div class="post-tags">
           
-            <a href="/tags/JS/">JS</a>
-          
             <a href="/tags/内存泄漏/">内存泄漏</a>
+          
+            <a href="/tags/JS/">JS</a>
           
           
         </div>
@@ -263,7 +263,7 @@
     
       <a class="next" href="/2017/09/19/pull-to-refresh/">
         <span class="next-text nav-default">60 行 JS 代码搞定一个下拉刷新组件</span>
-        <span class="prev-text nav-mobile">下一篇</span>
+        <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
     
@@ -294,7 +294,7 @@
     2017
     <span class="footer-author"><a href="https://github.com/elevenbeans" target="_blank">@elevenbeans</a>.</span>
     <span class="power-by">
-        由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a> 强力驱动
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
     </span>
     <div style="text-align:center;height:0px">
         <img width="420px" height="420px" style="opacity:0" src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/logo.png"/>
