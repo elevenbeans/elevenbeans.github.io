@@ -21,6 +21,7 @@
 ### Categories
 
 + Tech
+  + [【译】JS 中的内存管理 && 常见的 4 种内存泄露处理方式](http://elevenbeans.github.io/2017/10/13/js-memory-management/) *2017-10-13*
   + [60 行 JS 代码搞定一个下拉刷新组件](http://elevenbeans.github.io/2017/09/19/pull-to-refresh/) *2017-09-19*
   + [React 路/粉/黑 都该了解的 React license 争议](http://elevenbeans.github.io/2017/08/29/Explaining-React-s-license/) *2017-08-29*
   + [【译】为什么我选择 React 而不是 Vue](http://elevenbeans.github.io/2017/07/19/Why-React/) *2017-07-19*
