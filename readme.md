@@ -77,14 +77,18 @@ widget_custom:
 
 标签：即对于博文的话题的分类聚合
 
-
-
 ## Milestone
 
 + *2016-05-04:* First published
 + *2017-06-06:* 添加 Google Analytics
 + *2017-07-20:* 日访问 over 1000
 + *2017-07-21:* 添加 Gitment
+
+## Lisense
+
+如果你需要 re-post 博客中的文章（包括文章的部分段落），请标明出处 <a href="http://elevenbeans.github.io">elevenbeans</a> . 
+
+你可以随意使用 `elevenbeans.github.io` 中的源码, 因为她遵循 MIT license (same as Hexo)。当然，能给一个 Hexo 的链接也是最好不过的。
 
 ## At last
 
