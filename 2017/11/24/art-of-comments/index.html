@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="【译】注释的艺术"/>
+
+
+
+
+  <meta name="keywords" content="注释,艺术," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Elevenbeans' blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/bitbug_favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2017/11/24/art-of-comments/"/>
+
+
+<meta name="description" content="原文地址：https://css-tricks.com/the-art-of-comments/译者 Github：@elevenbeans更多内容请见译者 Blog：https://github.com/elevenbeans/elevenbeans.github.io
+我认为注释代码十分重要。最主要的是，我认为注释往往是被误解的。我之前某天在 Twitter 上说过：“对于是否应该写注释，我听">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】注释的艺术">
+<meta property="og:url" content="http://yoursite.com/2017/11/24/art-of-comments/index.html">
+<meta property="og:site_name" content="Elevenbeans' blog">
+<meta property="og:description" content="原文地址：https://css-tricks.com/the-art-of-comments/译者 Github：@elevenbeans更多内容请见译者 Blog：https://github.com/elevenbeans/elevenbeans.github.io
+我认为注释代码十分重要。最主要的是，我认为注释往往是被误解的。我之前某天在 Twitter 上说过：“对于是否应该写注释，我听">
+<meta property="og:image" content="https://cdn.css-tricks.com/wp-content/uploads/2017/10/DLKxcnZUQAAFQkI.jpg">
+<meta property="og:updated_time" content="2017-11-26T11:09:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【译】注释的艺术">
+<meta name="twitter:description" content="原文地址：https://css-tricks.com/the-art-of-comments/译者 Github：@elevenbeans更多内容请见译者 Blog：https://github.com/elevenbeans/elevenbeans.github.io
+我认为注释代码十分重要。最主要的是，我认为注释往往是被误解的。我之前某天在 Twitter 上说过：“对于是否应该写注释，我听">
+<meta name="twitter:image" content="https://cdn.css-tricks.com/wp-content/uploads/2017/10/DLKxcnZUQAAFQkI.jpg">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-100591386-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+
+    <title> 【译】注释的艺术 - Elevenbeans' blog </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo"><img width="40px" src="//raw.githubusercontent.com/elevenBeans/Grocery/master/logo.png"/> Elevenbeans' blog</a>
+    </h1>
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/">
+                            
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+    </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          【译】注释的艺术
+        
+      </h1>
+
+      <time class="post-time">
+          Nov 24 2017
+      </time>
+    </header>
+
+    
+            <div class="post-content">
+            <script src="/assets/js/APlayer.min.js"> </script><p><em>原文地址：<a href="https://css-tricks.com/the-art-of-comments/" target="_blank" rel="external">https://css-tricks.com/the-art-of-comments/</a></em><br><em>译者 Github：<a href="https://github.com/elevenbeans" target="_blank" rel="external">@elevenbeans</a></em><br><strong>更多内容请见译者 Blog：</strong><a href="https://github.com/elevenbeans/elevenbeans.github.io" target="_blank" rel="external">https://github.com/elevenbeans/elevenbeans.github.io</a></p>
+<p>我认为注释代码十分重要。最主要的是，我认为注释往往是被误解的。我之前某天在 Twitter 上说过：“对于是否应该写注释，我听到的意见不一致，但我因为写这些，从初级开发者那里得到感谢，所以我会继续写下去”。我收到的反馈是多种多样的，但我看到的是：每个人都同意，写注释是必要的，他们都有不同的原因。</p>
+<a id="more"></a>
+<p>注释是一个比我们所赋予它的功劳更具意义的事情。注释没有术语 (也不应该有)，但把所有的注释集中在一起是过于简单化了。在这个漫画中回应的例子是真实的：</p>
+<p><img src="https://cdn.css-tricks.com/wp-content/uploads/2017/10/DLKxcnZUQAAFQkI.jpg" alt="img"></p>
+<p>这就是我认为许多注释的错误观念之所在。《Clean Code》这本书中，罗伯特 c. 马丁谈到这：注释不必要, 因为代码应该是自说明的。如果你觉得一个注释是必要的, 你应该重写你的代码直至她自说明得更清晰。我既同意, 也不同意。在写注释的过程中, 你的确经常可以找到一些可以写的更好的地方, 但是并不是一个二选一的问题。我可能仍然重写代码以自说明得更清楚，同时也可以编写注释, 原因如下:</p>
+<p>代码可以描述 how，但它不能解释 why。</p>
+<p>这不是一个新的概念，它是一个共同的主题，我已经遇到有用的注释，她有传达代码不能或不能简洁传达的东西的能力。</p>
+<p>所有这些都在讲，没有一个正确的方法或一个理由来写注释。为了更好地学习，让我们深入研究一些有益的注释，这些注释可能都有不同的用途和目的，遵循着一些我们可能想要避免的模式。</p>
+<h4 id="好的注释"><a href="#好的注释" class="headerlink" title="好的注释"></a>好的注释</h4><ul>
+<li>为什么？</li>
+</ul>
+<p>许多好的注释的例子可以放在这个类别下。代码解释了您希望计算机采取的操作。您会听到人们讨论声明性代码，因为它精确地描述了逻辑，但没有描述所有步骤，就像一个食谱。它让计算机去完成重活。我们也可以将我们的注释写成一个补充声明：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">  We had to write this function because the browser </div><div class="line">  interprets that everything is a box</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>这个注释并没有描述下面的代码会做什么。她没有描述代码接下来要执行的动作。但是, 如果您找到了重写此函数的更优雅的方法, 您可能会感到有信心这样做, 因为您的代码可能以不同的方式解决同一问题。</p>
+<p>因此, 维护成本变得更少了（我们将进一步深入了解这一点）。如果你找到了一个更好的方法来写这个函数, 你可能不需要重写注释。您还可以快速了解是否可以重写另一段代码, 使此函数不再必要, 而无需花费很长时间来分析所有步骤弄清楚整个逻辑（即：为什么存在这个函数）。</p>
+<ul>
+<li>澄清一些普通人类无法辨认的东西</li>
+</ul>
+<p>当你看一长行的 regex，你能立即理解是怎么回事？如果你可以，你是少数。即使你可以在这一刻可以理解，但你可能无法在明年这个时候也立即理解。</p>
+<p>浏览器的 hack 呢？你在你的代码中见过这个吗？</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.selector &#123; [;property: value;]; &#125;</div></pre></td></tr></table></figure>
+<p>还有这个呢？</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var isFF = /a/[-1]=='a';</div></pre></td></tr></table></figure>
+<p>第一个 CSS hack 的目标是 Chrome ≤ 28, Safari ≤ 7, Opera ≥ 14, 第二个是火狐版本 2-3。我写的代码需要这样的东西。为了避免另一个维护者或未来假设我在去上班那天吃了一些药（头晕）的时候描述清楚这写 hack 是为了什么，这真是极好的。特别是我们可以为：不再需要支持该浏览器，或浏览器的 bug 修复了做好准备，时刻删除它。</p>
+<ul>
+<li>对你来说清晰易懂的东西不一定对别人清楚</li>
+</ul>
+<p>谁聪明？我们！谁写的代码干净清爽？我们！我们不必注释, 看它有多清晰！</p>
+<p>这种思维方式的问题是：我们所有人都是在各自不同的领域里有较深的知识。在小团队中，人们的技能和专业更加接近，由此组成的组织要比维恩图更加圆润，这比那些经常变动的团队或者经常纳入初级开发者或实习生的大团体的问题少。但我可能还是会为那些新人或未来的你腾出空间。在更大的团队中，有初级工程师，甚至是来自所有类型背景的工程师，人们可能不会决绝告诉你他们需要你写注释，但是当你这样做的时候，很多人也会表达感谢。</p>
+<ul>
+<li>像书的章节一样注释</li>
+</ul>
+<p>如果这篇文章被写成一大块，而不是分成一些空白和较小的标题，它会难以被人浏览完。也许不是我说的所有都适用于你。注释部分或片断可以允许人们跳到与他们最相关的部分。但你又说，我们现在为此准备了函数式的编程、import 和模块化（囧）。</p>
+<p>是真的！我们把事情分解成更小的部分，这样它们就更容易管理了，谢天谢地。不过，即使是在较小的代码段中，您也一定会遇到一个需要长一点的片断。能够快速掌握什么是相关的、找出一个部分的标签，一点小不同可以加快生产率。</p>
+<ul>
+<li>编写代码时保持逻辑平直的指南</li>
+</ul>
+<p>这个是一个有趣的！这些不是您保留的注释，因此也可以在 “坏模式” 部分找到。很多时候，当我在一个更大的项目，有很多动态的部分打破了我下一步行动的时候是非常有益的。这看起来像</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// get the request from the server and give an error if it failed</span></div><div class="line"><span class="comment">// do x thing with that request</span></div><div class="line"><span class="comment">// format the data like so</span></div></pre></td></tr></table></figure>
+<p>如此我可以很容易地在一同一时间专注于一件事。但是，当您的代码中保留时，这些注释可能会被曲解为需要以后阅读。它们在你写的时候很有用，但是一旦你完成了，就只能变成代码的重复，强迫读者用两种不同的方式读同样的东西。但这并不会使他们的写作更有价值。</p>
+<p>我的完美建议是在写作时使用这些评论，其后再重新审视它们。当您删除它们时，您可以问 “这里的代码是否以最优雅和可读的方式做到了这一点？” “是否有其他注释，我可能会取代这个注释，并且能解释其必要性？” “我认为什么是对未来的我（或者从另一个母亲那里来的我）所能表达的最有用的东西？”</p>
+<ul>
+<li>这可以重构</li>
+</ul>
+<p>你是否有过一个非常急迫的产品 Deadline？也许你实现了一个你自己不满意的功能，或者他们告诉你这是 “暂时的”，”只是一个 AB 测试，所以不要紧”。<em>恐怖音乐 </em></p>
+<p>因为它可能很尴尬, 如评论像：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// this isn't my best work, we had to get it in by the deadline</span></div></pre></td></tr></table></figure>
+<p>是相当有用的。作为一个维护者，当我在这样的注释中工作时，我会节省大量试图找出这个人到底出了什么毛病以及设想我怎么破坏他早上上班的方式的时间。我将立即停止尝试找出该代码中的哪些部分应保留，转而侧重于可以重构的内容。我将给出的唯一警告是：不要让这种类型的编码成为你的降级方案 (我们将详细讨论这一点)。</p>
+<ul>
+<li>注释作为教学的工具</li>
+</ul>
+<p>请问，你们是一家为全是 Ruby 的客户提供服务的 PHP 商店吗？也许你们提供的 Ruby 完全标准，但你的团队似乎自己都有些搞不懂 (<em>英语能力有限，其实没完全懂作者意图。。囧。。大概就是说语言教学应该专业且专注，少跨语言来教人坑人。但是，跟后面逻辑有点对不上啊！！！</em>)。你在为某人写教程吗？这些都是有限的例子，写出了如何可以对人有帮助。这个人确实在学习，但可能无法理解自己到底在干什么，因为他们从来没有在他们的生活中看到过这些（学习的内容）。请注释一下那个东西（<em>飙脏的部分就。。。</em>）！没有注释的学习已经足够的谦卑了，毕竟他们并没有大声问你如何可以更容易地自学。</p>
+<ul>
+<li>I StackOverflow’d the bejeezus outta this (给你们个眼神自己体会 =,=)</li>
+</ul>
+<p>您是否只是从 StackOverflow 复制粘贴一整块代码和修改它以满足您的需要？这不是一个伟大的实践, 但我们都这么做。过去我做过的事就是把我找到的那篇文章链接放上。但！你可能会说，那我们就不会得到那个代码的功劳了！你在为错误的事情做优化，这个是我的答案。</p>
+<p>不可避免的，人们有不同的编码风格，解决方案的作者以不同的方式解决问题，如果你对这个领域理解更深。这有什么关系？因为以后你会更聪明，你可能会在这一领域的水平更高，然后你会花更少的时间思索为什么你这样写它，或从其他人的方法学习。另外，你也可以回顾一下这篇文章，看看在这个问题上是否有任何新的回复或更多的解释。可能还会有另一个更好的答案。</p>
+<h4 id="不良注释"><a href="#不良注释" class="headerlink" title="不良注释"></a>不良注释</h4><p>写注释有时会有不好的总结, 这是因为坏的注释确实存在。让我们来谈谈一些在写的时候要避免的事情。</p>
+<p>他们只是说它已经在做什么。</p>
+<p>约翰爸爸做了一个准确的笑话, 这:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// if foo equals bar ...</span></div><div class="line">If (foo === bar) &#123; </div><div class="line"></div><div class="line">&#125; <span class="comment">// end if</span></div></pre></td></tr></table></figure>
+<p>是很大的痛苦。为什么？因为你实际上是以两种不同的方式读两遍。它没有提供更多的信息，事实上，它使你不得不用两种不同的格式处理事情，这是精神上的开销而不是帮助。我们都写过这样的注释。也许是因为我们自己不太了解它，或者我们太担心以后再读。不管是什么原因，如果可以的话，退后一步，试着从别人的角度看代码和评论，而不是作为作者，这总是好的。</p>
+<ul>
+<li>没持续维护的注释</li>
+</ul>
+<p>错误的文档可能比没有文档更糟糕。没有什么是比看到一段注释说的与下面代码表达的完全不同更令人沮丧的了。比浪费时间更糟糕的是误导。</p>
+<p>一个解决方案是确保无论您正在更新的代码是什么, 您同时都继续维护相关的注释。当然，以后只会有越来越少但却更有意义的评论，从而让维护更省力。但注释和维护注释都是工程师工作的一部分。注释是在您的代码中的, 您的工作就是处理它, 即使处理意味着删除。</p>
+<p>如果你的注释是良好的质量开始, 并表达了 why, 而不是 how, 你可能会发现这个问题就自己解决了。例如, 如果我写</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// we need to FLIP this animation to be more performant in every browser</span></div></pre></td></tr></table></figure>
+<p>并在以后重构此代码以从使用 <code>getBoundingClientRect()</code> 变成使用 <code>getBBox()</code>, 注释仍然适用。该函数的存在是出于相同的原因, 但 how 的细节则是代码被改变的那部分内容。</p>
+<ul>
+<li>你可以用一个更好的命名</li>
+</ul>
+<p>我肯定见过人们写代码 (或自己做这件事)，其中变量或函数的名称是一个字母，然后再注释一下这是什么东西。这是浪费，我们都讨厌打字，但是如果您有用重复使用变量或函数名，我可不想扫描整个文档找您解释了名称本身可以做什么的地方。我理解, 命名是很难的。但是一些注释取代了一些可以更精确地写出的东西。</p>
+<ul>
+<li>注释是一个不好好开始写代码的借口 </li>
+</ul>
+<p>这对很多人来说是问题的症结所在。如果你写的代码是杂乱的, 你扔在注释在旁边, 用以说明, 这意味着注释反而阻碍了你的编程。这是一种本末倒置的情景。不幸的是, 即使是本文的作者我, 也不是那么容易确定哪个是本哪个是末。</p>
+<p>我们以无数的方式欺骗自己。我们可能会花时间写一段注释, 让代码更清楚。我们也可以告诉自己, 我们不需要注释我们的代码, 因为我们的代码写得足够好, 即使其他人可能不同意。</p>
+<p>两个方向都有懒惰的嫌疑。尽力而为吧，不要只依赖一种正确的方法, 应该编写代码, 然后阅读它。试着想象你既是作者又是维护者, 或者说对于一个更年轻的你来说，这段代码看起来如何。你需要什么样的信息才能尽可能的高效？</p>
+<p>最近, 人们倾向于, 支持 “你是否应该写评论” 或反之力挺另一边。但我认为, 这种谈话是不够好的。我希望能让大家更深入地讨论如何写有意义的注释, 从而弥合差距。</p>
+<p>即便如此, 它也有很多需要解析。哈哈, 明白了吗？无论如何，我会留给你一些 (更好) 的趣闻。一段时间前，Stack Overflow 上有一个关于人们写过或看到的最好的评论的帖子。你绝对可以在这里花更多时间。<a href="https://stackoverflow.com/questions/184618/what-is-the-best-comment-in-source-code-you-have-ever-encountered/482129#482129" target="_blank" rel="external">一个好玩的事情</a></p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/注释/">注释</a>
+          
+            <a href="/tags/艺术/">艺术</a>
+          
+          
+        </div>
+       
+         
+         
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2017/10/13/js-memory-management/">
+        <span class="next-text nav-default">【译】JS 中的内存管理 && 常见的 4 种内存泄露处理方式</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+         
+  <div class="comments" id="comments">
+    
+    <div id="comment-container"></div>
+  </div>
+
+
+       
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2017
+    <span class="footer-author"><a href="https://github.com/elevenbeans" target="_blank">@elevenbeans</a>.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+    <div style="text-align:center;height:0px">
+        <img width="420px" height="420px" style="opacity:0" src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/logo.png"/>
+    </div>
+</span>
+<script>
+var gitment = new Gitment({
+  id: location.href, // 可选。默认为 location.href
+  owner: 'elevenbeans',
+  repo: 'elevenbeans.github.io',
+  oauth: {
+    client_id: '34a6c343407ce5dcf922',
+    client_secret: '9669a9498f09f3b21711bd666a50db5929e78256',
+  },
+})
+gitment.render('comment-container')
+</script>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
