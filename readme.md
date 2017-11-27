@@ -35,6 +35,14 @@
   + [Hello, Ctrip!](http://elevenbeans.github.io/2016/08/08/helloCtrip/) *2016-08-08*
   + ...
 
+### Theme
+
+博客的重点主要还是在文字，所以极简主义风格的主题是我喜欢的。
+
+我的主题为 [PolarBear](https://github.com/frostfan/hexo-theme-polarbear), a light theme base on Even, designed by Giuem.
+
+想要获取更多主题：参见 [Hexo Themes](https://hexo.io/themes/)。
+
 ### Contact
 
 重要的 social 信息我觉得是必不可少的。然而，本主题并未提供这个 widget，Contact 是我自己自定义的 widget。包括：
@@ -73,13 +81,6 @@ widget_custom:
 
 ![](https://raw.githubusercontent.com/elevenbeans/grocery/master/contactLogo/ScreenShot.png)
 
-## Theme
-
-博客的重点主要还是在文字，所以极简主义风格是我喜欢的。
-
-我的主题为 [PolarBear](https://github.com/frostfan/hexo-theme-polarbear), a light theme base on Even, designed by Giuem.
-
-想要获取更多主题：参见 [Hexo Themes](https://hexo.io/themes/)。
 
 ## Milestone
 
