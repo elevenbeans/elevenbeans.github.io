@@ -4,17 +4,9 @@
 
 地址: <http://elevenbeans.github.io>
 
-## Screenshot
+## At Frist
 
-![](https://raw.githubusercontent.com/elevenbeans/grocery/master/contactLogo/ScreenShot.png)
-
-## Theme
-
-博客的重点主要还是在文字，所以极简主义风格是我喜欢的。
-
-我的主题为 [PolarBear](https://github.com/frostfan/hexo-theme-polarbear), a light theme base on Even, designed by Giuem.
-
-想要获取更多主题：参见 [Hexo Themes](https://hexo.io/themes/)。
+如果觉得博客中的文章对你有帮助的话，给个 star 吧亲～
 
 ## Content OverView
 
@@ -77,6 +69,18 @@ widget_custom:
 
 标签：即对于博文的话题的分类聚合
 
+## Screenshot
+
+![](https://raw.githubusercontent.com/elevenbeans/grocery/master/contactLogo/ScreenShot.png)
+
+## Theme
+
+博客的重点主要还是在文字，所以极简主义风格是我喜欢的。
+
+我的主题为 [PolarBear](https://github.com/frostfan/hexo-theme-polarbear), a light theme base on Even, designed by Giuem.
+
+想要获取更多主题：参见 [Hexo Themes](https://hexo.io/themes/)。
+
 ## Milestone
 
 + *2016-05-04:* First published
@@ -90,6 +94,3 @@ widget_custom:
 
 你可以随意使用 `elevenbeans.github.io` 中的源码, 因为她遵循 MIT license (same as Hexo)。当然，能给一个 Hexo 的链接也是最好不过的。
 
-## At last
-
-如果觉得博客中的文章对你有帮助的话，给个 star 吧亲～
