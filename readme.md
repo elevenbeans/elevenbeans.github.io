@@ -21,6 +21,7 @@
 ### Categories
 
 + Tech
+  + [【译】注释的艺术](http://elevenbeans.github.io/2017/11/24/art-of-comments/) *2017-11-24*
   + [【译】JS 中的内存管理 && 常见的 4 种内存泄露处理方式](http://elevenbeans.github.io/2017/10/13/js-memory-management/) *2017-10-13*
   + [60 行 JS 代码搞定一个下拉刷新组件](http://elevenbeans.github.io/2017/09/19/pull-to-refresh/) *2017-09-19*
   + [React 路/粉/黑 都该了解的 React license 争议](http://elevenbeans.github.io/2017/08/29/Explaining-React-s-license/) *2017-08-29*
@@ -29,7 +30,6 @@
   + [管中窥豹，一叶知秋：用 GA 得出几个和掘金社区相关的有趣结论](http://elevenbeans.github.io/2017/06/08/GA-for-juejin/) *2017-06-09*
   + [移动端浏览器调试方法汇总](http://elevenbeans.github.io/2017/06/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/) *2017-06-06*
   + [全栈开发实例：如何独立开发/发布一个WebAPP](http://elevenbeans.github.io/2017/05/16/%E6%92%B8%E4%BA%86%E4%B8%80%E4%B8%AA%E6%8A%95%E7%A5%A8App/) *2017-05-16*
-  + [URL Scheme 主动唤起 APP 问题踩坑](http://elevenbeans.github.io/2016/08/18/URL-Scheme-%E5%94%A4%E8%B5%B7%E9%97%AE%E9%A2%98%E8%B8%A9%E5%9D%91/) *2016-06-18*
   + [Scroll 事件处理之 throttle 和 debounce](http://elevenbeans.github.io/2016/05/05/scroll%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B9%8B-throttle-%E5%92%8C-debounce/) *2016-05-05*
   + [CSS 中的垂直居中法](http://elevenbeans.github.io/2016/05/04/css-%E4%B8%AD%E7%9A%84%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%B3%95/) *2016-05-04*
   + ...
