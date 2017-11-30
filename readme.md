@@ -13,6 +13,7 @@
 ### Categories
 
 + Tech
+  + [程序员简历怎么写？ResumeX — 一个极简主义且独具创意的简历方案](http://elevenbeans.github.io/2017/11/30/resume-x/) *2017-11-30*
   + [【译】注释的艺术](http://elevenbeans.github.io/2017/11/24/art-of-comments/) *2017-11-24*
   + [【译】JS 中的内存管理 && 常见的 4 种内存泄露处理方式](http://elevenbeans.github.io/2017/10/13/js-memory-management/) *2017-10-13*
   + [60 行 JS 代码搞定一个下拉刷新组件](http://elevenbeans.github.io/2017/09/19/pull-to-refresh/) *2017-09-19*
@@ -91,7 +92,6 @@ widget_custom:
 
 ## Lisense
 
-如果你需要 re-post 博客中的文章（包括文章的部分段落），请标明出处 <a href="http://elevenbeans.github.io">elevenbeans</a> . 
+如果你需要 re-post 博客中的文章（包括文章的部分段落），请标明出处 <a href="http://elevenbeans.github.io">elevenbeans</a> .
 
 你可以随意使用 `elevenbeans.github.io` 中的源码, 因为她遵循 MIT license (same as Hexo)。当然，能给一个 Hexo 的链接也是最好不过的。
-
