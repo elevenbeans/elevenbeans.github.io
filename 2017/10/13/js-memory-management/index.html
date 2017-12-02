@@ -37,14 +37,14 @@
 
 <meta name="description" content="原文链接：https://blog.sessionstack.com/how-javascript-works-memory-management-how-to-handle-4-common-memory-leaks-3f28b94cfbec
 更多文章见译者 Github Repo (star 求 ++)
-几周前，我们开始了一系列旨在深入挖掘 JavaScript 及其实际工作原理(的研究)，我">
+几周前，我们开始了一系列旨在深入挖掘 JavaScript 及其实际工作原理(的研究)，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【译】JS 中的内存管理 && 常见的 4 种内存泄露处理方式">
 <meta property="og:url" content="http://yoursite.com/2017/10/13/js-memory-management/index.html">
 <meta property="og:site_name" content="Elevenbeans' blog">
 <meta property="og:description" content="原文链接：https://blog.sessionstack.com/how-javascript-works-memory-management-how-to-handle-4-common-memory-leaks-3f28b94cfbec
 更多文章见译者 Github Repo (star 求 ++)
-几周前，我们开始了一系列旨在深入挖掘 JavaScript 及其实际工作原理(的研究)，我">
+几周前，我们开始了一系列旨在深入挖掘 JavaScript 及其实际工作原理(的研究)，">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/memory-management/1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/memory-management/2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/memory-management/3.png">
@@ -52,12 +52,12 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/memory-management/5.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/memory-management/6.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/memory-management/7.png">
-<meta property="og:updated_time" content="2017-11-24T08:33:26.000Z">
+<meta property="og:updated_time" content="2017-12-02T11:01:41.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【译】JS 中的内存管理 && 常见的 4 种内存泄露处理方式">
 <meta name="twitter:description" content="原文链接：https://blog.sessionstack.com/how-javascript-works-memory-management-how-to-handle-4-common-memory-leaks-3f28b94cfbec
 更多文章见译者 Github Repo (star 求 ++)
-几周前，我们开始了一系列旨在深入挖掘 JavaScript 及其实际工作原理(的研究)，我">
+几周前，我们开始了一系列旨在深入挖掘 JavaScript 及其实际工作原理(的研究)，">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/memory-management/1.png">
 
 
@@ -163,7 +163,7 @@
             <div class="post-content">
             <script src="/assets/js/APlayer.min.js"> </script><p><em>原文链接：<a href="https://blog.sessionstack.com/how-javascript-works-memory-management-how-to-handle-4-common-memory-leaks-3f28b94cfbec" target="_blank" rel="external">https://blog.sessionstack.com/how-javascript-works-memory-management-how-to-handle-4-common-memory-leaks-3f28b94cfbec</a></em></p>
 <p><strong>更多文章见译者 <a href="https://github.com/elevenBeans/elevenbeans.github.io" target="_blank" rel="external">Github Repo</a> (star 求 ++)</strong></p>
-<p>几周前，我们开始了一系列旨在深入挖掘 JavaScript 及其实际工作原理(的研究)，我们认为：通过了解 JavaScript 的构建块以及其集成方法，您将能够编写更好的代码和应用程​​序。<br><a id="more"></a></p>
+<p>几周前，我们开始了一系列旨在深入挖掘 JavaScript 及其实际工作原理(的研究)，我们认为：通过了解 JavaScript 的构建块以及其集成方法，您将能够编写更好的代码和应用程​​序。</p>
 <p>该系列的第一部分重点对于引擎，Runtime（运行时）机制和堆栈调用进行一个简要描述。</p>
 <p>第二部分检视了 Google V8 JavaScript 引擎的内部，并提供了一些有关如何编写更好的 JavaScript 代码的提示。</p>
 <p>在第三部分中，我们将讨论开发人员越来越忽视的另一个关键主题，由于日常使用的编程语言的日益成熟和复杂而产生的 —— 内存管理。我们还将提供一些有关如何用 <a href="https://www.sessionstack.com/" target="_blank" rel="external">SessionStack</a> （原作推荐的工具）处理 JavaScript 内存泄漏的方法，我们确保 SessionStack 不会导致内存泄漏，也不会增加我们集成的 Web 应用程序的内存消耗。</p>

@@ -296,17 +296,6 @@
             
               <h4 id="搬新家"><a href="#搬新家" class="headerlink" title="搬新家"></a>搬新家</h4><p>58速运不错。</p>
 <p>七个大包，一辆金杯装得满满当当。</p>
-<p>两只仓鼠儿子，团团和圆圆，一路惊恐，我感觉它们的鼠生观分分钟要崩塌的节奏O(∩_∩)O</p>
-<p>新家地段不错，魔都内环边，紧邻二号线，租金也不算特别贵。</p>
-<p>可惜的是老房子没电梯，四楼虽不算高，但搬个重一点的家具什么的，上上下下也会大汗淋漓。厕所略小，不过有窗户 ^_^。</p>
-<p>楼下有牛杂馆子！！！</p>
-<p>有湘菜馆子！！！</p>
-<p>有虾子有馄饨有酱香饼有洗剪吹有大保健有&amp;^)@*&amp;$+_!@ …</p>
-<p>多走两步还可以撸串~</p>
-<p>走不到一公里就是万达影城和购物中心哈哈哈！！！</p>
-<p><strong>燥起来吧，董小姐。</strong></p>
-<p><em>动次打次档次打次，针针扎，针针扎，七个隆咚锵咚锵~</em></p>
-<h4 id="关于离职"><a href="#关于离职" class="headerlink" title="关于离职"></a>关于离职</h4><p>找主管聊了离职的想法，意料内的挽留，礼貌性的再考虑。</p>
         </div>
             
           
@@ -354,8 +343,6 @@
 <p>不过这并不是重点，</p>
 <p>CTO 本尊的一个技术问题让我印象深刻：“JQuery 中的 DomReady 在什么时候触发？”。</p>
 <p>今天抽空梳理一下。</p>
-<h4 id="若干年前踩过的小坑"><a href="#若干年前踩过的小坑" class="headerlink" title="若干年前踩过的小坑"></a>若干年前踩过的小坑</h4><p>不失一般性，在我开始接触前端的时候，学会的第一个框架或者类库 ——Jquery。每次用 JQ 时候用 <code>$(document).ready()</code> 对于逻辑代码进行包裹几乎也是标配。很长一段时间都没有深究过，只想当然的认为加上这个代码块包裹就是等文档准备完成在执行内部逻辑。和原生的<code>window.onload</code> 差不多，甚至猜测其就是对于原生<code>onload</code> 方法的封装。</p>
-<p>然而。。。<br>
         </div>
             
           
@@ -402,8 +389,6 @@
               <p>node 应该是如今最火热的技术了。</p>
 <p>看完了朴灵的《深入浅出 nodejs》，终是要练练手吧。</p>
 <p>第一反应是操作数据库，废话不多说，直接开始。</p>
-<h4 id="Mysql-服务搭建"><a href="#Mysql-服务搭建" class="headerlink" title="Mysql 服务搭建"></a>Mysql 服务搭建</h4><h5 id="先用brew安装mysql"><a href="#先用brew安装mysql" class="headerlink" title="先用brew安装mysql"></a>先用<code>brew</code>安装mysql</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install mysql</div></pre></td></tr></table></figure>
-<h5 id="安装完，尝试登录使用，启动。"><a href="#安装完，尝试登录使用，启动。" class="headerlink" title="安装完，尝试登录使用，启动。"></a>安装完，尝试登录使用，启动。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql.server start</div></pre></td></tr></table></figure>
         </div>
             
           
@@ -589,13 +574,6 @@
             
             
               <p>我们都清楚元素相对其父级元素水平居中展示的方法：对于<code>inline</code> 的元素，我们都会想到为其父级元素设置<code>tex-align : center</code>。对于<code>block</code> 元素，我们会设定其 <code>margin: 0px auto</code>。<br>然而，垂直居中的实现方法，并没有这么简单，以下列出 6 种垂直居中法。</p>
-<p>参考文章：<a href="http://vanseodesign.com/css/vertical-centering/">6 Methods For Vertical Centering With CSS</a></p>
-<h4 id="Vertical-Align"><a href="#Vertical-Align" class="headerlink" title="Vertical-Align"></a><code>Vertical-Align</code></h4><p>既然有水平居中属性<code>text-align: center</code>, 我们的第一反应、实现水平居中的方法应该是<code>vertical-align: middle</code>。</p>
-<p><em>该属性定义行内元素的<strong>基线相对于该元素所在行的基线的垂直对齐。在表单元格中，这个属性会设置单元格框中的单元格内容的对齐方式.</strong></em></p>
-<p><strong>But !!!</strong></p>
-<p><em>Vertical-align <strong>doesn’t apply to block-level elements</strong> like a paragraph inside a <code>div</code></em>.</p>
-<p>如此可知：这个方式确实直观且有效，<strong>但其适用范围仅仅限于 table cell 中的内容</strong>。</p>
-<p>这也是初学者会容易踩坑且十分困惑的一个问题。</p>
         </div>
             
           
@@ -653,7 +631,7 @@
     
     <section id="tags" class="widget-area widget_tags">
         <h3 class="widget-title">Tags</h3>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DomReady/">DomReady</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/1024/">1024</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转正/">转正</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/第一篇/">第一篇</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/宋冬野/">宋冬野</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一年小结/">一年小结</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/license/">license</a><span class="tag-list-count">1</span></li></ul>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Float-point/">Float point</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/1024/">1024</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/第一篇/">第一篇</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/宋冬野/">宋冬野</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一年小结/">一年小结</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DomReady/">DomReady</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/license/">license</a><span class="tag-list-count">1</span></li></ul>
     </section>
 
 

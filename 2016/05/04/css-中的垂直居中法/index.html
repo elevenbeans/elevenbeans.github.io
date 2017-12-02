@@ -35,22 +35,16 @@
 <link rel="canonical" href="http://yoursite.com/2016/05/04/css-中的垂直居中法/"/>
 
 
-<meta name="description" content="我们都清楚元素相对其父级元素水平居中展示的方法：对于inline 的元素，我们都会想到为其父级元素设置tex-align : center。对于block 元素，我们会设定其 margin: 0px auto。然而，垂直居中的实现方法，并没有这么简单，以下列出 6 种垂直居中法。
-参考文章：6 Methods For Vertical Centering With CSS
-Vertical-Ali">
+<meta name="description" content="我们都清楚元素相对其父级元素水平居中展示的方法：对于inline 的元素，我们都会想到为其父级元素设置tex-align : center。对于block 元素，我们会设定其 margin: 0px auto。然而，垂直居中的实现方法，并没有这么简单，以下列出 6 种垂直居中法。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css 中的垂直居中方法">
 <meta property="og:url" content="http://yoursite.com/2016/05/04/css-中的垂直居中法/index.html">
 <meta property="og:site_name" content="Elevenbeans' blog">
-<meta property="og:description" content="我们都清楚元素相对其父级元素水平居中展示的方法：对于inline 的元素，我们都会想到为其父级元素设置tex-align : center。对于block 元素，我们会设定其 margin: 0px auto。然而，垂直居中的实现方法，并没有这么简单，以下列出 6 种垂直居中法。
-参考文章：6 Methods For Vertical Centering With CSS
-Vertical-Ali">
-<meta property="og:updated_time" content="2017-12-02T10:44:01.653Z">
+<meta property="og:description" content="我们都清楚元素相对其父级元素水平居中展示的方法：对于inline 的元素，我们都会想到为其父级元素设置tex-align : center。对于block 元素，我们会设定其 margin: 0px auto。然而，垂直居中的实现方法，并没有这么简单，以下列出 6 种垂直居中法。">
+<meta property="og:updated_time" content="2017-12-02T11:04:49.319Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css 中的垂直居中方法">
-<meta name="twitter:description" content="我们都清楚元素相对其父级元素水平居中展示的方法：对于inline 的元素，我们都会想到为其父级元素设置tex-align : center。对于block 元素，我们会设定其 margin: 0px auto。然而，垂直居中的实现方法，并没有这么简单，以下列出 6 种垂直居中法。
-参考文章：6 Methods For Vertical Centering With CSS
-Vertical-Ali">
+<meta name="twitter:description" content="我们都清楚元素相对其父级元素水平居中展示的方法：对于inline 的元素，我们都会想到为其父级元素设置tex-align : center。对于block 元素，我们会设定其 margin: 0px auto。然而，垂直居中的实现方法，并没有这么简单，以下列出 6 种垂直居中法。">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
@@ -154,6 +148,7 @@ Vertical-Ali">
     
             <div class="post-content">
             <script src="/assets/js/APlayer.min.js"> </script><p>我们都清楚元素相对其父级元素水平居中展示的方法：对于<code>inline</code> 的元素，我们都会想到为其父级元素设置<code>tex-align : center</code>。对于<code>block</code> 元素，我们会设定其 <code>margin: 0px auto</code>。<br>然而，垂直居中的实现方法，并没有这么简单，以下列出 6 种垂直居中法。</p>
+<a id="more"></a>
 <p>参考文章：<a href="http://vanseodesign.com/css/vertical-centering/" target="_blank" rel="external">6 Methods For Vertical Centering With CSS</a></p>
 <h4 id="Vertical-Align"><a href="#Vertical-Align" class="headerlink" title="Vertical-Align"></a><code>Vertical-Align</code></h4><p>既然有水平居中属性<code>text-align: center</code>, 我们的第一反应、实现水平居中的方法应该是<code>vertical-align: middle</code>。</p>
 <p><em>该属性定义行内元素的<strong>基线相对于该元素所在行的基线的垂直对齐。在表单元格中，这个属性会设置单元格框中的单元格内容的对齐方式.</strong></em></p>
@@ -161,7 +156,6 @@ Vertical-Ali">
 <p><em>Vertical-align <strong>doesn’t apply to block-level elements</strong> like a paragraph inside a <code>div</code></em>.</p>
 <p>如此可知：这个方式确实直观且有效，<strong>但其适用范围仅仅限于 table cell 中的内容</strong>。</p>
 <p>这也是初学者会容易踩坑且十分困惑的一个问题。</p>
-<a id="more"></a>
 <p><strong>CSS table 中 <code>Vertical-Align</code> 垂直居中示例：</strong></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span>Content here<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;<span class="attribute">display</span>: table;&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.child</span> &#123;</div><div class="line">  <span class="attribute">display</span>: table-cell;</div><div class="line">  <span class="attribute">vertical-align</span>: middle;</div><div class="line">&#125;</div></pre></td></tr></table></figure>

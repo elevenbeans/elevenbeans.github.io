@@ -41,7 +41,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/05/04/浅析-JavaScript-中的闭包/index.html">
 <meta property="og:site_name" content="Elevenbeans' blog">
 <meta property="og:description" content="闭包的概念Wikipedia)：In programming languages, closures (also lexical closures or function closures) are a technique for implementing lexically scoped name binding in languages with first-class functions.">
-<meta property="og:updated_time" content="2017-06-07T09:12:48.000Z">
+<meta property="og:updated_time" content="2017-12-02T11:05:39.063Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅析 JavaScript 中的闭包">
 <meta name="twitter:description" content="闭包的概念Wikipedia)：In programming languages, closures (also lexical closures or function closures) are a technique for implementing lexically scoped name binding in languages with first-class functions.">
@@ -149,6 +149,7 @@
             <div class="post-content">
             <script src="/assets/js/APlayer.min.js"> </script><h4 id="闭包的概念"><a href="#闭包的概念" class="headerlink" title="闭包的概念"></a>闭包的概念</h4><p><a href="https://en.wikipedia.org/wiki/Closure_(computer_programming" target="_blank" rel="external">Wikipedia</a>)：<em>In programming languages, closures (also lexical closures or function closures) are a technique for implementing lexically scoped name binding in languages with first-class functions</em>. </p>
 <p>译文：”在编程语言中，闭包（也词法闭包或函数闭包）是结合拥有 <a href="https://en.wikipedia.org/wiki/First-class_function" target="_blank" rel="external">First-class function</a> 的语言，实现词法作用域名的一种技术。”</p>
+<a id="more"></a>
 <p><a href="https://www.zhihu.com/question/27460623/answer/36747015" target="_blank" rel="external">扩展: 什么是 first-class ?</a></p>
 <ul>
 <li>First-class 指的是可以作为参数传递，可以使用<code>return</code>里返回，可以赋给变量的类型</li>
@@ -157,7 +158,7 @@
 </ul>
 <p><strong>百度百科：</strong> <em><a href="http://baike.baidu.com/link?url=wheoR5tCOFANd56LTm1x3_9k5OdwdaO5JnBzDs4kIC7KMbLT74G6cLD0whz8KgzSBO2B10iSTfeT0B-M-eLxm_" target="_blank" rel="external">闭包</a> 指可以包含自由（未绑定到特定对象）变量的代码块；这些变量不是在这个代码块内或者任何全局上下文中定义的，而是在定义代码块的环境中定义（局部变量）。</em></p>
 <p>从概念上来看，维基百科的解释更加偏向于理论层面的抽象概念，而百度百科的定义则偏重实际编码中的实体。</p>
-<p>那么闭包（closure）究竟是什么？<br><a id="more"></a></p>
+<p>那么闭包（closure）究竟是什么？</p>
 <h4 id="JavaScript中的闭包"><a href="#JavaScript中的闭包" class="headerlink" title="JavaScript中的闭包"></a>JavaScript中的闭包</h4><p>以 JavaScript 语言为例，谈一谈闭包。</p>
 <p>首先，在 JavaScript 中几乎所有类型都可为 first-class 类型 (包括function)， 所以，JavaScript 中闭包是确定可构造出来的。</p>
 <p>由于闭包 (closure)本身与作用域(scope)息息相关，所以有必要先谈谈 JS 的作用域。</p>
