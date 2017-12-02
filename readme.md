@@ -1,8 +1,6 @@
 # 个人博客说明
 
-**Elevenbeans' blog powed by [Hexo](https://hexo.io/).**
-
-地址: <http://elevenbeans.github.io>
+**Elevenbeans' blog powed by [Hexo](https://hexo.io/).** 地址: <http://elevenbeans.github.io>
 
 ## At Frist
 
