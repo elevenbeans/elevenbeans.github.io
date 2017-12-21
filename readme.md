@@ -26,6 +26,7 @@
   + ...
 
 + Life
+  + [珍爱生命，远离 “科技宽带”](http://elevenbeans.github.io/2017/12/13/fuck-tech-broadband/) *2017-12-13*
   + [Rocker && Jaber](http://elevenbeans.github.io/2017/08/28/Rocker-Jaber-0/) *2017-08-28*
   + [2016-2017 小结](http://elevenbeans.github.io/2017/06/12/summary-of-my-2016-2017/) *2017-06-14*
   + [开源精神, 从我做起](http://elevenbeans.github.io/2017/04/10/%E5%BC%80%E6%BA%90%E7%B2%BE%E7%A5%9E%E4%BB%8E%E6%88%91%E5%81%9A%E8%B5%B7/) *2017-04-10*
