@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="前端布局方式汇总及概念浅析"/>
+
+
+
+
+  <meta name="keywords" content="CSS,布局,layout,自适应,响应式," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Elevenbeans' blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/bitbug_favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2018/01/12/front-end-layout-methods/"/>
+
+
+<meta name="description" content="前言又一个月没更博了，为了自己的第一个小窝连续奔波于苏沪两地。
+恰逢最近团队有个关于前端布局的分享的作业，于是赶紧抓住机会认领，并总结成文。
+关于布局基础布局方式0. 普通/文档流/Static 布局早期 &amp;lt;table&amp;gt;， 后来 &amp;lt;div&amp;gt; ，再后来 HTML5 语意化标签按照自上而下的方式顺次排布。
+1. Float 布局 float: left/right用于图文环绕">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端布局方式汇总及概念浅析">
+<meta property="og:url" content="http://yoursite.com/2018/01/12/front-end-layout-methods/index.html">
+<meta property="og:site_name" content="Elevenbeans' blog">
+<meta property="og:description" content="前言又一个月没更博了，为了自己的第一个小窝连续奔波于苏沪两地。
+恰逢最近团队有个关于前端布局的分享的作业，于是赶紧抓住机会认领，并总结成文。
+关于布局基础布局方式0. 普通/文档流/Static 布局早期 &amp;lt;table&amp;gt;， 后来 &amp;lt;div&amp;gt; ，再后来 HTML5 语意化标签按照自上而下的方式顺次排布。
+1. Float 布局 float: left/right用于图文环绕">
+<meta property="og:updated_time" content="2018-01-15T07:17:24.508Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端布局方式汇总及概念浅析">
+<meta name="twitter:description" content="前言又一个月没更博了，为了自己的第一个小窝连续奔波于苏沪两地。
+恰逢最近团队有个关于前端布局的分享的作业，于是赶紧抓住机会认领，并总结成文。
+关于布局基础布局方式0. 普通/文档流/Static 布局早期 &amp;lt;table&amp;gt;， 后来 &amp;lt;div&amp;gt; ，再后来 HTML5 语意化标签按照自上而下的方式顺次排布。
+1. Float 布局 float: left/right用于图文环绕">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-100591386-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+
+    <title> 前端布局方式汇总及概念浅析 - Elevenbeans' blog </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo"><img width="40px" src="//raw.githubusercontent.com/elevenBeans/Grocery/master/logo.png"/> Elevenbeans' blog</a>
+    </h1>
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/">
+                            
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+    </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          前端布局方式汇总及概念浅析
+        
+      </h1>
+
+      <time class="post-time">
+          Jan 12 2018
+      </time>
+    </header>
+
+    
+            <div class="post-content">
+            <script src="/assets/js/APlayer.min.js"> </script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>又一个月没更博了，为了自己的第一个小窝连续奔波于苏沪两地。</p>
+<p>恰逢最近团队有个关于前端布局的分享的作业，于是赶紧抓住机会认领，并总结成文。</p>
+<h1 id="关于布局"><a href="#关于布局" class="headerlink" title="关于布局"></a>关于布局</h1><h2 id="基础布局方式"><a href="#基础布局方式" class="headerlink" title="基础布局方式"></a>基础布局方式</h2><h3 id="0-普通-文档流-Static-布局"><a href="#0-普通-文档流-Static-布局" class="headerlink" title="0. 普通/文档流/Static 布局"></a>0. 普通/文档流/Static 布局</h3><p>早期 <code>&lt;table&gt;</code>， 后来 <code>&lt;div&gt;</code> ，再后来 HTML5 语意化标签按照自上而下的方式顺次排布。</p>
+<h3 id="1-Float-布局-float-left-right"><a href="#1-Float-布局-float-left-right" class="headerlink" title="1. Float 布局 float: left/right"></a>1. Float 布局 <code>float: left/right</code></h3><p>用于图文环绕排版、PC 端常用的左右排列等。</p>
+<h3 id="2-绝对布局-position-absolute-position-fixed"><a href="#2-绝对布局-position-absolute-position-fixed" class="headerlink" title="2. 绝对布局 position: absolute,position: fixed"></a>2. 绝对布局 <code>position: absolute</code>,<code>position: fixed</code></h3><p>保持与目标元素（<code>position</code>不为<code>static</code>的最近父元素）的绝对距离，如顶部固定的广告栏，早期瀑布流。</p>
+<h3 id="3-Grid-网格布局-display-grid"><a href="#3-Grid-网格布局-display-grid" class="headerlink" title="3. Grid 网格布局: display:grid"></a>3. Grid 网格布局: <code>display:grid</code></h3><p>详见：<a href="https://www.w3cplus.com/css/learncssgrid.html" target="_blank" rel="external">https://www.w3cplus.com/css/learncssgrid.html</a></p>
+<h3 id="4-CSS3-Flex-弹性盒子布局-display-flex"><a href="#4-CSS3-Flex-弹性盒子布局-display-flex" class="headerlink" title="4. CSS3 Flex 弹性盒子布局: display:flex"></a>4. CSS3 Flex 弹性盒子布局: <code>display:flex</code></h3><p>详见：<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool</a></p>
+<h2 id="开发中常用的布局概念以及方案"><a href="#开发中常用的布局概念以及方案" class="headerlink" title="开发中常用的布局概念以及方案"></a>开发中常用的布局概念以及方案</h2><h3 id="0-静态布局"><a href="#0-静态布局" class="headerlink" title="0. 静态布局"></a><strong>0. 静态布局</strong></h3><p>静态布局：网页布局始终按照固定的布局和尺寸来显示，不使用 Flex 之类的弹性盒子方案。</p>
+<p>实现：</p>
+<ul>
+<li>普通/文档流/Static 布局</li>
+<li>Float 布局</li>
+<li>绝对布局</li>
+</ul>
+<p>对于PC：一般居中布局，所有样式使用绝对宽度/高度(px)，屏幕宽高有调整时，使用滚动条来查阅被遮掩部分；</p>
+<p>对于移动设备：另外建立移动网站，单独设计一个布局，使用不同的域名如 wap.或m., 在 <code>&lt;viewport meta&gt;</code> 标签上设置 <code>width</code>，页面的各个元素也采用<code>px</code>作为单位。通过用 JS 动态修改标签的<code>initial-scale</code>使得页面等比缩放，从而刚好占满整个屏幕。</p>
+<p>优点：这种布局方式对设计师和 CSS 编写者来说都是最简单的，亦没有兼容性问题。</p>
+<p>缺点显而易见，即不能根据用户的屏幕尺寸做出不同的展现：</p>
+<ul>
+<li>窄屏幕滚动条体验很差</li>
+<li>宽屏有大片空白，不利于空间利用<blockquote>
+<p>举个栗子：<a href="http://www.scu.edu.cn/" target="_blank" rel="external">http://www.scu.edu.cn/</a> （当然不是黑母校）</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="1-流式布局"><a href="#1-流式布局" class="headerlink" title="1. 流式布局"></a><strong>1. 流式布局</strong></h3><p>流式布局目的是在不同大小的设备上<strong>满屏呈现同样网页</strong>。它是用于解决类似的设备不同分辨率之间的兼容(一般分辨率差异较少)。</p>
+<p>实现方式：</p>
+<ul>
+<li>允许网页宽度自动调整：<code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;</code></li>
+<li>不使用绝对尺寸（包括容器/字体/图片），使用百分比、em、rem、vw、vh 等</li>
+<li>可使用 flex 等弹性盒子（不要使用 px 定尺寸）</li>
+</ul>
+<p>优点：页面左右满屏。</p>
+<p>但缺点明显：使用百分比定义，所以在大屏幕的手机/Pad 下（或者横屏下）显示效果会变成有些页面元素被拉的很大，但是内容数量却不变，显得稀疏不紧凑，空间利用率低下。如果文字也按照百分比放大，则整体效果会非常不协调（老人机效果）。</p>
+<blockquote>
+<p>举个栗子：<a href="https://english.ctrip.com/flightsh5/status/" target="_blank" rel="external">https://english.ctrip.com/flightsh5/status/</a> （这个链接被我滥用惯了）</p>
+</blockquote>
+<h3 id="2-自适应布局"><a href="#2-自适应布局" class="headerlink" title="2. 自适应布局"></a><strong>2. 自适应布局</strong></h3><p>自适应布局是分别为不同的屏幕分辨率定义布局，即创建多个布局，每个布局对应一个屏幕分辨率范围。改变屏幕分辨率可以切换不同的静态布局（页面元素位置可能发生改变），但在每个静态布局中，页面元素不随窗口大小的调整发生变化。</p>
+<p>自适应布局看作是静态布局的一个合集。</p>
+<p>实现方式：</p>
+<ul>
+<li>分辨率 detector（media query/server-side detector/UA）</li>
+<li>静态布局方法</li>
+</ul>
+<p>自适应布局 <strong>页面里面元素的位置会变化，很好的解决了流式布局中的大屏空间利用率不高弊端</strong>。</p>
+<blockquote>
+<p>举个栗子：<a href="https://www.baidu.com/" target="_blank" rel="external">https://www.baidu.com/</a> （本来以为这个例子很难举 =,=）</p>
+</blockquote>
+<p>缺点是：</p>
+<ol>
+<li>单个布局容器无法灵活伸缩，未触发布局切换时，容器左右容易留空。</li>
+</ol>
+<h3 id="3-响应式布局"><a href="#3-响应式布局" class="headerlink" title="3. 响应式布局"></a><strong>3. 响应式布局</strong></h3><p>响应式布局同样分别为不同的屏幕分辨率定义布局。改变屏幕分辨率可以通过 CSS Media query 切换不同的布局（页面元素位置可能发生改变），在每个布局中，页面元素会随窗口大小的调整发生流式布局中的自动尺寸变化。</p>
+<p>实现方式：</p>
+<ul>
+<li>流式布局</li>
+<li>CSS media query</li>
+</ul>
+<p>响应式布局 <strong>融合了流式布局和自适应布局的优势</strong>。</p>
+<blockquote>
+<p>举个栗子：<a href="http://elevenbeans.github.io/" target="_blank" rel="external">http://elevenbeans.github.io/</a></p>
+</blockquote>
+<h1 id="关于设计"><a href="#关于设计" class="headerlink" title="关于设计"></a>关于设计</h1><p>布局的目的，归根结底，都是为了网页设计服务。那么就顺带聊一聊和响应式设计（RWD）和自适应设计（AWD）。</p>
+<h2 id="1-响应式设计（RWD）"><a href="#1-响应式设计（RWD）" class="headerlink" title="1. 响应式设计（RWD）"></a><strong>1. 响应式设计（RWD）</strong></h2><p>Wikipedia: <em>Responsive web design (RWD) is an approach to web design which makes web pages render well on a variety of devices and window or screen sizes. Content, design and performance are necessary across all devices to ensure usability and satisfaction</em></p>
+<p><strong>“Progressive enhancement”</strong>, <strong>“one-fits-all”</strong></p>
+<p>响应式设计基于响应式布局，<strong>使用同一套页面在各种各样不同大小的设备上进行大小合适、布局（甚至功能）合理的展现。</strong></p>
+<blockquote>
+<p>举个栗子：<a href="http://elevenbeans.github.io/，" target="_blank" rel="external">http://elevenbeans.github.io/，</a><br>响应式设计会根据识别屏幕宽度对于展示的具体内容块进行位置调整，甚至展示和隐藏。</p>
+</blockquote>
+<p>实现方式：响应式布局</p>
+<h2 id="2-自适应设计（AWD）"><a href="#2-自适应设计（AWD）" class="headerlink" title="2. 自适应设计（AWD）"></a><strong>2. 自适应设计（AWD）</strong></h2><p>Wikipedia: <em>Adaptive web design is a process of <strong>server-side detection</strong> that chooses a design layout and size to display.  All types of web design layouts can be used, <strong>including responsive layout</strong>. The adaptive design will <strong>serve different versions of the site to different devices</strong> based on common screen sizes and resolutions. The only difference is the way the design is looked at from a collateral or device viewpoint rather than the <strong>responsive web design (RWD) one-size-fits-all</strong> approach to layout</em></p>
+<p><strong>“All types of web design layouts”</strong>, <strong>“different versions to different devices”</strong>,</p>
+<p>自适应设计是通过<strong>服务端检测设备类型、从 site 的不同版本中选择最合适该设备类型的设计布局/尺寸的版本进行展示。</strong>它可以使用到所有（包括响应式布局）布局方案。</p>
+<blockquote>
+<p>举个栗子：<a href="https://www.trip.com/" target="_blank" rel="external">https://www.trip.com/</a></p>
+</blockquote>
+<p>实现方式：</p>
+<ul>
+<li>server-side detection</li>
+<li>different versions to different devices<br>对于 PC: 可使用流式布局；<br>对于 Mobile: 可使用流式布局。推荐一个 Rem 解决方案：<ul>
+<li>设置元素（可以包括字体等）大小为 <code>rem</code> （<code>rem</code> 是以跟元素<code>font-size</code>为基准的单位）</li>
+<li>按照屏幕宽度的不同，JS 动态设置 <code>&lt;html&gt;</code> 的 <code>font-size</code> 大小，元素同样会按照屏幕宽度等比例放大缩小</li>
+</ul>
+</li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ol>
+<li>“Responsive web design”, wikipedia, <a href="https://en.wikipedia.org/wiki/Responsive_web_design" target="_blank" rel="external">https://en.wikipedia.org/wiki/Responsive_web_design</a>;</li>
+<li>“Adaptive web design”, wikipedia, <a href="https://en.wikipedia.org/wiki/Adaptive_web_design" target="_blank" rel="external">https://en.wikipedia.org/wiki/Adaptive_web_design</a>;</li>
+<li>《浅谈响应式Web设计与实现思路》, 熊建刚的博客, <a href="http://blog.codingplayboy.com/2018/01/06/responsive-web-design/" target="_blank" rel="external">http://blog.codingplayboy.com/2018/01/06/responsive-web-design/</a>;</li>
+<li>《Responsive Web Design? Adaptive Web Design? Don’t Despair!》, Elegant MicroWeb, <a href="http://www.linkedin.com/pulse/responsive-web-design-adaptive-you-find-hard-decide-dont-microweb" target="_blank" rel="external">http://www.linkedin.com/pulse/responsive-web-design-adaptive-you-find-hard-decide-dont-microweb</a>;</li>
+<li>《自适应网页设计(Responsive Web Design)》, 阮一峰的网络日志, <a href="http://www.ruanyifeng.com/blog/2012/05/responsive_web_design.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2012/05/responsive_web_design.html</a>;</li>
+</ol>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/">CSS</a>
+          
+            <a href="/tags/布局/">布局</a>
+          
+            <a href="/tags/layout/">layout</a>
+          
+            <a href="/tags/自适应/">自适应</a>
+          
+            <a href="/tags/响应式/">响应式</a>
+          
+          
+        </div>
+       
+         
+         
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2017/12/13/fuck-tech-broadband/">
+        <span class="next-text nav-default">珍爱生命，远离 “科技宽带”</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+         
+  <div class="comments" id="comments">
+    
+    <div id="comment-container"></div>
+  </div>
+
+
+       
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2018
+    <span class="footer-author"><a href="https://github.com/elevenbeans" target="_blank">@elevenbeans</a>.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+    <div style="text-align:center;height:0px">
+        <img width="420px" height="420px" style="opacity:0" src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/logo.png"/>
+    </div>
+</span>
+<script>
+var gitment = new Gitment({
+  id: location.href, // 可选。默认为 location.href
+  owner: 'elevenbeans',
+  repo: 'elevenbeans.github.io',
+  oauth: {
+    client_id: '34a6c343407ce5dcf922',
+    client_secret: '9669a9498f09f3b21711bd666a50db5929e78256',
+  },
+})
+gitment.render('comment-container')
+</script>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>

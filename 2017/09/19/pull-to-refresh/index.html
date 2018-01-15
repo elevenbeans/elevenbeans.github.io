@@ -44,7 +44,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/iscroll.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/iscroll+lazyload.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/native_scroll+ptr.png">
-<meta property="og:updated_time" content="2017-09-21T04:58:14.000Z">
+<meta property="og:updated_time" content="2018-01-12T09:28:22.998Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="60 行 JS 代码搞定一个下拉刷新组件">
 <meta name="twitter:description" content="神马？ 浏览器不都有自带的刷新按钮么？">
@@ -152,7 +152,7 @@
     
             <div class="post-content">
             <script src="/assets/js/APlayer.min.js"> </script><p>神马？ 浏览器不都有自带的刷新按钮么？<br><a id="more"></a></p>
-<h4 id="Web-页为什么要下（zi）拉（xing）刷（che）新"><a href="#Web-页为什么要下（zi）拉（xing）刷（che）新" class="headerlink" title="Web 页为什么要下（zi）拉（xing）刷（che）新 ?"></a>Web 页为什么要下（zi）拉（xing）刷（che）新 ?</h4><p>这里特指移动端，原因如下：</p>
+<h2 id="Web-页为什么要下（zi）拉（xing）刷（che）新"><a href="#Web-页为什么要下（zi）拉（xing）刷（che）新" class="headerlink" title="Web 页为什么要下（zi）拉（xing）刷（che）新 ?"></a>Web 页为什么要下（zi）拉（xing）刷（che）新 ?</h2><p>这里特指移动端，原因如下：</p>
 <ul>
 <li>相较于点击右上角刷新按钮（还有可能要点两次，第一次先展开 menu bar，然后才能看到 refresh 按钮），直接了当地下拉刷新无疑提供了更好的用户体验</li>
 <li>点击刷新按钮<strong>同步重载页面</strong>必然存在一定<strong>白屏时间</strong>，而通过下拉刷新的逻辑完全可以对于页面内容进行<strong>异步更新</strong>，其体验毫无疑问更加优秀</li>
@@ -161,8 +161,8 @@
 <li>当然，还可以应对一些特殊场景 … （如 Webview 不提供刷新按钮 =,=）</li>
 </ul>
 <p><em>精简成人话其实就是：被交互逼的</em></p>
-<h4 id="现有哪些轮子可以做到？"><a href="#现有哪些轮子可以做到？" class="headerlink" title="现有哪些轮子可以做到？"></a>现有哪些轮子可以做到？</h4><ul>
-<li><a href="https://github.com/BoxFactura/pulltorefresh.js" target="_blank" rel="external">pulltorefresh.js</a>: </li>
+<h2 id="现有哪些轮子可以做到？"><a href="#现有哪些轮子可以做到？" class="headerlink" title="现有哪些轮子可以做到？"></a>现有哪些轮子可以做到？</h2><ul>
+<li><a href="https://github.com/BoxFactura/pulltorefresh.js" target="_blank" rel="external">pulltorefresh.js</a>:</li>
 </ul>
 <p>目测这个是目前 Github 上最流行的 JS 下拉刷新组件了(<strong>15K stars</strong>)。<em>highly customizable and dependency-free!</em><br>看使用方法，真的是简洁明了：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">PullToRefresh.init(&#123;</div><div class="line">  <span class="attr">mainElement</span>: <span class="string">'body'</span>, <span class="comment">// 想拖动（刷新）目标元素</span></div><div class="line">  onRefresh: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">window</span>.location.reload(); <span class="comment">// 刷新动作完后的会执行的回调函数</span></div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <p>不过这种单功能组件暴露了 <a href="https://github.com/BoxFactura/pulltorefresh.js#api" target="_blank" rel="external">20 个 API</a>，着实有点多了。当然源码中有默认的一系列 default setting，个人觉得负担不大但不必要。</p>
@@ -176,7 +176,7 @@
 </ul>
 <p><em>iScroll is a <strong>high performance</strong>, small footprint, dependency free, multi-platform javascript scroller. It works on desktop, mobile and smart TV.</em>（并不是我喜欢复制粘贴凑篇幅，而是当我真正用过 TA 以后再回过头来再看这句话，就不厚道地笑了。平台通吃的东西在移动端性能真的可以很好么？？？）</p>
 <p><strong>不过，这是目前为止唯一一个让我成功完成任务的轮子。</strong> 然而还是放弃了，比较可惜，原因汇总如下：</p>
-<h4 id="我为什么不用上面的轮子？"><a href="#我为什么不用上面的轮子？" class="headerlink" title="我为什么不用上面的轮子？"></a>我为什么不用上面的轮子？</h4><ul>
+<h2 id="我为什么不用上面的轮子？"><a href="#我为什么不用上面的轮子？" class="headerlink" title="我为什么不用上面的轮子？"></a>我为什么不用上面的轮子？</h2><ul>
 <li>pulltorefresh.js：很遗憾的是，我在 React 里面使用，页面第一次加载 OK，但下拉一次异步请求数据之后，再次下拉，整个组件源码报错了: “<strong>Cannot read property … of undefined …</strong>” 找不到目标 dom 元素了 =^=。目测应该和 React 组件更新机制有关，懒得追究，遂放弃</li>
 <li>react-pull-to-refresh：我遇到了一个很多人都遇到过的问题：<a href="https://github.com/bryaneaton13/react-pull-to-refresh/issues/12" target="_blank" rel="external">issues#12: Can’t scroll on mobile</a>。作者的回复是: <em>this is a <strong>due to the default touch-action in hammerjs is ‘none’</strong>. A fix could be to set the default to ‘pan-y’. Like this: let hammer = require(‘hammerjs’); hammer.defaults.touchAction = ‘pan-y’;</em>。实力甩锅 hammerjs。小爷我也懒得继续死磕下去了，如果一行布丁代码就能解决的问题，干嘛不在自己组件里面兼容掉？果断弃之，不可惜</li>
 <li>iscroll：性能问题<div style="display:flex"><br><div style="flex:1"><br><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/iscroll.png" alt="img"><br></div><br><div style="flex:1"><br><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/iscroll+lazyload.png" alt="img"><br></div><br><div style="flex:1"><br><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/native_scroll+ptr.png" alt="img"><br></div><br></div>
@@ -253,7 +253,7 @@
     
         2014 -
     
-    2017
+    2018
     <span class="footer-author"><a href="https://github.com/elevenbeans" target="_blank">@elevenbeans</a>.</span>
     <span class="power-by">
         Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>

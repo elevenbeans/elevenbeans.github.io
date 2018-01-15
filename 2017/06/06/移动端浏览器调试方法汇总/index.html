@@ -48,7 +48,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/wechat-debugger-view.jpeg">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/spy-debugger-pannel.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/phoneView.jpeg">
-<meta property="og:updated_time" content="2017-06-12T03:04:36.000Z">
+<meta property="og:updated_time" content="2018-01-12T09:32:40.966Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端浏览器调试方法汇总">
 <meta name="twitter:description" content="浏览器兼容性一直以来都是让 Web 前端开发人员头疼的问题。虽然移动端其内核趋于统一（Webkit），兼容问题也不再像 PC 端那么严重。但在生产环境当中，考虑到第三方浏览器在内核上面的 “优化”，如（Wechat、UC、QQ、360 等），兼容问题依旧是无法忽略。
@@ -221,7 +221,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="详细方法"><a href="#详细方法" class="headerlink" title="详细方法"></a>详细方法</h2><h4 id="Chrome-模拟器"><a href="#Chrome-模拟器" class="headerlink" title="Chrome 模拟器"></a>Chrome 模拟器</h4><ol>
+<h2 id="详细方法"><a href="#详细方法" class="headerlink" title="详细方法"></a>详细方法</h2><h3 id="Chrome-模拟器"><a href="#Chrome-模拟器" class="headerlink" title="Chrome 模拟器"></a>Chrome 模拟器</h3><ol>
 <li><p>在 PC 上打开 Chrome 浏览器，打开想要调试的页面，然后右上角设置中打开开发人员工具(More Tools –&gt; Developer Tools), 或者:</p>
 <ul>
 <li>点击鼠标右键点击“检查” (inspect)，即可开始调试</li>
@@ -231,20 +231,20 @@
 <li><p>默认在页面左侧顶部可以看到设备选择下拉菜单 Device, 右侧会有 HTML、CSS 的调试界面，右下侧会有 JS 的 <code>console</code> 面板</p>
 </li>
 </ol>
-<h4 id="Android-上的-Chrome-（需要梯子）"><a href="#Android-上的-Chrome-（需要梯子）" class="headerlink" title="Android 上的 Chrome （需要梯子）"></a>Android 上的 Chrome （需要梯子）</h4><ol>
+<h3 id="Android-上的-Chrome-（需要梯子）"><a href="#Android-上的-Chrome-（需要梯子）" class="headerlink" title="Android 上的 Chrome （需要梯子）"></a>Android 上的 Chrome （需要梯子）</h3><ol>
 <li>在 Android 和 PC 设备上均需安装 <a href="http://www.google.cn/chrome/" target="_blank" rel="external">Chrome 浏览器</a>。在 Android 上安装对应的设备驱动（如果找不到，<a href="https://www.wandoujia.com/" target="_blank" rel="external">豌豆荚</a>是首选辅助工具）</li>
 <li>用 USB 线连接 Android 和 PC 设备，开启当前 Android 设备的 USB 调试。</li>
 <li>在 PC 上的 Chrome 地址栏输入 <code>chrome://inspect</code> 然后回车，或通过菜单图标→工具→检查设备，进入调试界面</li>
 <li>在移动设备任何时候弹出的“是否允许远程调试”上，选择“允许”</li>
 <li>PC 的 inspect 页面列表将展示已在 Android 上的 Chrome 中打开的页面。点击对应的 “inspect” 按钮则可开始调试</li>
 </ol>
-<h4 id="IOS-上的-Safari"><a href="#IOS-上的-Safari" class="headerlink" title="IOS 上的 Safari"></a>IOS 上的 Safari</h4><ol>
+<h3 id="IOS-上的-Safari"><a href="#IOS-上的-Safari" class="headerlink" title="IOS 上的 Safari"></a>IOS 上的 Safari</h3><ol>
 <li>在 IOS 设备上打开允许调试：设置 –&gt; Safari –&gt; 高级 –&gt; 打开 “web检查器”</li>
 <li>在 MAC 上打开 Safari 的开发菜单：顶部菜单栏 “Safari” –&gt; 偏好设置 –&gt; 高级 –&gt; 打开 在菜单栏中显示“开发”菜单 (show develop menu in menu bar)</li>
 <li>在 IOS 设备上的 Safari 浏览器中打开要调试的页面，然后切换到 MAC 的 Safari，在顶部菜单栏选择 “开发” –&gt; 找到你的 IOS 设备名称 –&gt; 右边二级菜单选择需要调试的对应标签页，即可开始远程调试</li>
 </ol>
-<h4 id="Android-上的-UC"><a href="#Android-上的-UC" class="headerlink" title="Android 上的 UC"></a>Android 上的 UC</h4><p>早前一篇有过详细描述，具体请戳 → <a href="/2016/08/11/UC-手机浏览器调试经验/">Here</a></p>
-<h4 id="Android-APP-Webview（类似-Android-上的-Chrome-需要梯子）"><a href="#Android-APP-Webview（类似-Android-上的-Chrome-需要梯子）" class="headerlink" title="Android APP Webview（类似 Android 上的 Chrome, 需要梯子）"></a>Android APP Webview（类似 Android 上的 Chrome, 需要梯子）</h4><ol>
+<h3 id="Android-上的-UC"><a href="#Android-上的-UC" class="headerlink" title="Android 上的 UC"></a>Android 上的 UC</h3><p>早前一篇有过详细描述，具体请戳 → <a href="/2016/08/11/UC-手机浏览器调试经验/">Here</a></p>
+<h3 id="Android-APP-Webview（类似-Android-上的-Chrome-需要梯子）"><a href="#Android-APP-Webview（类似-Android-上的-Chrome-需要梯子）" class="headerlink" title="Android APP Webview（类似 Android 上的 Chrome, 需要梯子）"></a>Android APP Webview（类似 Android 上的 Chrome, 需要梯子）</h3><ol>
 <li>通过修改代码，在APP内设置允许远程调试（安卓 &gt;= 4.4）, <a href="https://developers.google.com/web/tools/chrome-devtools/remote-debugging/?utm_source=dcc&amp;utm_medium=redirect&amp;utm_campaign=2016q3#configure-webview" target="_blank" rel="external">具体方法在这里</a> 。然后安装 APP</li>
 <li>在 PC 上安装 Chrome 浏览器（版本&gt;=32）和对应的 Android 设备驱动（如果找不到，可以 <a href="https://www.wandoujia.com/" target="_blank" rel="external">豌豆荚大法</a>）</li>
 <li>用 USB 线连接 Android 设备，开启当前 Android 设备的 USB 调试，在 PC 上的chrome地址栏输入 <code>chrome://inspect</code> 然后回车进入调试界面</li>
@@ -252,7 +252,7 @@
 <li>PC 的 inspect 页面列表将展示已在 Android webview 中打开的页面。点击对应的 “inspect” 按钮则可开始调试</li>
 </ol>
 <p><em>IOS APP Webview 同理</em></p>
-<h4 id="Android-上的-x5-内核（主要针对微信等）"><a href="#Android-上的-x5-内核（主要针对微信等）" class="headerlink" title="Android 上的 x5 内核（主要针对微信等）"></a>Android 上的 x5 内核（主要针对微信等）</h4><p>===================== <em>Updated 2017-06-08</em> ===================</p>
+<h3 id="Android-上的-x5-内核（主要针对微信等）"><a href="#Android-上的-x5-内核（主要针对微信等）" class="headerlink" title="Android 上的 x5 内核（主要针对微信等）"></a>Android 上的 x5 内核（主要针对微信等）</h3><p>===================== <em>Updated 2017-06-08</em> ===================</p>
 <p><strong>感谢掘金用户 @夏空君 提醒，目前 X5 有 TBS_Studio 这种整体解决方案了</strong></p>
 <p>给个传送门吧: <a href="http://bbs.mb.qq.com/thread-1416936-1-1.html" target="_blank" rel="external">TBS开发调试利器——TBS Studio开篇</a></p>
 <p>===================== <em>End</em> ===================</p>
@@ -291,18 +291,18 @@
 <li><p>python启动调试服务</p>
 <ul>
 <li>下载 <a href="http://res.imtt.qq.com///tbs_inspect/wx_sq_webview_debug.zip" target="_blank" rel="external">调试包</a> ，解压，找到其中的 inspector_client20150401 解压，然后进入</li>
-<li>执行以下 python 命令，<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">python ./inspector.py —abd 你自己的adb路径</div><div class="line">python ./inspector.py --adb /Users/&lt;yourName&gt;/&lt;yourpath&gt;/android-sdk-macosx/platform-tools/adb</div></pre></td></tr></table></figure>
+<li><p>执行以下 python 命令，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">python ./inspector.py —abd 你自己的adb路径</div><div class="line">python ./inspector.py --adb /Users/&lt;yourName&gt;/&lt;yourpath&gt;/android-sdk-macosx/platform-tools/adb</div></pre></td></tr></table></figure>
+</li>
+<li><p>启动成功，PC 打开 Chrome 浏览器，访问 <a href="http://localhost:9222/" target="_blank" rel="external">http://localhost:9222/</a>; 手机打开微信任意 Webview，就能在 Chrome 看到这个页面的选项卡，点进去就是熟悉的调试界面～</p>
 </li>
 </ul>
 </li>
-</ul>
-<ul>
-<li>启动成功，PC 打开 Chrome 浏览器，访问 <a href="http://localhost:9222/" target="_blank" rel="external">http://localhost:9222/</a>; 手机打开微信任意 Webview，就能在 Chrome 看到这个页面的选项卡，点进去就是熟悉的调试界面～</li>
 </ul>
 <p>有图有真相：</p>
 <div style="display:flex"><br><div style="flex:1"><br><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/wechat-debugger.png" alt="img"><br></div><br><div style="flex:2"><br><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/wechat-debugger-pannel.png" alt="img"><br></div><br><div style="flex:1"><br><img src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/wechat-debugger-view.jpeg" alt="img"><br></div><br></div>
 
-<h4 id="spy-debugger-（最后的大招-Github-repo）"><a href="#spy-debugger-（最后的大招-Github-repo）" class="headerlink" title="spy-debugger （最后的大招, Github repo）"></a>spy-debugger （最后的大招, <a href="https://github.com/wuchangming/spy-debugger" target="_blank" rel="external">Github repo</a>）</h4><p>集成并简化了 weinre 繁琐的配置过程。通过代理的方式拦截所有 HTML 自动注入 weinre 所需的 js 代码。 </p>
+<h3 id="spy-debugger-（最后的大招-Github-repo）"><a href="#spy-debugger-（最后的大招-Github-repo）" class="headerlink" title="spy-debugger （最后的大招, Github repo）"></a>spy-debugger （最后的大招, <a href="https://github.com/wuchangming/spy-debugger" target="_blank" rel="external">Github repo</a>）</h3><p>集成并简化了 weinre 繁琐的配置过程。通过代理的方式拦截所有 HTML 自动注入 weinre 所需的 js 代码。</p>
 <p>===================== <em>Updated 2017-06-09</em> ===================</p>
 <p><strong>感谢阿里师兄 @首长 提醒，同样通过 代理服务 + JS侵入 这种方式的，目前还有微软出品的 <a href="http://www.vorlonjs.com/" target="_blank" rel="external">vorlon</a> 工具</strong></p>
 <p>===================== <em>End</em> ===================</p>
@@ -381,7 +381,7 @@
     
         2014 -
     
-    2017
+    2018
     <span class="footer-author"><a href="https://github.com/elevenbeans" target="_blank">@elevenbeans</a>.</span>
     <span class="power-by">
         Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>

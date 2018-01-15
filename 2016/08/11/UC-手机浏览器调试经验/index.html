@@ -47,7 +47,7 @@ UC 调试环境准备早前所在部门 App 均采用 UC 内核，有相关调�
 弹框样式 UED 提供，不表，开发过程 easy，不表。
 在做视觉还原＋多机适配的时候，发现某手机中安装的 UC 浏览器下点击确认／取消／关闭弹框均不消失。于是在众多机器均安装了 UC 回归测试， 定位问题确实出在 UC 上面。
 UC 调试环境准备早前所在部门 App 均采用 UC 内核，有相关调试经验。然而因同属一个">
-<meta property="og:updated_time" content="2017-08-28T10:06:35.000Z">
+<meta property="og:updated_time" content="2018-01-12T09:29:36.669Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UC 手机浏览器调试经验">
 <meta name="twitter:description" content="缘起接了一个业务方的小需求，做一个代替 JS 原生confirm 功能的弹框。
@@ -156,22 +156,22 @@ UC 调试环境准备早前所在部门 App 均采用 UC 内核，有相关调�
 
     
             <div class="post-content">
-            <script src="/assets/js/APlayer.min.js"> </script><h4 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h4><p>接了一个业务方的小需求，做一个代替 JS 原生<code>confirm</code> 功能的弹框。</p>
+            <script src="/assets/js/APlayer.min.js"> </script><h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>接了一个业务方的小需求，做一个代替 JS 原生<code>confirm</code> 功能的弹框。</p>
 <p>弹框样式 UED 提供，不表，开发过程 easy，不表。</p>
 <p>在做视觉还原＋多机适配的时候，发现某手机中安装的 UC 浏览器下点击确认／取消／关闭弹框均不消失。于是在众多机器均安装了 UC 回归测试， 定位问题确实出在 UC 上面。</p>
-<h4 id="UC-调试环境准备"><a href="#UC-调试环境准备" class="headerlink" title="UC 调试环境准备"></a>UC 调试环境准备</h4><p>早前所在部门 App 均采用 UC 内核，有相关调试经验。然而因同属一个集团，相关的 debug 包，调试方法，均有 UC 技术部的支持。</p>
+<h2 id="UC-调试环境准备"><a href="#UC-调试环境准备" class="headerlink" title="UC 调试环境准备"></a>UC 调试环境准备</h2><p>早前所在部门 App 均采用 UC 内核，有相关调试经验。然而因同属一个集团，相关的 debug 包，调试方法，均有 UC 技术部的支持。</p>
 <p>自己尝试，过程如下：</p>
 <a id="more"></a>
-<h5 id="1-移动端下载并安装-UC-浏览器-Debug-版"><a href="#1-移动端下载并安装-UC-浏览器-Debug-版" class="headerlink" title="1. 移动端下载并安装 UC 浏览器 Debug 版"></a>1. 移动端下载并安装 UC 浏览器 Debug 版</h5><p><a href="http://pdds.ucweb.com/download/newest/UCBrowser/zh-cn/145/33533/developer" target="_blank" rel="external">Download 地址</a></p>
+<h3 id="1-移动端下载并安装-UC-浏览器-Debug-版"><a href="#1-移动端下载并安装-UC-浏览器-Debug-版" class="headerlink" title="1. 移动端下载并安装 UC 浏览器 Debug 版"></a>1. 移动端下载并安装 UC 浏览器 Debug 版</h3><p><a href="http://pdds.ucweb.com/download/newest/UCBrowser/zh-cn/145/33533/developer" target="_blank" rel="external">Download 地址</a></p>
 <p>注意： 安装成功不代表能用，试了自己的坚果手机，打开的时候显示初始化失败。借了测试人员的测试机器，成功。 可能需要 root 权限 ＝,＝</p>
 <p>===================== <em>Updated 2017-06-06</em> ===================</p>
 <p><strong>最新的 Debug 包已经没有 root 权限的困扰了 : )</strong></p>
 <p>===================== <em>End</em> ===================</p>
-<h5 id="2-PC-安装-adb-工具包"><a href="#2-PC-安装-adb-工具包" class="headerlink" title="2. PC 安装 adb 工具包"></a>2. PC 安装 adb 工具包</h5><p>这个工具包网上一搜一大把，但是注意 <strong>文件及动态链接库是否齐全</strong>.</p>
+<h3 id="2-PC-安装-adb-工具包"><a href="#2-PC-安装-adb-工具包" class="headerlink" title="2. PC 安装 adb 工具包"></a>2. PC 安装 adb 工具包</h3><p>这个工具包网上一搜一大把，但是注意 <strong>文件及动态链接库是否齐全</strong>.</p>
 <p><a href="http://www.uc.cn/business/download/adb_tool.zip" target="_blank" rel="external">Download adb</a></p>
 <p>例如：window 下需有 adb.exe + AdbWinApi.dll + AdbWinUsbApi.dll + fastboot.exe</p>
 <p>下载解压到你想存放的任何文件夹均可。</p>
-<h5 id="3-连接移动设备开启调试"><a href="#3-连接移动设备开启调试" class="headerlink" title="3. 连接移动设备开启调试"></a>3. 连接移动设备开启调试</h5><ul>
+<h3 id="3-连接移动设备开启调试"><a href="#3-连接移动设备开启调试" class="headerlink" title="3. 连接移动设备开启调试"></a>3. 连接移动设备开启调试</h3><ul>
 <li>移动设备连接 PC：采用 USB 直连，<strong>移动设备需开启 USB 调试模式</strong>，采用 WI-FI 连接，<strong>移动设备和 PC 需在同一网段</strong></li>
 <li>运行 adb：打开 PC 终端， <strong>进入 adb 可执行文件(如 adb.exe/adb.sh)所在目录</strong>，输入命令 <code>adb</code>，提示 “Android Debug Bridge …” 表示安装成功</li>
 </ul>
@@ -196,7 +196,7 @@ UC 调试环境准备早前所在部门 App 均采用 UC 内核，有相关调�
 <li>新增一个 <a href="https://www.wandoujia.com/" target="_blank" rel="external">豌豆荚</a> 大法，精准选择最合适的设备驱动</li>
 </ul>
 <p>===================== <em>End</em> ===================</p>
-<h4 id="水落石出"><a href="#水落石出" class="headerlink" title="水落石出"></a>水落石出</h4><p>UC 内核不支持 <code>domObj.remove()</code> 方法，哎。。。。。</p>
+<h2 id="水落石出"><a href="#水落石出" class="headerlink" title="水落石出"></a>水落石出</h2><p>UC 内核不支持 <code>domObj.remove()</code> 方法，哎。。。。。</p>
 <p>统一使用：<code>document.body.removeChild(element)</code> 代替。</p>
 <p> Over ~</p>
 
@@ -257,7 +257,7 @@ UC 调试环境准备早前所在部门 App 均采用 UC 内核，有相关调�
     
         2014 -
     
-    2017
+    2018
     <span class="footer-author"><a href="https://github.com/elevenbeans" target="_blank">@elevenbeans</a>.</span>
     <span class="power-by">
         Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>

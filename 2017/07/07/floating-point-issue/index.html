@@ -45,7 +45,7 @@
 <meta property="og:description" content="Background有个问题可能曾经、甚至现在仍旧让一部分人十分困惑。
 我们用 JS 执行一个极其的简单的运算，如：0.1 + 0.2，将会得到一个非常意想不到的结果：0.30000000000000004。
 虽然结果相差无几，但是作为技术人员，这绝对不可以忽略，理由如下：">
-<meta property="og:updated_time" content="2017-12-11T08:37:03.788Z">
+<meta property="og:updated_time" content="2018-01-12T09:24:30.045Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="两分钟解惑 JS 小数计算精度问题">
 <meta name="twitter:description" content="Background有个问题可能曾经、甚至现在仍旧让一部分人十分困惑。
@@ -155,7 +155,7 @@
             <div class="post-content">
             <script src="/assets/js/APlayer.min.js"> </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
-<h4 id="Background"><a href="#Background" class="headerlink" title="Background"></a><strong>Background</strong></h4><p>有个问题可能曾经、甚至现在仍旧让一部分人十分困惑。</p>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a><strong>Background</strong></h2><p>有个问题可能曾经、甚至现在仍旧让一部分人十分困惑。</p>
 <p>我们用 JS 执行一个极其的简单的运算，如：<code>0.1 + 0.2</code>，将会得到一个非常意想不到的结果：<code>0.30000000000000004</code>。</p>
 <p>虽然结果相差无几，但是作为技术人员，这绝对不可以忽略，理由如下：<br><a id="more"></a></p>
 <ul>
@@ -165,7 +165,7 @@
 </ul>
 <p>可能大部分人都会在一些论坛上寻求帮助，并且得到有很多方法可以帮助其解决问题。</p>
 <p>但是这里我会尝试分析一下其中的根本原因以及解决办法。</p>
-<h4 id="Why"><a href="#Why" class="headerlink" title="Why"></a><strong>Why</strong></h4><p>简单一句话概括解释为什么你会得到意想不到的结果：</p>
+<h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a><strong>Why</strong></h2><p>简单一句话概括解释为什么你会得到意想不到的结果：</p>
 <p><strong>因为在计算机内部，使用的二进制浮点根本就不能准确地表示像 0.1, 0.2 或 0.3 这样的数字。</strong></p>
 <p>当编码或解释代码时，你的 “0.1” 其实已经舍入为和该数字的最接近的数字，即使在计算发生之前已经会导致小的舍入误差（<strong>是的，所有语言都是这样，这锅 JS 不背</strong>）。</p>
 <p>WTF？ 计算机如此愚蠢？</p>
@@ -252,14 +252,14 @@
 <p>0.00011 已经到小数点后 5 位了，还是凑不齐 0.1 对不对？ 实际上从后四位 0011 就开始循环了。结果是只能无限趋近于 0.1 无法真正等于 0.1。</p>
 <p>在 JS 中应该是做了一定位数后的 “入” 处理。这时候 <code>0.1 + 0.3 = 0.30000000000000004</code> 是不是能理解了？</p>
 <p><strong>然而，许多语言在处理的时候，在一定误差范围内（通常极小）会将结果处理为正确的目标数字，而不是像 JS 一样将存在误差的真实结果转换成最接近的小数输出。</strong></p>
-<h4 id="How"><a href="#How" class="headerlink" title="How"></a><strong>How</strong></h4><p>如何处理这个问题。</p>
+<h2 id="How"><a href="#How" class="headerlink" title="How"></a><strong>How</strong></h2><p>如何处理这个问题。</p>
 <ul>
 <li>如果你真的需要在你的代码中做浮点数的四则运算或者大小判断，特别是当你处理钱时，可以使用一个特殊的 decimal type 如 <a href="https://github.com/dtrebbien/BigDecimal.js" target="_blank" rel="external">BigDecimal</a>。</li>
 <li>如果您不想看到所有这些额外的小数位数：在显示时，也可以用<code>toFixed()</code>或<code>toPrecision()</code>  之类将结果格式化为固定的小数位数。</li>
 <li>如果没有可用的十进制数据类型，另一种方法是使用整数，例如。 完全以整数最小位数为最小单位计算。</li>
 <li>…</li>
 </ul>
-<h4 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a><strong>Q&amp;A</strong></h4><ul>
+<h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a><strong>Q&amp;A</strong></h2><ul>
 <li><p><code>0.1+0.4</code> 的结果是 <code>0.5</code> ，没有问题，是不是啪啪啪打脸了？怎么解释？<br>这种情况，首先 <code>0.5</code> 本身是可以精确地表示为二进制浮点数的 <code>0.1</code>；其次输入的两个数字中的舍入误差可能相互抵消，但不一定会抵消。</p>
 </li>
 <li><p>…<br>如果您有兴趣，请在 <a href="https://github.com/elevenbeans/elevenbeans.github.io" target="_blank" rel="external">issue</a> 中提供关于浮点数可能出现的其他问题以及更多解决方案的深入解释</p>
@@ -322,7 +322,7 @@
     
         2014 -
     
-    2017
+    2018
     <span class="footer-author"><a href="https://github.com/elevenbeans" target="_blank">@elevenbeans</a>.</span>
     <span class="power-by">
         Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>

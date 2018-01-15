@@ -44,7 +44,7 @@
 <meta property="og:description" content="原文地址：https://css-tricks.com/the-art-of-comments/译者 Github：@elevenbeans更多内容请见译者 Blog：https://github.com/elevenbeans/elevenbeans.github.io
 我认为注释代码十分重要。最主要的是，我认为注释往往是被误解的。我之前某天在 Twitter 上说过：“对于是否应该写注释，我">
 <meta property="og:image" content="https://cdn.css-tricks.com/wp-content/uploads/2017/10/DLKxcnZUQAAFQkI.jpg">
-<meta property="og:updated_time" content="2017-12-02T11:01:22.698Z">
+<meta property="og:updated_time" content="2018-01-12T09:23:06.485Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【译】注释的艺术">
 <meta name="twitter:description" content="原文地址：https://css-tricks.com/the-art-of-comments/译者 Github：@elevenbeans更多内容请见译者 Blog：https://github.com/elevenbeans/elevenbeans.github.io
@@ -160,11 +160,11 @@
 <p>代码可以描述 how，但它不能解释 why。</p>
 <p>这不是一个新的概念，它是一个共同的主题，我已经遇到有用的注释，她有传达代码不能或不能简洁传达的东西的能力。</p>
 <p>所有这些都在讲，没有一个正确的方法或一个理由来写注释。为了更好地学习，让我们深入研究一些有益的注释，这些注释可能都有不同的用途和目的，遵循着一些我们可能想要避免的模式。</p>
-<h4 id="好的注释"><a href="#好的注释" class="headerlink" title="好的注释"></a>好的注释</h4><ul>
+<h2 id="好的注释"><a href="#好的注释" class="headerlink" title="好的注释"></a>好的注释</h2><ul>
 <li>为什么？</li>
 </ul>
 <p>许多好的注释的例子可以放在这个类别下。代码解释了您希望计算机采取的操作。您会听到人们讨论声明性代码，因为它精确地描述了逻辑，但没有描述所有步骤，就像一个食谱。它让计算机去完成重活。我们也可以将我们的注释写成一个补充声明：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">  We had to write this function because the browser </div><div class="line">  interprets that everything is a box</div><div class="line">*/</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">  We had to write this function because the browser</div><div class="line">  interprets that everything is a box</div><div class="line">*/</div></pre></td></tr></table></figure>
 <p>这个注释并没有描述下面的代码会做什么。她没有描述代码接下来要执行的动作。但是，如果您找到了重写此函数的更优雅的方法，您可能会感到有信心这样做，因为您的代码可能以不同的方式解决同一问题。</p>
 <p>因此，维护成本变得更少了（我们将进一步深入了解这一点）。如果你找到了一个更好的方法来写这个函数，你可能不需要重写注释。您还可以快速了解是否可以重写另一段代码，使此函数不再必要，而无需花费很长时间来分析所有步骤弄清楚整个逻辑（即：为什么存在这个函数）。</p>
 <ul>
@@ -209,10 +209,10 @@
 </ul>
 <p>您是否只是从 StackOverflow 复制粘贴一整块代码和修改它以满足您的需要？这不是一个伟大的实践，但我们都这么做。过去我做过的事就是把我找到的那篇文章链接放上。但！你可能会说，那我们就不会得到那个代码的功劳了！你在为错误的事情做优化，这个是我的答案。</p>
 <p>不可避免的，人们有不同的编码风格，解决方案的作者以不同的方式解决问题，如果你对这个领域理解更深。这有什么关系？因为以后你会更聪明，你可能会在这一领域的水平更高，然后你会花更少的时间思索为什么你这样写它，或从其他人的方法学习。另外，你也可以回顾一下这篇文章，看看在这个问题上是否有任何新的回复或更多的解释。可能还会有另一个更好的答案。</p>
-<h4 id="不良注释"><a href="#不良注释" class="headerlink" title="不良注释"></a>不良注释</h4><p>写注释有时会有不好的总结，这是因为坏的注释确实存在。让我们来谈谈一些在写的时候要避免的事情。</p>
+<h2 id="不良注释"><a href="#不良注释" class="headerlink" title="不良注释"></a>不良注释</h2><p>写注释有时会有不好的总结，这是因为坏的注释确实存在。让我们来谈谈一些在写的时候要避免的事情。</p>
 <p>他们只是说它已经在做什么。</p>
 <p>约翰爸爸做了一个准确的笑话，这:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// if foo equals bar ...</span></div><div class="line">If (foo === bar) &#123; </div><div class="line"></div><div class="line">&#125; <span class="comment">// end if</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// if foo equals bar ...</span></div><div class="line">If (foo === bar) &#123;</div><div class="line"></div><div class="line">&#125; <span class="comment">// end if</span></div></pre></td></tr></table></figure>
 <p>是很大的痛苦。为什么？因为你实际上是以两种不同的方式读两遍。它没有提供更多的信息，事实上，它使你不得不用两种不同的格式处理事情，这是精神上的开销而不是帮助。我们都写过这样的注释。也许是因为我们自己不太了解它，或者我们太担心以后再读。不管是什么原因，如果可以的话，退后一步，试着从别人的角度看代码和注释，而不是作为作者，这总是好的。</p>
 <ul>
 <li>没持续维护的注释</li>
@@ -227,7 +227,7 @@
 </ul>
 <p>我肯定见过人们写代码 (或自己做这件事)，其中变量或函数的名称是一个字母，然后再注释一下这是什么东西。这是浪费，我们都讨厌打字，但是如果您有用重复使用变量或函数名，我可不想扫描整个文档找您解释了名称本身可以做什么的地方。我理解，命名是很难的。但是一些注释取代了一些可以更精确地写出的东西。</p>
 <ul>
-<li>注释是一个不好好开始写代码的借口 </li>
+<li>注释是一个不好好开始写代码的借口</li>
 </ul>
 <p>这对很多人来说是问题的症结所在。如果你写的代码是杂乱的，你扔在注释在旁边用以说明。这意味着注释反而阻碍了你的编程。这是一种本末倒置的情景。不幸的是，即使是本文的作者我，也不是那么容易确定哪个是本哪个是末。</p>
 <p>我们以无数的方式欺骗自己。我们可能会花时间写一段注释，让代码更清楚。我们也可以告诉自己，我们不需要注释我们的代码，因为我们的代码写得足够好，即使其他人可能不同意。</p>
@@ -290,7 +290,7 @@
     
         2014 -
     
-    2017
+    2018
     <span class="footer-author"><a href="https://github.com/elevenbeans" target="_blank">@elevenbeans</a>.</span>
     <span class="power-by">
         Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
