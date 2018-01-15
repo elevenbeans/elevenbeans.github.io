@@ -11,6 +11,7 @@
 ### Categories
 
 + Tech
+  + [前端布局方式汇总及概念浅析](http://elevenbeans.github.io/2018/01/12/front-end-layout-methods/) *2018-01-12*
   + [程序员简历怎么写？ResumeX — 一个极简主义且独具创意的简历方案](http://elevenbeans.github.io/2017/11/30/resume-x/) *2017-11-30*
   + [【译】注释的艺术](http://elevenbeans.github.io/2017/11/24/art-of-comments/) *2017-11-24*
   + [【译】JS 中的内存管理 && 常见的 4 种内存泄露处理方式](http://elevenbeans.github.io/2017/10/13/js-memory-management/) *2017-10-13*
