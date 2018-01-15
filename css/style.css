@@ -477,7 +477,8 @@ h6 {
 
 #primary.home {
   width: 73%;
-  float: left; }
+  float: left;
+  padding: 20px 0; }
 
 #primary {
   max-width: 850px;
@@ -544,7 +545,7 @@ h6 {
   border-bottom: 1px solid #eee; }
 
 .post {
-  padding: 40px 0; }
+  padding: 25px 0; }
   .post + .post {
     border-top: 1px solid #eee; }
   .post .post-excerpt img {
