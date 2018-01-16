@@ -61,17 +61,16 @@
 widget_custom:
     title: Contact
     content:
-      <div style="display:inline-block;background:#333;border-radius:12px;width:24px;height:24px">
-        <a href="https://github.com/elevenbeans" target="_blank">
-          <img style="position:relative;left:4px" src="img/github.png" />
-        </a>
-      </div>
-      <div style="display:inline-block;background:#d14836;border-radius:12px;width:24px;height:24px">
-        <a href="mailto://elevenbeansf2e@gmail.com" target="_blank">
-          <img style="position:relative;left:4px" src="img/mail.png" />
-        </a>
-      </div>
-     ...
+    <div class="contact">
+      <a class= "github" href="https://github.com/elevenbeans" target="_blank">
+      </a>
+      <a class= "gmail" href="mailto://elevenbeansf2e@gmail.com" target="_blank">
+      </a>
+      <a class= "juejin" href="https://juejin.im/user/587fce9361ff4b006522519e" target="_blank">
+      </a>
+      <a class= "zhihu" href="https://www.zhihu.com/people/shi-yike-dou-zi/activities" target="_blank">
+      </a>
+    </div>
 ```
 
 ### Tags
