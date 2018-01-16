@@ -50,8 +50,9 @@
 
 + [Github](https://github.com/elevenbeans)
 + [GMail](mailto://elevenbeansf2e@gmail.com)
-+ [Facebook](https://www.facebook.com/profile.php?id=100001896103903)
-+ [Sina](http://weibo.com/2381593582/profile?topnav=1&wvr=6)
++ [juejin](https://juejin.im/user/587fce9361ff4b006522519e)
++ [zhihu](https://www.zhihu.com/people/shi-yike-dou-zi/activities)
+
 
 如何自定义？
 
