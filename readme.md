@@ -1,4 +1,4 @@
-<div style = "margin: 0 auto;text-align:center;">
+<div align="center">
 <img width = "100px;" src = "https://raw.githubusercontent.com/elevenBeans/Grocery/master/elevenbeans-black.png" />
 </div>
 
