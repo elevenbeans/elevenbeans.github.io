@@ -3,10 +3,10 @@
 </div>
 
 <h1 align="center">Elevenbeans 的博客</h1>
+<h4 align="center">Powed by <a href="https://hexo.io/" target="_blank">Hexo</a>. 地址: <a href="http://elevenbeans.github.io" target="_blank">http://elevenbeans.github.io</a>.
+</h4>
 
-<div align="center">
-**Powed by [Hexo](https://hexo.io/).** 地址: <http://elevenbeans.github.io>
-</div>
+<h4 align="center">A special resume/CV or personal homepage made with React and LESS, inspired by <a href="https://github.com/Ovilia">Ovilia</a>.<br /> Please visit: <a href="http://elevenbeans.me">http://elevenbeans.me</a>.</h4>
 
 ## At Frist
 
