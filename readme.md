@@ -2,9 +2,11 @@
 <img width="120px" src="./blogger.svg" />
 </div>
 
-# 个人博客说明
+<h1 align="center">Elevenbeans 的博客</h1>
 
-**Elevenbeans' blog powed by [Hexo](https://hexo.io/).** 地址: <http://elevenbeans.github.io>
+<div align="center">
+**Powed by [Hexo](https://hexo.io/).** 地址: <http://elevenbeans.github.io>
+</div>
 
 ## At Frist
 
