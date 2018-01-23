@@ -1,3 +1,7 @@
+<div style = "margin: 0 auto;text-align:center;">
+<img width = "100px;" src = "https://raw.githubusercontent.com/elevenBeans/Grocery/master/elevenbeans-black.png" />
+</div>
+
 # 个人博客说明
 
 **Elevenbeans' blog powed by [Hexo](https://hexo.io/).** 地址: <http://elevenbeans.github.io>
