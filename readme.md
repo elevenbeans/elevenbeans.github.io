@@ -54,26 +54,6 @@
 + [zhihu](https://www.zhihu.com/people/shi-yike-dou-zi/activities)
 
 
-如何自定义？
-
-方法很粗暴，在主题配置文件(_config.yml) 中直接写代码了 =,=
-
-```html
-widget_custom:
-    title: Contact
-    content:
-    <div class="contact">
-      <a class= "github" href="https://github.com/elevenbeans" target="_blank">
-      </a>
-      <a class= "gmail" href="mailto://elevenbeansf2e@gmail.com" target="_blank">
-      </a>
-      <a class= "juejin" href="https://juejin.im/user/587fce9361ff4b006522519e" target="_blank">
-      </a>
-      <a class= "zhihu" href="https://www.zhihu.com/people/shi-yike-dou-zi/activities" target="_blank">
-      </a>
-    </div>
-```
-
 ### Tags
 
 标签：即对于博文的话题的分类聚合
