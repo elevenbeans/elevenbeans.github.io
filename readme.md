@@ -1,5 +1,5 @@
 <div align="center">
-<img width="120px" src="./blogger.svg" />
+<img width="120px" src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/elevenbeans-black.png" />
 </div>
 
 <h1 align="center">Elevenbeans 的博客</h1>
