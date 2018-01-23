@@ -1,9 +1,8 @@
 <div align="center">
-<img width="120px" src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/blogger.svg" />
+<img width="120px" src="./blogger.svg" />
 </div>
 
-# <img width = "40px;" style = "vertical-align:bottom" src = "https://raw.githubusercontent.com/elevenBeans/Grocery/master/elevenbeans-black.png" />个人博客说明
-
+# 个人博客说明
 
 **Elevenbeans' blog powed by [Hexo](https://hexo.io/).** 地址: <http://elevenbeans.github.io>
 
