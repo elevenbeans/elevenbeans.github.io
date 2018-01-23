@@ -6,8 +6,6 @@
 <h4 align="center">Powed by <a href="https://hexo.io/" target="_blank">Hexo</a>. 地址: <a href="http://elevenbeans.github.io" target="_blank">http://elevenbeans.github.io</a>.
 </h4>
 
-<h4 align="center">A special resume/CV or personal homepage made with React and LESS, inspired by <a href="https://github.com/Ovilia">Ovilia</a>.<br /> Please visit: <a href="http://elevenbeans.me">http://elevenbeans.me</a>.</h4>
-
 ## At Frist
 
 如果觉得博客中的文章对你有帮助的话，给个 star 吧亲～
