@@ -3,7 +3,7 @@
 </div>
 
 <h1 align="center">Elevenbeans 的博客</h1>
-<h4 align="center">Powed by <a href="https://hexo.io/" target="_blank">Hexo</a>. 地址: <a href="http://elevenbeans.github.io" target="_blank">http://elevenbeans.github.io</a>.
+<h4 align="center">Powed by <a href="https://hexo.io/">Hexo</a>. 地址: <a href="http://elevenbeans.github.io">http://elevenbeans.github.io</a>.
 </h4>
 
 ## At Frist
