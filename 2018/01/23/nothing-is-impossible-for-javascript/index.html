@@ -45,7 +45,7 @@
 <meta property="og:description" content="原链接：https://stackoverflow.com/questions/48270127/can-a-1-a-2-a-3-ever-evaluate-to-true更多文章参见： https://github.com/elevenbeans/elevenbeans.github.io
 
 一个有趣的问题：在 JavaScript 中， (a ==1 &amp;amp;&amp;amp; a== 2 &amp;a">
-<meta property="og:updated_time" content="2018-01-24T07:37:56.831Z">
+<meta property="og:updated_time" content="2018-01-24T07:43:57.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【译】 (a ==1 && a== 2 && a==3) 有可能是 true 吗？">
 <meta name="twitter:description" content="原链接：https://stackoverflow.com/questions/48270127/can-a-1-a-2-a-3-ever-evaluate-to-true更多文章参见： https://github.com/elevenbeans/elevenbeans.github.io
@@ -171,9 +171,9 @@
 <p>用下划线 <code>_</code> 替代半宽度韩文，增加可读性，相同的代码看起来像这样：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a_ = <span class="number">1</span>;</div><div class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</div><div class="line"><span class="keyword">var</span> _a = <span class="number">3</span>;</div><div class="line"><span class="keyword">if</span>(a_==<span class="number">1</span> &amp;&amp; a== <span class="number">2</span> &amp;&amp;_a==<span class="number">3</span>) &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"Why hello there!"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="解法三："><a href="#解法三：" class="headerlink" title="解法三："></a>解法三：</h2><p>这是完全可能的！</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="keyword">with</span>(&#123;</div><div class="line">  get a() &#123;</div><div class="line">    <span class="keyword">return</span> ++i;</div><div class="line">  &#125;</div><div class="line">&#125;) &#123;</div><div class="line">  <span class="keyword">if</span> (a == <span class="number">1</span> &amp;&amp; a == <span class="number">2</span> &amp;&amp; a == <span class="number">3</span>)</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"wohoo"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这在语句内使用一个<code>get</code>，让 <code>a</code> 的返回值为三个不同的值。然而这并不意味着我们应该在真正的代码中使用。。。</p>
-<h2 id="And-so-on-…"><a href="#And-so-on-…" class="headerlink" title="And so on …"></a>And so on …</h2><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h4 id="利用松散相等运算符-的原理，自定义-toString-和-valueOf-返回对应值"><a href="#利用松散相等运算符-的原理，自定义-toString-和-valueOf-返回对应值" class="headerlink" title="利用松散相等运算符 == 的原理，自定义 toString 和 valueOf 返回对应值"></a>利用松散相等运算符 <code>==</code> 的原理，自定义 <code>toString</code> 和 <code>valueOf</code> 返回对应值</h4><h4 id="利用半宽度韩文等特殊字符，玩“障眼法”，本质上其实并没有做到题设"><a href="#利用半宽度韩文等特殊字符，玩“障眼法”，本质上其实并没有做到题设" class="headerlink" title="利用半宽度韩文等特殊字符，玩“障眼法”，本质上其实并没有做到题设"></a>利用半宽度韩文等特殊字符，玩“障眼法”，本质上其实并没有做到题设</h4><h4 id="劫持-JS-对象的-getter，不过这种方式对于严格相等-同样有效"><a href="#劫持-JS-对象的-getter，不过这种方式对于严格相等-同样有效" class="headerlink" title="劫持 JS 对象的 getter，不过这种方式对于严格相等 === 同样有效"></a>劫持 JS 对象的 <code>getter</code>，不过这种方式对于严格相等 <code>===</code> 同样有效</h4>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> val = <span class="number">0</span>;</div><div class="line"><span class="built_in">Object</span>.defineProperty(<span class="built_in">window</span>, <span class="string">'a'</span>, &#123;</div><div class="line">  <span class="attr">get</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> ++val;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"><span class="keyword">if</span> (a == <span class="number">1</span> &amp;&amp; a == <span class="number">2</span> &amp;&amp; a == <span class="number">3</span>) &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'yay'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用一个<code>get</code>，让 <code>a</code> 的返回值为三个不同的值。然而这并不意味着我们应该在真正的代码中使用。。。</p>
+<h2 id="And-so-on-…"><a href="#And-so-on-…" class="headerlink" title="And so on …"></a>And so on …</h2><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="1-利用松散相等运算符-的原理，自定义-toString-和-valueOf-返回对应值"><a href="#1-利用松散相等运算符-的原理，自定义-toString-和-valueOf-返回对应值" class="headerlink" title="1. 利用松散相等运算符 == 的原理，自定义 toString 和 valueOf 返回对应值"></a>1. 利用松散相等运算符 <code>==</code> 的原理，自定义 <code>toString</code> 和 <code>valueOf</code> 返回对应值</h3><h3 id="2-利用半宽度韩文等特殊字符，玩“障眼法”，本质上其实并没有做到题设"><a href="#2-利用半宽度韩文等特殊字符，玩“障眼法”，本质上其实并没有做到题设" class="headerlink" title="2. 利用半宽度韩文等特殊字符，玩“障眼法”，本质上其实并没有做到题设"></a>2. 利用半宽度韩文等特殊字符，玩“障眼法”，本质上其实并没有做到题设</h3><h3 id="3-劫持-JS-对象的-getter，不过这种方式对于严格相等-同样有效"><a href="#3-劫持-JS-对象的-getter，不过这种方式对于严格相等-同样有效" class="headerlink" title="3. 劫持 JS 对象的 getter，不过这种方式对于严格相等 === 同样有效"></a>3. 劫持 JS 对象的 <code>getter</code>，不过这种方式对于严格相等 <code>===</code> 同样有效</h3>
             </div>
           
 
@@ -193,7 +193,7 @@
     
       <a class="next" href="/2018/01/12/front-end-layout-methods/">
         <span class="next-text nav-default">前端布局方式汇总及概念浅析</span>
-        <span class="prev-text nav-mobile">下一篇</span>
+        <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
     
@@ -224,7 +224,7 @@
     2018
     <span class="footer-author"><a href="https://github.com/elevenbeans" target="_blank">@elevenbeans</a>.</span>
     <span class="power-by">
-        由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a> 强力驱动
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
     </span>
 
 </span>
