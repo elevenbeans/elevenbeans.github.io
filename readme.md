@@ -15,6 +15,7 @@
 ### Categories
 
 + Tech
+  + [【译】 (a ==1 && a== 2 && a==3) 有可能是 true 吗？](http://elevenbeans.github.io/2018/01/23/nothing-is-impossible-for-javascript/) *2018-01-24*
   + [前端布局方式汇总及概念浅析](http://elevenbeans.github.io/2018/01/12/front-end-layout-methods/) *2018-01-12*
   + [程序员简历怎么写？ResumeX — 一个极简主义且独具创意的简历方案](http://elevenbeans.github.io/2017/11/30/resume-x/) *2017-11-30*
   + [【译】注释的艺术](http://elevenbeans.github.io/2017/11/24/art-of-comments/) *2017-11-24*
