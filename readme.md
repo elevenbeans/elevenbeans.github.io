@@ -23,14 +23,10 @@
 ### Categories
 
 + Tech
-  + [【译】 (a ==1 && a== 2 && a==3) 有可能是 true 吗？](http://elevenbeans.github.io/2018/01/23/nothing-is-impossible-for-javascript/) *2018-01-24*
   + [前端布局方式汇总及概念浅析](http://elevenbeans.github.io/2018/01/12/front-end-layout-methods/) *2018-01-12*
   + [程序员简历怎么写？ResumeX — 一个极简主义且独具创意的简历方案](http://elevenbeans.github.io/2017/11/30/resume-x/) *2017-11-30*
-  + [【译】注释的艺术](http://elevenbeans.github.io/2017/11/24/art-of-comments/) *2017-11-24*
-  + [【译】JS 中的内存管理 && 常见的 4 种内存泄露处理方式](http://elevenbeans.github.io/2017/10/13/js-memory-management/) *2017-10-13*
   + [60 行 JS 代码搞定一个下拉刷新组件](http://elevenbeans.github.io/2017/09/19/pull-to-refresh/) *2017-09-19*
   + [React 路/粉/黑 都该了解的 React license 争议](http://elevenbeans.github.io/2017/08/29/Explaining-React-s-license/) *2017-08-29*
-  + [【译】为什么我选择 React 而不是 Vue](http://elevenbeans.github.io/2017/07/19/Why-React/) *2017-07-19*
   + [两分钟解惑 JS 小数计算精度问题](http://elevenbeans.github.io/2017/07/07/floating-point-issue/) *2017-07-07*
   + [管中窥豹，一叶知秋：用 GA 得出几个和掘金社区相关的有趣结论](http://elevenbeans.github.io/2017/06/08/GA-for-juejin/) *2017-06-09*
   + [移动端浏览器调试方法汇总](http://elevenbeans.github.io/2017/06/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/) *2017-06-06*
@@ -38,6 +34,12 @@
   + [Scroll 事件处理之 throttle 和 debounce](http://elevenbeans.github.io/2016/05/05/scroll%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B9%8B-throttle-%E5%92%8C-debounce/) *2016-05-05*
   + [CSS 中的垂直居中法](http://elevenbeans.github.io/2016/05/04/css-%E4%B8%AD%E7%9A%84%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%B3%95/) *2016-05-04*
   + ...
+
++ Tech-trans
+  + [【译】 (a ==1 && a== 2 && a==3) 有可能是 true 吗？](http://elevenbeans.github.io/2018/01/23/nothing-is-impossible-for-javascript/) *2018-01-24*
+  + [【译】注释的艺术](http://elevenbeans.github.io/2017/11/24/art-of-comments/) *2017-11-24*
+  + [【译】JS 中的内存管理 && 常见的 4 种内存泄露处理方式](http://elevenbeans.github.io/2017/10/13/js-memory-management/) *2017-10-13*
+  + [【译】为什么我选择 React 而不是 Vue](http://elevenbeans.github.io/2017/07/19/Why-React/) *2017-07-19*
 
 + Life
   + [珍爱生命，远离 “科技宽带”](http://elevenbeans.github.io/2017/12/13/fuck-tech-broadband/) *2017-12-13*
