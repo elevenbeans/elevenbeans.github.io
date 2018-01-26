@@ -8,6 +8,14 @@
 
 ## At Frist
 
+**Top 5 popular articles** (According to Google Analytics)
+
+1. [【译】为什么我选择 React 而不是 Vue](http://elevenbeans.github.io/2017/07/19/Why-React/)
+2. [60 行 JS 代码搞定一个下拉刷新组件](http://elevenbeans.github.io/2017/09/19/pull-to-refresh/)
+3. [移动端浏览器调试方法汇总](http://elevenbeans.github.io/2017/06/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/)
+4. [程序员简历怎么写？ResumeX — 一个极简主义且独具创意的简历方案](http://elevenbeans.github.io/2017/11/30/resume-x/)
+5. [前端布局方式汇总及概念浅析](http://elevenbeans.github.io/2018/01/12/front-end-layout-methods/)
+
 如果觉得博客中的文章对你有帮助的话，给个 star 吧亲～
 
 ## Content OverView
