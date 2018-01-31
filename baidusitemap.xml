@@ -8,7 +8,7 @@
     <lastmod>2018-01-24T07:43:57.598Z</lastmod>
     <data>
         <display>
-        <title>【译】 (a ==1 && a== 2 && a==3) 有可能是 true 吗？</title>
+        <title>【译】 (a ==1  a== 2  a==3) 有可能是 true 吗？</title>
         <pubTime>2018-01-23T12:17:39.000Z</pubTime>
         
         <tag>JavaScript</tag>
@@ -28,7 +28,7 @@
     <lastmod>2018-01-23T13:41:58.523Z</lastmod>
     <data>
         <display>
-        <title>【译】JS 中的内存管理 && 常见的 4 种内存泄露处理方式</title>
+        <title>【译】JS 中的内存管理  常见的 4 种内存泄露处理方式</title>
         <pubTime>2017-10-13T06:53:17.000Z</pubTime>
         
         <tag>翻译</tag>
@@ -465,7 +465,7 @@
     <lastmod>2018-01-12T09:29:02.509Z</lastmod>
     <data>
         <display>
-        <title>Rocker && Jabber</title>
+        <title>Rocker  Jabber</title>
         <pubTime>2017-08-28T08:12:26.000Z</pubTime>
         
         <tag>Rocker</tag>
