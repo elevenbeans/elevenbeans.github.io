@@ -36,8 +36,7 @@
   + ...
 
 + Tech-trans
-  + [10 种最常见的 Javascript 错误 —— 总结于 1000+ 个项目，并阐述如何避免
-](http://elevenbeans.github.io/2018/02/05/top-10-javascript-errors/) *2018-02-05*
+  + [【译】10 种最常见的 Javascript 错误 —— 总结于 1000+ 个项目，并阐述如何避免](http://elevenbeans.github.io/2018/02/05/top-10-javascript-errors/) *2018-02-05*
   + [【译】 (a ==1 && a== 2 && a==3) 有可能是 true 吗？](http://elevenbeans.github.io/2018/01/23/nothing-is-impossible-for-javascript/) *2018-01-24*
   + [【译】注释的艺术](http://elevenbeans.github.io/2017/11/24/art-of-comments/) *2017-11-24*
   + [【译】JS 中的内存管理 && 常见的 4 种内存泄露处理方式](http://elevenbeans.github.io/2017/10/13/js-memory-management/) *2017-10-13*
