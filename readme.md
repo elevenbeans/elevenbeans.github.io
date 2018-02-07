@@ -24,7 +24,7 @@
 4. [程序员简历怎么写？ResumeX — 一个极简主义且独具创意的简历方案](http://elevenbeans.github.io/2017/11/30/resume-x/)
 5. [前端布局方式汇总及概念浅析](http://elevenbeans.github.io/2018/01/12/front-end-layout-methods/)
 
-## Content OverView
+## OverView
 
 ### Categories
 
@@ -56,9 +56,7 @@
 
 博客的重点主要还是在文字，所以极简主义风格的主题是我喜欢的。
 
-我的主题为 [PolarBear](https://github.com/frostfan/hexo-theme-polarbear), a light theme base on Even, designed by Giuem.
-
-想要获取更多主题：参见 [Hexo Themes](https://hexo.io/themes/)。
+我的主题为 [PolarBear](https://github.com/frostfan/hexo-theme-polarbear), a light theme base on Even, designed by Giuem. 获取更多主题参见 [Hexo Themes](https://hexo.io/themes/)。
 
 ### Contact
 
@@ -69,10 +67,9 @@
 + [juejin](https://juejin.im/user/587fce9361ff4b006522519e)
 + [zhihu](https://www.zhihu.com/people/shi-yike-dou-zi/activities)
 
-
 ### Tags
 
-标签：即对于博文的话题的分类聚合
+标签是对于博文的分类聚合，方便读者快速定位到和其感兴趣话题相关的文章集合。
 
 ## Screenshot
 
@@ -91,4 +88,4 @@
 
 如果你需要 re-post 博客中的文章（包括文章的部分段落），请标明出处 <a href="http://elevenbeans.github.io">elevenbeans</a> .
 
-你可以随意使用 `elevenbeans.github.io` 中的源码, 因为她遵循 MIT license (same as Hexo)。当然，能给一个 Hexo 的链接也是最好不过的。
+你可以随意使用 `elevenbeans.github.io` 中的源码，因为她遵循 [MIT license](https://mit-license.org/) (same as Hexo)。当然，能给一个 Hexo 的链接也是最好不过的。
