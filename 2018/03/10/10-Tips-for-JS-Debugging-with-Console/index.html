@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+<meta name="baidu-site-verification" content="HTOBD3Guy9" />
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="【译】10 个技巧，让你更专业地使用 console 进行 JS 调试"/>
+
+
+
+
+  <meta name="keywords" content="JS Debugging,console," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Elevenbeans' blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/elevenbeans.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2018/03/10/10-Tips-for-JS-Debugging-with-Console/"/>
+
+
+<meta name="description" content="原文见：https://medium.com/appsflyer/10-tips-for-javascript-debugging-like-a-pro-with-console-7140027eb5f6更多文章参见： https://github.com/elevenbeans/elevenbeans.github.io
+
+
+首先，我必须承认这一点，我将利用这个平台从我的开发环境中清理出骨架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】10 个技巧，让你更专业地使用 console 进行 JS 调试">
+<meta property="og:url" content="http://yoursite.com/2018/03/10/10-Tips-for-JS-Debugging-with-Console/index.html">
+<meta property="og:site_name" content="Elevenbeans' blog">
+<meta property="og:description" content="原文见：https://medium.com/appsflyer/10-tips-for-javascript-debugging-like-a-pro-with-console-7140027eb5f6更多文章参见： https://github.com/elevenbeans/elevenbeans.github.io
+
+
+首先，我必须承认这一点，我将利用这个平台从我的开发环境中清理出骨架">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*sQy6GT_F86lYw6wrcZbQpA.png">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/0*i5mmn3ue74QSw43a.">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/0*_sjTwH0wheUnTNwS.">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/0*TwZCRQT00_M_whPx.">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/0*2qPLnMbPnEEEd-ZI.">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/0*YT5ZhiTxIPZyvQaQ.">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/0*Y401GVdaEuhYlLWw.">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/0*eYUWJnjCq1lZjOQA.">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/0*sWJyvxQqHFjfdjTP.">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/0*FhsbYcmkDt7jLJl4.">
+<meta property="og:updated_time" content="2018-03-11T10:11:45.627Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【译】10 个技巧，让你更专业地使用 console 进行 JS 调试">
+<meta name="twitter:description" content="原文见：https://medium.com/appsflyer/10-tips-for-javascript-debugging-like-a-pro-with-console-7140027eb5f6更多文章参见： https://github.com/elevenbeans/elevenbeans.github.io
+
+
+首先，我必须承认这一点，我将利用这个平台从我的开发环境中清理出骨架">
+<meta name="twitter:image" content="https://cdn-images-1.medium.com/max/1600/1*sQy6GT_F86lYw6wrcZbQpA.png">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-100591386-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+
+    <title> 【译】10 个技巧，让你更专业地使用 console 进行 JS 调试 - Elevenbeans' blog </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">
+          <img width="58px" src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/elevenbeans-black.png"/>
+          Elevenbeans' blog
+        </a>
+    </h1>
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/">
+                            
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+    </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          【译】10 个技巧，让你更专业地使用 console 进行 JS 调试
+        
+      </h1>
+
+      <time class="post-time">
+          Mar 10 2018
+      </time>
+    </header>
+
+    
+            <div class="post-content">
+            <script src="/assets/js/APlayer.min.js"> </script><blockquote>
+<p>原文见：<a href="https://medium.com/appsflyer/10-tips-for-javascript-debugging-like-a-pro-with-console-7140027eb5f6" target="_blank" rel="external">https://medium.com/appsflyer/10-tips-for-javascript-debugging-like-a-pro-with-console-7140027eb5f6</a><br><strong>更多文章参见：</strong> <a href="https://github.com/elevenbeans/elevenbeans.github.io" target="_blank" rel="external">https://github.com/elevenbeans/elevenbeans.github.io</a></p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*sQy6GT_F86lYw6wrcZbQpA.png" alt=""></p>
+<p>首先，我必须承认这一点，我将利用这个平台从我的开发环境中清理出骨架（轮廓）。有时候，我所做的“魔法”（有些人称之为“编码”），并不像我的同事在为他们展示这些宏伟结果时候看到的那样完美。 是的，我说过：有时候，我会使用老式的试错法，我们都称之为”调试” : )</p>
+<p>在过去的十年中，我热衷的事情之一是前端开发（特别是 JavaScript）。作为一名“工匠”，我喜欢学习市面上的新工具。在这个故事中，我将给你们一些很棒的、更专业的技巧，去使用好用又“古老”的 <code>console</code>。</p>
+<p>是的，我们都知道它的基础用法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(‘Hello World!’); <span class="comment">// log a message or an object to console</span></div><div class="line"><span class="built_in">console</span>.info(‘Something happened…’); <span class="comment">// same as console log</span></div><div class="line"><span class="built_in">console</span>.warn(‘Something strange happened…’); <span class="comment">// same as console log but outputs a warning</span></div><div class="line"><span class="built_in">console</span>.error(‘Something horrible happened…’); <span class="comment">// same as console log but outputs an error</span></div></pre></td></tr></table></figure>
+<p>所以，我希望现在我可以给你们一些以前不知道的技巧，以及那些可以让你们成为一个更专业的调试人员的玩法。</p>
+<h2 id="Tip-1-console-trace"><a href="#Tip-1-console-trace" class="headerlink" title="Tip #1 console.trace()"></a><strong>Tip #1 <code>console.trace()</code></strong></h2><p>如果您想获取日志信息的提示位置，可通过使用<code>console.trace()</code>来获取带有记录数据的堆栈跟踪。</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/0*i5mmn3ue74QSw43a." alt=""></p>
+<h2 id="Tip-2-console-time-amp-amp-console-timeEnd"><a href="#Tip-2-console-time-amp-amp-console-timeEnd" class="headerlink" title="Tip #2 console.time() &amp;&amp; console.timeEnd()"></a><strong>Tip #2 <code>console.time() &amp;&amp; console.timeEnd()</code></strong></h2><p>如果您试图找到一个比较隐匿的性能问题，请使用<code>console.time()</code>开始计算时间，然后使用<code>console.timeEnd()</code>进行打印。</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/0*_sjTwH0wheUnTNwS." alt=""></p>
+<h2 id="Tip-3-console-memory"><a href="#Tip-3-console-memory" class="headerlink" title="Tip #3 console.memory"></a><strong>Tip #3 <code>console.memory</code></strong></h2><p>如果你的性能问题更加棘手，并且你正在寻找一个隐匿的内存泄漏，你可能想尝试并利用<code>console.memory</code>（是属性，不是函数）来检查你的堆大小状态。</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/0*TwZCRQT00_M_whPx." alt=""></p>
+<h2 id="Tip-4-console-profile-‘profileName’-amp-console-profileEnd-‘profileName’"><a href="#Tip-4-console-profile-‘profileName’-amp-console-profileEnd-‘profileName’" class="headerlink" title="Tip #4 console.profile(‘profileName’) &amp; console.profileEnd(‘profileName’)"></a><strong>Tip #4 <code>console.profile(‘profileName’) &amp; console.profileEnd(‘profileName’)</code></strong></h2><p>这不是标准的方法，但得到了广泛的支持。你可以使用<code>console.profile(&#39;profileName&#39;)</code>，然后使用<code>console.profileEnd(&#39;profileName&#39;)</code>，从代码中启动和结束浏览器性能工具 - “performance profile”。 这将帮助您精确地分析您想要的内容，并避免了您单击鼠标，它取决于程序执行时间。</p>
+<h2 id="Tip-5-console-count-“STUFF-I-COUNT”"><a href="#Tip-5-console-count-“STUFF-I-COUNT”" class="headerlink" title="Tip #5 console.count(“STUFF I COUNT”)"></a><strong>Tip #5 <code>console.count(“STUFF I COUNT”)</code></strong></h2><p>在函数或代码反复出现的情况下，您可以使用<code>console.count(&#39;?&#39;)</code>来计算您的代码被读取的次数。</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/0*2qPLnMbPnEEEd-ZI." alt=""></p>
+<h2 id="Tip-6-console-assert-false-“Log-me-”"><a href="#Tip-6-console-assert-false-“Log-me-”" class="headerlink" title="Tip #6 console.assert(false, “Log me!”)"></a><strong>Tip #6 <code>console.assert(false, “Log me!”)</code></strong></h2><p>是的，条件日志记录并没有用<code>if-else</code>包装你的日志 : )<br>您可以使用<code>console.assert(condition, msg)</code>在<code>condition</code>为假时记录某些内容。</p>
+<p><em>免责声明：在 Node.js中，这将抛出 Assertion Error！</em></p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/0*YT5ZhiTxIPZyvQaQ." alt=""></p>
+<h2 id="Tip-7-console-group-‘group’-amp-console-groupEnd-‘group’"><a href="#Tip-7-console-group-‘group’-amp-console-groupEnd-‘group’" class="headerlink" title="Tip #7 console.group(‘group’) &amp; console.groupEnd(‘group’)"></a><strong>Tip #7 <code>console.group(‘group’) &amp; console.groupEnd(‘group’)</code></strong></h2><p>写了这么多的日志之后，你可能想对它们进行组织。一个小而有用的工具是<code>console.group()</code>和<code>console.groupEnd()</code>。使用控制台组，将控制台日志组织在一起，每个分组在层次结构中创建另一个级别。 调用<code>groupEnd()</code>减少一个级别(回到上一个层级)。</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/0*Y401GVdaEuhYlLWw." alt=""></p>
+<h2 id="Tip-8-String-substitutions"><a href="#Tip-8-String-substitutions" class="headerlink" title="Tip #8 String substitutions"></a><strong>Tip #8 String substitutions</strong></h2><p>记录日志时，可以使用字符串替换合并变量。这些引用是（<code>％s = string，％i = integer，％o = object，％f = float</code>）。</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/0*eYUWJnjCq1lZjOQA." alt=""></p>
+<h2 id="Tip-9-console-clear"><a href="#Tip-9-console-clear" class="headerlink" title="Tip #9 console.clear()"></a><strong>Tip #9 console.clear()</strong></h2><p>那么，写了这么多的日志，现在是时候清理一下你的控制台了。</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/0*sWJyvxQqHFjfdjTP." alt=""></p>
+<h2 id="Tip-10-console-table"><a href="#Tip-10-console-table" class="headerlink" title="Tip #10 console.table()"></a><strong>Tip #10 console.table()</strong></h2><p>在我看来，这是一个真正的“瑰宝”！ 你可以使用<code>console.table()</code>打印一个非常漂亮的表格！</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/0*FhsbYcmkDt7jLJl4." alt=""></p>
+<p>我真的希望这些技巧能让大家的调试更有效率，甚至更有乐趣！</p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/JS-Debugging/">JS Debugging</a>
+          
+            <a href="/tags/console/">console</a>
+          
+          
+        </div>
+       
+         
+         
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2018/02/05/top-10-javascript-errors/">
+        <span class="next-text nav-default">【译】10 种最常见的 Javascript 错误</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+         
+  <div class="comments" id="comments">
+    
+    <div id="comment-container"></div>
+  </div>
+
+
+       
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2018
+    <span class="footer-author"><a href="https://github.com/elevenbeans" target="_blank">@elevenbeans</a>.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+
+</span>
+<script>
+var gitment = new Gitment({
+  id: location.pathname, // 可选。默认为 location.href
+  owner: 'elevenbeans',
+  repo: 'elevenbeans.github.io',
+  oauth: {
+    client_id: '34a6c343407ce5dcf922',
+    client_secret: '9669a9498f09f3b21711bd666a50db5929e78256',
+  },
+})
+gitment.render('comment-container')
+</script>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>

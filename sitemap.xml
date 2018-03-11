@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://elevenbeans.github.io/2018/03/10/10-Tips-for-JS-Debugging-with-Console/</loc>
+    
+    <lastmod>2018-03-11T10:11:45.627Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://elevenbeans.github.io/2018/02/05/top-10-javascript-errors/</loc>
     
-    <lastmod>2018-02-06T03:45:18.110Z</lastmod>
+    <lastmod>2018-03-05T08:40:08.305Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://elevenbeans.github.io/2017/09/19/pull-to-refresh/</loc>
+    
+    <lastmod>2018-03-05T08:40:08.304Z</lastmod>
     
   </url>
   
@@ -68,13 +82,6 @@
     <loc>http://elevenbeans.github.io/2017/11/30/resume-x/</loc>
     
     <lastmod>2018-01-23T13:35:49.117Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://elevenbeans.github.io/2017/09/19/pull-to-refresh/</loc>
-    
-    <lastmod>2018-01-23T13:35:19.881Z</lastmod>
     
   </url>
   
