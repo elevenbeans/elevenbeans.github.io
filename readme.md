@@ -38,6 +38,7 @@
   + ...
 
 + Tech-trans
+  + [【译】10 个技巧，让你更专业地使用 console 进行 JS 调试](https://elevenbeans.github.io/2018/03/10/10-Tips-for-JS-Debugging-with-Console/) *2018-03-10*
   + [【译】10 种最常见的 Javascript 错误 —— 总结于 1000+ 个项目，并阐述如何避免](http://elevenbeans.github.io/2018/02/05/top-10-javascript-errors/) *2018-02-05*
   + [【译】 (a ==1 && a== 2 && a==3) 有可能是 true 吗？](http://elevenbeans.github.io/2018/01/23/nothing-is-impossible-for-javascript/) *2018-01-24*
   + [【译】注释的艺术](http://elevenbeans.github.io/2017/11/24/art-of-comments/) *2017-11-24*
@@ -88,4 +89,4 @@
 
 如果你需要 re-post 博客中的文章（包括文章的部分段落），请标明出处 <a href="http://elevenbeans.github.io">elevenbeans</a> .
 
-你可以随意使用 `elevenbeans.github.io` 中的源码，因为她遵循 [MIT license](https://mit-license.org/) (same as Hexo)。当然，能给一个 Hexo 的链接也是最好不过的。
+你可以随意使用 `elevenbeans.github.io` 中的源码，因为她遵循 [MIT license](https://mit-license.org/)。
