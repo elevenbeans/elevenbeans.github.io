@@ -12,9 +12,7 @@
 
 如果觉得博客中的文章对你有帮助的话，点个 `star` 吧～
 
-想要持续关注请点击`Watch`->`Watching`，这样每次博客更新都会及时提醒你。
-
-`Fork` 没什么意义的啦。。
+想要持续关注请点击`Watch`->`Watching`，这样每次博客更新都会及时提醒你。`Fork` 没什么意义的啦。。
 
 ## **Top 5 popular articles** (According to Google Analytics)
 
@@ -46,6 +44,7 @@
   + [【译】为什么我选择 React 而不是 Vue](http://elevenbeans.github.io/2017/07/19/Why-React/) *2017-07-19*
 
 + Life
+  + [请你告诉我如何悲伤](http://elevenbeans.github.io/2018/03/17/mister-fan-gao/) *208-03-17*
   + [珍爱生命，远离 “科技宽带”](http://elevenbeans.github.io/2017/12/13/fuck-tech-broadband/) *2017-12-13*
   + [Rocker && Jaber](http://elevenbeans.github.io/2017/08/28/Rocker-Jaber-0/) *2017-08-28*
   + [2016-2017 小结](http://elevenbeans.github.io/2017/06/12/summary-of-my-2016-2017/) *2017-06-14*
@@ -81,7 +80,7 @@
 
 + *2016-05-04:* First published
 + *2017-06-06:* 添加 Google Analytics
-+ *2017-07-20:* 日访问 over 1000
++ *2017-07-20:* 日访问 over 1K
 + *2017-07-21:* 添加 Gitment
 + *2018-01-31:* 添加 SiteMap
 
