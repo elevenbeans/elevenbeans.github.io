@@ -570,6 +570,22 @@ h6 {
     border-top: 1px solid #eee; }
   .post .post-excerpt img {
     padding-top: .5em; }
+  .post .post-hot {
+    font-size: 12px;
+    font-weight: bold;
+    color: red;
+    padding: 0px 3px;
+    border: red solid 1px;
+    border-radius: 3px;
+    margin-right: 9px; }
+  .post .post-new {
+    font-size: 12px;
+    font-weight: bold;
+    color: #0000FF;
+    padding: 0px 3px;
+    border: #0000FF solid 1px;
+    border-radius: 3px;
+    margin-right: 9px; }
   .post .post-header .post-title {
     margin: 0 0 10px;
     line-height: 1.4;
@@ -589,7 +605,7 @@ h6 {
       left: 0; }
   .post .post-time {
     color: #aaa;
-    display: block;
+    display: inline-block;
     font-size: 14px;
     margin-bottom: 10px; }
   .post .post-excerpt p {
