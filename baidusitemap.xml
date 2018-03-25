@@ -4,8 +4,30 @@
 
     
   <url>
+    <loc>http://elevenbeans.github.io/2018/03/25/javascript-design-patterns-0/</loc>
+    <lastmod>2018-03-25T12:48:07.979Z</lastmod>
+    <data>
+        <display>
+        <title>深入理解 Javascript 中的设计模式（一）：概述</title>
+        <pubTime>2018-03-25T08:33:36.000Z</pubTime>
+        
+        <tag>Javascript</tag>
+         
+        <tag>Design patterns</tag>
+         
+         
+           
+             
+              <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://elevenbeans.github.io/2018/03/17/mister-fan-gao/</loc>
-    <lastmod>2018-03-25T07:11:23.848Z</lastmod>
+    <lastmod>2018-03-25T12:42:37.200Z</lastmod>
     <data>
         <display>
         <title>请你告诉我如何悲伤</title>
@@ -311,11 +333,11 @@
         <title>【译】50 行 CSS 代码撸一个阴阳八卦的 Loading 动效</title>
         <pubTime>2017-06-22T07:40:40.000Z</pubTime>
         
-        <tag>翻译</tag>
-         
         <tag>八卦</tag>
          
         <tag>CSS</tag>
+         
+        <tag>翻译</tag>
          
          
            
@@ -337,9 +359,9 @@
         
         <tag>React</tag>
          
-        <tag>Vue</tag>
-         
         <tag>翻译</tag>
+         
+        <tag>Vue</tag>
          
          
            
@@ -472,6 +494,28 @@
            
              
               <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://elevenbeans.github.io/2017/08/29/Explaining-React-s-license/</loc>
+    <lastmod>2018-03-25T06:44:51.508Z</lastmod>
+    <data>
+        <display>
+        <title>React 路/粉/黑 都该了解的 React license 争议</title>
+        <pubTime>2017-08-29T09:12:58.000Z</pubTime>
+        
+        <tag>React</tag>
+         
+        <tag>license</tag>
+         
+         
+           
+             
+              <breadCrumb title="React" url="http://elevenbeans.github.io/categories/React/"/>
           
         </display>
     </data>
@@ -762,28 +806,6 @@
            
              
               <breadCrumb title="CSS" url="http://elevenbeans.github.io/categories/CSS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2017/08/29/Explaining-React-s-license/</loc>
-    <lastmod>2018-03-25T06:28:49.015Z</lastmod>
-    <data>
-        <display>
-        <title>React 路/粉/黑 都该了解的 React license 争议</title>
-        <pubTime>2017-08-29T09:12:58.000Z</pubTime>
-        
-        <tag>React</tag>
-         
-        <tag>license</tag>
-         
-         
-           
-             
-              <breadCrumb title="React" url="http://elevenbeans.github.io/categories/React/"/>
           
         </display>
     </data>

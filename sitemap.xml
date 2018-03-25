@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://elevenbeans.github.io/2018/03/25/javascript-design-patterns-0/</loc>
+    
+    <lastmod>2018-03-25T12:48:07.979Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://elevenbeans.github.io/2018/03/17/mister-fan-gao/</loc>
     
-    <lastmod>2018-03-25T07:11:23.848Z</lastmod>
+    <lastmod>2018-03-25T12:42:37.200Z</lastmod>
     
   </url>
   
@@ -149,6 +156,13 @@
   </url>
   
   <url>
+    <loc>http://elevenbeans.github.io/2017/08/29/Explaining-React-s-license/</loc>
+    
+    <lastmod>2018-03-25T06:44:51.508Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://elevenbeans.github.io/2016/06/12/%E7%94%9F%E6%B4%BB%E6%9C%AC%E5%BA%94%E5%A6%82%E6%AD%A4/</loc>
     
     <lastmod>2018-03-25T06:38:34.229Z</lastmod>
@@ -236,13 +250,6 @@
     <loc>http://elevenbeans.github.io/2018/01/12/front-end-layout-methods/</loc>
     
     <lastmod>2018-03-25T06:29:00.618Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://elevenbeans.github.io/2017/08/29/Explaining-React-s-license/</loc>
-    
-    <lastmod>2018-03-25T06:28:49.015Z</lastmod>
     
   </url>
   
