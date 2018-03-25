@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://elevenbeans.github.io/2018/03/17/mister-fan-gao/</loc>
-    <lastmod>2018-03-23T10:03:14.102Z</lastmod>
+    <lastmod>2018-03-25T07:11:23.848Z</lastmod>
     <data>
         <display>
         <title>请你告诉我如何悲伤</title>
@@ -18,7 +18,7 @@
          
            
              
-              <breadCrumb title="life" url="http://elevenbeans.github.io/categories/life/"/>
+              <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
           
         </display>
     </data>
@@ -26,21 +26,21 @@
 
     
   <url>
-    <loc>http://elevenbeans.github.io/2017/09/19/pull-to-refresh/</loc>
-    <lastmod>2018-03-23T09:37:58.601Z</lastmod>
+    <loc>http://elevenbeans.github.io/2016/06/03/DomReady/</loc>
+    <lastmod>2018-03-25T07:10:33.076Z</lastmod>
     <data>
         <display>
-        <title>60 行 JS 代码搞定一个下拉刷新组件</title>
-        <pubTime>2017-09-18T16:05:33.000Z</pubTime>
+        <title>由 $(document).ready 发散开去</title>
+        <pubTime>2016-06-03T08:08:08.000Z</pubTime>
         
-        <tag>JS</tag>
+        <tag>DomReady</tag>
          
-        <tag>下拉刷新</tag>
+        <tag>面试</tag>
          
          
            
              
-              <breadCrumb title="tech" url="http://elevenbeans.github.io/categories/tech/"/>
+              <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
           
         </display>
     </data>
@@ -48,19 +48,21 @@
 
     
   <url>
-    <loc>http://elevenbeans.github.io/2018/02/05/top-10-javascript-errors/</loc>
-    <lastmod>2018-03-23T09:30:40.301Z</lastmod>
+    <loc>http://elevenbeans.github.io/2016/10/24/1024/</loc>
+    <lastmod>2018-03-25T07:09:58.428Z</lastmod>
     <data>
         <display>
-        <title>【译】10 种最常见的 Javascript 错误</title>
-        <pubTime>2018-02-05T03:10:59.000Z</pubTime>
+        <title>1024</title>
+        <pubTime>2016-10-24T07:03:06.000Z</pubTime>
         
-        <tag>Javascript errors</tag>
+        <tag>1024</tag>
+         
+        <tag>转正</tag>
          
          
            
              
-              <breadCrumb title="tech-trans" url="http://elevenbeans.github.io/categories/tech-trans/"/>
+              <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
           
         </display>
     </data>
@@ -68,25 +70,187 @@
 
     
   <url>
-    <loc>http://elevenbeans.github.io/2018/01/12/front-end-layout-methods/</loc>
-    <lastmod>2018-03-23T09:30:08.481Z</lastmod>
+    <loc>http://elevenbeans.github.io/2016/05/31/node-mysql-CRUD/</loc>
+    <lastmod>2018-03-25T06:56:48.700Z</lastmod>
     <data>
         <display>
-        <title>前端布局方式汇总及概念浅析</title>
-        <pubTime>2018-01-12T06:54:02.000Z</pubTime>
+        <title>node 小试牛刀之 mysql 增删改查</title>
+        <pubTime>2016-05-30T16:22:24.000Z</pubTime>
         
-        <tag>CSS</tag>
+        <tag>node</tag>
          
-        <tag>布局</tag>
+        <tag>mysql</tag>
          
-        <tag>自适应</tag>
-         
-        <tag>响应式</tag>
+        <tag>增删查改</tag>
          
          
            
              
-              <breadCrumb title="tech" url="http://elevenbeans.github.io/categories/tech/"/>
+              <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://elevenbeans.github.io/2017/01/12/Koa-React-webpack-SPA-%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%96%B0%E9%B2%9C%E5%87%BA%E7%82%89%EF%BD%9E/</loc>
+    <lastmod>2018-03-25T06:55:55.890Z</lastmod>
+    <data>
+        <display>
+        <title>SPA 项目全家桶新鲜出炉（Koa+React+webpack） ～</title>
+        <pubTime>2017-01-12T15:55:48.000Z</pubTime>
+        
+        <tag>React</tag>
+         
+        <tag>Koa</tag>
+         
+         
+           
+             
+              <breadCrumb title="React" url="http://elevenbeans.github.io/categories/React/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://elevenbeans.github.io/2017/04/05/Game-of-life/</loc>
+    <lastmod>2018-03-25T06:55:36.568Z</lastmod>
+    <data>
+        <display>
+        <title>Game of life</title>
+        <pubTime>2017-04-05T12:52:16.000Z</pubTime>
+        
+        <tag>game</tag>
+         
+        <tag>conway</tag>
+         
+         
+           
+             
+              <breadCrumb title="React" url="http://elevenbeans.github.io/categories/React/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://elevenbeans.github.io/2017/05/16/%E6%92%B8%E4%BA%86%E4%B8%80%E4%B8%AA%E6%8A%95%E7%A5%A8App/</loc>
+    <lastmod>2018-03-25T06:55:25.350Z</lastmod>
+    <data>
+        <display>
+        <title>全栈开发实例：如何独立开发/发布一个 WebAPP</title>
+        <pubTime>2017-05-16T07:30:42.000Z</pubTime>
+        
+        <tag>全栈开发</tag>
+         
+        <tag>webApp</tag>
+         
+        <tag>投票</tag>
+         
+         
+           
+             
+              <breadCrumb title="React" url="http://elevenbeans.github.io/categories/React/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://elevenbeans.github.io/2017/11/30/resume-x/</loc>
+    <lastmod>2018-03-25T06:55:16.078Z</lastmod>
+    <data>
+        <display>
+        <title>程序员简历怎么写？ResumeX — 一个极简主义且独具创意的简历方案</title>
+        <pubTime>2017-11-30T08:05:33.000Z</pubTime>
+        
+        <tag>简历</tag>
+         
+        <tag>程序员</tag>
+         
+        <tag>resume</tag>
+         
+        <tag>iPhoneX</tag>
+         
+         
+           
+             
+              <breadCrumb title="React" url="http://elevenbeans.github.io/categories/React/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://elevenbeans.github.io/2017/03/15/A-React-Caculator/</loc>
+    <lastmod>2018-03-25T06:55:02.776Z</lastmod>
+    <data>
+        <display>
+        <title>A React Caculator</title>
+        <pubTime>2017-03-15T04:10:09.000Z</pubTime>
+        
+        <tag>React</tag>
+         
+        <tag>ES6</tag>
+         
+         
+           
+             
+              <breadCrumb title="React" url="http://elevenbeans.github.io/categories/React/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://elevenbeans.github.io/2016/08/11/UC-%E6%89%8B%E6%9C%BA%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E7%BB%8F%E9%AA%8C/</loc>
+    <lastmod>2018-03-25T06:51:11.029Z</lastmod>
+    <data>
+        <display>
+        <title>UC 手机浏览器调试经验</title>
+        <pubTime>2016-08-11T02:25:25.000Z</pubTime>
+        
+        <tag>UC Debug</tag>
+         
+        <tag>adb</tag>
+         
+        <tag>device offline</tag>
+         
+         
+           
+             
+              <breadCrumb title="Tech-EXP" url="http://elevenbeans.github.io/categories/Tech-EXP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://elevenbeans.github.io/2016/08/18/URL-Scheme-%E5%94%A4%E8%B5%B7%E9%97%AE%E9%A2%98%E8%B8%A9%E5%9D%91/</loc>
+    <lastmod>2018-03-25T06:51:06.912Z</lastmod>
+    <data>
+        <display>
+        <title>URL Scheme 主动唤起 APP 问题踩坑</title>
+        <pubTime>2016-08-18T02:58:54.000Z</pubTime>
+        
+        <tag>URL Scheme</tag>
+         
+        <tag>H5</tag>
+         
+        <tag>唤起APP</tag>
+         
+         
+           
+             
+              <breadCrumb title="Tech-EXP" url="http://elevenbeans.github.io/categories/Tech-EXP/"/>
           
         </display>
     </data>
@@ -95,7 +259,7 @@
     
   <url>
     <loc>http://elevenbeans.github.io/2017/06/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/</loc>
-    <lastmod>2018-03-23T09:29:56.982Z</lastmod>
+    <lastmod>2018-03-25T06:50:54.511Z</lastmod>
     <data>
         <display>
         <title>移动端浏览器调试方法汇总</title>
@@ -110,7 +274,53 @@
          
            
              
-              <breadCrumb title="tech" url="http://elevenbeans.github.io/categories/tech/"/>
+              <breadCrumb title="Tech-EXP" url="http://elevenbeans.github.io/categories/Tech-EXP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://elevenbeans.github.io/2017/01/22/%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E6%B1%87%E6%80%BB/</loc>
+    <lastmod>2018-03-25T06:48:06.660Z</lastmod>
+    <data>
+        <display>
+        <title>常用算法汇总</title>
+        <pubTime>2017-01-22T03:10:46.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+        <tag>算法</tag>
+         
+         
+           
+             
+              <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://elevenbeans.github.io/2017/06/22/Yin-and-Yang-by-CSS/</loc>
+    <lastmod>2018-03-25T06:48:01.050Z</lastmod>
+    <data>
+        <display>
+        <title>【译】50 行 CSS 代码撸一个阴阳八卦的 Loading 动效</title>
+        <pubTime>2017-06-22T07:40:40.000Z</pubTime>
+        
+        <tag>翻译</tag>
+         
+        <tag>八卦</tag>
+         
+        <tag>CSS</tag>
+         
+         
+           
+             
+              <breadCrumb title="CSS" url="http://elevenbeans.github.io/categories/CSS/"/>
           
         </display>
     </data>
@@ -119,7 +329,7 @@
     
   <url>
     <loc>http://elevenbeans.github.io/2017/07/19/Why-React/</loc>
-    <lastmod>2018-03-23T09:29:26.229Z</lastmod>
+    <lastmod>2018-03-25T06:47:56.314Z</lastmod>
     <data>
         <display>
         <title>【译】为什么我选择 React 而不是 Vue</title>
@@ -139,21 +349,19 @@
 
     
   <url>
-    <loc>http://elevenbeans.github.io/2018/03/10/10-Tips-for-JS-Debugging-with-Console/</loc>
-    <lastmod>2018-03-11T10:11:45.627Z</lastmod>
+    <loc>http://elevenbeans.github.io/2018/02/05/top-10-javascript-errors/</loc>
+    <lastmod>2018-03-25T06:47:20.753Z</lastmod>
     <data>
         <display>
-        <title>【译】10 个技巧，让你更专业地使用 console 进行 JS 调试</title>
-        <pubTime>2018-03-10T13:55:33.000Z</pubTime>
+        <title>【译】10 种最常见的 Javascript 错误</title>
+        <pubTime>2018-02-05T03:10:59.000Z</pubTime>
         
-        <tag>JS Debugging</tag>
-         
-        <tag>console</tag>
+        <tag>Javascript errors</tag>
          
          
            
              
-              <breadCrumb title="tech-trans" url="http://elevenbeans.github.io/categories/tech-trans/"/>
+              <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
           
         </display>
     </data>
@@ -162,7 +370,7 @@
     
   <url>
     <loc>http://elevenbeans.github.io/2018/01/23/nothing-is-impossible-for-javascript/</loc>
-    <lastmod>2018-01-24T07:43:57.598Z</lastmod>
+    <lastmod>2018-03-25T06:47:01.866Z</lastmod>
     <data>
         <display>
         <title>【译】 (a ==1  a== 2  a==3) 有可能是 true 吗？</title>
@@ -173,7 +381,7 @@
          
            
              
-              <breadCrumb title="tech-trans" url="http://elevenbeans.github.io/categories/tech-trans/"/>
+              <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
           
         </display>
     </data>
@@ -182,7 +390,7 @@
     
   <url>
     <loc>http://elevenbeans.github.io/2017/10/13/js-memory-management/</loc>
-    <lastmod>2018-01-23T13:41:58.523Z</lastmod>
+    <lastmod>2018-03-25T06:46:49.499Z</lastmod>
     <data>
         <display>
         <title>【译】JS 中的内存管理  常见的 4 种内存泄露处理方式</title>
@@ -197,7 +405,29 @@
          
            
              
-              <breadCrumb title="tech-trans" url="http://elevenbeans.github.io/categories/tech-trans/"/>
+              <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://elevenbeans.github.io/2017/06/08/GA-for-juejin/</loc>
+    <lastmod>2018-03-25T06:46:32.578Z</lastmod>
+    <data>
+        <display>
+        <title>管中窥豹，一叶知秋：用 GA 得出几个和掘金社区相关的有趣结论</title>
+        <pubTime>2017-06-08T09:27:24.000Z</pubTime>
+        
+        <tag>Google Analytics</tag>
+         
+        <tag>掘金</tag>
+         
+         
+           
+             
+              <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
           
         </display>
     </data>
@@ -206,7 +436,7 @@
     
   <url>
     <loc>http://elevenbeans.github.io/2017/11/24/art-of-comments/</loc>
-    <lastmod>2018-01-23T13:41:54.002Z</lastmod>
+    <lastmod>2018-03-25T06:45:51.167Z</lastmod>
     <data>
         <display>
         <title>【译】注释的艺术</title>
@@ -219,7 +449,7 @@
          
            
              
-              <breadCrumb title="tech-trans" url="http://elevenbeans.github.io/categories/tech-trans/"/>
+              <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
           
         </display>
     </data>
@@ -227,159 +457,21 @@
 
     
   <url>
-    <loc>http://elevenbeans.github.io/2017/06/22/Yin-and-Yang-by-CSS/</loc>
-    <lastmod>2018-01-23T13:41:43.029Z</lastmod>
+    <loc>http://elevenbeans.github.io/2018/03/10/10-Tips-for-JS-Debugging-with-Console/</loc>
+    <lastmod>2018-03-25T06:45:34.663Z</lastmod>
     <data>
         <display>
-        <title>【译】50 行 CSS 代码撸一个阴阳八卦的 Loading 动效</title>
-        <pubTime>2017-06-22T07:40:40.000Z</pubTime>
+        <title>【译】10 个技巧，让你更专业地使用 console 进行 JS 调试</title>
+        <pubTime>2018-03-10T13:55:33.000Z</pubTime>
         
-        <tag>翻译</tag>
+        <tag>JS Debugging</tag>
          
-        <tag>八卦</tag>
-         
-        <tag>CSS</tag>
+        <tag>console</tag>
          
          
            
              
-              <breadCrumb title="tech-trans" url="http://elevenbeans.github.io/categories/tech-trans/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2016/08/11/UC-%E6%89%8B%E6%9C%BA%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E7%BB%8F%E9%AA%8C/</loc>
-    <lastmod>2018-01-23T13:36:26.929Z</lastmod>
-    <data>
-        <display>
-        <title>UC 手机浏览器调试经验</title>
-        <pubTime>2016-08-11T02:25:25.000Z</pubTime>
-        
-        <tag>UC Debug</tag>
-         
-        <tag>adb</tag>
-         
-        <tag>device offline</tag>
-         
-         
-           
-             
-              <breadCrumb title="tech" url="http://elevenbeans.github.io/categories/tech/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2017/06/12/summary-of-my-2016-2017/</loc>
-    <lastmod>2018-01-23T13:36:07.696Z</lastmod>
-    <data>
-        <display>
-        <title>2016-2017 小结</title>
-        <pubTime>2017-06-12T03:24:07.000Z</pubTime>
-        
-        <tag>一年小结</tag>
-         
-         
-           
-             
-              <breadCrumb title="life" url="http://elevenbeans.github.io/categories/life/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2017/11/30/resume-x/</loc>
-    <lastmod>2018-01-23T13:35:49.117Z</lastmod>
-    <data>
-        <display>
-        <title>程序员简历怎么写？ResumeX — 一个极简主义且独具创意的简历方案</title>
-        <pubTime>2017-11-30T08:05:33.000Z</pubTime>
-        
-        <tag>简历</tag>
-         
-        <tag>程序员</tag>
-         
-        <tag>resume</tag>
-         
-        <tag>iPhoneX</tag>
-         
-         
-           
-             
-              <breadCrumb title="tech" url="http://elevenbeans.github.io/categories/tech/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2017/01/12/Koa-React-webpack-SPA-%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%96%B0%E9%B2%9C%E5%87%BA%E7%82%89%EF%BD%9E/</loc>
-    <lastmod>2018-01-23T13:34:36.087Z</lastmod>
-    <data>
-        <display>
-        <title>SPA 项目全家桶新鲜出炉（Koa+React+webpack） ～</title>
-        <pubTime>2017-01-12T15:55:48.000Z</pubTime>
-        
-        <tag>React</tag>
-         
-        <tag>Koa</tag>
-         
-         
-           
-             
-              <breadCrumb title="tech" url="http://elevenbeans.github.io/categories/tech/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2016/05/04/css-%E4%B8%AD%E7%9A%84%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%B3%95/</loc>
-    <lastmod>2018-01-23T13:33:27.825Z</lastmod>
-    <data>
-        <display>
-        <title>css 中的垂直居中方法</title>
-        <pubTime>2016-05-04T06:44:57.000Z</pubTime>
-        
-        <tag>css</tag>
-         
-        <tag>垂直居中</tag>
-         
-         
-           
-             
-              <breadCrumb title="tech" url="http://elevenbeans.github.io/categories/tech/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2017/08/29/Explaining-React-s-license/</loc>
-    <lastmod>2018-01-17T09:08:53.466Z</lastmod>
-    <data>
-        <display>
-        <title>React 路/粉/黑 都该了解的 React license 争议</title>
-        <pubTime>2017-08-29T09:12:58.000Z</pubTime>
-        
-        <tag>React</tag>
-         
-        <tag>license</tag>
-         
-         
-           
-             
-              <breadCrumb title="tech" url="http://elevenbeans.github.io/categories/tech/"/>
+              <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
           
         </display>
     </data>
@@ -388,7 +480,7 @@
     
   <url>
     <loc>http://elevenbeans.github.io/2016/06/12/%E7%94%9F%E6%B4%BB%E6%9C%AC%E5%BA%94%E5%A6%82%E6%AD%A4/</loc>
-    <lastmod>2018-01-12T09:32:01.983Z</lastmod>
+    <lastmod>2018-03-25T06:38:34.229Z</lastmod>
     <data>
         <display>
         <title>生活本应如此</title>
@@ -401,7 +493,7 @@
          
            
              
-              <breadCrumb title="life" url="http://elevenbeans.github.io/categories/life/"/>
+              <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
           
         </display>
     </data>
@@ -410,7 +502,7 @@
     
   <url>
     <loc>http://elevenbeans.github.io/2016/05/04/%E6%B5%85%E6%9E%90-JavaScript-%E4%B8%AD%E7%9A%84%E9%97%AD%E5%8C%85/</loc>
-    <lastmod>2018-01-12T09:31:54.537Z</lastmod>
+    <lastmod>2018-03-25T06:38:30.591Z</lastmod>
     <data>
         <display>
         <title>浅析 JavaScript 中的闭包</title>
@@ -423,7 +515,7 @@
          
            
              
-              <breadCrumb title="tech" url="http://elevenbeans.github.io/categories/tech/"/>
+              <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
           
         </display>
     </data>
@@ -431,23 +523,21 @@
 
     
   <url>
-    <loc>http://elevenbeans.github.io/2017/05/16/%E6%92%B8%E4%BA%86%E4%B8%80%E4%B8%AA%E6%8A%95%E7%A5%A8App/</loc>
-    <lastmod>2018-01-12T09:31:28.097Z</lastmod>
+    <loc>http://elevenbeans.github.io/2017/02/09/%E6%88%BF%E5%AD%90/</loc>
+    <lastmod>2018-03-25T06:38:19.506Z</lastmod>
     <data>
         <display>
-        <title>全栈开发实例：如何独立开发/发布一个 WebAPP</title>
-        <pubTime>2017-05-16T07:30:42.000Z</pubTime>
+        <title>话不多说先上车</title>
+        <pubTime>2017-02-09T05:09:06.000Z</pubTime>
         
-        <tag>全栈开发</tag>
+        <tag>房子</tag>
          
-        <tag>webApp</tag>
-         
-        <tag>投票</tag>
+        <tag>花桥</tag>
          
          
            
              
-              <breadCrumb title="tech" url="http://elevenbeans.github.io/categories/tech/"/>
+              <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
           
         </display>
     </data>
@@ -456,7 +546,7 @@
     
   <url>
     <loc>http://elevenbeans.github.io/2017/04/10/%E5%BC%80%E6%BA%90%E7%B2%BE%E7%A5%9E%E4%BB%8E%E6%88%91%E5%81%9A%E8%B5%B7/</loc>
-    <lastmod>2018-01-12T09:30:49.465Z</lastmod>
+    <lastmod>2018-03-25T06:38:16.718Z</lastmod>
     <data>
         <display>
         <title>开源精神, 从我做起</title>
@@ -469,7 +559,7 @@
          
            
              
-              <breadCrumb title="life" url="http://elevenbeans.github.io/categories/life/"/>
+              <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
           
         </display>
     </data>
@@ -477,23 +567,19 @@
 
     
   <url>
-    <loc>http://elevenbeans.github.io/2016/08/18/URL-Scheme-%E5%94%A4%E8%B5%B7%E9%97%AE%E9%A2%98%E8%B8%A9%E5%9D%91/</loc>
-    <lastmod>2018-01-12T09:29:58.993Z</lastmod>
+    <loc>http://elevenbeans.github.io/2017/06/12/summary-of-my-2016-2017/</loc>
+    <lastmod>2018-03-25T06:36:53.125Z</lastmod>
     <data>
         <display>
-        <title>URL Scheme 主动唤起 APP 问题踩坑</title>
-        <pubTime>2016-08-18T02:58:54.000Z</pubTime>
+        <title>2016-2017 小结</title>
+        <pubTime>2017-06-12T03:24:07.000Z</pubTime>
         
-        <tag>URL Scheme</tag>
-         
-        <tag>H5</tag>
-         
-        <tag>唤起APP</tag>
+        <tag>一年小结</tag>
          
          
            
              
-              <breadCrumb title="tech" url="http://elevenbeans.github.io/categories/tech/"/>
+              <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
           
         </display>
     </data>
@@ -502,7 +588,7 @@
     
   <url>
     <loc>http://elevenbeans.github.io/2016/05/05/scroll%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B9%8B-throttle-%E5%92%8C-debounce/</loc>
-    <lastmod>2018-01-12T09:29:12.448Z</lastmod>
+    <lastmod>2018-03-25T06:36:44.739Z</lastmod>
     <data>
         <display>
         <title>scroll 事件处理之 throttle 和 debounce</title>
@@ -517,7 +603,7 @@
          
            
              
-              <breadCrumb title="tech" url="http://elevenbeans.github.io/categories/tech/"/>
+              <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
           
         </display>
     </data>
@@ -526,7 +612,7 @@
     
   <url>
     <loc>http://elevenbeans.github.io/2017/08/28/Rocker-Jaber-0/</loc>
-    <lastmod>2018-01-12T09:29:02.509Z</lastmod>
+    <lastmod>2018-03-25T06:36:39.139Z</lastmod>
     <data>
         <display>
         <title>Rocker  Jabber</title>
@@ -541,7 +627,7 @@
          
            
              
-              <breadCrumb title="life" url="http://elevenbeans.github.io/categories/life/"/>
+              <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
           
         </display>
     </data>
@@ -549,23 +635,21 @@
 
     
   <url>
-    <loc>http://elevenbeans.github.io/2016/05/31/node-mysql-CRUD/</loc>
-    <lastmod>2018-01-12T09:28:10.145Z</lastmod>
+    <loc>http://elevenbeans.github.io/2017/09/19/pull-to-refresh/</loc>
+    <lastmod>2018-03-25T06:36:25.294Z</lastmod>
     <data>
         <display>
-        <title>node 小试牛刀之 mysql 增删改查</title>
-        <pubTime>2016-05-30T16:22:24.000Z</pubTime>
+        <title>60 行 JS 代码搞定一个下拉刷新组件</title>
+        <pubTime>2017-09-18T16:05:33.000Z</pubTime>
         
-        <tag>node</tag>
+        <tag>JS</tag>
          
-        <tag>mysql</tag>
-         
-        <tag>增删查改</tag>
+        <tag>下拉刷新</tag>
          
          
            
              
-              <breadCrumb title="tech" url="http://elevenbeans.github.io/categories/tech/"/>
+              <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
           
         </display>
     </data>
@@ -574,7 +658,7 @@
     
   <url>
     <loc>http://elevenbeans.github.io/2016/05/19/js%20%E4%B8%AD%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7%E6%B1%87%E6%80%BB/</loc>
-    <lastmod>2018-01-12T09:26:13.052Z</lastmod>
+    <lastmod>2018-03-25T06:35:44.778Z</lastmod>
     <data>
         <display>
         <title>JS 中的小技巧汇总</title>
@@ -585,73 +669,7 @@
          
            
              
-              <breadCrumb title="tech" url="http://elevenbeans.github.io/categories/tech/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2016/08/08/helloCtrip/</loc>
-    <lastmod>2018-01-12T09:25:26.942Z</lastmod>
-    <data>
-        <display>
-        <title>Hello, Ctrip!</title>
-        <pubTime>2016-08-08T09:54:41.000Z</pubTime>
-        
-        <tag>Ctrip</tag>
-         
-        <tag>三周</tag>
-         
-         
-           
-             
-              <breadCrumb title="life" url="http://elevenbeans.github.io/categories/life/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2017/06/08/GA-for-juejin/</loc>
-    <lastmod>2018-01-12T09:25:13.472Z</lastmod>
-    <data>
-        <display>
-        <title>管中窥豹，一叶知秋：用 GA 得出几个和掘金社区相关的有趣结论</title>
-        <pubTime>2017-06-08T09:27:24.000Z</pubTime>
-        
-        <tag>Google Analytics</tag>
-         
-        <tag>掘金</tag>
-         
-         
-           
-             
-              <breadCrumb title="tech" url="http://elevenbeans.github.io/categories/tech/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2017/12/13/fuck-tech-broadband/</loc>
-    <lastmod>2018-01-12T09:24:44.904Z</lastmod>
-    <data>
-        <display>
-        <title>珍爱生命，远离 “科技宽带”</title>
-        <pubTime>2017-12-13T09:46:43.000Z</pubTime>
-        
-        <tag>科技宽带</tag>
-         
-        <tag>一橙网络</tag>
-         
-         
-           
-             
-              <breadCrumb title="life" url="http://elevenbeans.github.io/categories/life/"/>
+              <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
           
         </display>
     </data>
@@ -660,7 +678,7 @@
     
   <url>
     <loc>http://elevenbeans.github.io/2017/07/07/floating-point-issue/</loc>
-    <lastmod>2018-01-12T09:24:30.045Z</lastmod>
+    <lastmod>2018-03-25T06:35:25.251Z</lastmod>
     <data>
         <display>
         <title>两分钟解惑 JS 小数计算精度问题</title>
@@ -673,7 +691,7 @@
          
            
              
-              <breadCrumb title="tech" url="http://elevenbeans.github.io/categories/tech/"/>
+              <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
           
         </display>
     </data>
@@ -681,21 +699,113 @@
 
     
   <url>
-    <loc>http://elevenbeans.github.io/2016/06/03/DomReady/</loc>
-    <lastmod>2018-01-12T09:23:49.578Z</lastmod>
+    <loc>http://elevenbeans.github.io/2016/08/08/helloCtrip/</loc>
+    <lastmod>2018-03-25T06:34:43.631Z</lastmod>
     <data>
         <display>
-        <title>由 $(document).ready 发散开去</title>
-        <pubTime>2016-06-03T08:08:08.000Z</pubTime>
+        <title>Hello, Ctrip!</title>
+        <pubTime>2016-08-08T09:54:41.000Z</pubTime>
         
-        <tag>DomReady</tag>
+        <tag>Ctrip</tag>
          
-        <tag>面试</tag>
+        <tag>三周</tag>
          
          
            
              
-              <breadCrumb title="tech" url="http://elevenbeans.github.io/categories/tech/"/>
+              <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://elevenbeans.github.io/2017/12/13/fuck-tech-broadband/</loc>
+    <lastmod>2018-03-25T06:29:05.051Z</lastmod>
+    <data>
+        <display>
+        <title>珍爱生命，远离 “科技宽带”</title>
+        <pubTime>2017-12-13T09:46:43.000Z</pubTime>
+        
+        <tag>科技宽带</tag>
+         
+        <tag>一橙网络</tag>
+         
+         
+           
+             
+              <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://elevenbeans.github.io/2018/01/12/front-end-layout-methods/</loc>
+    <lastmod>2018-03-25T06:29:00.618Z</lastmod>
+    <data>
+        <display>
+        <title>前端布局方式汇总及概念浅析</title>
+        <pubTime>2018-01-12T06:54:02.000Z</pubTime>
+        
+        <tag>CSS</tag>
+         
+        <tag>布局</tag>
+         
+        <tag>自适应</tag>
+         
+        <tag>响应式</tag>
+         
+         
+           
+             
+              <breadCrumb title="CSS" url="http://elevenbeans.github.io/categories/CSS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://elevenbeans.github.io/2017/08/29/Explaining-React-s-license/</loc>
+    <lastmod>2018-03-25T06:28:49.015Z</lastmod>
+    <data>
+        <display>
+        <title>React 路/粉/黑 都该了解的 React license 争议</title>
+        <pubTime>2017-08-29T09:12:58.000Z</pubTime>
+        
+        <tag>React</tag>
+         
+        <tag>license</tag>
+         
+         
+           
+             
+              <breadCrumb title="React" url="http://elevenbeans.github.io/categories/React/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://elevenbeans.github.io/2016/05/04/css-%E4%B8%AD%E7%9A%84%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%B3%95/</loc>
+    <lastmod>2018-03-25T06:28:25.824Z</lastmod>
+    <data>
+        <display>
+        <title>css 中的垂直居中方法</title>
+        <pubTime>2016-05-04T06:44:57.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+        <tag>垂直居中</tag>
+         
+         
+           
+             
+              <breadCrumb title="CSS" url="http://elevenbeans.github.io/categories/CSS/"/>
           
         </display>
     </data>
@@ -704,7 +814,7 @@
     
   <url>
     <loc>http://elevenbeans.github.io/2016/05/22/2015-2016-%E5%B0%8F%E7%BB%93/</loc>
-    <lastmod>2017-06-14T04:11:24.000Z</lastmod>
+    <lastmod>2018-03-25T06:28:12.864Z</lastmod>
     <data>
         <display>
         <title>2015-2016 小结</title>
@@ -719,121 +829,11 @@
          
            
              
-              <breadCrumb title="life" url="http://elevenbeans.github.io/categories/life/"/>
+              <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
           
         </display>
     </data>
     </url>
 
     
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2017/01/22/%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E6%B1%87%E6%80%BB/</loc>
-    <lastmod>2017-06-06T15:42:48.000Z</lastmod>
-    <data>
-        <display>
-        <title>常用算法汇总</title>
-        <pubTime>2017-01-22T03:10:46.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-        <tag>算法</tag>
-         
-         
-           
-             
-              <breadCrumb title="tech" url="http://elevenbeans.github.io/categories/tech/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2017/04/05/Game-of-life/</loc>
-    <lastmod>2017-04-14T05:54:37.000Z</lastmod>
-    <data>
-        <display>
-        <title>Game of life</title>
-        <pubTime>2017-04-05T12:52:16.000Z</pubTime>
-        
-        <tag>game</tag>
-         
-        <tag>conway</tag>
-         
-         
-           
-             
-              <breadCrumb title="tech" url="http://elevenbeans.github.io/categories/tech/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2017/03/15/A-React-Caculator/</loc>
-    <lastmod>2017-03-15T05:17:03.000Z</lastmod>
-    <data>
-        <display>
-        <title>A React Caculator</title>
-        <pubTime>2017-03-15T04:10:09.000Z</pubTime>
-        
-        <tag>React</tag>
-         
-        <tag>ES6</tag>
-         
-         
-           
-             
-              <breadCrumb title="tech" url="http://elevenbeans.github.io/categories/tech/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2017/02/09/%E6%88%BF%E5%AD%90/</loc>
-    <lastmod>2017-02-20T09:40:57.000Z</lastmod>
-    <data>
-        <display>
-        <title>话不多说先上车</title>
-        <pubTime>2017-02-09T05:09:06.000Z</pubTime>
-        
-        <tag>房子</tag>
-         
-        <tag>花桥</tag>
-         
-         
-           
-             
-              <breadCrumb title="life" url="http://elevenbeans.github.io/categories/life/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2016/10/24/1024/</loc>
-    <lastmod>2017-01-13T07:48:24.000Z</lastmod>
-    <data>
-        <display>
-        <title>1024</title>
-        <pubTime>2016-10-24T07:03:06.000Z</pubTime>
-        
-        <tag>1024</tag>
-         
-        <tag>转正</tag>
-         
-         
-           
-             
-              <breadCrumb title="life" url="http://elevenbeans.github.io/categories/life/"/>
-          
-        </display>
-    </data>
-    </url>
-
 </urlset>
