@@ -26,11 +26,11 @@
 
 ### Categories
 
-+ CSS
-+ Javascript
-+ React
-+ Tech-EXP
-+ Life
++ [CSS](http://elevenbeans.github.io/categories/CSS/)
++ [Javascript](http://elevenbeans.github.io/categories/Javascript/)
++ [React](http://elevenbeans.github.io/categories/React/)
++ [Tech-EXP](http://elevenbeans.github.io/categories/Tech-EXP/)
++ [Life](http://elevenbeans.github.io/categories/Life/)
 
 ### Theme
 
@@ -67,6 +67,6 @@
 
 ## Lisense
 
-如果你需要 re-post 博客中的文章（包括文章的部分段落），请标明出处 <a href="http://elevenbeans.github.io">elevenbeans</a>.
+如果你需要 re-post 博客中的文章（包括文章的部分段落），请标明出处 <a href="http://elevenbeans.github.io">elevenbeans</a> .
 
 你可以随意使用 `elevenbeans.github.io` 中的源码，因为她遵循 [MIT license](https://mit-license.org/)。
