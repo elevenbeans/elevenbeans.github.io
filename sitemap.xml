@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://elevenbeans.github.io/2018/03/30/javascript-design-patterns-1/</loc>
+    
+    <lastmod>2018-03-31T12:26:37.787Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://elevenbeans.github.io/2018/03/25/javascript-design-patterns-0/</loc>
     
-    <lastmod>2018-03-25T12:49:40.539Z</lastmod>
+    <lastmod>2018-03-31T12:11:34.655Z</lastmod>
     
   </url>
   

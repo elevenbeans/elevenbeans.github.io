@@ -4,8 +4,30 @@
 
     
   <url>
+    <loc>http://elevenbeans.github.io/2018/03/30/javascript-design-patterns-1/</loc>
+    <lastmod>2018-03-31T12:26:37.787Z</lastmod>
+    <data>
+        <display>
+        <title>Javascript 中的设计模式（二）：创建型设计模式</title>
+        <pubTime>2018-03-30T12:12:36.000Z</pubTime>
+        
+        <tag>Javascript</tag>
+         
+        <tag>Design patterns</tag>
+         
+         
+           
+             
+              <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://elevenbeans.github.io/2018/03/25/javascript-design-patterns-0/</loc>
-    <lastmod>2018-03-25T12:49:40.539Z</lastmod>
+    <lastmod>2018-03-31T12:11:34.655Z</lastmod>
     <data>
         <display>
         <title>Javascript 中的设计模式（一）：概述</title>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+<meta name="baidu-site-verification" content="HTOBD3Guy9" />
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="Javascript 中的设计模式（二）：创建型设计模式"/>
+
+
+
+
+  <meta name="keywords" content="Javascript,Design patterns," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Elevenbeans' blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/elevenbeans.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2018/03/30/javascript-design-patterns-1/"/>
+
+
+<meta name="description" content="更多文章参见： https://github.com/elevenbeans/elevenbeans.github.io
+
+前言本系列可以看作是我个人对于 Addy Osmani 的著作《Learning JavaScript Design Patterns》中内容的提炼，类似阅读笔记，目的是为了简单快速、又不失全面地了解设计模式的相关概念、特点、分类及其在 Javascript 中的实际产出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript 中的设计模式（二）：创建型设计模式">
+<meta property="og:url" content="http://yoursite.com/2018/03/30/javascript-design-patterns-1/index.html">
+<meta property="og:site_name" content="Elevenbeans' blog">
+<meta property="og:description" content="更多文章参见： https://github.com/elevenbeans/elevenbeans.github.io
+
+前言本系列可以看作是我个人对于 Addy Osmani 的著作《Learning JavaScript Design Patterns》中内容的提炼，类似阅读笔记，目的是为了简单快速、又不失全面地了解设计模式的相关概念、特点、分类及其在 Javascript 中的实际产出">
+<meta property="og:updated_time" content="2018-03-31T12:26:37.787Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript 中的设计模式（二）：创建型设计模式">
+<meta name="twitter:description" content="更多文章参见： https://github.com/elevenbeans/elevenbeans.github.io
+
+前言本系列可以看作是我个人对于 Addy Osmani 的著作《Learning JavaScript Design Patterns》中内容的提炼，类似阅读笔记，目的是为了简单快速、又不失全面地了解设计模式的相关概念、特点、分类及其在 Javascript 中的实际产出">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-100591386-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+
+    <title> Javascript 中的设计模式（二）：创建型设计模式 - Elevenbeans' blog </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">
+          <img width="58px" src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/elevenbeans-black.png"/>
+          Elevenbeans' blog
+        </a>
+    </h1>
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/">
+                            
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+    </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Javascript 中的设计模式（二）：创建型设计模式
+        
+      </h1>
+
+      <time class="post-time">
+          Mar 30 2018
+      </time>
+    </header>
+
+    
+            <div class="post-content">
+            <script src="/assets/js/APlayer.min.js"> </script><blockquote>
+<p><strong>更多文章参见：</strong> <a href="https://github.com/elevenbeans/elevenbeans.github.io" target="_blank" rel="external">https://github.com/elevenbeans/elevenbeans.github.io</a></p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本系列可以看作是我个人对于 Addy Osmani 的著作《Learning JavaScript Design Patterns》中内容的提炼，类似阅读笔记，目的是为了简单快速、又不失全面地了解设计模式的相关概念、特点、分类及其在 Javascript 中的实际产出。</p>
+<p>分为五篇：</p>
+<ol>
+<li><a href="http://elevenbeans.github.io/2018/03/25/javascript-design-patterns-0/" target="_blank" rel="external">概述</a></li>
+<li><strong>创建型设计模式（本篇）</strong></li>
+<li>结构型（待补充）</li>
+<li>行为型（待补充）</li>
+<li>MV*（待补充）</li>
+</ol>
+<h2 id="创建型设计模式"><a href="#创建型设计模式" class="headerlink" title="创建型设计模式"></a>创建型设计模式</h2><h3 id="1-Constructor-构造器-模式"><a href="#1-Constructor-构造器-模式" class="headerlink" title="1. Constructor(构造器) 模式"></a><strong>1. Constructor(构造器) 模式</strong></h3><h4 id="基本的-Constructor"><a href="#基本的-Constructor" class="headerlink" title="基本的 Constructor"></a>基本的 Constructor</h4><p>Javascript 不支持类，但支持 constractor 构造器函数。可以通过构造器前加<code>new</code>关键字告诉 Javascript 实例化一个对象。一个构造器的例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">model, year, miles</span>) </span>&#123;</div><div class="line">	<span class="keyword">this</span>.model = model;</div><div class="line">	<span class="keyword">this</span>.year = year;</div><div class="line">	<span class="keyword">this</span>.miles = miles;</div><div class="line">	<span class="keyword">this</span>.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.model + <span class="string">'has done'</span> + <span class="keyword">this</span>.miles + <span class="string">'miles'</span>;</div><div class="line">	&#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> benz = <span class="keyword">new</span> Car(<span class="string">'GLS'</span>, <span class="number">2018</span>, <span class="number">20000</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(benz.toString()); <span class="comment">// GLShas done20000miles</span></div></pre></td></tr></table></figure>
+<p>存在的问题是： <code>this.toString()</code> 这样的函数在每次创建新的对象的时候都会重新定义，这样很不理想，这类共有方法应该在所有实例间共享。</p>
+<h4 id="带原型的-Constructor"><a href="#带原型的-Constructor" class="headerlink" title="带原型的 Constructor"></a>带原型的 Constructor</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">model, year, miles</span>) </span>&#123;</div><div class="line">	<span class="keyword">this</span>.model = model;</div><div class="line">	<span class="keyword">this</span>.year = year;</div><div class="line">	<span class="keyword">this</span>.miles = miles;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Car.prototype.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.model + <span class="string">'has done'</span> + <span class="keyword">this</span>.miles + <span class="string">'miles'</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> benz = <span class="keyword">new</span> Car(<span class="string">'GLS'</span>, <span class="number">2018</span>, <span class="number">20000</span>);</div><div class="line"><span class="keyword">var</span> byd = <span class="keyword">new</span> Car(<span class="string">'qin'</span>, <span class="number">2016</span>, <span class="number">68000</span>);</div></pre></td></tr></table></figure>
+<p>如此一来，<code>toString()</code> 方法的单一实例就能通过原型链在 Car 的实例对象 <code>benz</code> 和 <code>byd</code> 中共享。</p>
+<h3 id="2-Factory-工厂-模式"><a href="#2-Factory-工厂-模式" class="headerlink" title="2. Factory(工厂) 模式"></a><strong>2. Factory(工厂) 模式</strong></h3><p>工厂模式并不显式要求使用构造函数。<strong>他通过提供一个通用的接口来创建对象</strong>，在接口的入参中指定需要创建的对象类型。具体例子如下：</p>
+<p>首先定义不同类型的构造函数供给工厂消费。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Car 构造函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">opt</span>) </span>&#123;</div><div class="line">	<span class="keyword">this</span>.doors = opt.doors || <span class="number">4</span>;</div><div class="line">	<span class="keyword">this</span>.state = opt.state || <span class="string">'new'</span>;</div><div class="line">	<span class="keyword">this</span>.color = opt.color || <span class="string">'slivler'</span>;	</div><div class="line">&#125;</div><div class="line"><span class="comment">// Truck 构造函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Truck</span>(<span class="params">opt</span>) </span>&#123;</div><div class="line">	<span class="keyword">this</span>.state = opt.state || <span class="string">'used'</span>;</div><div class="line">	<span class="keyword">this</span>.whellSize = opt. whellSize || <span class="string">'large'</span>;</div><div class="line">	<span class="keyword">this</span>.color = opt.color || <span class="string">'blue'</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后定义 vehicle 工厂：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// vehicle 工厂</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">VehicleFactory</span>(<span class="params"></span>) </span>&#123; &#125;</div><div class="line"></div><div class="line"><span class="comment">// 定义 vehicle 工厂的原型和默认工具（Car）</span></div><div class="line">VehicleFactory.prototype.vehicleClass = Car;</div><div class="line"></div><div class="line"><span class="comment">// 定义工厂创建实例的 API: createVehicle</span></div><div class="line">VehicleFactory.prototype.createVehicle = <span class="function"><span class="keyword">function</span> (<span class="params">opt</span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span> (opt.vehicleType === <span class="string">'car'</span>) &#123;</div><div class="line">		<span class="keyword">this</span>.prototype.vehicleClass = Car;</div><div class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (opt.vehicleType === <span class="string">'truck'</span>) &#123;</div><div class="line">		<span class="keyword">this</span>.prototype.vehicleClass = Truck;</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		<span class="keyword">this</span>.prototype.vehicleClass = Car;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">this</span>.prototype.vehicleClass(opt);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>工厂创建完毕，具体实例的创建方式如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 创建一个汽车（Car）实例</span></div><div class="line"><span class="keyword">var</span> factory = <span class="keyword">new</span> VehicleFactory(); <span class="comment">// 首先实例化一个 vehicle 工厂</span></div><div class="line"><span class="keyword">var</span> carIntance = factory.createVehicle(&#123; <span class="comment">// 使用工厂 API 创建 Car 实例</span></div><div class="line">	vehicleType: <span class="string">'car'</span>,</div><div class="line">	<span class="attr">color</span>: <span class="string">'yellow'</span>,</div><div class="line">	<span class="attr">door</span>: <span class="number">6</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 创建一个卡车（Truck）实例</span></div><div class="line"><span class="keyword">var</span> trunkIntance = factory.createVehicle(&#123; <span class="comment">// 使用工厂 API 创建 Truck 实例</span></div><div class="line">	vehicleType: <span class="string">'truck'</span>,</div><div class="line">	<span class="attr">color</span>: <span class="string">'yellow'</span>,</div><div class="line">	<span class="attr">state</span>: <span class="string">'new'</span>,</div><div class="line">	<span class="attr">wheelSize</span>: <span class="string">'small'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>一般来讲，Factory 模式适用于</p>
+<ul>
+<li>复杂度较高的对象和组件 / 处理很多共享属性的对象或组件</li>
+<li>需要在不同环境生成不同类型的实例对象的时候</li>
+</ul>
+<h3 id="3-Abstract-抽象-模式"><a href="#3-Abstract-抽象-模式" class="headerlink" title="3. Abstract(抽象) 模式"></a><strong>3. Abstract(抽象) 模式</strong></h3><p>对于上述的工厂，<code>createVehicle</code> 一经定义，就只支持 Car 和 Truck 两种类型的实例产出，无法动态增加新的实例类型。</p>
+<p>所以需要抽离出来实例对象的产出细节，封装一个通用工厂。</p>
+<p>抽象模式（在工厂模式中的）实践如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> AbstractVehicleFactory = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> types = [];</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		<span class="attr">getVehicle</span>: <span class="function"><span class="keyword">function</span> (<span class="params">type, opt</span>) </span>&#123;</div><div class="line">			<span class="keyword">var</span> Vehicle = types[type];</div><div class="line">			<span class="keyword">return</span> (Vehicle) ? <span class="keyword">return</span> <span class="keyword">new</span> Vehicle(opt) : <span class="literal">null</span>;</div><div class="line">		&#125;,</div><div class="line">		<span class="attr">registerVehicle</span>: <span class="function"><span class="keyword">function</span> (<span class="params">type, Vehicle</span>) </span>&#123;</div><div class="line">			<span class="keyword">var</span> proto = Vehicle.prototype;</div><div class="line">			<span class="comment">// 只对符合基本契约的进行注册</span></div><div class="line">			<span class="keyword">if</span> (proto.drive &amp;&amp; proto.breakDown) &#123;</div><div class="line">				types[type] = Vehicle;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">return</span> AbstractVehicleFactory;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line"><span class="comment">// 用法</span></div><div class="line"></div><div class="line"><span class="comment">// 动态注册一个 Car</span></div><div class="line">AbstractVehicleFactory.registerVehicle(<span class="string">'car'</span>, Car);</div><div class="line"></div><div class="line"><span class="comment">// 实例化刚才注册的 Car</span></div><div class="line"><span class="keyword">var</span> car = AbstractVehicleFactory.getVehicle(<span class="string">'car'</span>, &#123;</div><div class="line">	<span class="attr">color</span>: <span class="string">'yellow'</span>,</div><div class="line">	<span class="attr">door</span>: <span class="number">6</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="4-Prototype-原型-模式"><a href="#4-Prototype-原型-模式" class="headerlink" title="4. Prototype(原型) 模式"></a><strong>4. Prototype(原型) 模式</strong></h3><p>原型模式是一种基于现有对象模版，通过克隆方式创建新对象的一种模式。</p>
+<p>该模式是 Javascript 语言本身的优势。具体例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> car = &#123;</div><div class="line">	<span class="attr">name</span>: <span class="string">'Ford Escort'</span>,</div><div class="line">	<span class="attr">drive</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'Weeee. I am driving'</span>);</div><div class="line">	&#125;,</div><div class="line">	<span class="attr">panic</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'Wait. How do you stop this?'</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 使用 Object.create 实例化一个 Car</span></div><div class="line"><span class="keyword">var</span> myCar = <span class="built_in">Object</span>.create(car);</div><div class="line"></div><div class="line"><span class="comment">// car 是 myCar 的原型</span></div><div class="line"><span class="built_in">console</span>.log(myCar)</div></pre></td></tr></table></figure>
+<p>当然，<code>Object.create()</code> 完全可以通过第二个参数实现差异化继承。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>.create(orgObj, &#123;</div><div class="line">	<span class="attr">id</span>: &#123;</div><div class="line">		<span class="attr">value</span>: <span class="number">23324324</span>,</div><div class="line">		<span class="attr">enumerable</span>: <span class="literal">true</span></div><div class="line">	&#125;,</div><div class="line">	<span class="string">'model'</span>: &#123;</div><div class="line">		<span class="attr">value</span>: <span class="string">'Ford'</span>,</div><div class="line">		<span class="attr">enumerable</span>: <span class="literal">true</span></div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>如果不用 <code>Object.create()</code> 实现 Prototype(原型) 模式也很简单：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">car.init = <span class="function"><span class="keyword">function</span> (<span class="params">opt</span>) </span>&#123;</div><div class="line">	<span class="keyword">this</span>.name = opt;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span> (<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">C</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">	C.prototype = car;</div><div class="line">	<span class="keyword">var</span> c = <span class="keyword">new</span> C();</div><div class="line">	<span class="keyword">return</span> c;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> myCar = Car();</div><div class="line">myCar.init(<span class="string">'Benz'</span>);</div></pre></td></tr></table></figure>
+<p>本质其实就是将源对象赋值给目标对象的原型，初始化可以通过为源对象预留 API（本例中为<code>init()</code>）来实现。</p>
+<h3 id="5-Singleton-单例-模式"><a href="#5-Singleton-单例-模式" class="headerlink" title="5. Singleton(单例) 模式"></a><strong>5. Singleton(单例) 模式</strong></h3><p>一句话来形容，Singleton(单例) 模式限制类的实例化次数只能是一次。也就是说，在不存在该类实例的情况下，可以通过方法来创建实例；如果实例已经存在，返回该实例对象的引用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.name = <span class="string">'Singleton Car'</span> ;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> Singleton = &#123;</div><div class="line">	<span class="attr">instance</span>: <span class="literal">null</span>,</div><div class="line">	<span class="attr">getInstance</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="keyword">if</span> (!<span class="keyword">this</span>.instance) &#123;</div><div class="line">	 		<span class="keyword">this</span>.instance = <span class="keyword">new</span> Car();</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.instance;</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>就像这样当我们每次调用 <code>Singleton.getInstance()</code> 时，就会得到唯一的实例。</p>
+<p>如此，可以将我们反复使用的对象只创建一次。减少不必要开销。</p>
+<p>Singleton 模式还可以结合 JS 闭包反复引用内存中的同一对象，使运用程序更快速的执行。</p>
+<h3 id="6-Builder-生成器-模式"><a href="#6-Builder-生成器-模式" class="headerlink" title="6. Builder(生成器) 模式"></a><strong>6. Builder(生成器) 模式</strong></h3><p>将一个复杂对象的构造与它的表示相分离，使同样的创建过程可有不同的表示，这就叫做建造者模式。主要角色：</p>
+<ol>
+<li>Builder 这个接口类，定义这个建造者，统一的可操作的行为方式，它表示一个复杂的结构对象;</li>
+<li>Director 这个指挥者，用于指导 Builder 实例的执行过程跟形式，用于与 Builder 的实例 表现 相分离，用于指导 这个 Builder 实例 按某规则顺序来创建生成 产品结果;</li>
+<li>ResultObject 创建的结果都会生成一个结果对象；这是具体创建者根据 Director 指导创建的结果;</li>
+</ol>
+<p>建造者模式实际，就是一个<strong>指挥者</strong>，一个<strong>建造者</strong>，外加一个使用指挥者调用具体建造者工作、并得从具体建造者得出结果的<strong>客户</strong>。模拟场景： </p>
+<p>一户家人要建房子（ResultObject / 结果），但房子主人或家里其他人是不懂得如何去建房子的，所以他得去请几个工人（Builder / 建造者），这个建房子的队伍还得有个工头（Director / 指挥者），来按房主人的想法来建一套房子，工头按房主人（<strong>客户</strong>）的要求设计要求工人如何如何做。</p>
+<p>工头说，第一步先把房整体骨架搭起来，第二步睡房建造好，第三步把厨房装饰好，第四步把客厅建造装饰完毕…</p>
+<p>工头是不做事的，但具体工人必须按照工头的要求来做，第一步，第二步的这样步骤来建造，直至整个房子完成； </p>
+<p>工人必须要有创建这个房屋的所有技能，即建骨架，装饰卧室等，即工人所做的事，或所具有的能力，必须大于或等于工头要求要做的事，或具有的能力；</p>
+<p>即工头是个组织者，而工人提供技能;</p>
+<p>实例代码:</p>
+<h4 id="1-Builder-类"><a href="#1-Builder-类" class="headerlink" title="1. Builder 类:"></a>1. Builder 类:</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">workerBuilder</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">this</span>.workOne = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="comment">// 建房子骨架</span></div><div class="line">	&#125;</div><div class="line">	<span class="keyword">this</span>.workTwo=<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="comment">// 建卧室</span></div><div class="line">	&#125;</div><div class="line">	<span class="keyword">this</span>.workThree=<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="comment">// 建厨房</span></div><div class="line">	&#125;</div><div class="line">	<span class="keyword">this</span>.workFour=<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="comment">// 建客厅</span></div><div class="line">	&#125;</div><div class="line">	<span class="comment">//....</span></div><div class="line">	   </div><div class="line">	<span class="keyword">this</span>.getResult = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	   <span class="comment">// 建成房子</span></div><div class="line">	   <span class="keyword">var</span> house = <span class="keyword">new</span> House();</div><div class="line">	   <span class="comment">// house.HouseFrame ...</span></div><div class="line">	   <span class="keyword">return</span> house;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>workBuilder 是具体建造者类，workOne, Two是要做的事情，建骨架等。<br>当然 workBuilder 可以多建几个，用于表示建造者对于每个工作执行的方法不一样；但工作内容是一样的; </p>
+<h4 id="2-Director-类"><a href="#2-Director-类" class="headerlink" title="2. Director 类"></a>2. Director 类</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Director</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">this</span>.construct = <span class="function"><span class="keyword">function</span>(<span class="params">builder</span>) </span>&#123;</div><div class="line">		builder.workOne();</div><div class="line">		builder.workTwo();</div><div class="line">		builder.workThree();</div><div class="line">		builder.workFour();</div><div class="line">		<span class="comment">//...</span></div><div class="line">		<span class="comment">//上面的内容，顺序可设置，并且工作项也可以设定</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>指挥者类下的指导方法，有对建造者的回调引用，内容包括建者工作内容几项或全部; 指挥者对建造者要做的事情进行组织跟安排。</p>
+<h4 id="3-ResultObject"><a href="#3-ResultObject" class="headerlink" title="3. ResultObject"></a>3. ResultObject</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">House</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.HouseFrame = <span class="string">''</span>;</div><div class="line">    <span class="keyword">this</span>.Room = <span class="string">''</span>;</div><div class="line">    <span class="keyword">this</span>.Kitchen = <span class="string">''</span>;</div><div class="line">    <span class="keyword">this</span>.LivingRoom = <span class="string">''</span>;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;</div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line">#### 4. 使用方法</div><div class="line"></div><div class="line">`<span class="string">``</span>js</div><div class="line"><span class="keyword">var</span> director = <span class="keyword">new</span> Director(); <span class="comment">// 房主人请 Director 工头来建房子</span></div><div class="line"><span class="keyword">var</span> builder = <span class="keyword">new</span> workBuilder(); <span class="comment">// 工头带来了建造者</span></div><div class="line">director.construct(builder); <span class="comment">// 工头指挥建造者来建房子</span></div><div class="line"><span class="keyword">var</span> house = builder.getResult(); <span class="comment">// 房主人从建造者那里取得建好的房子</span></div></pre></td></tr></table></figure>
+<h3 id="Referrence"><a href="#Referrence" class="headerlink" title="Referrence"></a>Referrence</h3><blockquote>
+<p><a href="https://www.2cto.com/kf/201412/360781.html" target="_blank" rel="external">https://www.2cto.com/kf/201412/360781.html</a></p>
+</blockquote>
+<p><strong>创建型设计模式汇总介绍到此结束，持续关注请 Star and Watch <a href="https://github.com/elevenbeans/elevenbeans.github.io" target="_blank" rel="external">This github repo</a>， 谢谢   ：）</strong></p>
+
+            </div>
+          
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+          
+             <span class="post-new">NEW</span>
+          
+          
+            <a href="/tags/Javascript/">Javascript</a>
+          
+            <a href="/tags/Design-patterns/">Design patterns</a>
+          
+          
+
+        </div>
+       
+         
+         
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2018/03/25/javascript-design-patterns-0/">
+        <span class="next-text nav-default">Javascript 中的设计模式（一）：概述</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+         
+  <div class="comments" id="comments">
+    
+    <div id="comment-container"></div>
+  </div>
+
+
+       
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2018
+    <span class="footer-author"><a href="https://github.com/elevenbeans" target="_blank">@elevenbeans</a>.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+
+</span>
+<script>
+var gitment = new Gitment({
+  id: location.pathname, // 可选。默认为 location.href
+  owner: 'elevenbeans',
+  repo: 'elevenbeans.github.io',
+  oauth: {
+    client_id: '34a6c343407ce5dcf922',
+    client_secret: '9669a9498f09f3b21711bd666a50db5929e78256',
+  },
+})
+gitment.render('comment-container')
+</script>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
