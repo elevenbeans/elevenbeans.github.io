@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://elevenbeans.github.io/2018/02/05/top-10-javascript-errors/</loc>
+    <lastmod>2018-04-02T02:18:10.666Z</lastmod>
+    <data>
+        <display>
+        <title>【译】10 种最常见的 Javascript 错误</title>
+        <pubTime>2018-02-05T03:10:59.000Z</pubTime>
+        
+        <tag>Javascript errors</tag>
+         
+         
+           
+             
+              <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://elevenbeans.github.io/2018/03/30/javascript-design-patterns-1/</loc>
     <lastmod>2018-03-31T12:26:37.787Z</lastmod>
     <data>
@@ -387,26 +407,6 @@
          
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2018/02/05/top-10-javascript-errors/</loc>
-    <lastmod>2018-03-25T06:47:20.753Z</lastmod>
-    <data>
-        <display>
-        <title>【译】10 种最常见的 Javascript 错误</title>
-        <pubTime>2018-02-05T03:10:59.000Z</pubTime>
-        
-        <tag>Javascript errors</tag>
-         
-         
-           
-             
-              <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
-          
         </display>
     </data>
     </url>

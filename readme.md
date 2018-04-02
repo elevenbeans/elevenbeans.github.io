@@ -18,9 +18,9 @@
 
 1. [【译】为什么我选择 React 而不是 Vue](http://elevenbeans.github.io/2017/07/19/Why-React/)
 2. [60 行 JS 代码搞定一个下拉刷新组件](http://elevenbeans.github.io/2017/09/19/pull-to-refresh/)
-3. [移动端浏览器调试方法汇总](http://elevenbeans.github.io/2017/06/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/)
-4. [【译】10 种最常见的 Javascript 错误 —— 总结于 1000+ 个项目，并阐述如何避免](http://elevenbeans.github.io/2018/02/05/top-10-javascript-errors/)
-5. [前端布局方式汇总及概念浅析](http://elevenbeans.github.io/2018/01/12/front-end-layout-methods/)
+3. [移动端浏览器调试方法汇总](http://elevenbeans.github.io/2017/06/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/) [![](https://badge.juejin.im/entry/5937c9c5a22b9d0058120b7d/likes.svg?style=flat-square)](https://juejin.im/entry/5937c9c5a22b9d0058120b7d/detail)
+4. [【译】10 种最常见的 Javascript 错误 —— 总结于 1000+ 个项目，并阐述如何避免](http://elevenbeans.github.io/2018/02/05/top-10-javascript-errors/) [![](https://badge.juejin.im/entry/5a7917c96fb9a063435eba47/likes.svg?style=flat-square)](https://juejin.im/entry/5a7917c96fb9a063435eba47/detail)
+5. [前端布局方式汇总及概念浅析](http://elevenbeans.github.io/2018/01/12/front-end-layout-methods/) [![](https://badge.juejin.im/entry/5a5c6ca151882573450181b9/likes.svg?style=flat-square)](https://juejin.im/entry/5a5c6ca151882573450181b9/detail)
 
 ## OverView
 

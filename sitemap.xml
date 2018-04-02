@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://elevenbeans.github.io/2018/02/05/top-10-javascript-errors/</loc>
+    
+    <lastmod>2018-04-02T02:18:10.666Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://elevenbeans.github.io/2018/03/30/javascript-design-patterns-1/</loc>
     
     <lastmod>2018-03-31T12:26:37.787Z</lastmod>
@@ -117,13 +124,6 @@
     <loc>http://elevenbeans.github.io/2017/07/19/Why-React/</loc>
     
     <lastmod>2018-03-25T06:47:56.314Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://elevenbeans.github.io/2018/02/05/top-10-javascript-errors/</loc>
-    
-    <lastmod>2018-03-25T06:47:20.753Z</lastmod>
     
   </url>
   
