@@ -4,14 +4,16 @@
 
     
   <url>
-    <loc>http://elevenbeans.github.io/2018/02/05/top-10-javascript-errors/</loc>
-    <lastmod>2018-04-02T02:18:10.666Z</lastmod>
+    <loc>http://elevenbeans.github.io/2018/03/30/javascript-design-patterns-1/</loc>
+    <lastmod>2018-04-02T03:44:04.121Z</lastmod>
     <data>
         <display>
-        <title>【译】10 种最常见的 Javascript 错误</title>
-        <pubTime>2018-02-05T03:10:59.000Z</pubTime>
+        <title>Javascript 中的设计模式（二）：创建型设计模式</title>
+        <pubTime>2018-03-30T12:12:36.000Z</pubTime>
         
-        <tag>Javascript errors</tag>
+        <tag>Javascript</tag>
+         
+        <tag>Design patterns</tag>
          
          
            
@@ -24,16 +26,40 @@
 
     
   <url>
-    <loc>http://elevenbeans.github.io/2018/03/30/javascript-design-patterns-1/</loc>
-    <lastmod>2018-03-31T12:26:37.787Z</lastmod>
+    <loc>http://elevenbeans.github.io/2018/01/12/front-end-layout-methods/</loc>
+    <lastmod>2018-04-02T02:20:35.607Z</lastmod>
     <data>
         <display>
-        <title>Javascript 中的设计模式（二）：创建型设计模式</title>
-        <pubTime>2018-03-30T12:12:36.000Z</pubTime>
+        <title>前端布局方式汇总及概念浅析</title>
+        <pubTime>2018-01-12T06:54:02.000Z</pubTime>
         
-        <tag>Javascript</tag>
+        <tag>CSS</tag>
          
-        <tag>Design patterns</tag>
+        <tag>布局</tag>
+         
+        <tag>自适应</tag>
+         
+        <tag>响应式</tag>
+         
+         
+           
+             
+              <breadCrumb title="CSS" url="http://elevenbeans.github.io/categories/CSS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://elevenbeans.github.io/2018/02/05/top-10-javascript-errors/</loc>
+    <lastmod>2018-04-02T02:18:10.666Z</lastmod>
+    <data>
+        <display>
+        <title>【译】10 种最常见的 Javascript 错误</title>
+        <pubTime>2018-02-05T03:10:59.000Z</pubTime>
+        
+        <tag>Javascript errors</tag>
          
          
            
@@ -353,9 +379,9 @@
         <title>常用算法汇总</title>
         <pubTime>2017-01-22T03:10:46.000Z</pubTime>
         
-        <tag>JavaScript</tag>
-         
         <tag>算法</tag>
+         
+        <tag>JavaScript</tag>
          
          
            
@@ -802,32 +828,6 @@
            
              
               <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2018/01/12/front-end-layout-methods/</loc>
-    <lastmod>2018-03-25T06:29:00.618Z</lastmod>
-    <data>
-        <display>
-        <title>前端布局方式汇总及概念浅析</title>
-        <pubTime>2018-01-12T06:54:02.000Z</pubTime>
-        
-        <tag>CSS</tag>
-         
-        <tag>布局</tag>
-         
-        <tag>自适应</tag>
-         
-        <tag>响应式</tag>
-         
-         
-           
-             
-              <breadCrumb title="CSS" url="http://elevenbeans.github.io/categories/CSS/"/>
           
         </display>
     </data>
