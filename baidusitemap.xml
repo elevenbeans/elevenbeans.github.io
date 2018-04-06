@@ -4,8 +4,30 @@
 
     
   <url>
+    <loc>http://elevenbeans.github.io/2018/04/06/javascript-design-patterns-2/</loc>
+    <lastmod>2018-04-06T13:59:07.366Z</lastmod>
+    <data>
+        <display>
+        <title>深入理解 Javascript 中的设计模式（三）：结构型设计模式</title>
+        <pubTime>2018-04-06T11:33:06.000Z</pubTime>
+        
+        <tag>Javascript</tag>
+         
+        <tag>Design patterns</tag>
+         
+         
+           
+             
+              <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://elevenbeans.github.io/2018/03/30/javascript-design-patterns-1/</loc>
-    <lastmod>2018-04-02T03:44:04.121Z</lastmod>
+    <lastmod>2018-04-06T13:55:14.491Z</lastmod>
     <data>
         <display>
         <title>Javascript 中的设计模式（二）：创建型设计模式</title>
@@ -379,9 +401,9 @@
         <title>常用算法汇总</title>
         <pubTime>2017-01-22T03:10:46.000Z</pubTime>
         
-        <tag>算法</tag>
-         
         <tag>JavaScript</tag>
+         
+        <tag>算法</tag>
          
          
            

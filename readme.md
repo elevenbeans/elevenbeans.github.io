@@ -51,10 +51,6 @@
 
 标签是对于博文的分类聚合，方便读者快速定位到和其感兴趣话题相关的文章集合。
 
-## Screenshot
-
-![](https://raw.githubusercontent.com/elevenbeans/grocery/master/contactLogo/ScreenShot.png)
-
 ## Milestone
 
 + *2016-05-04:* First published
