@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://elevenbeans.github.io/2018/04/11/javascript-design-patterns-3/</loc>
-    <lastmod>2018-04-11T09:50:18.925Z</lastmod>
+    <lastmod>2018-04-11T09:54:26.301Z</lastmod>
     <data>
         <display>
         <title>Javascript 中的设计模式（四）：行为设计模式</title>
@@ -26,30 +26,8 @@
 
     
   <url>
-    <loc>http://elevenbeans.github.io/2018/03/30/javascript-design-patterns-1/</loc>
-    <lastmod>2018-04-11T09:47:28.775Z</lastmod>
-    <data>
-        <display>
-        <title>Javascript 中的设计模式（二）：创建型设计模式</title>
-        <pubTime>2018-03-30T12:12:36.000Z</pubTime>
-        
-        <tag>Javascript</tag>
-         
-        <tag>Design patterns</tag>
-         
-         
-           
-             
-              <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://elevenbeans.github.io/2018/04/06/javascript-design-patterns-2/</loc>
-    <lastmod>2018-04-11T09:45:57.813Z</lastmod>
+    <lastmod>2018-04-11T09:54:22.218Z</lastmod>
     <data>
         <display>
         <title>Javascript 中的设计模式（三）：结构型设计模式</title>
@@ -70,8 +48,30 @@
 
     
   <url>
+    <loc>http://elevenbeans.github.io/2018/03/30/javascript-design-patterns-1/</loc>
+    <lastmod>2018-04-11T09:54:17.668Z</lastmod>
+    <data>
+        <display>
+        <title>Javascript 中的设计模式（二）：创建型设计模式</title>
+        <pubTime>2018-03-30T12:12:36.000Z</pubTime>
+        
+        <tag>Javascript</tag>
+         
+        <tag>Design patterns</tag>
+         
+         
+           
+             
+              <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://elevenbeans.github.io/2018/03/25/javascript-design-patterns-0/</loc>
-    <lastmod>2018-04-11T09:45:52.476Z</lastmod>
+    <lastmod>2018-04-11T09:54:08.612Z</lastmod>
     <data>
         <display>
         <title>Javascript 中的设计模式（一）：概述</title>
