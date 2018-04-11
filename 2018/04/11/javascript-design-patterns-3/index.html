@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+<meta name="baidu-site-verification" content="HTOBD3Guy9" />
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="深入理解 Javascript 中的设计模式（四）：行为设计模式"/>
+
+
+
+
+  <meta name="keywords" content="Javascript,Design patterns," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Elevenbeans' blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/elevenbeans.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2018/04/11/javascript-design-patterns-3/"/>
+
+
+<meta name="description" content="更多文章参见： https://github.com/elevenbeans/elevenbeans.github.io
+
+前言本系列可以看作是我个人对于 Addy Osmani 的著作《Learning JavaScript Design Patterns》中内容的提炼，类似阅读笔记，目的是为了简单快速、又不失全面地了解设计模式的相关概念、特点、分类及其在 Javascript 中的实际产出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入理解 Javascript 中的设计模式（四）：行为设计模式">
+<meta property="og:url" content="http://yoursite.com/2018/04/11/javascript-design-patterns-3/index.html">
+<meta property="og:site_name" content="Elevenbeans' blog">
+<meta property="og:description" content="更多文章参见： https://github.com/elevenbeans/elevenbeans.github.io
+
+前言本系列可以看作是我个人对于 Addy Osmani 的著作《Learning JavaScript Design Patterns》中内容的提炼，类似阅读笔记，目的是为了简单快速、又不失全面地了解设计模式的相关概念、特点、分类及其在 Javascript 中的实际产出">
+<meta property="og:updated_time" content="2018-04-11T09:31:17.913Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深入理解 Javascript 中的设计模式（四）：行为设计模式">
+<meta name="twitter:description" content="更多文章参见： https://github.com/elevenbeans/elevenbeans.github.io
+
+前言本系列可以看作是我个人对于 Addy Osmani 的著作《Learning JavaScript Design Patterns》中内容的提炼，类似阅读笔记，目的是为了简单快速、又不失全面地了解设计模式的相关概念、特点、分类及其在 Javascript 中的实际产出">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-100591386-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+
+    <title> 深入理解 Javascript 中的设计模式（四）：行为设计模式 - Elevenbeans' blog </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">
+          <img width="58px" src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/elevenbeans-black.png"/>
+          Elevenbeans' blog
+        </a>
+    </h1>
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/">
+                            
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+    </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          深入理解 Javascript 中的设计模式（四）：行为设计模式
+        
+      </h1>
+
+      <time class="post-time">
+          Apr 11 2018
+      </time>
+    </header>
+
+    
+            <div class="post-content">
+            <script src="/assets/js/APlayer.min.js"> </script><blockquote>
+<p><strong>更多文章参见：</strong> <a href="https://github.com/elevenbeans/elevenbeans.github.io" target="_blank" rel="external">https://github.com/elevenbeans/elevenbeans.github.io</a></p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本系列可以看作是我个人对于 Addy Osmani 的著作《Learning JavaScript Design Patterns》中内容的提炼，类似阅读笔记，目的是为了简单快速、又不失全面地了解设计模式的相关概念、特点、分类及其在 Javascript 中的实际产出。</p>
+<p>分为五篇：</p>
+<ol>
+<li><a href="http://elevenbeans.github.io/2018/03/25/javascript-design-patterns-0/" target="_blank" rel="external">概述</a></li>
+<li><a href="http://elevenbeans.github.io/2018/03/30/javascript-design-patterns-1/" target="_blank" rel="external">创建型</a></li>
+<li><a href="http://elevenbeans.github.io/2018/04/06/javascript-design-patterns-2/" target="_blank" rel="external">结构型</a></li>
+<li><strong>行为型设计模式（本篇）</strong></li>
+<li>MV*（待补充）</li>
+</ol>
+<h2 id="行为设计模式"><a href="#行为设计模式" class="headerlink" title="行为设计模式"></a>行为设计模式</h2><h3 id="1-Observer-观察者-模式"><a href="#1-Observer-观察者-模式" class="headerlink" title="1. Observer(观察者) 模式"></a><strong>1. Observer(观察者) 模式</strong></h3><p>Observer(观察者) 模式是指：一个对象（subject）维持一系列依赖于它（观察者）的对象，将状态变更自动通知给这些对象。subject 可以添加删除观察者。</p>
+<p>要素：</p>
+<ul>
+<li><p>Subject(目标)：维护一系列的观察者，方便添加或者删除观察者</p>
+</li>
+<li><p>Observer(观察者)：为那些在目标状态发生改变时需获得通知的对象提供更新接口</p>
+</li>
+</ul>
+<p>代码示例：</p>
+<p>模拟一个 Subject 中各种有依赖关系的 Observer:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ObserverList</span>(<span class="params"></span>) </span>&#123;  </div><div class="line">	<span class="keyword">this</span>.observerList = [];  </div><div class="line">&#125;  </div><div class="line">ObserverList.prototype.Add = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.observerList.push(obj);  </div><div class="line">&#125;;  </div><div class="line">ObserverList.prototype.RemoveIndexAt = <span class="function"><span class="keyword">function</span>(<span class="params">index</span>) </span>&#123;  </div><div class="line">	<span class="keyword">this</span>.observerList.splice(index,<span class="number">1</span>);  </div><div class="line">&#125;;  </div><div class="line">ObserverList.prototype.Count = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.observerList.length;  </div><div class="line">&#125;;  </div><div class="line">ObserverList.prototype.Get = <span class="function"><span class="keyword">function</span>(<span class="params">index</span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span>(index &gt; <span class="number">-1</span> &amp;&amp; index &lt; <span class="keyword">this</span>.observerList.length) &#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.observerList[index];</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>模拟 Subject 在 Observer 列表里添加、删除、通知:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Subject</span>(<span class="params"></span>) </span>&#123;  </div><div class="line">    <span class="keyword">this</span>.observers = <span class="keyword">new</span> ObserverList();  </div><div class="line">&#125;  </div><div class="line">Subject.prototype.AddObserver = <span class="function"><span class="keyword">function</span>(<span class="params">observer</span>) </span>&#123;  </div><div class="line">    <span class="keyword">this</span>.observers.Add(observer);  </div><div class="line">&#125;;  </div><div class="line">Subject.prototype.RemoveObserver = <span class="function"><span class="keyword">function</span>(<span class="params">observer</span>) </span>&#123;  </div><div class="line">    <span class="keyword">this</span>.observers.RemoveIndexAt(<span class="keyword">this</span>.observers.indexOf(observer));  </div><div class="line">&#125;  </div><div class="line">Subject.prototype.Notify = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>&#123;  </div><div class="line">    <span class="keyword">var</span> observerCount = <span class="keyword">this</span>.observers.Count();</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; observerCount; i++) &#123;  </div><div class="line">        <span class="keyword">this</span>.observers.Get(i).Update(context);  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>建立一个 Observer</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Observer</span>(<span class="params"></span>) </span>&#123;  </div><div class="line">   <span class="keyword">this</span>.Update = <span class="function"><span class="keyword">function</span>(<span class="params">ctx</span>)</span>&#123;  </div><div class="line">       <span class="comment">// 具体的操作</span></div><div class="line">       <span class="built_in">console</span>.log(ctx);</div><div class="line">   &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>完成观察者的添加以及事件发布流程：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> sub = <span class="keyword">new</span> Subject();</div><div class="line">sub.AddObserver(<span class="keyword">new</span> Observer());</div><div class="line">sub.Notify(<span class="string">'Hello'</span>); <span class="comment">// output： Hello</span></div></pre></td></tr></table></figure>
+<h4 id="和-Publish-Subscribe-发布-订阅-的区别"><a href="#和-Publish-Subscribe-发布-订阅-的区别" class="headerlink" title="和 Publish/Subscribe (发布/订阅) 的区别"></a>和 Publish/Subscribe (发布/订阅) 的区别</h4><p>两种模式十分类似，区别在于：Observer 模式要求观察者必须订阅内容改变的事件，而发布订阅模式则使用了一个单独的事件通道，事件通道可以传递自定义参数，包含了订阅者所需的信息。事件通道介于订阅者和发布者之间，结耦了订阅者和发布者，不再用发布者直接调用观察者的方法。<a href="https://blog.csdn.net/q1056843325/article/details/53353850" target="_blank" rel="external">例子可移步这里</a></p>
+<p>JavaScript 是一个事件驱动型语言，观察者模式随处可见，例如常用的一些<code>onClick</code>、 <code>attachEvent</code> 、<code>addEventListener</code> 都是具体应用：DOM 的每个节点都可以作为 Subject，提供了很多事件处理(Event handle) 接口，你只需要给这些接口添加监听函数（也就是具体的 Observer），就可以捕获触发的事件进行处理。</p>
+<p>而 jQuery 中的<em>自定义事件</em>则是标准的 Publish/Subscribe 系统。</p>
+<h3 id="2-Mediator-中介者-模式"><a href="#2-Mediator-中介者-模式" class="headerlink" title="2. Mediator(中介者) 模式"></a><strong>2. Mediator(中介者) 模式</strong></h3><p>Mediator(中介者) 模式一般认为：一个对象应该尽可能少地了解另外的对象。如果对象之间的耦合性太高（如观察者模式中的 Subject 和 Observer），则改变一个对象，会牵动很多对象，难于维护。在复杂的系统中，这些耦合度随项目的变化呈指数增长！我们可以考虑用中介者模式来解耦，提升代码的可维护性。</p>
+<p><strong>所有的对象都通过中介者对象来通信，而不是相互引用，所以当一个对象发生改变时，只需要通知中介者即可。</strong></p>
+<p>示例代码：游戏</p>
+<p>玩家对象是通过<code>Player()</code>构造函数来创建的，有自己的<code>points</code>和<code>name</code>属性。原型上的<code>play()</code>方法负责给自己加一分然后通知中介者：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Player</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.points = <span class="number">0</span>;</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line">Player.prototype.play = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.points += <span class="number">1</span>;</div><div class="line">  mediator.played();</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p><code>scoreboard</code>对象（计分板）有一个<code>update()</code>方法，它会在每次玩家玩完后被中介者调用。计分析根本不知道玩家的任何信息，也不保存分数，它只负责显示中介者给过来的分数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> scoreboard = &#123;</div><div class="line">  <span class="attr">element</span>: <span class="built_in">document</span>.getElementById(<span class="string">'results'</span>),</div><div class="line">  <span class="attr">update</span>: <span class="function"><span class="keyword">function</span> (<span class="params">score</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> i, msg = <span class="string">''</span>;</div><div class="line">    <span class="keyword">for</span> (i <span class="keyword">in</span> score) &#123;</div><div class="line">      <span class="keyword">if</span> (score.hasOwnProperty(i)) &#123;</div><div class="line">        msg += <span class="string">'&lt;p&gt;&lt;strong&gt;'</span> + i + <span class="string">'&lt;\/strong&gt;: '</span>;</div><div class="line">        msg += score[i];</div><div class="line">        msg += <span class="string">'&lt;\/p&gt;'</span>;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">this</span>.element.innerHTML = msg;</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>现在我们来看一下 mediator 对象（中介者）。在游戏初始化的时候，在<code>setup()</code>方法中创建游戏者，然后放后<code>players</code>属性以便后续使用。<code>played()</code>方法会被游戏者在每轮玩完后调用，它更新<code>score</code>哈希然表然后将它传给<code>scoreboard</code>用于显示。最后一个方法是<code>keypress()</code>，负责处理键盘事件，决定是哪位玩家玩的，并且通知它：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mediator = &#123;</div><div class="line">  <span class="attr">players</span>: &#123;&#125;,</div><div class="line">  <span class="attr">setup</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> players = <span class="keyword">this</span>.players;</div><div class="line">    players.home = <span class="keyword">new</span> Player(<span class="string">'Home'</span>);</div><div class="line">    players.guest = <span class="keyword">new</span> Player(<span class="string">'Guest'</span>);</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">played</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> players = <span class="keyword">this</span>.players,</div><div class="line">    score = &#123;</div><div class="line">      <span class="attr">Home</span>: players.home.points,</div><div class="line">      <span class="attr">Guest</span>: players.guest.points</div><div class="line">    &#125;;</div><div class="line">    scoreboard.update(score);</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">keypress</span>: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">    e = e || <span class="built_in">window</span>.event; <span class="comment">// IE</span></div><div class="line">    <span class="keyword">if</span> (e.which === <span class="number">49</span>) &#123; <span class="comment">// key "1"</span></div><div class="line">      mediator.players.home.play();</div><div class="line">      <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (e.which === <span class="number">48</span>) &#123; <span class="comment">// key "0"</span></div><div class="line">      mediator.players.guest.play();</div><div class="line">      <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>最后一件事是初始化和结束游戏：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// go!</span></div><div class="line">mediator.setup();</div><div class="line"><span class="built_in">window</span>.onkeypress = mediator.keypress;</div><div class="line"></div><div class="line"><span class="comment">// game over in 30 seconds</span></div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">window</span>.onkeypress = <span class="literal">null</span>;</div><div class="line">  alert(<span class="string">'Game over!'</span>);</div><div class="line">&#125;, <span class="number">30000</span>);</div></pre></td></tr></table></figure>
+<p>是否使用 Mediator(中介者) 模式，还需要看对象之间耦合程度以及对象本身变动频率而定。</p>
+<h3 id="3-Visitor-访问者-模式"><a href="#3-Visitor-访问者-模式" class="headerlink" title="3. Visitor(访问者) 模式"></a><strong>3. Visitor(访问者) 模式</strong></h3><p>Visitor(访问者) 模式目标是使你可以在不改变各元素的类的前提下定义作用于这些元素的新操作。</p>
+<p>访问者模式将有关的行为集中到一个访问者对象中，而不是分散在一个个环节节点中。当使用访问者模式的时候要将尽可能多的对象逻辑放在访问者类中，而不是子类中。</p>
+<p>在 Javascript 这种弱类型语言里，很多方法里都不做对象的类型检测，而是只关心这些对象能做什么。<code>Array</code> 构造器和 <code>String</code> 构造器的 <code>prototype</code> 上的方法就被特意设计成了访问者。这些方法不对<code>this</code>的数据类型做任何校验。</p>
+<p>利用访问者模式，我们可以给一个 object 对象增加<code>push</code>方法.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Visitor = &#123;&#125; <span class="comment">// 访问者对象</span></div><div class="line">Visitor.push = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 定义新的操作</span></div><div class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.prototype.push.apply( <span class="keyword">this</span>, <span class="built_in">arguments</span> );</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line">obj.push = Visitor.push;</div><div class="line">obj.push(<span class="string">'first'</span>);</div><div class="line"><span class="built_in">console</span>.log(obj[<span class="number">0</span>]) <span class="comment">// "first"</span></div><div class="line"><span class="built_in">console</span>.log(obj.length);  <span class="comment">// 1</span></div></pre></td></tr></table></figure>
+<p><strong>注意：我们并没有改变<code>Object</code>对象，而是通过一个实例定义了新的方法</strong></p>
+<h3 id="4-Iterator-迭代器-模式"><a href="#4-Iterator-迭代器-模式" class="headerlink" title="4. Iterator(迭代器) 模式"></a><strong>4. Iterator(迭代器) 模式</strong></h3><p>Iterator(迭代器) 模式是一种允许我们遍历集合的所有元素对象而无需公开基本形式的一种模式。很明显，它是一种<strong>特殊的 Facade(外观)模式</strong>。</p>
+<p>主要构成：</p>
+<ul>
+<li>Iterator（迭代器）：迭代器定义访问和遍历元素的接口</li>
+<li>ConcreteIterator（具体迭代器）：具体迭代器实现迭代器接口，对该聚合遍历时跟踪当前位置</li>
+<li>Aggregate （聚合）：聚合定义创建相应迭代器对象的接口</li>
+<li>ConcreteAggregate （具体聚合）：具体聚合实现创建相应迭代器的接口，返回ConcreteIterator 的一个适当的实例</li>
+</ul>
+<p>在 Javascript 中，也有该模式的具体实现。</p>
+<p>比如，在 jQuery 中的具体实现： <code>jQuery.each()</code> 。</p>
+<p>在 ES6 中，提出了 <code>Iterator</code> 接口的概念。并且有一种统一的数据结构访问机制，即 <code>for...of</code> 循环。当使用<code>for...of</code>循环遍历某种只要部署了 <code>Iterator</code> 接口的数据结构，该循环会自动去寻找 <code>Iterator</code> 接口。</p>
+<p>原生具备 Iterator 接口的数据结构如下：</p>
+<ul>
+<li>Array</li>
+<li>Map</li>
+<li>Set</li>
+<li>String</li>
+<li>TypedArray</li>
+<li>函数的 arguments 对象</li>
+<li>NodeList 对象</li>
+</ul>
+<h3 id="Referrence"><a href="#Referrence" class="headerlink" title="Referrence"></a>Referrence</h3><blockquote>
+<p><a href="https://www.jianshu.com/p/ab1f737ab424" target="_blank" rel="external">https://www.jianshu.com/p/ab1f737ab424</a><br><a href="http://es6.ruanyifeng.com/#docs/iterator" target="_blank" rel="external">http://es6.ruanyifeng.com/#docs/iterator</a></p>
+</blockquote>
+<p><strong>三大类设计模式汇总介绍到此结束，持续关注请 Star and Watch <a href="https://github.com/elevenbeans/elevenbeans.github.io" target="_blank" rel="external">This github repo</a>， 谢谢   ：）</strong></p>
+
+            </div>
+          
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+          
+             <span class="post-new">NEW</span>
+          
+          
+            <a href="/tags/Javascript/">Javascript</a>
+          
+            <a href="/tags/Design-patterns/">Design patterns</a>
+          
+          
+
+        </div>
+       
+         
+         
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2018/04/06/javascript-design-patterns-2/">
+        <span class="next-text nav-default">Javascript 中的设计模式（三）：结构型设计模式</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+         
+  <div class="comments" id="comments">
+    
+    <div id="comment-container"></div>
+  </div>
+
+
+       
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2018
+    <span class="footer-author"><a href="https://github.com/elevenbeans" target="_blank">@elevenbeans</a>.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+
+</span>
+<script>
+var gitment = new Gitment({
+  id: location.pathname, // 可选。默认为 location.href
+  owner: 'elevenbeans',
+  repo: 'elevenbeans.github.io',
+  oauth: {
+    client_id: '34a6c343407ce5dcf922',
+    client_secret: '9669a9498f09f3b21711bd666a50db5929e78256',
+  },
+})
+gitment.render('comment-container')
+</script>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
