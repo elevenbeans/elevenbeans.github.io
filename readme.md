@@ -12,7 +12,9 @@
 
 如果觉得博客中的文章对你有帮助的话，点个 `star` 吧～
 
-想要持续关注请点击`Watch`->`Watching`，这样每次博客更新都会及时提醒你。`Fork` 没什么意义的啦。。
+想要持续关注请点击`Watch`->`Watching`，这样每次博客更新都会及时提醒你。
+
+`Fork` 没什么意义的啦。。。
 
 ## **Top 5 popular articles** (According to Google Analytics)
 
