@@ -59,10 +59,10 @@
 + *2017-06-06:* 添加 Google Analytics
 + *2017-07-20:* 日访问 over 1K
 + *2017-07-21:* 添加 Gitment
-+ *2017-12-04:* 文章 [《程序员简历怎么写？ResumeX — 一个极简主义且独具创意的简历方案》](https://elevenbeans.github.io/2017/11/30/resume-x/) 登上掘金 APP 热门推荐
++ *2017-12-04:* [《程序员简历怎么写？ResumeX — 一个极简主义且独具创意的简历方案》](https://elevenbeans.github.io/2017/11/30/resume-x/) 登上掘金 APP 热门推荐
 + *2018-01-31:* 添加 SiteMap
-+ *2018-02-25:* 文章 [《10 种最常见的 Javascript 错误 —— 总结于 1000+ 个项目，并阐述如何避免》](http://elevenbeans.github.io/2018/02/05/top-10-javascript-errors/) 授权《前端早读课》转载
-+ *2018-03-12:* 文章 [《10 个技巧，让你更专业地使用 console 进行 JS 调试》](http://localhost:4000/2018/03/10/10-Tips-for-JS-Debugging-with-Console/) 授权《奇舞周刊》转载
++ *2018-02-25:* [《10 种最常见的 Javascript 错误 —— 总结于 1000+ 个项目，并阐述如何避免》](http://elevenbeans.github.io/2018/02/05/top-10-javascript-errors/) 授权《前端早读课》转载
++ *2018-03-12:* [《10 个技巧，让你更专业地使用 console 进行 JS 调试》](http://localhost:4000/2018/03/10/10-Tips-for-JS-Debugging-with-Console/) 授权《奇舞周刊》转载
 
 ## Lisense
 
