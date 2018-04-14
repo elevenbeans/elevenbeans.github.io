@@ -4,8 +4,30 @@
 
     
   <url>
+    <loc>http://elevenbeans.github.io/2018/04/15/es6-tips/</loc>
+    <lastmod>2018-04-14T16:47:46.039Z</lastmod>
+    <data>
+        <display>
+        <title>【译】ES6 中的一些技巧，使你的代码更清晰，更简短，更易读！</title>
+        <pubTime>2018-04-14T16:44:57.000Z</pubTime>
+        
+        <tag>ES6</tag>
+         
+        <tag>Javascript</tag>
+         
+         
+           
+             
+              <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://elevenbeans.github.io/2018/04/11/javascript-design-patterns-3/</loc>
-    <lastmod>2018-04-12T03:10:52.437Z</lastmod>
+    <lastmod>2018-04-14T16:44:42.779Z</lastmod>
     <data>
         <display>
         <title>Javascript 中的设计模式（四）：行为设计模式</title>
@@ -99,13 +121,13 @@
         <title>前端布局方式汇总及概念浅析</title>
         <pubTime>2018-01-12T06:54:02.000Z</pubTime>
         
-        <tag>CSS</tag>
-         
         <tag>布局</tag>
          
         <tag>自适应</tag>
          
         <tag>响应式</tag>
+         
+        <tag>CSS</tag>
          
          
            
@@ -447,9 +469,9 @@
         
         <tag>翻译</tag>
          
-        <tag>八卦</tag>
-         
         <tag>CSS</tag>
+         
+        <tag>八卦</tag>
          
          
            
@@ -600,9 +622,9 @@
         <title>React 路/粉/黑 都该了解的 React license 争议</title>
         <pubTime>2017-08-29T09:12:58.000Z</pubTime>
         
-        <tag>React</tag>
-         
         <tag>license</tag>
+         
+        <tag>React</tag>
          
          
            

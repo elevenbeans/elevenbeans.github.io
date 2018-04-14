@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+<meta name="baidu-site-verification" content="HTOBD3Guy9" />
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="【译】ES6 中的一些技巧，使你的代码更清晰，更简短，更易读！"/>
+
+
+
+
+  <meta name="keywords" content="ES6,Javascript," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Elevenbeans' blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/elevenbeans.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2018/04/15/es6-tips/"/>
+
+
+<meta name="description" content="原文地址：https://medium.freecodecamp.org/make-your-code-cleaner-shorter-and-easier-to-read-es6-tips-and-tricks-afd4ce25977c更多内容请见译者 Blog：https://github.com/elevenbeans/elevenbeans.github.io
+
+
+模版字符串模板模版字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】ES6 中的一些技巧，使你的代码更清晰，更简短，更易读！">
+<meta property="og:url" content="http://yoursite.com/2018/04/15/es6-tips/index.html">
+<meta property="og:site_name" content="Elevenbeans' blog">
+<meta property="og:description" content="原文地址：https://medium.freecodecamp.org/make-your-code-cleaner-shorter-and-easier-to-read-es6-tips-and-tricks-afd4ce25977c更多内容请见译者 Blog：https://github.com/elevenbeans/elevenbeans.github.io
+
+
+模版字符串模板模版字">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523538433994&di=964edbde314ccf5f8d98cd2942ab0bc1&imgtype=0&src=http%3A%2F%2Fwww.redwall.ee%2Fimages%2Fblog%2Ftarkvaratrendid2016%2Fes6.jpg">
+<meta property="og:updated_time" content="2018-04-14T16:47:46.039Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【译】ES6 中的一些技巧，使你的代码更清晰，更简短，更易读！">
+<meta name="twitter:description" content="原文地址：https://medium.freecodecamp.org/make-your-code-cleaner-shorter-and-easier-to-read-es6-tips-and-tricks-afd4ce25977c更多内容请见译者 Blog：https://github.com/elevenbeans/elevenbeans.github.io
+
+
+模版字符串模板模版字">
+<meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523538433994&di=964edbde314ccf5f8d98cd2942ab0bc1&imgtype=0&src=http%3A%2F%2Fwww.redwall.ee%2Fimages%2Fblog%2Ftarkvaratrendid2016%2Fes6.jpg">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-100591386-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+
+    <title> 【译】ES6 中的一些技巧，使你的代码更清晰，更简短，更易读！ - Elevenbeans' blog </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">
+          <img width="58px" src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/elevenbeans-black.png"/>
+          Elevenbeans' blog
+        </a>
+    </h1>
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/">
+                            
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+    </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          【译】ES6 中的一些技巧，使你的代码更清晰，更简短，更易读！
+        
+      </h1>
+
+      <time class="post-time">
+          Apr 15 2018
+      </time>
+    </header>
+
+    
+            <div class="post-content">
+            <script src="/assets/js/APlayer.min.js"> </script><blockquote>
+<p>原文地址：<a href="https://medium.freecodecamp.org/make-your-code-cleaner-shorter-and-easier-to-read-es6-tips-and-tricks-afd4ce25977c" target="_blank" rel="external">https://medium.freecodecamp.org/make-your-code-cleaner-shorter-and-easier-to-read-es6-tips-and-tricks-afd4ce25977c</a><br><strong>更多内容请见译者 Blog：</strong><a href="https://github.com/elevenbeans/elevenbeans.github.io" target="_blank" rel="external">https://github.com/elevenbeans/elevenbeans.github.io</a></p>
+</blockquote>
+<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1523538433994&amp;di=964edbde314ccf5f8d98cd2942ab0bc1&amp;imgtype=0&amp;src=http%3A%2F%2Fwww.redwall.ee%2Fimages%2Fblog%2Ftarkvaratrendid2016%2Fes6.jpg" alt=""></p>
+<h2 id="模版字符串"><a href="#模版字符串" class="headerlink" title="模版字符串"></a><strong>模版字符串</strong></h2><p>模板模版字符串使得字符串拼接比以前更容易。 它以反向标记（Tab 正上方那个字符）开始，并且可以使用<code>${variable}</code>插入变量。 比较以下两行代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><code><div class="line"><span class="keyword">var</span> fName = <span class="string">'Peter'</span>, sName = <span class="string">'Smith'</span>, age = <span class="number">43</span>, job = <span class="string">'photographer'</span>;</div><div class="line"><span class="keyword">var</span> a = <span class="string">'Hi, I\'m '</span> + fName + <span class="string">' '</span> + sName + <span class="string">', I\'m '</span> + age + <span class="string">' and work as a '</span> + job + <span class="string">'.'</span>;</div><div class="line"><span class="keyword">var</span> b = <span class="string">`Hi, I'm <span class="subst">$&#123; fName &#125;</span> <span class="subst">$&#123; sName &#125;</span>, I'm <span class="subst">$&#123; age &#125;</span> and work as a <span class="subst">$&#123; job &#125;</span>.`</span>;</div></code></pre></td></tr></table></figure>
+<p>这会让一切变的更简单，代码更易于阅读。 你可以将任何内容放入花括号中：变量，方程式或函数调用。 我将在整篇文章的示例中使用它们。</p>
+<h2 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a><strong>块级作用域</strong></h2><p>JavaScript 本身一直是函数式作用域，这就是我们经常将整个 JavaScript 文件封装在一个空的立即调用函数表达式（IIFE）中的原因。这样做是为了隔离文件中的所有变量，因此全局中就不会存在变量名冲突。</p>
+<p>现在，我们有块级作用域和两个绑定到块的新变量声明。</p>
+<h3 id="Let"><a href="#Let" class="headerlink" title="Let"></a><code>Let</code></h3><p>这与<code>var</code>类似，但有一些显着差异。由于它声明的变量具有块级作用域，所以可以在不影响外部变量的情况下声明具有相同名称的新局部（内部）变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><code><div class="line"><span class="keyword">var</span> a = <span class="string">'car'</span> ;</div><div class="line">&#123;</div><div class="line">    <span class="keyword">let</span> a = <span class="number">5</span>;</div><div class="line">    <span class="built_in">console</span>.log(a) <span class="comment">// 5</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(a) <span class="comment">// car</span></div></code></pre></td></tr></table></figure>
+<p>因为它绑定到一个块（即就是 <code>{</code> 和 <code>}</code> 之间的范围），它解决了这个经典的面试问题：“输出是什么，如何让它按照你的期望工作？”</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><code><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; <span class="number">5</span>; i++)&#123;</div><div class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123; <span class="built_in">console</span>.log(i); &#125;, <span class="number">1000</span>);</div><div class="line">&#125;</div></code></pre></td></tr></table></figure>
+<p>在这种情况下，它会输出 “5 5 5 5 5”，因为变量 <code>i</code> 在每次迭代中都会被改变，最终所有结果以最后一次变更为准。</p>
+<p>如果您将<code>var</code>切换为<code>let</code>，那就不一样了。现在，每个循环都会创建一个新的块作用域，其值为绑定到该循环的值。相当于你写了：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><code><div class="line">&#123;<span class="keyword">let</span> i = <span class="number">1</span>; setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123; <span class="built_in">console</span>.log(i) &#125;, <span class="number">1000</span>)&#125;</div><div class="line">&#123;<span class="keyword">let</span> i = <span class="number">2</span>; setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123; <span class="built_in">console</span>.log(i) &#125;, <span class="number">1000</span>)&#125;</div><div class="line">&#123;<span class="keyword">let</span> i = <span class="number">3</span>; setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123; <span class="built_in">console</span>.log(i) &#125;, <span class="number">1000</span>)&#125;</div><div class="line">&#123;<span class="keyword">let</span> i = <span class="number">4</span>; setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123; <span class="built_in">console</span>.log(i) &#125;, <span class="number">1000</span>)&#125;</div><div class="line">&#123;<span class="keyword">let</span> i = <span class="number">5</span>; setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123; <span class="built_in">console</span>.log(i) &#125;, <span class="number">1000</span>)&#125;</div></code></pre></td></tr></table></figure>
+<p><code>var</code>和<code>let</code>之间的另一个区别是<code>let</code>不会像<code>var</code>一样被提升。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><code><div class="line">&#123;</div><div class="line">    <span class="built_in">console</span>.log(a); <span class="comment">// undefined</span></div><div class="line">    <span class="built_in">console</span>.log(b); <span class="comment">// ReferenceError</span></div><div class="line">    <span class="keyword">var</span> a = <span class="string">'car'</span>;</div><div class="line">    <span class="keyword">let</span> b = <span class="number">5</span>;</div><div class="line">&#125;</div></code></pre></td></tr></table></figure>
+<p>由于其更严格的范围界定和更可预测的行为，有些人表示应该使用<code>let</code>而不是<code>var</code>，除非特别需要用<code>var</code>的声明提升或需要其更宽松的作用范围。</p>
+<h3 id="Const"><a href="#Const" class="headerlink" title="Const"></a><code>Const</code></h3><p>如果你想在 JavaScript 中声明一个常量变量，那么惯例是将变量命名大写。然而，这并不能保证它是一个常量 - 它只是让其他开发人员知道这是一个常量，不应该改变。</p>
+<p>现在我们有了<code>const</code>声明。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><code><div class="line">&#123;</div><div class="line">    <span class="keyword">const</span> c = <span class="string">"tree"</span>;</div><div class="line">    <span class="built_in">console</span>.log(c);  <span class="comment">// tree</span></div><div class="line">    c = <span class="number">46</span>;  <span class="comment">// TypeError!</span></div><div class="line">&#125;</div></code></pre></td></tr></table></figure>
+<p><code>const</code> 不会使变量不可变，只是锁定它的赋值。 如果你有一个复杂的赋值（对象或数组），那么该值仍然可以修改。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><code><div class="line">&#123;</div><div class="line">    <span class="keyword">const</span> d = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</div><div class="line">    <span class="keyword">const</span> dave = &#123; <span class="attr">name</span>: <span class="string">'David Jones'</span>, <span class="attr">age</span>: <span class="number">32</span>&#125;;</div><div class="line">    d.push(<span class="number">5</span>);</div><div class="line">    dave.job = <span class="string">"salesman"</span>;</div><div class="line">    <span class="built_in">console</span>.log(d);  <span class="comment">// [1, 2, 3, 4, 5]</span></div><div class="line">    <span class="built_in">console</span>.log(dave);  <span class="comment">// &#123; age: 32, job: "salesman", name: 'David Jones'&#125;</span></div><div class="line">&#125;</div></code></pre></td></tr></table></figure>
+<h2 id="块级作用域函数问题"><a href="#块级作用域函数问题" class="headerlink" title="块级作用域函数问题"></a><strong>块级作用域函数问题</strong></h2><p>函数声明现在被指定为必须绑定到块级作用域。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><code><div class="line">&#123;</div><div class="line">    bar(); <span class="comment">// works</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123; <span class="comment">/* do something */</span> &#125;</div><div class="line">&#125;</div><div class="line">bar();  <span class="comment">// doesn't work</span></div></code></pre></td></tr></table></figure>
+<p>当你在<code>if</code>语句中声明一个函数时，问题就来了。</p>
+<p>考虑这个：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><code><div class="line"><span class="keyword">if</span> ( something) &#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">baz</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'I passed'</span>) &#125;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">baz</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'I didn\'t pass'</span>) &#125;</div><div class="line">&#125;</div><div class="line">baz();</div></code></pre></td></tr></table></figure>
+<p>在 ES6 之前，这两个函数声明都会被提升，结果就是 ‘I didn\’t pass’，不管<code>something</code> 是什么东西。</p>
+<p>现在我们会得到 ‘ReferenceError’，因为<code>baz()</code>总是受到块范围的约束。</p>
+<h2 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title="扩展运算符"></a><strong>扩展运算符</strong></h2><p>ES6 引入了<code>...</code>运算符，它被称为“扩展运算符”。 它有两个主要用途：将数组或对象分散到新的数组或对象中，并将多个参数合并到一个数组中。</p>
+<p>第一个用例是你可能遇到的最多的用例，所以我们先看看。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><code><div class="line"><span class="keyword">let</span> a = [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</div><div class="line"><span class="keyword">let</span> b = [<span class="number">1</span>, <span class="number">2</span>, ...a, <span class="number">6</span>];</div><div class="line"><span class="built_in">console</span>.log(b);  <span class="comment">// [1, 2, 3, 4, 5, 6]</span></div><div class="line">This can be very useful <span class="keyword">for</span> passing <span class="keyword">in</span> a set <span class="keyword">of</span> variables to a <span class="function"><span class="keyword">function</span> <span class="title">from</span> <span class="title">an</span> <span class="title">array</span>.</span></div><div class="line"></div><div class="line"><span class="title">function</span> <span class="title">foo</span>(<span class="params">a, b, c</span>) &#123; <span class="built_in">console</span>.log(<span class="string">`a=<span class="subst">$&#123;a&#125;</span>, b=<span class="subst">$&#123;b&#125;</span>, c=<span class="subst">$&#123;c&#125;</span>`</span>)&#125;</div><div class="line"><span class="keyword">let</span> data = [<span class="number">5</span>, <span class="number">15</span>, <span class="number">2</span>];</div><div class="line">foo( ...data); <span class="comment">// a=5, b=15, c=2</span></div></code></pre></td></tr></table></figure>
+<p>也可以扩展对象，将每个键值对输入到新对象中。（实际上是在提案的第 4 阶段，并将在 ES2018 中正式推出，仅支持 Chrome 60 或更高版本，Firefox 55 或更高版本以及 Node 6.4.0 或更高版本）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><code><div class="line"><span class="keyword">let</span> car = &#123; <span class="attr">type</span>: <span class="string">'vehicle '</span>, <span class="attr">wheels</span>: <span class="number">4</span>&#125;;</div><div class="line"><span class="keyword">let</span> fordGt = &#123; <span class="attr">make</span>: <span class="string">'Ford'</span>, ...car, <span class="attr">model</span>: <span class="string">'GT'</span>&#125;;</div><div class="line"><span class="built_in">console</span>.log(fordGt); <span class="comment">// &#123;make: 'Ford', model: 'GT', type: 'vehicle', wheels: 4&#125;</span></div></code></pre></td></tr></table></figure>
+<p><code>...</code> 运算符的另一个特点是它创建一个新的数组或对象。 下面的例子为 <code>b</code> 创建了一个新的数组，但 <code>c</code> 只是指向同一个数组。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><code><div class="line"><span class="keyword">let</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line"><span class="keyword">let</span> b = [ ...a ];</div><div class="line"><span class="keyword">let</span> c = a;</div><div class="line">b.push(<span class="number">4</span>);</div><div class="line"><span class="built_in">console</span>.log(a);  <span class="comment">// [1, 2, 3]</span></div><div class="line"><span class="built_in">console</span>.log(b);  <span class="comment">// [1, 2, 3, 4] referencing different arrays</span></div><div class="line">c.push(<span class="number">5</span>);</div><div class="line"><span class="built_in">console</span>.log(a);  <span class="comment">// [1, 2, 3, 5]</span></div><div class="line"><span class="built_in">console</span>.log(c);  <span class="comment">// [1, 2, 3, 5] referencing the same array</span></div></code></pre></td></tr></table></figure>
+<p>第二个例子是将变量一起收集到一个数组中。 当你不知道有多少变量传递给函数时，这非常有用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><code><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">...args</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(args);</div><div class="line">&#125;</div><div class="line">foo( <span class="string">'car'</span>, <span class="number">54</span>, <span class="string">'tree'</span>);  <span class="comment">//  [ 'car', 54, 'tree' ]</span></div></code></pre></td></tr></table></figure>
+<h2 id="函数默认参数"><a href="#函数默认参数" class="headerlink" title="函数默认参数"></a><strong>函数默认参数</strong></h2><p>现在可以使用默认参数定义函数。缺少或未定义的值将使用默认值进行初始化。只要小心 - 因为空值和假值会被强制为0。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><code><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"> a = <span class="number">5</span>, b = <span class="number">10</span></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log( a + b);</div><div class="line">&#125;</div><div class="line">foo();  <span class="comment">// 15</span></div><div class="line">foo( <span class="number">7</span>, <span class="number">12</span> );  <span class="comment">// 19</span></div><div class="line">foo( <span class="literal">undefined</span>, <span class="number">8</span> ); <span class="comment">// 13</span></div><div class="line">foo( <span class="number">8</span> ); <span class="comment">// 18</span></div><div class="line">foo( <span class="literal">null</span> ); <span class="comment">// 10 as null is coerced to 0</span></div></code></pre></td></tr></table></figure>
+<p>默认值可以不仅仅是值 - 它们也可以是表达式或函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><code><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"> a </span>) </span>&#123; <span class="keyword">return</span> a * <span class="number">4</span>; &#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"> x = <span class="number">2</span>, y = x + <span class="number">4</span>, z = foo(x</span>)) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log([ x, y, z ]);</div><div class="line">&#125;</div><div class="line">bar();  <span class="comment">// [ 2, 6, 8 ]</span></div><div class="line">bar( <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ); <span class="comment">//[ 1, 2, 3 ]</span></div><div class="line">bar( <span class="number">10</span>, <span class="literal">undefined</span>, <span class="number">3</span> );  <span class="comment">// [ 10, 14, 3 ]</span></div></code></pre></td></tr></table></figure>
+<h2 id="解构"><a href="#解构" class="headerlink" title="解构"></a><strong>解构</strong></h2><p>解构是拆分等号左侧的数组或对象的过程。数组或对象可以来自变量，函数或等式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><code><div class="line"><span class="keyword">let</span> [ a, b, c ] = [ <span class="number">6</span>, <span class="number">2</span>, <span class="number">9</span>];</div><div class="line"><span class="built_in">console</span>.log(<span class="string">`a=<span class="subst">$&#123;a&#125;</span>, b=<span class="subst">$&#123;b&#125;</span>, c=<span class="subst">$&#123;c&#125;</span>`</span>); <span class="comment">//a=6, b=2, c=9</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> [<span class="string">'car'</span>, <span class="string">'dog'</span>, <span class="number">6</span> ]; &#125;</div><div class="line"><span class="keyword">let</span> [ x, y, z ] = foo();</div><div class="line"><span class="built_in">console</span>.log(<span class="string">`x=<span class="subst">$&#123;x&#125;</span>, y=<span class="subst">$&#123;y&#125;</span>, z=<span class="subst">$&#123;z&#125;</span>`</span>);  <span class="comment">// x=car, y=dog, z=6</span></div></code></pre></td></tr></table></figure>
+<p>通过对象解构，可以在大括号内列出对象的键以提取该键值对。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><code><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>, <span class="attr">c</span>: <span class="number">3</span>&#125;; &#125;</div><div class="line"><span class="keyword">let</span> &#123; a, c &#125; = bar();</div><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 1</span></div><div class="line"><span class="built_in">console</span>.log(c); <span class="comment">// 3</span></div><div class="line"><span class="built_in">console</span>.log(b); <span class="comment">// undefined</span></div></code></pre></td></tr></table></figure>
+<p>Sometimes, you want to extract the values but assign them to a new variable. This is done using a ‘key: variable’ pairing on the left of the equals sign.</p>
+<p>有时，你想取值，将它们分配给一个新的变量。 这是通过在等号左边的 <code>key: variable</code> 配对完成的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><code><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">baz</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">x</span>: <span class="string">'car'</span>,</div><div class="line">        <span class="attr">y</span>: <span class="string">'London'</span>,</div><div class="line">        <span class="attr">z</span>: &#123; <span class="attr">name</span>: <span class="string">'John'</span>, <span class="attr">age</span>: <span class="number">21</span>&#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> &#123; <span class="attr">x</span>: vehicle, <span class="attr">y</span>: city, <span class="attr">z</span>: &#123; <span class="attr">name</span>: driver &#125; &#125; = baz();</div><div class="line"><span class="built_in">console</span>.log(</div><div class="line">    <span class="string">`I'm going to <span class="subst">$&#123;city&#125;</span> with <span class="subst">$&#123;driver&#125;</span> in their <span class="subst">$&#123;vehicle&#125;</span>.`</span></div><div class="line">); <span class="comment">// I'm going to London with John in their car.</span></div></code></pre></td></tr></table></figure>
+<p>对象解构允许的另一件事是为多个变量赋值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><code><div class="line"><span class="keyword">let</span> &#123; <span class="attr">x</span>: first, <span class="attr">x</span>: second &#125; = &#123; <span class="attr">x</span>: <span class="number">4</span> &#125;;</div><div class="line"><span class="built_in">console</span>.log( first, second ); <span class="comment">// 4, 4</span></div></code></pre></td></tr></table></figure>
+<h2 id="对象字面量和简明参数"><a href="#对象字面量和简明参数" class="headerlink" title="对象字面量和简明参数"></a><strong>对象字面量和简明参数</strong></h2><p>当您从变量创建对象字面量时，ES6 允许您在与 key 与变量名称相同的情况下省略 key 名。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><code><div class="line"><span class="keyword">let</span> a = <span class="number">4</span>, b = <span class="number">7</span>;</div><div class="line"><span class="keyword">let</span> c = &#123; <span class="attr">a</span>: a, <span class="attr">b</span>: b &#125;;</div><div class="line"><span class="keyword">let</span> concise = &#123; a, b &#125;;</div><div class="line"><span class="built_in">console</span>.log(c, concise) <span class="comment">// &#123;a: 4, b: 7&#125;, &#123;a: 4, b: 7&#125;</span></div></code></pre></td></tr></table></figure>
+<p>这也可以与解构结合使用，使你的代码更简单，更清洁。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><code><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">name</span>: <span class="string">'Anna'</span>,</div><div class="line">        <span class="attr">age</span>: <span class="number">56</span>,</div><div class="line">       <span class="attr">job</span>: &#123; <span class="attr">company</span>: <span class="string">'Tesco'</span>, <span class="attr">title</span>: <span class="string">'Manager'</span> &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// pre ES6</span></div><div class="line"><span class="keyword">let</span> a = foo(), name = a.name, age = a.age, company = a.job.company;</div><div class="line"><span class="comment">// ES6 destructuring and concise parameters</span></div><div class="line"><span class="keyword">let</span> &#123; name, age, <span class="attr">job</span>: &#123;company&#125;&#125; = foo();</div></code></pre></td></tr></table></figure>
+<p>它也可以用来解构对象传递给函数。方法 1 和 2 是你在 ES6 之前完成它的方法，方法 3 使用解构和简明的参数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><code><div class="line"><span class="keyword">let</span> person = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'Anna'</span>,</div><div class="line">    <span class="attr">age</span>: <span class="number">56</span>,</div><div class="line">    <span class="attr">job</span>: &#123; <span class="attr">company</span>: <span class="string">'Tesco'</span>, <span class="attr">title</span>: <span class="string">'Manager'</span> &#125;</div><div class="line">&#125;;</div><div class="line"><span class="comment">// method 1</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">old1</span>(<span class="params">person</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> yearOfBirth = <span class="number">2018</span> - person.age;</div><div class="line">    <span class="built_in">console</span>.log( <span class="string">`<span class="subst">$&#123; person.name &#125;</span> works at <span class="subst">$&#123; person.job.company &#125;</span> and was born in <span class="subst">$&#123; yearOfBirth &#125;</span>.`</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">// method 2</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">old1</span>(<span class="params">person</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> age = person.age,</div><div class="line">        yearOfBirth = <span class="number">2018</span> - age,</div><div class="line">        name = person.name,</div><div class="line">        company = person.job.company;</div><div class="line">    <span class="built_in">console</span>.log( <span class="string">`<span class="subst">$&#123; name &#125;</span> works at <span class="subst">$&#123; company &#125;</span> and was born in <span class="subst">$&#123; yearOfBirth &#125;</span>.`</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">// method 3</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">es6</span>(<span class="params">&#123; age, name, job: &#123;company&#125;&#125;</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> yearOfBirth = <span class="number">2018</span> - age;</div><div class="line">    <span class="built_in">console</span>.log( <span class="string">`<span class="subst">$&#123; name &#125;</span> works at <span class="subst">$&#123; company &#125;</span> and was born in <span class="subst">$&#123; yearOfBirth &#125;</span>.`</span>);</div><div class="line">&#125;</div></code></pre></td></tr></table></figure>
+<p>使用 ES6，我们可以提取<code>age</code>，<code>name</code>和<code>company</code>而无需额外的变量声明。</p>
+<h2 id="动态属性名称"><a href="#动态属性名称" class="headerlink" title="动态属性名称"></a><strong>动态属性名称</strong></h2><p>ES6 添加了使用动态分配的 key 创建或添加属性的功能。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><code><div class="line"><span class="keyword">let</span>  city= <span class="string">'sheffield_'</span>;</div><div class="line"><span class="keyword">let</span> a = &#123;</div><div class="line">    [ city + <span class="string">'population'</span> ]: <span class="number">350000</span></div><div class="line">&#125;;</div><div class="line">a[ city + <span class="string">'county'</span> ] = <span class="string">'South Yorkshire'</span>;</div><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">// &#123;sheffield_population: 350000, sheffield_county: 'South Yorkshire' &#125;</span></div></code></pre></td></tr></table></figure>
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a><strong>箭头函数</strong></h2><p>箭头函数有两个主要方面：结构和<code>this</code>绑定。</p>
+<p>它们可以具有比传统功能更简单的结构，因为它们不需要功能关键字，并且它们自动返回箭头之后的任何内容。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><code><div class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"> a, b </span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a * b;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> bar = <span class="function">(<span class="params"> a, b </span>) =&gt;</span> a * b;</div></code></pre></td></tr></table></figure>
+<p>如果函数需要的不仅仅是一个简单的计算，可以使用大括号，并且该函数会返回花括号块范围返回的任何内容。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><code><div class="line"><span class="keyword">let</span> baz = <span class="function">(<span class="params"> c, d </span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">let</span> length = c.length + d.toString().length;</div><div class="line">    <span class="keyword">let</span> e = c.join(<span class="string">', '</span>);</div><div class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;e&#125;</span> and there is a total length of  <span class="subst">$&#123;length&#125;</span>`</span>;</div><div class="line">&#125;</div></code></pre></td></tr></table></figure>
+<p>对于箭头函数最有用的地方之一是在<code>map()</code>，<code>forEach()</code>或<code>sort()</code>之类的数组函数中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><code><div class="line"><span class="keyword">let</span> arr = [ <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="string">'a'</span> ];</div><div class="line"><span class="keyword">let</span> b = arr.map( <span class="function"><span class="params">item</span> =&gt;</span> item + <span class="number">3</span> );</div><div class="line"><span class="built_in">console</span>.log(b); <span class="comment">// [ 8, 9, 10, 11, 'a3' ]</span></div></code></pre></td></tr></table></figure>
+<p>除了具有更短的语法外，它还修复了在绑定行为经常出现的问题。具有 ES6 之前的功能的修复是将<code>this</code>引用存储，通常作为自变量存储。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><code><div class="line"><span class="keyword">var</span> clickController = &#123;</div><div class="line">    <span class="attr">doSomething</span>: <span class="function"><span class="keyword">function</span> (<span class="params">..</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">        btn.addEventListener(</div><div class="line">            <span class="string">'click'</span>,</div><div class="line">            <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; self.doSomething(..) &#125;,</div><div class="line">            False</div><div class="line">       );</div><div class="line">   &#125;</div><div class="line">&#125;;</div></code></pre></td></tr></table></figure>
+<p>这必须做到，因为这个绑定是动态的。 这意味着这个事件监听器里面的这个和<code>doSomething</code>里面的这个不是指同一个事物。</p>
+<p>在箭头函数里，这个绑定是词法的，而不是动态的。 这是箭头功能的主要设计特征。</p>
+<p>虽然这种绑定可能是伟大的，有时这不是想要的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><code><div class="line"><span class="keyword">let</span> a = &#123;</div><div class="line">    <span class="attr">oneThing</span>: <span class="function">(<span class="params"> a </span>) =&gt;</span> &#123;</div><div class="line">         <span class="keyword">let</span> b = a * <span class="number">2</span>;</div><div class="line">         <span class="keyword">this</span>.otherThing(b);</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">otherThing</span>: <span class="function">(<span class="params"> b </span>) =&gt;</span> &#123;....&#125;</div><div class="line">&#125;;</div><div class="line">a.oneThing(<span class="number">6</span>);</div></code></pre></td></tr></table></figure>
+<p>当我们使用<code>a.oneThing(6)</code>时，<code>this.otherThing(b)</code>引用失败，因为这不是指向一个对象，而是指向周围的作用域。 如果您使用 ES6 语法重写遗留代码，则需要注意这一点。</p>
+<h2 id="for-…-of-循环"><a href="#for-…-of-循环" class="headerlink" title="for … of 循环"></a><strong>for … of 循环</strong></h2><p>ES6 增加了一种迭代数组中每个值的方法。 这与现有的 <code>... in</code> 不同，它循环使用<code>key/index</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><code><div class="line"><span class="keyword">let</span> a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span> ];</div><div class="line"><span class="comment">// ES6</span></div><div class="line"><span class="keyword">for</span> ( <span class="keyword">var</span> val <span class="keyword">of</span> a ) &#123;</div><div class="line">    <span class="built_in">console</span>.log( val );</div><div class="line">&#125; <span class="comment">// "a" "b" "c" "d"</span></div><div class="line"><span class="comment">// pre-ES6</span></div><div class="line"><span class="keyword">for</span> ( <span class="keyword">var</span> idx <span class="keyword">in</span> a ) &#123;</div><div class="line">    <span class="built_in">console</span>.log( idx );</div><div class="line">&#125;  <span class="comment">// 0 1 2 3</span></div></code></pre></td></tr></table></figure>
+<p>Using the new for … of loop saves adding a let val = a[idx] inside each loop.</p>
+<p>Arrays, strings, generators and collections are all iterable in standard JavaScript. Plain objects can’t normally be iterated over, unless you have defined an iterator for it.</p>
+<p>使用新的<code>for ... of</code>循环，不必在在每个循环内添加一个<code>let val = a[idx]</code>。</p>
+<p>数组，字符串，生成器和集合都可以在标准 JavaScript 中迭代。普通对象通常不能迭代，除非你已经为它定义了一个迭代器（Iterator）。</p>
+<h2 id="数字字面量"><a href="#数字字面量" class="headerlink" title="数字字面量"></a><strong>数字字面量</strong></h2><p>ES5 代码很好地处理了十进制和十六进制数字格式，但未指定八进制格式。事实上，它在严格的模式下被禁止。</p>
+<p>ES6添加了一种新格式，在最初的 0 之后添加一个 o （注意是字母）以将该数字声明为八进制数。ES6 还添加了二进制格式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><code><div class="line"><span class="built_in">Number</span>( <span class="number">29</span> )  <span class="comment">// 29</span></div><div class="line"><span class="built_in">Number</span>( <span class="number">035</span> ) <span class="comment">// 35 in old octal form.</span></div><div class="line"><span class="built_in">Number</span>( <span class="number">0o35</span> ) <span class="comment">// 29 in new octal form</span></div><div class="line"><span class="built_in">Number</span>( <span class="number">0x1d</span> ) <span class="comment">// 29 in hexadecimal</span></div><div class="line"><span class="built_in">Number</span>( <span class="number">0b11101</span> ) <span class="comment">// 29 in binary form</span></div></code></pre></td></tr></table></figure>
+<h2 id="还有很多。。。"><a href="#还有很多。。。" class="headerlink" title="还有很多。。。"></a><strong>还有很多。。。</strong></h2><p>ES6 为我们提供了更多的功能，使我们的代码更简洁，更短，更易于阅读和更强大。 我的目标是撰写本文的续篇，内容涵盖了 ES6 中不太知名的部分。</p>
+
+            </div>
+          
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+          
+             <span class="post-new">NEW</span>
+          
+          
+            <a href="/tags/ES6/">ES6</a>
+          
+            <a href="/tags/Javascript/">Javascript</a>
+          
+          
+
+        </div>
+       
+         
+         
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2018/04/11/javascript-design-patterns-3/">
+        <span class="next-text nav-default">Javascript 中的设计模式（四）：行为设计模式</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+         
+  <div class="comments" id="comments">
+    
+    <div id="comment-container"></div>
+  </div>
+
+
+       
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2018
+    <span class="footer-author"><a href="https://github.com/elevenbeans" target="_blank">@elevenbeans</a>.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+
+</span>
+<script>
+var gitment = new Gitment({
+  id: location.pathname, // 可选。默认为 location.href
+  owner: 'elevenbeans',
+  repo: 'elevenbeans.github.io',
+  oauth: {
+    client_id: '34a6c343407ce5dcf922',
+    client_secret: '9669a9498f09f3b21711bd666a50db5929e78256',
+  },
+})
+gitment.render('comment-container')
+</script>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
