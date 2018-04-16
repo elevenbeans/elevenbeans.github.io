@@ -64,6 +64,7 @@
 + *2018-01-31:* 添加 SiteMap
 + *2018-02-25:* [《10 种最常见的 Javascript 错误 —— 总结于 1000+ 个项目，并阐述如何避免》](http://elevenbeans.github.io/2018/02/05/top-10-javascript-errors/) 授权《前端早读课》转载
 + *2018-03-12:* [《10 个技巧，让你更专业地使用 console 进行 JS 调试》](http://localhost:4000/2018/03/10/10-Tips-for-JS-Debugging-with-Console/) 授权《奇舞周刊》转载
++ *2018-04-16:* Stars over 100
 
 ## Lisense
 
