@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+<meta name="baidu-site-verification" content="HTOBD3Guy9" />
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="Javascript 中的设计模式（五）：MV*"/>
+
+
+
+
+  <meta name="keywords" content="Javascript,Design patterns," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Elevenbeans' blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/elevenbeans.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2018/04/23/javascript-design-patterns-4/"/>
+
+
+<meta name="description" content="更多文章参见： https://github.com/elevenbeans/elevenbeans.github.io
+
+前言本系列可以看作是我个人对于 Addy Osmani 的著作《Learning JavaScript Design Patterns》中内容的提炼，类似阅读笔记，目的是为了简单快速、又不失全面地了解设计模式的相关概念、特点、分类及其在 Javascript 中的实际产出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript 中的设计模式（五）：MV*">
+<meta property="og:url" content="http://yoursite.com/2018/04/23/javascript-design-patterns-4/index.html">
+<meta property="og:site_name" content="Elevenbeans' blog">
+<meta property="og:description" content="更多文章参见： https://github.com/elevenbeans/elevenbeans.github.io
+
+前言本系列可以看作是我个人对于 Addy Osmani 的著作《Learning JavaScript Design Patterns》中内容的提炼，类似阅读笔记，目的是为了简单快速、又不失全面地了解设计模式的相关概念、特点、分类及其在 Javascript 中的实际产出">
+<meta property="og:updated_time" content="2018-04-23T06:33:49.960Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript 中的设计模式（五）：MV*">
+<meta name="twitter:description" content="更多文章参见： https://github.com/elevenbeans/elevenbeans.github.io
+
+前言本系列可以看作是我个人对于 Addy Osmani 的著作《Learning JavaScript Design Patterns》中内容的提炼，类似阅读笔记，目的是为了简单快速、又不失全面地了解设计模式的相关概念、特点、分类及其在 Javascript 中的实际产出">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-100591386-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+
+    <title> Javascript 中的设计模式（五）：MV* - Elevenbeans' blog </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">
+          <img width="58px" src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/elevenbeans-black.png"/>
+          Elevenbeans' blog
+        </a>
+    </h1>
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/">
+                            
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+    </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Javascript 中的设计模式（五）：MV*
+        
+      </h1>
+
+      <time class="post-time">
+          Apr 23 2018
+      </time>
+    </header>
+
+    
+            <div class="post-content">
+            <script src="/assets/js/APlayer.min.js"> </script><blockquote>
+<p><strong>更多文章参见：</strong> <a href="https://github.com/elevenbeans/elevenbeans.github.io" target="_blank" rel="external">https://github.com/elevenbeans/elevenbeans.github.io</a></p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本系列可以看作是我个人对于 Addy Osmani 的著作《Learning JavaScript Design Patterns》中内容的提炼，类似阅读笔记，目的是为了简单快速、又不失全面地了解设计模式的相关概念、特点、分类及其在 Javascript 中的实际产出。</p>
+<p>分为五篇：</p>
+<ol>
+<li><a href="http://elevenbeans.github.io/2018/03/25/javascript-design-patterns-0/" target="_blank" rel="external">概述</a></li>
+<li><a href="http://elevenbeans.github.io/2018/03/25/javascript-design-patterns-1/" target="_blank" rel="external">创建型</a></li>
+<li><a href="http://elevenbeans.github.io/2018/03/25/javascript-design-patterns-2/" target="_blank" rel="external">结构型</a></li>
+<li><a href="http://elevenbeans.github.io/2018/03/25/javascript-design-patterns-3/" target="_blank" rel="external">行为型</a></li>
+<li><strong>MV*（本篇）</strong></li>
+</ol>
+<h2 id="MV"><a href="#MV" class="headerlink" title="MV*"></a>MV*</h2><p>MV*: 也称 MVW/MVWhatever，包括 MVC、MVP、MVVM 等。</p>
+<h3 id="1-MVC"><a href="#1-MVC" class="headerlink" title="1. MVC"></a><strong>1. MVC</strong></h3><p>MVC 是一种架构设计模式，他强制将业务数据（Model）、用户界面（View）隔离，第三个组件（Controller）管理逻辑和用户输入。</p>
+<p>详细的说明：</p>
+<ul>
+<li>Model 代表特定数据，不了解用户界面（view）和 Controller（控制器）。当一个 Model 改变的时候，<strong>他会通知他的观察者（view）</strong>。</li>
+<li>View 是对于 Model 的可视化描绘。<strong>观察者模式用于让 View 了解 Model 什么时候更新或者修改</strong>。</li>
+<li>Controller 在这个 View-controller 对中的作用是处理用户交互（如按键和点击等动作），为 View 做决定。</li>
+</ul>
+<p><strong>不用惊讶，早前几篇文章提到的 Observer（观察者）模式 or Publish/Subscribe（发布/订阅）在多年以前就是 MVC 架构的一部分 =，=</strong></p>
+<h4 id="Javascript-中的-MVC"><a href="#Javascript-中的-MVC" class="headerlink" title="Javascript 中的 MVC"></a><strong>Javascript 中的 MVC</strong></h4><p>特点是：单向流动、事件驱动。</p>
+<ul>
+<li>模型</li>
+</ul>
+<p>模型用于封装与应用程序的业务逻辑相关的数据以及对数据处理的方法。总之，业务逻辑核心应该体现在这里。</p>
+<ul>
+<li>视图</li>
+</ul>
+<p>视图层最主要的是监听（订阅）模型层上的数据改变，并且实时的更新 HTML 页面。当然也包括一些事件的注册或者 AJAX 请求操作(发布事件), 都是放在视图层来完成。（这里提一点，模型与视图的耦合，显然是违反 MVC 架构原则，但往往我们有时候却因为业务关系而无法完全解耦。）</p>
+<ul>
+<li>控制器</li>
+</ul>
+<p>控制器最主要是接受/订阅从视图层发布的用户事件，然后调用模型去完成业务逻辑相关的数据以及对处理。</p>
+<p>一个完整的过程：</p>
+<ol>
+<li>页面初始化，模型 -&gt; 视图单向流动；</li>
+<li>当页面上触发一个事件，首先，视图层发布事件；</li>
+<li>然后，控制器接受/订阅从视图层发布的用户事件，不输出任何东西及对页面做任何处理，只是接收请求并决定调用模型中的哪个方法去处理，处理完成，模型更新。</li>
+<li>最后，视图层再通过监听（订阅）模型层上的数据改变，调用对应的方法来显示返回的数据。</li>
+</ol>
+<h3 id="2-MVP"><a href="#2-MVP" class="headerlink" title="2. MVP"></a><strong>2. MVP</strong></h3><p>P 即为 Presenter，表示器。和 MVC 不同，MVP 中将 View 层的调用委托给了表示器。而表示器的最大作用就是将 Model 有效的绑定至 View。</p>
+<p>着重谈一下 MVP 和 MVC 的区别。</p>
+<p>在 MVC 模型里，更关注的 Model 的不变，而同时有多个对 Model 的不同显示，即就是多个 View 对一个 Model，Model 并不依赖于 View，但是 View 是依赖于 Model 的。</p>
+<p>如此，经常有一些差异化的业务逻辑在 View 里实现了，导致后续要更改 View 比较困难，至少那些业务逻辑难以重用。</p>
+<p>此外，我们总是顺手在 View 的事件响应函数里完成了 Controller 的代码，让我们很难把 View 和 Controller 分开。</p>
+<p><strong>而在 MVP 里，View 只应该有最最简单的 Set/Get 方法，用户用户输入和设置界面显示的内容，除此就不应该有更多的内容。绝不容许直接直接访问 Model！ – 这就是与 MVC 很大的不同之处。</strong></p>
+<p>Presenter 完全把 Model 和 View 进行了分离，主要的程序逻辑在 Presenter 里实现。而且，Presenter 与具体的 View 是没有直接关联的，而是通过定义好的接口进行交互，从而使得在变更 View 时候可以 保持 Presenter 的不变，即重用。</p>
+<h3 id="3-MVVM"><a href="#3-MVVM" class="headerlink" title="3. MVVM"></a><strong>3. MVVM</strong></h3><p>VM 即为 ViewModel，视图模型。和 MVC 不同，MVVM 中将 ViewModel 作为一个专门的 Controller。</p>
+<p>ViewModel 是在 View 和 Model 之间充当中间人角色。</p>
+<p>它可以将在 Model 中保存的原始数据（如时间戳 1333832407）转变成实际 View 层需要展示的格式（如 04/07/2012 @ 5:00pm）。这个角度来讲，他更类偏向 Model。</p>
+<p>另一方面，ViewModel 还有可能暴露一些方法，用于保持 View 的状态，基于 View 上的操作来更新 Model， 并触发 View 上的事件。这个角度蕾酱，他更偏向于 View。</p>
+<p>总之，VM 位于 View 层之后，从 Model 获取并暴露了 View 所需数据。并集成了更新View 的状态操作。</p>
+<p><strong>优点：UI 抽象化，View 层变和业务逻辑解耦、UI 单测友好</strong></p>
+<h4 id="Javascript-中的-MVVM"><a href="#Javascript-中的-MVVM" class="headerlink" title="Javascript 中的 MVVM"></a><strong>Javascript 中的 MVVM</strong></h4><p>说到 MVVM 就不得不提 <a href="https://cn.vuejs.org/" target="_blank" rel="external">Vue.js</a> 。她可以说是MVVM 架构的最佳实践，专注于 MVVM 中的 ViewModel，不仅做到了数据双向绑定，而且也是一款相对比较轻量级的 JS 库，API 简洁，很容易上手。</p>
+<p>看过的比较全面且清楚明了的 MVVM 文章在这里： <a href="https://segmentfault.com/a/1190000006599500" target="_blank" rel="external">https://segmentfault.com/a/1190000006599500</a></p>
+<h3 id="Referrence"><a href="#Referrence" class="headerlink" title="Referrence"></a>Referrence</h3><blockquote>
+<p><a href="https://blog.csdn.net/xu_mengmeng/article/details/50587132" target="_blank" rel="external">https://blog.csdn.net/xu_mengmeng/article/details/50587132</a><br><a href="https://www.cnblogs.com/LIUYANZUO/p/7231703.html?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">https://www.cnblogs.com/LIUYANZUO/p/7231703.html?utm_source=tuicool&amp;utm_medium=referral</a><br><a href="https://segmentfault.com/a/1190000006599500" target="_blank" rel="external">https://segmentfault.com/a/1190000006599500</a></p>
+</blockquote>
+<p><strong>设计模式系列介绍到此结束，持续关注请 Star and Watch <a href="https://github.com/elevenbeans/elevenbeans.github.io" target="_blank" rel="external">This github repo</a>， 谢谢   ：）</strong></p>
+
+            </div>
+          
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+          
+             <span class="post-new">NEW</span>
+          
+          
+            <a href="/tags/Javascript/">Javascript</a>
+          
+            <a href="/tags/Design-patterns/">Design patterns</a>
+          
+          
+
+        </div>
+       
+         
+         
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2018/04/15/es6-tips/">
+        <span class="next-text nav-default">【译】ES6 中的一些技巧，使你的代码更清晰，更简短，更易读！</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+         
+  <div class="comments" id="comments">
+    
+    <div id="comment-container"></div>
+  </div>
+
+
+       
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2018
+    <span class="footer-author"><a href="https://github.com/elevenbeans" target="_blank">@elevenbeans</a>.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+
+</span>
+<script>
+var gitment = new Gitment({
+  id: location.pathname, // 可选。默认为 location.href
+  owner: 'elevenbeans',
+  repo: 'elevenbeans.github.io',
+  oauth: {
+    client_id: '34a6c343407ce5dcf922',
+    client_secret: '9669a9498f09f3b21711bd666a50db5929e78256',
+  },
+})
+gitment.render('comment-container')
+</script>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
