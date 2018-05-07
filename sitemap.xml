@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://elevenbeans.github.io/2018/02/05/top-10-javascript-errors/</loc>
+    
+    <lastmod>2018-05-07T03:26:30.513Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://elevenbeans.github.io/2018/04/23/javascript-design-patterns-4/</loc>
     
     <lastmod>2018-04-23T06:36:41.948Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>http://elevenbeans.github.io/2018/01/12/front-end-layout-methods/</loc>
     
     <lastmod>2018-04-02T02:20:35.607Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://elevenbeans.github.io/2018/02/05/top-10-javascript-errors/</loc>
-    
-    <lastmod>2018-04-02T02:18:10.666Z</lastmod>
     
   </url>
   
