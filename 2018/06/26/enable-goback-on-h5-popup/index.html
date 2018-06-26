@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+<meta name="baidu-site-verification" content="HTOBD3Guy9" />
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="我们不一样"/>
+
+
+
+
+  <meta name="keywords" content="Javascript,Browser," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Elevenbeans' blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/elevenbeans.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2018/06/26/enable-goback-on-h5-popup/"/>
+
+
+<meta name="description" content="引言有一些 H5 开发者耳熟能详的问题。
+比如，老板会问你：“你这个 H5 页面为什么这么卡？为啥 IOS 那么流畅？”，
+比如，业务方会问你：“为什么你这个功能做不了？人家 Native 可以做？”，
+再比如，交互甚至也会经常挑战你：“为什么安卓能做到这样的交互效果，你不可以？”。
+我只想说，作为 H5 开发，我们是有苦衷的 =，=
+
+尽力而为。
+这个问题确实困扰了挺久了H5 页面中，浏览器/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我们不一样">
+<meta property="og:url" content="http://yoursite.com/2018/06/26/enable-goback-on-h5-popup/index.html">
+<meta property="og:site_name" content="Elevenbeans' blog">
+<meta property="og:description" content="引言有一些 H5 开发者耳熟能详的问题。
+比如，老板会问你：“你这个 H5 页面为什么这么卡？为啥 IOS 那么流畅？”，
+比如，业务方会问你：“为什么你这个功能做不了？人家 Native 可以做？”，
+再比如，交互甚至也会经常挑战你：“为什么安卓能做到这样的交互效果，你不可以？”。
+我只想说，作为 H5 开发，我们是有苦衷的 =，=
+
+尽力而为。
+这个问题确实困扰了挺久了H5 页面中，浏览器/">
+<meta property="og:image" content="https://imgsa.baidu.com/forum/w%3D580/sign=0e9e8df07e310a55c424defc87444387/5282a91c8701a18b7e7e054c992f07082938fef7.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/before.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/after.gif">
+<meta property="og:updated_time" content="2018-06-26T12:51:23.675Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我们不一样">
+<meta name="twitter:description" content="引言有一些 H5 开发者耳熟能详的问题。
+比如，老板会问你：“你这个 H5 页面为什么这么卡？为啥 IOS 那么流畅？”，
+比如，业务方会问你：“为什么你这个功能做不了？人家 Native 可以做？”，
+再比如，交互甚至也会经常挑战你：“为什么安卓能做到这样的交互效果，你不可以？”。
+我只想说，作为 H5 开发，我们是有苦衷的 =，=
+
+尽力而为。
+这个问题确实困扰了挺久了H5 页面中，浏览器/">
+<meta name="twitter:image" content="https://imgsa.baidu.com/forum/w%3D580/sign=0e9e8df07e310a55c424defc87444387/5282a91c8701a18b7e7e054c992f07082938fef7.jpg">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-100591386-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+
+    <title> 我们不一样 - Elevenbeans' blog </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">
+          <img width="58px" src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/elevenbeans-black.png"/>
+          Elevenbeans' blog
+        </a>
+    </h1>
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/">
+                            
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+    </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          我们不一样
+        
+      </h1>
+
+      <time class="post-time">
+          Jun 26 2018
+      </time>
+    </header>
+
+    
+            <div class="post-content">
+            <script src="/assets/js/APlayer.min.js"> </script><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a><strong>引言</strong></h2><p>有一些 H5 开发者耳熟能详的问题。</p>
+<p>比如，老板会问你：“你这个 H5 页面为什么这么卡？为啥 IOS 那么流畅？”，</p>
+<p>比如，业务方会问你：“为什么你这个功能做不了？人家 Native 可以做？”，</p>
+<p>再比如，交互甚至也会经常挑战你：“为什么安卓能做到这样的交互效果，你不可以？”。</p>
+<p>我只想说，作为 H5 开发，我们是有苦衷的 =，=</p>
+<p><img src="https://imgsa.baidu.com/forum/w%3D580/sign=0e9e8df07e310a55c424defc87444387/5282a91c8701a18b7e7e054c992f07082938fef7.jpg"></p>
+<p>尽力而为。</p>
+<h2 id="这个问题确实困扰了挺久了"><a href="#这个问题确实困扰了挺久了" class="headerlink" title="这个问题确实困扰了挺久了"></a><strong>这个问题确实困扰了挺久了</strong></h2><p>H5 页面中，浏览器/安卓 的 back 键，默认会直接回退到上一个页面，这听起来似乎十分正常。</p>
+<p>但是对于一个以 Web App 为导向的产品来讲，当前习惯 APP 交互操作的用户的第一反应应该会是：如果有浮层的话，解散浮层（不管你承不承认，事实如此）。</p>
+<p>话不多说直接上图：</p>
+<p><img width="300px" src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/before.gif"></p>
+<p><strong>点击浏览器回退直接。。。 体验不够好！！！</strong></p>
+<p>说实话，关于这个交互的优化，一开始我是拒绝的。</p>
+<p>浏览器默认行为！你要我怎样？我即便是改了，有很多副作用你知道吗？<code>history</code> 你能随随便便玩得起？</p>
+<p>直到某天灵（kan）机（dao）一（jing）动（pin），有（bei）了（da）头（lian）绪（le）。</p>
+<h2 id="我觉得不做不行了"><a href="#我觉得不做不行了" class="headerlink" title="我觉得不做不行了"></a><strong>我觉得不做不行了</strong></h2><p>一样的套路，<em>要把大象装冰箱，总共分几步？</em></p>
+<p>第 1 步：浮层被点击唤起时，为 URL Push 一个 Hash 值（要唯一）；<br>第 2 步：浮层被用户通过自定义关闭按钮解散时，主动去掉对应 Hash；<br>第 3 步：监听<code>popstate</code>事件，用户点击浏览器/安卓回退按钮时，解散对应浮层（通过唯一 Hash 值匹配），此时 Hash 值也会被浏览器默认 pop 掉，Over～</p>
+<p>现在看起来就像那么回事了：</p>
+<p><img width="300px" src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/after.gif"></p>
+<p>当然，还有复杂一点的，嵌套浮层的 case 需要考虑。不过这时候我觉得就到了我文字表达能力的盲区了 =，=</p>
+<p>上代码：</p>
+<p>这是我封装好的一个 React 组件代码：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><code><div class="line"><span class="comment">// Enback component</span></div><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</div><div class="line"></div><div class="line"><span class="keyword">let</span> hashStr = location.hash;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Enback</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">static</span> defaultProps = &#123;</div><div class="line">    <span class="attr">uniqueKey</span>: <span class="string">'newPop'</span>,</div><div class="line">    <span class="attr">isShown</span>: <span class="literal">false</span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">static</span> propTypes = &#123;</div><div class="line">    <span class="attr">uniqueKey</span>: PropTypes.string,</div><div class="line">    <span class="attr">isShown</span>: PropTypes.bool</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">constructor</span>(props) &#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line">  &#125;</div><div class="line">  componentDidMount = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">const</span> &#123; uniqueKey, popStateCallback &#125; = <span class="keyword">this</span>.props;</div><div class="line">    <span class="comment">// why handle history twice? https://stackoverflow.com/questions/11092736/window-onpopstate-event-state-null</span></div><div class="line">    <span class="keyword">if</span> (location.hash) &#123;</div><div class="line">      history.replaceState(&#123; <span class="string">'uniqueKey'</span>: uniqueKey &#125;, <span class="literal">null</span>, <span class="string">`<span class="subst">$&#123;location.hash&#125;</span>`</span>);</div><div class="line">      history.pushState(&#123; <span class="string">'uniqueKey'</span>: uniqueKey &#125;, <span class="literal">null</span>, <span class="string">`<span class="subst">$&#123;location.hash&#125;</span>/<span class="subst">$&#123;uniqueKey&#125;</span>`</span>);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      history.replaceState(&#123; <span class="string">'uniqueKey'</span>: uniqueKey &#125;, <span class="literal">null</span>, <span class="string">`#`</span>);</div><div class="line">      history.pushState(&#123; <span class="string">'uniqueKey'</span>: uniqueKey &#125;, <span class="literal">null</span>, <span class="string">`#<span class="subst">$&#123;uniqueKey&#125;</span>`</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.Lizard) &#123;</div><div class="line">      <span class="built_in">window</span>.Lizard.disablePopStateListener = <span class="literal">true</span>;</div><div class="line">    &#125;</div><div class="line">    hashStr = location.hash;</div><div class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">'popstate'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span> (e.state &amp;&amp; e.state.uniqueKey === uniqueKey) &#123;</div><div class="line">        popStateCallback(uniqueKey);</div><div class="line">        hashStr = location.hash;</div><div class="line">      &#125;</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line">  truncate(arr) &#123;</div><div class="line">    <span class="keyword">var</span> newArr = arr.join().split(<span class="string">','</span>);</div><div class="line">    newArr.pop();</div><div class="line">    <span class="keyword">return</span> newArr;</div><div class="line">  &#125;</div><div class="line">  componentWillUnmount = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">this</span>.setState = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      <span class="keyword">return</span>;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">const</span> &#123; uniqueKey &#125; = <span class="keyword">this</span>.props;</div><div class="line">    <span class="keyword">if</span> (hashStr.indexOf(<span class="string">'/'</span>) !== <span class="number">-1</span>) &#123;</div><div class="line">      history.replaceState(<span class="literal">null</span>, <span class="literal">null</span>, <span class="keyword">this</span>.truncate(hashStr.split(<span class="string">'/'</span>)));</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="keyword">if</span> (uniqueKey === hashStr.split(<span class="string">''</span>).slice(<span class="number">1</span>).join(<span class="string">''</span>)) &#123;</div><div class="line">        history.replaceState(<span class="literal">null</span>, <span class="literal">null</span>, <span class="string">'#'</span>);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    hashStr = location.hash;</div><div class="line">  &#125;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div&gt;</div><div class="line">        &#123;</div><div class="line">          React.Children.map(</div><div class="line">            this.props.children,</div><div class="line">            child =&gt;</div><div class="line">                &lt;div</div><div class="line">                  className = "triplet-enback"</div><div class="line">                &gt;</div><div class="line">                  &#123; child &#125;</div><div class="line">                &lt;/div&gt;</div><div class="line">          )</div><div class="line">        &#125;</div><div class="line">      &lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> Enback;</div></code></pre></td></tr></table></figure>
+<p>这是用法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><code><div class="line"><span class="comment">// Useage</span></div><div class="line"><span class="keyword">import</span> Enback <span class="keyword">from</span> <span class="string">'../../enback'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> () =&gt; (</div><div class="line">  &lt;Enback</div><div class="line">    uniqueKey = "uniqueKey"</div><div class="line">    popStateCallback = &#123; ()=&gt; &#123;/* here to hide your popup*/&#125; &#125;</div><div class="line">  &gt;</div><div class="line">    &lt;div&gt; This is a popup &lt;/div&gt;</div><div class="line">  &lt;/Enback&gt;</div><div class="line">);</div></code></pre></td></tr></table></figure>
+<p><strong>不玩 React？没关系，这里有原生的做法：<a href="https://github.com/zhaoqize/blog/issues/20" target="_blank" rel="external">https://github.com/zhaoqize/blog/issues/20</a></strong></p>
+<p>谢谢捧场。</p>
+
+            </div>
+          
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+          
+          
+            <a href="/tags/Javascript/">Javascript</a>
+          
+            <a href="/tags/Browser/">Browser</a>
+          
+          
+
+        </div>
+       
+         
+         
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2018/04/23/javascript-design-patterns-4/">
+        <span class="next-text nav-default">Javascript 中的设计模式（五）：MV*</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+         
+  <div class="comments" id="comments">
+    
+    <div id="comment-container"></div>
+  </div>
+
+
+       
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2018
+    <span class="footer-author"><a href="https://github.com/elevenbeans" target="_blank">@elevenbeans</a>.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+
+</span>
+<script>
+var gitment = new Gitment({
+  id: location.pathname, // 可选。默认为 location.href
+  owner: 'elevenbeans',
+  repo: 'elevenbeans.github.io',
+  oauth: {
+    client_id: '34a6c343407ce5dcf922',
+    client_secret: '9669a9498f09f3b21711bd666a50db5929e78256',
+  },
+})
+gitment.render('comment-container')
+</script>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
