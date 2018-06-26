@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://elevenbeans.github.io/2018/06/26/enable-goback-on-h5-popup/</loc>
-    <lastmod>2018-06-26T14:02:40.021Z</lastmod>
+    <lastmod>2018-06-26T14:05:46.480Z</lastmod>
     <data>
         <display>
         <title>H5：“同样是回退，我们不一样”</title>
@@ -26,14 +26,16 @@
 
     
   <url>
-    <loc>http://elevenbeans.github.io/2018/02/05/top-10-javascript-errors/</loc>
-    <lastmod>2018-05-07T03:26:30.513Z</lastmod>
+    <loc>http://elevenbeans.github.io/2018/04/23/javascript-design-patterns-4/</loc>
+    <lastmod>2018-06-26T14:05:42.327Z</lastmod>
     <data>
         <display>
-        <title>【译】10 种最常见的 Javascript 错误</title>
-        <pubTime>2018-02-05T03:10:59.000Z</pubTime>
+        <title>Javascript 中的设计模式（五）：MV*</title>
+        <pubTime>2018-04-23T06:23:06.000Z</pubTime>
         
-        <tag>Javascript errors</tag>
+        <tag>Javascript</tag>
+         
+        <tag>Design patterns</tag>
          
          
            
@@ -46,16 +48,14 @@
 
     
   <url>
-    <loc>http://elevenbeans.github.io/2018/04/23/javascript-design-patterns-4/</loc>
-    <lastmod>2018-04-23T06:36:41.948Z</lastmod>
+    <loc>http://elevenbeans.github.io/2018/02/05/top-10-javascript-errors/</loc>
+    <lastmod>2018-05-07T03:26:30.513Z</lastmod>
     <data>
         <display>
-        <title>Javascript 中的设计模式（五）：MV*</title>
-        <pubTime>2018-04-23T06:23:06.000Z</pubTime>
+        <title>【译】10 种最常见的 Javascript 错误</title>
+        <pubTime>2018-02-05T03:10:59.000Z</pubTime>
         
-        <tag>Javascript</tag>
-         
-        <tag>Design patterns</tag>
+        <tag>Javascript errors</tag>
          
          
            
