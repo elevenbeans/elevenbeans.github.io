@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+<meta name="baidu-site-verification" content="HTOBD3Guy9" />
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="使用 RN Animated 做一个“添加购物车”动画"/>
+
+
+
+
+  <meta name="keywords" content="React Native,Animated," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Elevenbeans' blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/elevenbeans.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2018/09/10/react-native-animation/"/>
+
+
+<meta name="description" content="最近在选座的新项目中试用了一下 React Native，熟悉新框架的同时，可以略微将交互效果和 Native 看齐了。
+分享一下项目本身比较重要的一个交互动画的做法, RT。
+
+这次我们就不装大象了，因为我真的买了冰箱 =,=
+本着言简意赅，不故弄玄虚的原则，依然是三步：
+第 1 步：通过 Animated 创建合成动画的 View。仔细观察，“选择座位” 动画和 “添加购物车” 动画类似，都">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 RN Animated 做一个“添加购物车”动画">
+<meta property="og:url" content="http://yoursite.com/2018/09/10/react-native-animation/index.html">
+<meta property="og:site_name" content="Elevenbeans' blog">
+<meta property="og:description" content="最近在选座的新项目中试用了一下 React Native，熟悉新框架的同时，可以略微将交互效果和 Native 看齐了。
+分享一下项目本身比较重要的一个交互动画的做法, RT。
+
+这次我们就不装大象了，因为我真的买了冰箱 =,=
+本着言简意赅，不故弄玄虚的原则，依然是三步：
+第 1 步：通过 Animated 创建合成动画的 View。仔细观察，“选择座位” 动画和 “添加购物车” 动画类似，都">
+<meta property="og:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/RN_Animation.gif">
+<meta property="og:updated_time" content="2018-09-10T10:27:14.209Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用 RN Animated 做一个“添加购物车”动画">
+<meta name="twitter:description" content="最近在选座的新项目中试用了一下 React Native，熟悉新框架的同时，可以略微将交互效果和 Native 看齐了。
+分享一下项目本身比较重要的一个交互动画的做法, RT。
+
+这次我们就不装大象了，因为我真的买了冰箱 =,=
+本着言简意赅，不故弄玄虚的原则，依然是三步：
+第 1 步：通过 Animated 创建合成动画的 View。仔细观察，“选择座位” 动画和 “添加购物车” 动画类似，都">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/elevenBeans/Grocery/master/RN_Animation.gif">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-100591386-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+
+    <title> 使用 RN Animated 做一个“添加购物车”动画 - Elevenbeans' blog </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">
+          <img width="58px" src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/elevenbeans-black.png"/>
+          Elevenbeans' blog
+        </a>
+    </h1>
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/">
+                            
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+    </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          使用 RN Animated 做一个“添加购物车”动画
+        
+      </h1>
+
+      <time class="post-time">
+          Sep 10 2018
+      </time>
+    </header>
+
+    
+            <div class="post-content">
+            <script src="/assets/js/APlayer.min.js"> </script><p>最近在选座的新项目中试用了一下 React Native，熟悉新框架的同时，可以略微将交互效果和 Native 看齐了。</p>
+<p>分享一下项目本身比较重要的一个交互动画的做法, RT。</p>
+<p><img width="300px" src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/RN_Animation.gif"></p>
+<p><strong>这次我们就不装大象了，因为我真的买了冰箱 =,=</strong></p>
+<p>本着言简意赅，不故弄玄虚的原则，依然是三步：</p>
+<p>第 1 步：通过 <code>Animated</code> 创建合成动画的 View。仔细观察，“选择座位” 动画和 “添加购物车” 动画类似，都可以分解为透明度变化（<code>opacity</code>）和 3D 变化（<code>transform</code>）两部分。而 <code>transform</code> 又能进一步分解为水平位移（<code>translateX</code>）、垂直位移（<code>translateY</code>）、旋转（<code>rotateZ</code>）、缩放（<code>scale</code>）四个分动画；<br>第 2 步：响应点击事件，准备好动画的相关参数。目标位置被点击时，通过 <code>onPress</code> 事件中的 <code>event</code> 对象保留点击的位置坐标（<code>event.nativeEvent.changedTouches[0].pageX|Y</code>），作为动画起始位置，并确认终点位置（一般为固定位置，也可以动态获取）。其中<code>opacity</code>、<code>rotateZ</code>、<code>scale</code>都属于静态变化，分别是 <code>1 -&gt; 0</code> <code>0deg -&gt; 360deg</code> <code>1 -&gt; 0</code>（可以利用 <code>interpolate</code> 方法做各个属性不同类型值的 mapping，更加方便统一控制）；<br>第 3 步：<code>start()</code> 播放动画；</p>
+<p><strong>注意：类似的全局动画要展示在最高层级，防止被后渲染的组件遮挡，最好单独封装组建提升其在 UI 中的渲染层级。</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div></pre></td><td class="code"><pre><code><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  StyleSheet,</div><div class="line">  View,</div><div class="line">  Image,</div><div class="line">  Animated</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">SeatDropping</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">PureComponent</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span> (props) &#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line">    <span class="keyword">this</span>.state = &#123;</div><div class="line">      <span class="attr">animValue</span>: <span class="keyword">new</span> Animated.Value(<span class="number">0</span>),</div><div class="line">      <span class="attr">fromPageX</span>: props.clickedPosition.x, <span class="comment">// from event.nativeEvent.changedTouches[0]</span></div><div class="line">      fromPageY: props.clickedPosition.y,</div><div class="line">      <span class="attr">toPageX</span>: props.psgPosition.x,</div><div class="line">      <span class="attr">toPageY</span>: props.psgPosition.y</div><div class="line">    &#125;;</div><div class="line">  &#125;</div><div class="line">  componentDidMount() &#123;</div><div class="line">    Animated.timing(</div><div class="line">      <span class="keyword">this</span>.state.animValue,</div><div class="line">      &#123;</div><div class="line">        <span class="attr">toValue</span>: <span class="number">1</span>,</div><div class="line">        <span class="attr">duration</span>: <span class="number">600</span></div><div class="line">      &#125;</div><div class="line">    ).start();</div><div class="line">  &#125;</div><div class="line">  render () &#123;</div><div class="line">    <span class="keyword">const</span> &#123;</div><div class="line">      animValue,</div><div class="line">      fromPageX,</div><div class="line">      fromPageY,</div><div class="line">      toPageX,</div><div class="line">      toPageY</div><div class="line">    &#125; = <span class="keyword">this</span>.state;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;Animated.View</div><div class="line">        style=&#123;&#123;</div><div class="line">          zIndex: 9,</div><div class="line">          position: 'absolute',</div><div class="line">          opacity: animValue.interpolate(&#123;</div><div class="line">            inputRange: [0, 1],</div><div class="line">            outputRange: [1, 0]</div><div class="line">          &#125;),</div><div class="line">          transform: [</div><div class="line">            &#123;</div><div class="line">              translateX: animValue.interpolate(&#123;</div><div class="line">                inputRange: [0, 1],</div><div class="line">                outputRange: [`$&#123;fromPageX&#125;px`, `$&#123;toPageX&#125;px`]</div><div class="line">              &#125;)</div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">              translateY: animValue.interpolate(&#123;</div><div class="line">                inputRange: [0, 1],</div><div class="line">                outputRange: [`$&#123;fromPageY&#125;px`, `$&#123;toPageY&#125;px`]</div><div class="line">              &#125;)</div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">              rotateZ: animValue.interpolate(&#123;</div><div class="line">                inputRange: [0, 1],</div><div class="line">                outputRange: ['0deg', '180deg']</div><div class="line">              &#125;)</div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">              scale: animValue.interpolate(&#123;</div><div class="line">                inputRange: [0, 1],</div><div class="line">                outputRange: [1, 0]</div><div class="line">              &#125;)</div><div class="line">            &#125;</div><div class="line">          ]&#125;&#125;</div><div class="line">      &gt;</div><div class="line">        &lt;Image</div><div class="line">          source=&#123;require('../img/ic_seat_focus.png')&#125;</div><div class="line">          style=&#123;[</div><div class="line">            &#123;</div><div class="line">              width: 36,</div><div class="line">              height: 32,</div><div class="line">              zIndex: 9</div><div class="line">            &#125;</div><div class="line">          ]&#125;</div><div class="line">        /&gt;</div><div class="line">      &lt;/Animated.View&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></code></pre></td></tr></table></figure>
+<p>Done～</p>
+
+            </div>
+          
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+          
+             <span class="post-new">NEW</span>
+          
+          
+            <a href="/tags/React-Native/">React Native</a>
+          
+            <a href="/tags/Animated/">Animated</a>
+          
+          
+
+        </div>
+       
+         
+         
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2018/08/02/summary-of-my-2017-2018/">
+        <span class="next-text nav-default">2017-2018 小结</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+         
+  <div class="comments" id="comments">
+    
+    <div id="comment-container"></div>
+  </div>
+
+
+       
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2018
+    <span class="footer-author"><a href="https://github.com/elevenbeans" target="_blank">@elevenbeans</a>.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+
+</span>
+<script>
+var gitment = new Gitment({
+  id: location.pathname, // 可选。默认为 location.href
+  owner: 'elevenbeans',
+  repo: 'elevenbeans.github.io',
+  oauth: {
+    client_id: '34a6c343407ce5dcf922',
+    client_secret: '9669a9498f09f3b21711bd666a50db5929e78256',
+  },
+})
+gitment.render('comment-container')
+</script>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
