@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://elevenbeans.github.io/2018/09/10/react-native-animation/</loc>
+    <loc>http://elevenbeans.github.io/2017/09/19/pull-to-refresh/</loc>
     
-    <lastmod>2018-09-10T10:58:08.533Z</lastmod>
+    <lastmod>2018-09-20T07:04:36.029Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://elevenbeans.github.io/2018/06/26/enable-goback-on-h5-popup/</loc>
     
-    <lastmod>2018-09-10T09:04:20.469Z</lastmod>
+    <lastmod>2018-09-20T07:03:39.091Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://elevenbeans.github.io/2018/09/10/react-native-animation/</loc>
+    
+    <lastmod>2018-09-10T10:58:08.533Z</lastmod>
     
   </url>
   
@@ -271,13 +278,6 @@
     <loc>http://elevenbeans.github.io/2017/08/28/Rocker-Jaber-0/</loc>
     
     <lastmod>2018-03-25T06:36:39.139Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://elevenbeans.github.io/2017/09/19/pull-to-refresh/</loc>
-    
-    <lastmod>2018-03-25T06:36:25.294Z</lastmod>
     
   </url>
   
