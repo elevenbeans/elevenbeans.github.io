@@ -45,7 +45,7 @@
 <meta property="og:description" content="原文地址：https://kellysutton.com/2018/10/08/8-tips-for-great-code-reviews.html更多内容请见译者 Blog：https://github.com/elevenbeans/elevenbeans.github.io
 
 你在学校里不曾学到的东西中有一件是：如何才做出优秀的 Code Review。你学到了算法、数据结构、编程语言基">
-<meta property="og:updated_time" content="2018-11-14T08:34:05.835Z">
+<meta property="og:updated_time" content="2018-11-14T08:42:14.359Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【译】8 个 Tips 让你更好的进行 Code Review">
 <meta name="twitter:description" content="原文地址：https://kellysutton.com/2018/10/08/8-tips-for-great-code-reviews.html更多内容请见译者 Blog：https://github.com/elevenbeans/elevenbeans.github.io
@@ -171,7 +171,7 @@
 <li>你在信任的环境中工作，或者您和您的团队正在努力提高你对他们的信任度；</li>
 <li>您应该能够在非代码方案中提供反馈，或者正在努力在您的团队中提供反馈；</li>
 <li>你的团队希望产生更好的代码，并且理解完美是动词而不是形容词。 我们明天可能会找到一种更好的做事方式，我们需要保持开放的心态；</li>
-<li>你的公司重视高质量的代码，并理解业务可能不会快速交付。 Ship 用引号是因为未经测试和未经审核的代码实际上可能无法正常工作；</li>
+<li>你的公司重视高质量的代码，并理解业务可能不会快速“交付”。用引号是因为未经测试和未经审核的代码实际上可能无法正常工作；</li>
 </ul>
 <p>现在我们已经制定了一些基本规则，让我们深入研究。</p>
 <h2 id="1-我们是人类"><a href="#1-我们是人类" class="headerlink" title="1. 我们是人类"></a>1. 我们是人类</h2><p>很好理解，你即将审核的代码中，有人花了时间、付出了心血。他们会希望自己的代码写的很棒。你的同事会表现出最好的意图，没有人愿意发送蹩脚的代码。</p>
@@ -184,12 +184,12 @@
 <p>这个方法让我有点困惑，我们能为这个变量找到一个更好的名字吗？</p>
 </blockquote>
 <p>这里，我们会解释我们作为读者对代码的看法。这不是他们的行为或意图。这是关于我们和我们对代码的解释。</p>
-<p>每个 PR 都是它自己的<a href="https://www.amazon.com/Difficult-Conversations-Discuss-What-Matters/dp/0143118447" target="_blank" rel="external">艰难对话</a>。尝试与您的队友达成共识，共同努力实现更好的代码。</p>
-<p>如果您刚刚结识了队友，并且您对 PR 有重要反馈，请一起浏览代码。这将是一个与同事建立关系的好机会。与每位同事一起做到这一点，直到这件事情让你不再感觉尴尬。</p>
-<h2 id="2-自动化"><a href="#2-自动化" class="headerlink" title="2. 自动化"></a>2. 自动化</h2><p>如果计算机可以决定并执行规则，请让计算机执行此操作。无休止地争论 Space 与 Tab 并不能充分利用时间、提高任何效率。相反，应该花时间对于规则达成一致意见。在低风险情景中，这有机会可以让你了解你的团队在“不认同但承诺”方面的表现。</p>
+<p>每个 PR 都是它自己的<a href="https://www.amazon.com/Difficult-Conversations-Discuss-What-Matters/dp/0143118447" target="_blank" rel="external">艰难对话</a>。尝试与您的同事达成共识，共同努力实现更好的代码。</p>
+<p>如果您刚刚结识了同事，并且您对 PR 有重要反馈，请一起浏览代码。这将是一个与同事建立关系的好机会。与每位同事一起做到这一点，直到这件事情让你不再感觉尴尬。</p>
+<h2 id="2-自动化"><a href="#2-自动化" class="headerlink" title="2. 自动化"></a>2. 自动化</h2><p>如果计算机可以决定并执行规则，请让计算机执行此操作。无休止地争论 Space 与 Tab 并不能充分利用时间、提高任何效率。相反，应该花时间对于规则达成一致意见。在低风险情景中，这有机会可以让你了解你的团队在 <strong>“不认同但承诺”</strong> 方面的表现。</p>
 <p>语言和现代工具链不缺乏执行规则（linting）和复用它们的方法。 在 Ruby 中，你有 Rubocop; 在JavaScript 中，Jslint/eslint。 找到你的语言的 linter 并将其插入你项目的构建流程。</p>
 <p>如果您发现缺少现有的 linter，请自己编写！ 编写自己的规则非常简单。 在 Gusto 中，我们使用自定义的 linter 规则来捕捉类的弃用或温和地提醒人们遵守一些 Sidekiq 的最佳实践。</p>
-<h2 id="3-全员参与"><a href="#3-全员参与" class="headerlink" title="3. 全员参与"></a>3. 全员参与</h2><p>将所有代码审查职责交给 Shirley 是很诱人的。</p>
+<h2 id="3-全员参与"><a href="#3-全员参与" class="headerlink" title="3. 全员参与"></a>3. 全员参与</h2><p>将所有代码审查职责一股脑全交给 Shirley 是很诱人的。</p>
 <p>Shirley 是一个关于代码的大师，她总是知道什么是最好的。她知道系统的来龙去脉，而且她在公司工作的时间超过了团队的集体任期。</p>
 <p>然而，仅仅因为 Shirley 理解某些事情并不意味着她的团队中的其他人可以理解。年轻的团队成员可能会对指出 Shirley 的代码评论的问题而犹豫不决。</p>
 <p>我发现将评论分发给团队的不同成员会产生更健康的团队互动和更好的代码。初级工程师在代码审查中最强大的一句是“我发现这令人困惑。”这些就是使代码更清晰，更简单的机会。</p>
