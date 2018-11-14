@@ -1,5 +1,5 @@
 .post-link {
-  font-size: 24px; }
+  font-size: 18px; }
 
 .home .post .post-footer {
   border-top: 0 !important; }
@@ -393,7 +393,7 @@ p {
   text-align: justify; }
 
 html {
-  font-size: 16px;
+  font-size: 14px;
   box-sizing: border-box; }
 
 body {
@@ -554,7 +554,7 @@ h6 {
     padding-left: 0px;
     margin: 0 auto; }
     #nav-top .nav-top-items .menu-item {
-      font-size: 16px;
+      font-size: 14px;
       margin-left: 30px;
       display: inline-block; }
       #nav-top .nav-top-items .menu-item a {
@@ -786,7 +786,7 @@ h6 {
       .post .post-content .read-more .read-more-link:hover {
         border-bottom: 1px solid #4D89FB; }
   .post .post-footer {
-    margin-top: 20px;
+    margin-top: 9px;
     border-top: 1px solid #eee;
     font-family: "Open Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif; }
     .post .post-footer .post-tags {
