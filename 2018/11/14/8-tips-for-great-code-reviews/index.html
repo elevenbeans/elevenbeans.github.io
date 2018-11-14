@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+<meta name="baidu-site-verification" content="HTOBD3Guy9" />
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="【译】8 个 Tips 让你更好的进行 Code Review"/>
+
+
+
+
+  <meta name="keywords" content="Code review," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Elevenbeans">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/elevenbeans.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2018/11/14/8-tips-for-great-code-reviews/"/>
+
+
+<meta name="description" content="原文地址：https://kellysutton.com/2018/10/08/8-tips-for-great-code-reviews.html更多内容请见译者 Blog：https://github.com/elevenbeans/elevenbeans.github.io
+
+你在学校里不曾学到的东西中有一件是：如何才做出优秀的 Code Review。你学到了算法、数据结构、编程语言基">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】8 个 Tips 让你更好的进行 Code Review">
+<meta property="og:url" content="http://yoursite.com/2018/11/14/8-tips-for-great-code-reviews/index.html">
+<meta property="og:site_name" content="Elevenbeans">
+<meta property="og:description" content="原文地址：https://kellysutton.com/2018/10/08/8-tips-for-great-code-reviews.html更多内容请见译者 Blog：https://github.com/elevenbeans/elevenbeans.github.io
+
+你在学校里不曾学到的东西中有一件是：如何才做出优秀的 Code Review。你学到了算法、数据结构、编程语言基">
+<meta property="og:updated_time" content="2018-11-14T08:34:05.835Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【译】8 个 Tips 让你更好的进行 Code Review">
+<meta name="twitter:description" content="原文地址：https://kellysutton.com/2018/10/08/8-tips-for-great-code-reviews.html更多内容请见译者 Blog：https://github.com/elevenbeans/elevenbeans.github.io
+
+你在学校里不曾学到的东西中有一件是：如何才做出优秀的 Code Review。你学到了算法、数据结构、编程语言基">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-100591386-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+
+    <title> 【译】8 个 Tips 让你更好的进行 Code Review - Elevenbeans </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">
+          <img width="58px" src="https://raw.githubusercontent.com/elevenBeans/Grocery/master/elevenbeans-black.png"/>
+          Elevenbeans
+        </a>
+    </h1>
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/">
+                            
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+    </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          【译】8 个 Tips 让你更好的进行 Code Review
+        
+      </h1>
+
+      <time class="post-time">
+          Nov 14 2018
+      </time>
+    </header>
+
+    
+            <div class="post-content">
+            <script src="/assets/js/APlayer.min.js"> </script><blockquote>
+<p>原文地址：<a href="https://kellysutton.com/2018/10/08/8-tips-for-great-code-reviews.html" target="_blank" rel="external">https://kellysutton.com/2018/10/08/8-tips-for-great-code-reviews.html</a><br>更多内容请见译者 Blog：<a href="https://github.com/elevenbeans/elevenbeans.github.io" target="_blank" rel="external">https://github.com/elevenbeans/elevenbeans.github.io</a></p>
+</blockquote>
+<p>你在学校里不曾学到的东西中有一件是：如何才做出优秀的 Code Review。你学到了算法、数据结构、编程语言基础知识，但没有人坐下来说：“下面介绍如何确保你如何（对同事）提出很棒的反馈（Code Review）”。</p>
+<p>Code Reviews 是开发出好软件的关键过程。经过审核的代码往往质量较高、错误较少。一个良性的 Code Reviews 文化也提供了额外的好处：</p>
+<ol>
+<li>Ta 可以对于 <a href="https://en.wikipedia.org/wiki/Bus_factor" target="_blank" rel="external">bus factor</a> (<em>和 key person risk 相近，意为少数关键的技术人员带队，一旦人才流失对团队是很大打击，团队抗风险能力弱</em>)进行有效限制；</li>
+<li>Ta 是培训新成员的一个很好的工具；</li>
+<li>Ta 也是共享知识的好方法</li>
+</ol>
+<h2 id="假设"><a href="#假设" class="headerlink" title="假设"></a>假设</h2><p>在我们深入研究之前，为这篇文章中的要点做一些假设是很重要的。 它们如下：</p>
+<ul>
+<li>你在信任的环境中工作，或者您和您的团队正在努力提高你对他们的信任度；</li>
+<li>您应该能够在非代码方案中提供反馈，或者正在努力在您的团队中提供反馈；</li>
+<li>你的团队希望产生更好的代码，并且理解完美是动词而不是形容词。 我们明天可能会找到一种更好的做事方式，我们需要保持开放的心态；</li>
+<li>你的公司重视高质量的代码，并理解业务可能不会快速交付。 Ship 用引号是因为未经测试和未经审核的代码实际上可能无法正常工作；</li>
+</ul>
+<p>现在我们已经制定了一些基本规则，让我们深入研究。</p>
+<h2 id="1-我们是人类"><a href="#1-我们是人类" class="headerlink" title="1. 我们是人类"></a>1. 我们是人类</h2><p>很好理解，你即将审核的代码中，有人花了时间、付出了心血。他们会希望自己的代码写的很棒。你的同事会表现出最好的意图，没有人愿意发送蹩脚的代码。</p>
+<p>保持客观是非常困难的。你需要始终确保批评代码本身，并尝试理解编写代码的上下文。尽可能多地取消除区隔。而不是说：</p>
+<blockquote>
+<p>你以一种令人困惑的方式写了这个方法。</p>
+</blockquote>
+<p>请尝试重新改写代码本身以及重新理清对 Ta 的理解：</p>
+<blockquote>
+<p>这个方法让我有点困惑，我们能为这个变量找到一个更好的名字吗？</p>
+</blockquote>
+<p>这里，我们会解释我们作为读者对代码的看法。这不是他们的行为或意图。这是关于我们和我们对代码的解释。</p>
+<p>每个 PR 都是它自己的<a href="https://www.amazon.com/Difficult-Conversations-Discuss-What-Matters/dp/0143118447" target="_blank" rel="external">艰难对话</a>。尝试与您的队友达成共识，共同努力实现更好的代码。</p>
+<p>如果您刚刚结识了队友，并且您对 PR 有重要反馈，请一起浏览代码。这将是一个与同事建立关系的好机会。与每位同事一起做到这一点，直到这件事情让你不再感觉尴尬。</p>
+<h2 id="2-自动化"><a href="#2-自动化" class="headerlink" title="2. 自动化"></a>2. 自动化</h2><p>如果计算机可以决定并执行规则，请让计算机执行此操作。无休止地争论 Space 与 Tab 并不能充分利用时间、提高任何效率。相反，应该花时间对于规则达成一致意见。在低风险情景中，这有机会可以让你了解你的团队在“不认同但承诺”方面的表现。</p>
+<p>语言和现代工具链不缺乏执行规则（linting）和复用它们的方法。 在 Ruby 中，你有 Rubocop; 在JavaScript 中，Jslint/eslint。 找到你的语言的 linter 并将其插入你项目的构建流程。</p>
+<p>如果您发现缺少现有的 linter，请自己编写！ 编写自己的规则非常简单。 在 Gusto 中，我们使用自定义的 linter 规则来捕捉类的弃用或温和地提醒人们遵守一些 Sidekiq 的最佳实践。</p>
+<h2 id="3-全员参与"><a href="#3-全员参与" class="headerlink" title="3. 全员参与"></a>3. 全员参与</h2><p>将所有代码审查职责交给 Shirley 是很诱人的。</p>
+<p>Shirley 是一个关于代码的大师，她总是知道什么是最好的。她知道系统的来龙去脉，而且她在公司工作的时间超过了团队的集体任期。</p>
+<p>然而，仅仅因为 Shirley 理解某些事情并不意味着她的团队中的其他人可以理解。年轻的团队成员可能会对指出 Shirley 的代码评论的问题而犹豫不决。</p>
+<p>我发现将评论分发给团队的不同成员会产生更健康的团队互动和更好的代码。初级工程师在代码审查中最强大的一句是“我发现这令人困惑。”这些就是使代码更清晰，更简单的机会。</p>
+<p>请传播这些评论。</p>
+<h2 id="4-增加可读性"><a href="#4-增加可读性" class="headerlink" title="4. 增加可读性"></a>4. 增加可读性</h2><p>在 Gusto，我们使用 GitHub 来管理我们的代码项目。几乎 GitHub 上的每个<code>&lt;textarea&gt;</code>都支持<a href="https://github.github.com/gfm/" target="_blank" rel="external">Markdown</a>，这是一种在评论中添加 HTML 格式的简单方法。</p>
+<p>拥抱 Markdown 是让事物变得可读的好方法。GitHub 或您选择的工具可能具有语法突出显示，这对于删除一些代码片段非常有用。使用内联代码的单反引号（`）或代码块的三重反引号（```）可以更好地传达想法。</p>
+<p>熟悉 Markdown 语法，特别是在注释中编写代码时。 这样做有助于保持您的评论具体和专注。</p>
+<h2 id="5-至少留下一个积极评论"><a href="#5-至少留下一个积极评论" class="headerlink" title="5. 至少留下一个积极评论"></a>5. 至少留下一个积极评论</h2><p>代码评论本质上是负面的事情。在我要将此代码发布到线上环境之前告诉我这个代码有什么问题，这是挺伤人的事儿。有人花时间在这上面，并期望你会指出它会如何变得更好。</p>
+<p>因此，请至少留下一个积极的评论。让它变得有意义和极具个性。如果有人终于掌握了他们一直在努力的掌握的事情，那么就请你把它 Ta 出来。 它可以像点个赞 👍 或 “喜欢这个” 一样简单。</p>
+<p>在每次 Code Review 中留下一些正面的内容都是微妙的提示：我们是在一起合作。如果我们生产出更好的代码，我们都会受益。</p>
+<h2 id="6-提供替代方案"><a href="#6-提供替代方案" class="headerlink" title="6. 提供替代方案"></a>6. 提供替代方案</h2><p>一些我尝试做的事情是（尤其是在和那些只是学习语言或框架的人合作的时候）：提供替代方案。</p>
+<p>小心这个。如果表达不正确，它可能会变得傲慢或自私：“这就是我做的方式”。请尽量保持客观，并讨论你提供的替代方案的利弊权衡。做得好，这应该有助于扩展每个人对手头技术的了解。</p>
+<h2 id="7-响应时间是关键"><a href="#7-响应时间是关键" class="headerlink" title="7. 响应时间是关键"></a>7. 响应时间是关键</h2><p>Code Review 过程快速流转非常重要。（使用以下规则可以更容易：保持细粒度）</p>
+<p>长段时间 Code Review 延迟可能会降低生产力和士气。听到你在 3 天前就已经分提交给审查的 PR 的 feedback 是令人不快的。哦耶。我在这做什么？来回切换开发环境和代码上下文。要纠正这个问题，您需要提醒您的团队，衡量进度需要从团队的视角出发而非个人。让您的团队关注代码审查延迟，并在团队中变得更好。</p>
+<p>如果您希望减少自己的审核延迟，我建议遵循以下规则：在编写任何新代码之首先 Review 代码。</p>
+<p>作为解决延迟的策略，请尝试结对做 Code Review。搞一个配对站或启动一个屏幕共享来讨论 Code Review。一起寻求解决方案并将代码置于批准状态。</p>
+<h2 id="8-保持细粒度"><a href="#8-保持细粒度" class="headerlink" title="8. 保持细粒度"></a>8. 保持细粒度</h2><p>你在 Code Review 上收到的反馈质量将与 Pull Request 的大小成反比。</p>
+<p>为了保持反馈的尖锐和建设性，最好知道较小的 Pull 请求使读者更容易。</p>
+<p>如果你保持 PR 很小（并避免<a href="https://kellysutton.com/2018/07/20/the-teeth.html" target="_blank" rel="external">Teeth</a>），你需要有一个不同的场所来进行更大纬度的对话。 这个单一的 Pull Request 如何适应本周或本月的工作？我们要去哪里，这个Pull Request 如何让我们在那里？白板和临时对话非常适合这些类型的讨论。对于较小的 Pull 请求，可能很难记住它所写的上下文。</p>
+<p>“小”将因语言和团队而异。 对于我自己，我试图让 Pull Requests 总共少于 300 行。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>希望这 8 个技巧可以帮助您和您的团队更好的进行 Code Review。通过改进您的 Code Review 流程，你将获得更好的代码质量，更快乐的团队成员，并有希望创造出更好的业务。</p>
+
+            </div>
+          
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+          
+             <span class="post-new">NEW</span>
+          
+          
+            <span>#Code review# &nbsp;&nbsp;</span>
+          
+
+        </div>
+       
+         
+         
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2018/09/10/react-native-animation/">
+        <span class="next-text nav-default">使用 RN Animated 做一个“添加购物车”动画</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+         
+  <div class="comments" id="comments">
+    
+    <div id="comment-container"></div>
+  </div>
+
+
+       
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2018
+    <span class="footer-author"><a href="https://github.com/elevenbeans" target="_blank">@elevenbeans</a>.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+
+</span>
+<script>
+var gitment = new Gitment({
+  id: location.pathname, // 可选。默认为 location.href
+  owner: 'elevenbeans',
+  repo: 'elevenbeans.github.io',
+  oauth: {
+    client_id: '34a6c343407ce5dcf922',
+    client_secret: '9669a9498f09f3b21711bd666a50db5929e78256',
+  },
+})
+gitment.render('comment-container')
+</script>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>

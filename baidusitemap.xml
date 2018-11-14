@@ -4,6 +4,45 @@
 
     
   <url>
+    <loc>http://elevenbeans.github.io/2018/11/14/8-tips-for-great-code-reviews/</loc>
+    <lastmod>2018-11-14T08:34:05.835Z</lastmod>
+    <data>
+        <display>
+        <title>【译】8 个 Tips 让你更好的进行 Code Review</title>
+        <pubTime>2018-11-14T06:40:40.000Z</pubTime>
+        
+        <tag>Code review</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://elevenbeans.github.io/2018/09/10/react-native-animation/</loc>
+    <lastmod>2018-11-14T06:46:16.565Z</lastmod>
+    <data>
+        <display>
+        <title>使用 RN Animated 做一个“添加购物车”动画</title>
+        <pubTime>2018-09-10T08:29:52.000Z</pubTime>
+        
+        <tag>React Native</tag>
+         
+        <tag>Animated</tag>
+         
+         
+           
+             
+              <breadCrumb title="React" url="http://elevenbeans.github.io/categories/React/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://elevenbeans.github.io/2017/09/19/pull-to-refresh/</loc>
     <lastmod>2018-09-20T07:04:36.029Z</lastmod>
     <data>
@@ -41,28 +80,6 @@
            
              
               <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2018/09/10/react-native-animation/</loc>
-    <lastmod>2018-09-10T10:58:08.533Z</lastmod>
-    <data>
-        <display>
-        <title>使用 RN Animated 做一个“添加购物车”动画</title>
-        <pubTime>2018-09-10T08:29:52.000Z</pubTime>
-        
-        <tag>React Native</tag>
-         
-        <tag>Animated</tag>
-         
-         
-           
-             
-              <breadCrumb title="React" url="http://elevenbeans.github.io/categories/React/"/>
           
         </display>
     </data>

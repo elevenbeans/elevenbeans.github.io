@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://elevenbeans.github.io/2018/11/14/8-tips-for-great-code-reviews/</loc>
+    
+    <lastmod>2018-11-14T08:34:05.835Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://elevenbeans.github.io/2018/09/10/react-native-animation/</loc>
+    
+    <lastmod>2018-11-14T06:46:16.565Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://elevenbeans.github.io/2017/09/19/pull-to-refresh/</loc>
     
     <lastmod>2018-09-20T07:04:36.029Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>http://elevenbeans.github.io/2018/06/26/enable-goback-on-h5-popup/</loc>
     
     <lastmod>2018-09-20T07:03:39.091Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://elevenbeans.github.io/2018/09/10/react-native-animation/</loc>
-    
-    <lastmod>2018-09-10T10:58:08.533Z</lastmod>
     
   </url>
   
