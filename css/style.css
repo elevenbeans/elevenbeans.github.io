@@ -608,7 +608,8 @@ h6 {
   .post .post-excerpt p {
     margin: 0 0 16px; }
   .post .post-content {
-    margin-bottom: 40px; }
+    margin-bottom: 40px;
+    font-size: 16px; }
     .post .post-content h1 {
       font-weight: 400;
       font-family: "Open Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif;
