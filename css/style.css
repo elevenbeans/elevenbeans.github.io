@@ -13,12 +13,6 @@
 .post-footer .post-tags {
   position: relative; }
 
-.post-footer .post-tags .more {
-  color: #4D89FB;
-  position: absolute;
-  right: 0;
-  bottom: 0; }
-
 .post-footer .post-tags .more:before {
   content: "" !important; }
 
@@ -554,7 +548,7 @@ h6 {
     padding-left: 0px;
     margin: 0 auto; }
     #nav-top .nav-top-items .menu-item {
-      font-size: 14px;
+      font-size: 18px;
       margin-left: 30px;
       display: inline-block; }
       #nav-top .nav-top-items .menu-item a {
@@ -589,7 +583,7 @@ h6 {
   .post .post-header .post-title {
     margin: 0 0 10px;
     line-height: 1.4;
-    font-size: 1.3em;
+    font-size: 2em;
     font-weight: 400;
     font-family: "Open Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif; }
   .post .post-header .post-link {
@@ -599,8 +593,11 @@ h6 {
     backface-visibility: hidden;
     box-shadow: 0 0 1px transparent;
     position: relative;
-    overflow: hidden; }
-    .post .post-header .post-link.active:before, .post .post-header .post-link:active:before, .post .post-header .post-link:focus:before, .post .post-header .post-link:hover:before {
+    overflow: hidden;
+    color: #2a7ae2; }
+    .post .post-header .post-link.active, .post .post-header .post-link:active, .post .post-header .post-link:focus, .post .post-header .post-link:visited {
+      color: #1756a9; }
+    .post .post-header .post-link:hover:before {
       right: 0;
       left: 0; }
   .post .post-time {
