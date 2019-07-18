@@ -4,6 +4,45 @@
 
     
   <url>
+    <loc>http://elevenbeans.github.io/2019/07/18/react-native-ui-tips/</loc>
+    <lastmod>2019-07-18T08:27:30.321Z</lastmod>
+    <data>
+        <display>
+        <title>React Native 视觉还原小（da）技（shen）巧（keng）若干</title>
+        <pubTime>2019-07-18T07:46:26.000Z</pubTime>
+        
+        <tag>React Native</tag>
+         
+        <tag>UI review</tag>
+         
+         
+           
+             
+              <breadCrumb title="React" url="http://elevenbeans.github.io/categories/React/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://elevenbeans.github.io/2018/11/14/8-tips-for-great-code-reviews/</loc>
+    <lastmod>2019-07-18T07:50:08.590Z</lastmod>
+    <data>
+        <display>
+        <title>【译】8 个 Tips 让你更好的进行 Code Review</title>
+        <pubTime>2018-11-14T06:40:40.000Z</pubTime>
+        
+        <tag>Code review</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://elevenbeans.github.io/2019/03/05/lazy/</loc>
     <lastmod>2019-03-05T09:09:58.227Z</lastmod>
     <data>
@@ -22,23 +61,6 @@
              
               <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2018/11/14/8-tips-for-great-code-reviews/</loc>
-    <lastmod>2018-11-14T08:42:14.359Z</lastmod>
-    <data>
-        <display>
-        <title>【译】8 个 Tips 让你更好的进行 Code Review</title>
-        <pubTime>2018-11-14T06:40:40.000Z</pubTime>
-        
-        <tag>Code review</tag>
-         
-         
-           
         </display>
     </data>
     </url>
@@ -771,9 +793,9 @@
         <title>React 路/粉/黑 都该了解的 React license 争议</title>
         <pubTime>2017-08-29T09:12:58.000Z</pubTime>
         
-        <tag>React</tag>
-         
         <tag>license</tag>
+         
+        <tag>React</tag>
          
          
            
