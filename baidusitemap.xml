@@ -4,6 +4,92 @@
 
     
   <url>
+    <loc>http://elevenbeans.github.io/2017/06/12/summary-of-my-2016-2017/</loc>
+    <lastmod>2019-09-20T13:32:06.475Z</lastmod>
+    <data>
+        <display>
+        <title>2016-2017 小结</title>
+        <pubTime>2017-06-12T03:24:07.000Z</pubTime>
+        
+        <tag>一年小结</tag>
+         
+         
+           
+             
+              <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://elevenbeans.github.io/2018/08/02/summary-of-my-2017-2018/</loc>
+    <lastmod>2019-09-20T13:31:30.154Z</lastmod>
+    <data>
+        <display>
+        <title>2017-2018 小结</title>
+        <pubTime>2018-08-02T11:24:07.000Z</pubTime>
+        
+        <tag>一年小结</tag>
+         
+         
+           
+             
+              <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://elevenbeans.github.io/2016/05/22/2015-2016-%E5%B0%8F%E7%BB%93/</loc>
+    <lastmod>2019-09-20T13:31:08.137Z</lastmod>
+    <data>
+        <display>
+        <title>2015-2016 小结</title>
+        <pubTime>2016-05-22T11:48:53.000Z</pubTime>
+        
+        <tag>第一篇</tag>
+         
+        <tag>宋冬野</tag>
+         
+        <tag>一年小结</tag>
+         
+         
+           
+             
+              <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://elevenbeans.github.io/2016/06/12/%E7%94%9F%E6%B4%BB%E6%9C%AC%E5%BA%94%E5%A6%82%E6%AD%A4/</loc>
+    <lastmod>2019-09-20T13:23:37.223Z</lastmod>
+    <data>
+        <display>
+        <title>生活本应如此</title>
+        <pubTime>2016-06-12T08:50:00.000Z</pubTime>
+        
+        <tag>搬家</tag>
+         
+        <tag>离职</tag>
+         
+         
+           
+             
+              <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://elevenbeans.github.io/2019/07/18/react-native-ui-tips/</loc>
     <lastmod>2019-07-18T11:28:40.980Z</lastmod>
     <data>
@@ -126,26 +212,6 @@
            
              
               <breadCrumb title="Javascript" url="http://elevenbeans.github.io/categories/Javascript/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2018/08/02/summary-of-my-2017-2018/</loc>
-    <lastmod>2018-09-10T08:48:15.200Z</lastmod>
-    <data>
-        <display>
-        <title>2017-2018 小结</title>
-        <pubTime>2018-08-02T11:24:07.000Z</pubTime>
-        
-        <tag>一年小结</tag>
-         
-         
-           
-             
-              <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
           
         </display>
     </data>
@@ -808,28 +874,6 @@
 
     
   <url>
-    <loc>http://elevenbeans.github.io/2016/06/12/%E7%94%9F%E6%B4%BB%E6%9C%AC%E5%BA%94%E5%A6%82%E6%AD%A4/</loc>
-    <lastmod>2018-03-25T06:38:34.229Z</lastmod>
-    <data>
-        <display>
-        <title>生活本应如此</title>
-        <pubTime>2016-06-12T08:50:00.000Z</pubTime>
-        
-        <tag>搬家</tag>
-         
-        <tag>离职</tag>
-         
-         
-           
-             
-              <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://elevenbeans.github.io/2016/05/04/%E6%B5%85%E6%9E%90-JavaScript-%E4%B8%AD%E7%9A%84%E9%97%AD%E5%8C%85/</loc>
     <lastmod>2018-03-25T06:38:30.591Z</lastmod>
     <data>
@@ -884,26 +928,6 @@
         <tag>freecodecamp</tag>
          
         <tag>open source</tag>
-         
-         
-           
-             
-              <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2017/06/12/summary-of-my-2016-2017/</loc>
-    <lastmod>2018-03-25T06:36:53.125Z</lastmod>
-    <data>
-        <display>
-        <title>2016-2017 小结</title>
-        <pubTime>2017-06-12T03:24:07.000Z</pubTime>
-        
-        <tag>一年小结</tag>
          
          
            
@@ -1065,30 +1089,6 @@
            
              
               <breadCrumb title="CSS" url="http://elevenbeans.github.io/categories/CSS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://elevenbeans.github.io/2016/05/22/2015-2016-%E5%B0%8F%E7%BB%93/</loc>
-    <lastmod>2018-03-25T06:28:12.864Z</lastmod>
-    <data>
-        <display>
-        <title>2015-2016 小结</title>
-        <pubTime>2016-05-22T11:48:53.000Z</pubTime>
-        
-        <tag>第一篇</tag>
-         
-        <tag>宋冬野</tag>
-         
-        <tag>一年小结</tag>
-         
-         
-           
-             
-              <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
           
         </display>
     </data>

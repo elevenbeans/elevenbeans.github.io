@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://elevenbeans.github.io/2017/06/12/summary-of-my-2016-2017/</loc>
+    
+    <lastmod>2019-09-20T13:32:06.475Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://elevenbeans.github.io/2018/08/02/summary-of-my-2017-2018/</loc>
+    
+    <lastmod>2019-09-20T13:31:30.154Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://elevenbeans.github.io/2016/05/22/2015-2016-%E5%B0%8F%E7%BB%93/</loc>
+    
+    <lastmod>2019-09-20T13:31:08.137Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://elevenbeans.github.io/2016/06/12/%E7%94%9F%E6%B4%BB%E6%9C%AC%E5%BA%94%E5%A6%82%E6%AD%A4/</loc>
+    
+    <lastmod>2019-09-20T13:23:37.223Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://elevenbeans.github.io/2019/07/18/react-native-ui-tips/</loc>
     
     <lastmod>2019-07-18T11:28:40.980Z</lastmod>
@@ -40,13 +68,6 @@
     <loc>http://elevenbeans.github.io/2018/06/26/enable-goback-on-h5-popup/</loc>
     
     <lastmod>2018-09-20T07:03:39.091Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://elevenbeans.github.io/2018/08/02/summary-of-my-2017-2018/</loc>
-    
-    <lastmod>2018-09-10T08:48:15.200Z</lastmod>
     
   </url>
   
@@ -254,13 +275,6 @@
   </url>
   
   <url>
-    <loc>http://elevenbeans.github.io/2016/06/12/%E7%94%9F%E6%B4%BB%E6%9C%AC%E5%BA%94%E5%A6%82%E6%AD%A4/</loc>
-    
-    <lastmod>2018-03-25T06:38:34.229Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://elevenbeans.github.io/2016/05/04/%E6%B5%85%E6%9E%90-JavaScript-%E4%B8%AD%E7%9A%84%E9%97%AD%E5%8C%85/</loc>
     
     <lastmod>2018-03-25T06:38:30.591Z</lastmod>
@@ -278,13 +292,6 @@
     <loc>http://elevenbeans.github.io/2017/04/10/%E5%BC%80%E6%BA%90%E7%B2%BE%E7%A5%9E%E4%BB%8E%E6%88%91%E5%81%9A%E8%B5%B7/</loc>
     
     <lastmod>2018-03-25T06:38:16.718Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://elevenbeans.github.io/2017/06/12/summary-of-my-2016-2017/</loc>
-    
-    <lastmod>2018-03-25T06:36:53.125Z</lastmod>
     
   </url>
   
@@ -334,13 +341,6 @@
     <loc>http://elevenbeans.github.io/2016/05/04/css-%E4%B8%AD%E7%9A%84%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%B3%95/</loc>
     
     <lastmod>2018-03-25T06:28:25.824Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://elevenbeans.github.io/2016/05/22/2015-2016-%E5%B0%8F%E7%BB%93/</loc>
-    
-    <lastmod>2018-03-25T06:28:12.864Z</lastmod>
     
   </url>
   
