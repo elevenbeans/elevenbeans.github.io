@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://elevenbeans.github.io/2019/09/22/summary-of-my-2018-2019/</loc>
+    <lastmod>2019-09-22T10:09:20.641Z</lastmod>
+    <data>
+        <display>
+        <title>2018-2019 小结</title>
+        <pubTime>2019-09-22T09:31:07.000Z</pubTime>
+        
+        <tag>一年小结</tag>
+         
+         
+           
+             
+              <breadCrumb title="Life" url="http://elevenbeans.github.io/categories/Life/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://elevenbeans.github.io/2017/06/12/summary-of-my-2016-2017/</loc>
     <lastmod>2019-09-20T13:32:06.475Z</lastmod>
     <data>
@@ -204,9 +224,9 @@
         <title>H5：“同样是返回，我们不一样”</title>
         <pubTime>2018-06-26T07:40:26.000Z</pubTime>
         
-        <tag>Browser</tag>
-         
         <tag>Javascript</tag>
+         
+        <tag>Browser</tag>
          
          
            
@@ -859,9 +879,9 @@
         <title>React 路/粉/黑 都该了解的 React license 争议</title>
         <pubTime>2017-08-29T09:12:58.000Z</pubTime>
         
-        <tag>React</tag>
-         
         <tag>license</tag>
+         
+        <tag>React</tag>
          
          
            
