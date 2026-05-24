@@ -1,3 +1,4 @@
+https://elevenbeans.github.io/2026/05/24/%E7%94%A8AI-Agent%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AANAS%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF/
 https://elevenbeans.github.io/2026/05/15/AI-%E5%8A%A0%E9%80%9F%E7%BE%8E%E5%A5%BD%E7%94%9F%E6%B4%BB/
 https://elevenbeans.github.io/tags/index.html
 https://elevenbeans.github.io/2016/06/12/%E7%94%9F%E6%B4%BB%E6%9C%AC%E5%BA%94%E5%A6%82%E6%AD%A4/
@@ -45,7 +46,6 @@ https://elevenbeans.github.io/2019/07/18/react-native-ui-tips/
 https://elevenbeans.github.io/2017/06/22/Yin-and-Yang-by-CSS/
 https://elevenbeans.github.io/2018/03/10/10-Tips-for-JS-Debugging-with-Console/
 https://elevenbeans.github.io/2017/07/19/Why-React/
-https://elevenbeans.github.io/2026/05/24/%E7%94%A8AI-Agent%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AANAS%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF/
 https://elevenbeans.github.io/2016/05/05/scroll%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B9%8B-throttle-%E5%92%8C-debounce/
 https://elevenbeans.github.io/2017/02/09/%E6%88%BF%E5%AD%90/
 https://elevenbeans.github.io/2017/05/16/%E6%92%B8%E4%BA%86%E4%B8%80%E4%B8%AA%E6%8A%95%E7%A5%A8App/

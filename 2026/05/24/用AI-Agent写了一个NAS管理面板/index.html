@@ -19,14 +19,18 @@
 <meta property="og:site_name" content="Elevenbeans">
 <meta property="og:description" content="上周干了一件挺上头的事—— 花了一个周末，用 AI Agent 给我的家庭 NAS 写了一个管理面板。从搭脚手架到部署上线，全程没自己写过一行代码。 📱 起因iPhone 空间又满了。照片、视频、微信缓存，个个都是存储刺客。 以前的做法是隔段时间接电脑导一次文件，麻烦但能忍。可现在都 2026 了 AI coding 满 dy 甚至 xhs 都是了作为一个程序员还忍是不是就说不过去了？ 淘汰了一">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.elevenbeans.me/IMG_5673.jpeg">
+<meta property="og:image" content="https://images.elevenbeans.me/IMG_5674.jpeg">
+<meta property="og:image" content="https://images.elevenbeans.me/IMG_5699.jpeg">
 <meta property="article:published_time" content="2026-05-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-24T08:19:05.304Z">
+<meta property="article:modified_time" content="2026-05-24T10:26:51.411Z">
 <meta property="article:author" content="Elevenbeans">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="Agent">
 <meta property="article:tag" content="NAS">
 <meta property="article:tag" content="Next.js">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.elevenbeans.me/IMG_5673.jpeg">
   <!-- canonical -->
   
   <link rel="canonical" href="https://elevenbeans.github.io/2026/05/24/用AI-Agent写了一个NAS管理面板/">
@@ -104,6 +108,16 @@
 <h2 id="📱-起因"><a href="#📱-起因" class="headerlink" title="📱 起因"></a>📱 起因</h2><p>iPhone 空间又满了。照片、视频、微信缓存，个个都是存储刺客。</p>
 <p>以前的做法是隔段时间接电脑导一次文件，麻烦但能忍。可现在都 2026 了 AI coding 满 dy 甚至 xhs 都是了作为一个程序员还忍是不是就说不过去了？</p>
 <p>淘汰了一台 MBP2015，购入 Mac Mini M4，配了个 UGREEN 双盘位硬盘盒，塞了块 WD Red 3TB，SMB 共享给全家设备。MacBook、iPhone、投影仪都能直接访问。</p>
+<div style="display:flex;gap:10px;max-width:900px;margin:0 auto">
+  <div style="flex:1">
+    <img src="https://images.elevenbeans.me/IMG_5673.jpeg" style="width:100%;height:100%;object-fit:cover;border-radius:8px">
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;gap:10px">
+    <img src="https://images.elevenbeans.me/IMG_5674.jpeg" style="width:100%;flex:1;object-fit:cover;border-radius:8px">
+    <img src="https://images.elevenbeans.me/IMG_5699.jpeg" style="width:100%;flex:1;object-fit:cover;border-radius:8px">
+  </div>
+</div>
+
 <p>NAS 硬件搭好了，但管理起来只靠 Finder 连 SMB 吗？<br>超大文件这种低频场景还 OK，但是浏览个文件，找找（高清）图片这种高频场景还是不够方便。</p>
 <p>需求冒出来了：手机浏览器打开一个页面，能浏览照片、能看到磁盘用量、基本能浏览文件。</p>
 <p>换成以前，我会打开 VS Code，建个 Next.js 项目，自己从零搭路由、组件、API。一整套下来少说两三天。</p>
