@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+  <meta name="robots" content="index, follow">
+  <!-- title -->
+  
+    
+  <title>两分钟解惑 JS 小数计算精度问题 - Elevenbeans</title>
+    
+  
+  
+  <!-- open graph -->
+  <meta name="description" content="Background有个问题可能曾经、甚至现在仍旧让一部分人十分困惑。 我们用 JS 执行一个极其的简单的运算，如：0.1 + 0.2，将会得到一个非常意想不到的结果：0.30000000000000004。 虽然结果相差无几，但是作为技术人员，这绝对不可以忽略，理由如下：    万一和 Money 有关呢？ 万一你的代码里有类似 if (0.1 + 0.2 &#x3D;&#x3D; 0.15 + 0.15) 的逻辑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="两分钟解惑 JS 小数计算精度问题">
+<meta property="og:url" content="https://elevenbeans.github.io/2017/07/07/floating-point-issue/index.html">
+<meta property="og:site_name" content="Elevenbeans">
+<meta property="og:description" content="Background有个问题可能曾经、甚至现在仍旧让一部分人十分困惑。 我们用 JS 执行一个极其的简单的运算，如：0.1 + 0.2，将会得到一个非常意想不到的结果：0.30000000000000004。 虽然结果相差无几，但是作为技术人员，这绝对不可以忽略，理由如下：    万一和 Money 有关呢？ 万一你的代码里有类似 if (0.1 + 0.2 &#x3D;&#x3D; 0.15 + 0.15) 的逻辑">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-07-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-24T08:19:05.321Z">
+<meta property="article:author" content="Elevenbeans">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+  <!-- canonical -->
+  
+  <link rel="canonical" href="https://elevenbeans.github.io/2017/07/07/floating-point-issue/">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/elevenbeans.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <!-- CSS -->
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/markdown.css">
+
+  
+<link rel="stylesheet" href="/css/fonts.css">
+
+<meta name="generator" content="Hexo 8.1.2"><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVTG7F443J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVTG7F443J');
+</script>
+</head>
+
+    <body>
+        <div class="paper">
+            <div class="paper-main">
+                
+                    <div class="post-header">
+    <a class="logo" href="/">Elevenbeans</a>
+    <!-- <div class="logo"><a href="/" title="Len"><img src="/img/logo.svg" alt="Len" aria-label="logo" height="20"></a></div> -->
+        <ul class="nav">
+            
+            <li><a href="/">Home</a></li>
+            
+            <li><a href="/archives">Archives</a></li>
+            
+            <li><a href="/tags/">Tags</a></li>
+            
+            <li><a href="/about">About</a></li>
+            
+        </ul>
+
+
+    </a>
+</div>
+
+                
+                <div class="post-main">
+    
+        <div class="post-main-title">
+            两分钟解惑 JS 小数计算精度问题
+        </div>
+        <div class="post-meta">
+            2017-07-07 ｜ 
+            
+                <a href="/categories/Tech/"># Tech</a>
+            
+        </div>
+        <!-- 圆角分类 -->
+        <!-- <div class="tags"> -->
+            <!--  -->
+                <!-- <a href="/categories/Tech/">Tech</a> -->
+            <!--  -->
+        <!-- </div> -->
+        <div class="post-md">
+            <h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a><strong>Background</strong></h2><p>有个问题可能曾经、甚至现在仍旧让一部分人十分困惑。</p>
+<p>我们用 JS 执行一个极其的简单的运算，如：<code>0.1 + 0.2</code>，将会得到一个非常意想不到的结果：<code>0.30000000000000004</code>。</p>
+<p>虽然结果相差无几，但是作为技术人员，这绝对不可以忽略，理由如下：  </p>
+<ul>
+<li>万一和 Money 有关呢？</li>
+<li>万一你的代码里有类似 <code>if (0.1 + 0.2 == 0.15 + 0.15)</code> 的逻辑呢？结果会如你预期么</li>
+<li>或者，万一你就是个处女座呢？</li>
+</ul>
+<p>可能大部分人都会在一些论坛上寻求帮助，并且得到有很多方法可以帮助其解决问题。</p>
+<p>但是这里我会尝试分析一下其中的根本原因以及解决办法。</p>
+<h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a><strong>Why</strong></h2><p>简单一句话概括解释为什么你会得到意想不到的结果：</p>
+<p><strong>因为在计算机内部，使用的二进制浮点根本就不能准确地表示像 0.1, 0.2 或 0.3 这样的数字。</strong></p>
+<p>当编码或解释代码时，你的 “0.1” 其实已经舍入为和该数字的最接近的数字，即使在计算发生之前已经会导致小的舍入误差（<strong>是的，所有语言都是这样，这锅 JS 不背</strong>）。</p>
+<p>WTF？ 计算机如此愚蠢？</p>
+<p>这不是愚蠢，只是不一样。 10 进制数字不能准确地代表像 1&#x2F;3 这样的数字，所以你必须用 0.3333… 跟一大堆循环，当然你也不会指望 0.33333… * 3 等于 1。</p>
+<p><strong>Now, 所有 CSer 都在大一学过的计算机导论派上用场了。 &#x3D;,&#x3D;</strong></p>
+<p><em>为什么要用二进制？</em><br>计算机使用二进制数是因为它们在处理这些数据时速度更快。</p>
+<p><em>为什么二进制更快？</em><br>计算机的固件最最底层是基于数十亿的电气元件，只有两个状态（通常是低电压和高电压）。 通过我们将其解释为 0 （低）和 1（高）。基于这样的底层，构建用于存储二进制数的电路以及对其进行计算都非常高效和容易。<br>当然，也可以使用二进制电路模拟十进制数的行为，但效率较低。 如果计算机在内部使用十进制数，那么它们在同等硬件水平上的内存将会更少，而且速度更慢。<br>二进制数和十进制数之间的差异对于大多数应用程序来说并不重要。<br>因此逻辑选择是基于二进制数构建计算机，并且实际上需要对需要十进制的应用程序进行一些额外的处理。</p>
+<p><em>你说的都有理，可是为什么二进制表示不了 ‘0.1’、 ‘0.2’、 ‘0.3’？</em><br>如果你问到这个问题，我只想摸摸你的头。。。举个栗子，十进制的 14，分别用十进制和二进制表示如下：</p>
+<p>Type</p>
+<p>Value</p>
+<p>Value (InDec)</p>
+<p>Decimal</p>
+<p>\(&#x3D;{1}\times{10^1} + {4}\times{10^0}\)</p>
+<p>14</p>
+<p>14</p>
+<p>Binary</p>
+<p>\(&#x3D;{1}\times{2^3} + {1}\times{2^2} + {1}\times{2^1}+ {0}\times{2^0}\)</p>
+<p>1110</p>
+<p>14</p>
+<p>再来一个，小数 0.625</p>
+<p>Type</p>
+<p>Value</p>
+<p>Value (InDec)</p>
+<p>Decimal</p>
+<p>\(&#x3D;{6}\times{10^{-1}} + {2}\times{10^{-2}} + {5}\times{10^{-3}}\)</p>
+<p>0.625</p>
+<p>0.625</p>
+<p>Binary</p>
+<p>\(&#x3D;{1}\times{2^{-1}} + {0}\times{2^{-2}} + {1}\times{2^{-3}}\)</p>
+<p>0.101</p>
+<p>0.625</p>
+<p>So far, so good.</p>
+<p>那你尝试一个十进制小数 0.1 试一试？</p>
+<p>Type</p>
+<p>Value</p>
+<p>Value (InDec)</p>
+<p>Decimal</p>
+<p>\(&#x3D;{1}\times{10^{-1}}\)</p>
+<p>0.1</p>
+<p>0.1</p>
+<p>Binary</p>
+<p>\(&#x3D;{0}\times{2^{-1}} + {0}\times{2^{-2}} + {0}\times{2^{-3}} + {1}\times{2^{-4}} + {1}\times{2^{-5}}\)</p>
+<p>0.00011</p>
+<p>0.09375</p>
+<p>0.00011 已经到小数点后 5 位了，还是凑不齐 0.1 对不对？ 实际上从后四位 0011 就开始循环了。结果是只能无限趋近于 0.1 无法真正等于 0.1。</p>
+<p>在 JS 中应该是做了一定位数后的 “入” 处理。这时候 <code>0.1 + 0.3 = 0.30000000000000004</code> 是不是能理解了？</p>
+<p><strong>然而，许多语言在处理的时候，在一定误差范围内（通常极小）会将结果处理为正确的目标数字，而不是像 JS 一样将存在误差的真实结果转换成最接近的小数输出。</strong></p>
+<h2 id="How"><a href="#How" class="headerlink" title="How"></a><strong>How</strong></h2><p>如何处理这个问题。</p>
+<ul>
+<li>如果你真的需要在你的代码中做浮点数的四则运算或者大小判断，特别是当你处理钱时，可以使用一个特殊的 decimal type 如 <a target="_blank" rel="noopener" href="https://github.com/dtrebbien/BigDecimal.js">BigDecimal</a>。</li>
+<li>如果您不想看到所有这些额外的小数位数：在显示时，也可以用<code>toFixed()</code>或<code>toPrecision()</code> 之类将结果格式化为固定的小数位数。</li>
+<li>如果没有可用的十进制数据类型，另一种方法是使用整数，例如。 完全以整数最小位数为最小单位计算。</li>
+<li>…</li>
+</ul>
+<h2 id="Q-A"><a href="#Q-A" class="headerlink" title="Q&amp;A"></a><strong>Q&amp;A</strong></h2><ul>
+<li><p><code>0.1+0.4</code> 的结果是 <code>0.5</code> ，没有问题，是不是啪啪啪打脸了？怎么解释？<br>这种情况，首先 <code>0.5</code> 本身是可以精确地表示为二进制浮点数的 <code>0.1</code>；其次输入的两个数字中的舍入误差可能相互抵消，但不一定会抵消。</p>
+</li>
+<li><p>…<br>如果您有兴趣，请在 <a target="_blank" rel="noopener" href="https://github.com/elevenbeans/elevenbeans.github.io">issue</a> 中提供关于浮点数可能出现的其他问题以及更多解决方案的深入解释</p>
+</li>
+</ul>
+<p>如果觉得文章对你有帮助的话，去 <a target="_blank" rel="noopener" href="https://github.com/elevenBeans/elevenbeans.github.io">Github Repo</a> 给个 star 也是最好不过的 : )</p>
+
+        </div>
+    
+<!-- tags -->
+
+    <div class="post-meta">
+        标签：
+        
+            <a href="/tags/JavaScript/"> / JavaScript</a>
+        
+    </div>
+
+</div>
+                <div class="footer">
+    <span>Copyright © <script>document.write(new Date().getFullYear())</script> Elevenbeans</span>
+    <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> with <a target="_blank" rel="noopener" href="https:///imzl.com/zenmind">ZenMind</a></span>
+</div>
+
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+
+            </div>
+        </div>
+    </body>
+</html>

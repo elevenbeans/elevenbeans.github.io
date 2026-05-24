@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+  <meta name="robots" content="index, follow">
+  <!-- title -->
+  
+    
+  <title>scroll 事件处理之 throttle 和 debounce - Elevenbeans</title>
+    
+  
+  
+  <!-- open graph -->
+  <meta name="description" content="概念请点这里 现状描述天猫几乎所有的频道都有 下拉刷新 的逻辑。其中，品牌特卖和焕新在做下拉刷新的时候均使用了一个叫做 bottomloader 的组件。该组件中采用了 throttle 方法对于连续的scroll事件所触发业务逻辑（包含数据加载）的次数进行了稀释，从原生的像素级别的滑动触发，稀释到了间隔几百毫秒触发一次，从而极大的降低了scroll事件对业务逻辑的高频触发，提高了滑动流畅度以及页">
+<meta property="og:type" content="article">
+<meta property="og:title" content="scroll 事件处理之 throttle 和 debounce">
+<meta property="og:url" content="https://elevenbeans.github.io/2016/05/05/scroll%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B9%8B-throttle-%E5%92%8C-debounce/index.html">
+<meta property="og:site_name" content="Elevenbeans">
+<meta property="og:description" content="概念请点这里 现状描述天猫几乎所有的频道都有 下拉刷新 的逻辑。其中，品牌特卖和焕新在做下拉刷新的时候均使用了一个叫做 bottomloader 的组件。该组件中采用了 throttle 方法对于连续的scroll事件所触发业务逻辑（包含数据加载）的次数进行了稀释，从原生的像素级别的滑动触发，稀释到了间隔几百毫秒触发一次，从而极大的降低了scroll事件对业务逻辑的高频触发，提高了滑动流畅度以及页">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-05-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-24T08:19:05.303Z">
+<meta property="article:author" content="Elevenbeans">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+  <!-- canonical -->
+  
+  <link rel="canonical" href="https://elevenbeans.github.io/2016/05/05/scroll事件处理之-throttle-和-debounce/">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/elevenbeans.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <!-- CSS -->
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/markdown.css">
+
+  
+<link rel="stylesheet" href="/css/fonts.css">
+
+<meta name="generator" content="Hexo 8.1.2"><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVTG7F443J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVTG7F443J');
+</script>
+</head>
+
+    <body>
+        <div class="paper">
+            <div class="paper-main">
+                
+                    <div class="post-header">
+    <a class="logo" href="/">Elevenbeans</a>
+    <!-- <div class="logo"><a href="/" title="Len"><img src="/img/logo.svg" alt="Len" aria-label="logo" height="20"></a></div> -->
+        <ul class="nav">
+            
+            <li><a href="/">Home</a></li>
+            
+            <li><a href="/archives">Archives</a></li>
+            
+            <li><a href="/tags/">Tags</a></li>
+            
+            <li><a href="/about">About</a></li>
+            
+        </ul>
+
+
+    </a>
+</div>
+
+                
+                <div class="post-main">
+    
+        <div class="post-main-title">
+            scroll 事件处理之 throttle 和 debounce
+        </div>
+        <div class="post-meta">
+            2016-05-05 ｜ 
+            
+                <a href="/categories/Tech/"># Tech</a>
+            
+        </div>
+        <!-- 圆角分类 -->
+        <!-- <div class="tags"> -->
+            <!--  -->
+                <!-- <a href="/categories/Tech/">Tech</a> -->
+            <!--  -->
+        <!-- </div> -->
+        <div class="post-md">
+            <p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/fsjohnhuang/p/4147810.html">概念请点这里</a></p>
+<h2 id="现状描述"><a href="#现状描述" class="headerlink" title="现状描述"></a><strong>现状描述</strong></h2><p>天猫几乎所有的频道都有 <em><strong>下拉刷新</strong></em> 的逻辑。其中，品牌特卖和焕新在做下拉刷新的时候均使用了一个叫做 <code>bottomloader</code> 的组件。该组件中采用了 <em><strong>throttle</strong></em> 方法对于连续的<code>scroll</code>事件所触发业务逻辑（包含数据加载）的次数进行了稀释，从原生的像素级别的滑动触发，稀释到了间隔几百毫秒触发一次，从而极大的降低了<code>scroll</code>事件对业务逻辑的高频触发，提高了滑动流畅度以及页面性能。</p>
+<p>代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> detect = <span class="title function_">throttle</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="comment">//添加业务逻辑</span></span><br><span class="line">&#125;, <span class="number">200</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;scroll&#x27;</span>, detect, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">throttle</span>(<span class="params">action, delay</span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> self = <span class="variable language_">this</span>;</span><br><span class="line">  <span class="keyword">var</span> curr = +<span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">  <span class="keyword">if</span> (curr - self.<span class="property">last</span> &gt; delay)&#123;</span><br><span class="line">    action.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>);</span><br><span class="line">    self.<span class="property">last</span> = curr ;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="问题发现"><a href="#问题发现" class="headerlink" title="问题发现"></a><strong>问题发现</strong></h2><p>这两个频道的测试同学做回归的时候均曾提出，当屏幕被快速滑动到底部时候，下一个Page的资源会经常加载不出来。特别是在 Chrome 模拟器中，通过鼠标拖动可以达到极快的滑动速度时，资源加载不出的情况更是发生频率很高。经排查，原因也很简单，就是由于代码中采用 <em><strong>throttle</strong></em> 方法做了节流。当使用者滑动超快，一次滑动事件的时间低于设定的节流阈值（ 比如 500 毫秒），滑动事件就无法触发具体的业务逻辑，无法加载新数据。</p>
+<h2 id="调整方式"><a href="#调整方式" class="headerlink" title="调整方式"></a><strong>调整方式</strong></h2><p>目前的修改办法是简单的将阈值改小，降至 100 毫秒，将数据加载不出的可能性降低。但是并不能根本的解决这个问题。因为极端情况下，100 毫秒以内的<code>scroll</code>事件也可以产生。同时，页面性能也会因为阈值小、<code>scroll</code>事件触发业务逻辑频率升高造成页面性能下降。</p>
+<h2 id="根本解决"><a href="#根本解决" class="headerlink" title="根本解决"></a><strong>根本解决</strong></h2><p>个人倾向于采用 <em><strong>debounce</strong></em> 的方式，<em><strong>为每一个<code>scroll</code>事件触发的业务逻辑设定一个执行的 timeout，并将所有与前一个<code>scroll</code>事件间隔小于该阈值（即 timeout）的<code>scroll</code>事件触发的业务逻辑都进行丢弃</strong></em>，直到上一个事件完成后经过的时间已经超过该阈值。</p>
+<p>代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;scroll&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> timer === <span class="string">&#x27;number&#x27;</span>) &#123;</span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer);</span><br><span class="line">  &#125;</span><br><span class="line">  timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">//添加业务逻辑</span></span><br><span class="line">  &#125;,<span class="number">200</span>);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<p>如此则有：</p>
+<ol>
+<li>无论用户&#x2F;测试人员以多快速度滑动页面，一旦到页面底部，滑动事件均会由于页面无新内容而被迫停止。此时，采用了<em><strong>debounce</strong></em> 方式，<code>scroll</code>事件触发的业务逻辑确保能被执行；</li>
+<li>丢弃与前一个<code>scroll</code>事件间隔小于特定阈值的后一个事件的业务逻辑，即就是对<code>scroll</code>事件触发业务逻辑次数进行了稀释，也同样提高了页面效率。</li>
+</ol>
+<p><strong>At last,</strong></p>
+<p>一个简易的、同时支持 <code>debounce</code> 和 <code>throttle</code> 的 bottomloader 组件: <a target="_blank" rel="noopener" href="https://github.com/elevenBeans/MyUtils/blob/master/src/BottomLoader.js">请戳这里</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bl = <span class="keyword">new</span> <span class="title class_">BottomLoader</span>(<span class="number">1</span>);</span><br><span class="line">bl.<span class="title function_">addCallback</span>(<span class="keyword">function</span>(<span class="params"><span class="literal">true</span></span>)&#123; <span class="comment">// debouce</span></span><br><span class="line">	<span class="comment">// your code here...</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">	<span class="attr">diff</span>:<span class="number">300</span>, <span class="comment">// 触发距离（距离底部）</span></span><br><span class="line">	<span class="attr">immediately</span>:<span class="literal">true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+        </div>
+    
+<!-- tags -->
+
+    <div class="post-meta">
+        标签：
+        
+            <a href="/tags/JavaScript/"> / JavaScript</a>
+        
+    </div>
+
+</div>
+                <div class="footer">
+    <span>Copyright © <script>document.write(new Date().getFullYear())</script> Elevenbeans</span>
+    <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> with <a target="_blank" rel="noopener" href="https:///imzl.com/zenmind">ZenMind</a></span>
+</div>
+
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+
+            </div>
+        </div>
+    </body>
+</html>

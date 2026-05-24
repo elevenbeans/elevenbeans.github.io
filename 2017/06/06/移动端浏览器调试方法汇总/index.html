@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+  <meta name="robots" content="index, follow">
+  <!-- title -->
+  
+    
+  <title>移动端浏览器调试方法汇总 - Elevenbeans</title>
+    
+  
+  
+  <!-- open graph -->
+  <meta name="description" content="浏览器兼容性一直以来都是让 Web 前端开发人员头疼的问题。虽然移动端其内核趋于统一（Webkit），兼容问题也不再像 PC 端那么严重。但在生产环境当中，考虑到第三方浏览器在内核上面的 “优化”，如（Wechat、UC、QQ、360 等），兼容问题依旧是无法忽略。 本文汇总一下目前比较常见的 Web 移动端调试方法。 总览   方法分类 调试难度 可调试目标 调试效果 建议使用优先级    Ch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端浏览器调试方法汇总">
+<meta property="og:url" content="https://elevenbeans.github.io/2017/06/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:site_name" content="Elevenbeans">
+<meta property="og:description" content="浏览器兼容性一直以来都是让 Web 前端开发人员头疼的问题。虽然移动端其内核趋于统一（Webkit），兼容问题也不再像 PC 端那么严重。但在生产环境当中，考虑到第三方浏览器在内核上面的 “优化”，如（Wechat、UC、QQ、360 等），兼容问题依旧是无法忽略。 本文汇总一下目前比较常见的 Web 移动端调试方法。 总览   方法分类 调试难度 可调试目标 调试效果 建议使用优先级    Ch">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.elevenbeans.me/wechat-debugger.png">
+<meta property="og:image" content="https://images.elevenbeans.me/wechat-debugger-pannel.png">
+<meta property="og:image" content="https://images.elevenbeans.me/wechat-debugger-view.jpeg">
+<meta property="og:image" content="https://images.elevenbeans.me/spy-debugger-pannel.png">
+<meta property="og:image" content="https://images.elevenbeans.me/phoneView.jpeg">
+<meta property="article:published_time" content="2017-06-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-24T08:19:05.308Z">
+<meta property="article:author" content="Elevenbeans">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.elevenbeans.me/wechat-debugger.png">
+  <!-- canonical -->
+  
+  <link rel="canonical" href="https://elevenbeans.github.io/2017/06/06/移动端浏览器调试方法汇总/">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/elevenbeans.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <!-- CSS -->
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/markdown.css">
+
+  
+<link rel="stylesheet" href="/css/fonts.css">
+
+<meta name="generator" content="Hexo 8.1.2"><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVTG7F443J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVTG7F443J');
+</script>
+</head>
+
+    <body>
+        <div class="paper">
+            <div class="paper-main">
+                
+                    <div class="post-header">
+    <a class="logo" href="/">Elevenbeans</a>
+    <!-- <div class="logo"><a href="/" title="Len"><img src="/img/logo.svg" alt="Len" aria-label="logo" height="20"></a></div> -->
+        <ul class="nav">
+            
+            <li><a href="/">Home</a></li>
+            
+            <li><a href="/archives">Archives</a></li>
+            
+            <li><a href="/tags/">Tags</a></li>
+            
+            <li><a href="/about">About</a></li>
+            
+        </ul>
+
+
+    </a>
+</div>
+
+                
+                <div class="post-main">
+    
+        <div class="post-main-title">
+            移动端浏览器调试方法汇总
+        </div>
+        <div class="post-meta">
+            2017-06-06 ｜ 
+            
+                <a href="/categories/Tech/"># Tech</a>
+            
+        </div>
+        <!-- 圆角分类 -->
+        <!-- <div class="tags"> -->
+            <!--  -->
+                <!-- <a href="/categories/Tech/">Tech</a> -->
+            <!--  -->
+        <!-- </div> -->
+        <div class="post-md">
+            <p>浏览器兼容性一直以来都是让 Web 前端开发人员头疼的问题。虽然移动端其内核趋于统一（Webkit），兼容问题也不再像 PC 端那么严重。但在生产环境当中，考虑到第三方浏览器在内核上面的 “优化”，如（Wechat、UC、QQ、360 等），兼容问题依旧是无法忽略。</p>
+<p>本文汇总一下目前比较常见的 Web 移动端调试方法。</p>
+<h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><table>
+<thead>
+<tr>
+<th>方法分类</th>
+<th>调试难度</th>
+<th>可调试目标</th>
+<th>调试效果</th>
+<th>建议使用优先级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Chrome 模拟器</td>
+<td>简单</td>
+<td>所有</td>
+<td>模拟效果，基本能调试 UI 及标准 JS 所有问题</td>
+<td>极高</td>
+</tr>
+<tr>
+<td>Android 上的 Chrome</td>
+<td>一般</td>
+<td>Android Chrome</td>
+<td>真机效果，支持单步</td>
+<td>较高</td>
+</tr>
+<tr>
+<td>IOS 上的 Safari</td>
+<td>一般，需要 Mac</td>
+<td>IOS Safari</td>
+<td>真机效果，支持单步</td>
+<td>高</td>
+</tr>
+<tr>
+<td>Android 上的 UC</td>
+<td>困难，需要 adb 辅助工具</td>
+<td>Android UC</td>
+<td>真机效果，支持单步</td>
+<td>中等</td>
+</tr>
+<tr>
+<td>Android&#x2F;IOS APP 里的 webview</td>
+<td>困难</td>
+<td>Webview</td>
+<td>真机效果</td>
+<td>低</td>
+</tr>
+<tr>
+<td>Android 上的 x5 内核（微信等）</td>
+<td>困难</td>
+<td>Android x5 browser</td>
+<td>真机效果，支持单步</td>
+<td>低</td>
+</tr>
+<tr>
+<td>spy-debugger&#x2F;vorlon</td>
+<td>一般</td>
+<td>所有</td>
+<td>真机效果，<strong>不支持单步调试</strong></td>
+<td>最低</td>
+</tr>
+</tbody></table>
+<h2 id="详细方法"><a href="#详细方法" class="headerlink" title="详细方法"></a>详细方法</h2><h3 id="Chrome-模拟器"><a href="#Chrome-模拟器" class="headerlink" title="Chrome 模拟器"></a>Chrome 模拟器</h3><ol>
+<li><p>在 PC 上打开 Chrome 浏览器，打开想要调试的页面，然后右上角设置中打开开发人员工具(More Tools –&gt; Developer Tools), 或者:</p>
+<ul>
+<li>点击鼠标右键点击“检查” (inspect)，即可开始调试</li>
+<li>使用快捷键: Windows 是 <code>Ctrl + shift + I</code>, Mac 为 <code>option + command + I</code></li>
+</ul>
+</li>
+<li><p>默认在页面左侧顶部可以看到设备选择下拉菜单 Device, 右侧会有 HTML、CSS 的调试界面，右下侧会有 JS 的 <code>console</code> 面板</p>
+</li>
+</ol>
+<h3 id="Android-上的-Chrome-（需要梯子）"><a href="#Android-上的-Chrome-（需要梯子）" class="headerlink" title="Android 上的 Chrome （需要梯子）"></a>Android 上的 Chrome （需要梯子）</h3><ol>
+<li>在 Android 和 PC 设备上均需安装 <a target="_blank" rel="noopener" href="http://www.google.cn/chrome/">Chrome 浏览器</a>。在 Android 上安装对应的设备驱动（如果找不到，<a target="_blank" rel="noopener" href="https://www.wandoujia.com/">豌豆荚</a>是首选辅助工具）</li>
+<li>用 USB 线连接 Android 和 PC 设备，开启当前 Android 设备的 USB 调试。</li>
+<li>在 PC 上的 Chrome 地址栏输入 <code>chrome://inspect</code> 然后回车，或通过菜单图标→工具→检查设备，进入调试界面</li>
+<li>在移动设备任何时候弹出的“是否允许远程调试”上，选择“允许”</li>
+<li>PC 的 inspect 页面列表将展示已在 Android 上的 Chrome 中打开的页面。点击对应的 “inspect” 按钮则可开始调试</li>
+</ol>
+<h3 id="IOS-上的-Safari"><a href="#IOS-上的-Safari" class="headerlink" title="IOS 上的 Safari"></a>IOS 上的 Safari</h3><ol>
+<li>在 IOS 设备上打开允许调试：设置 –&gt; Safari –&gt; 高级 –&gt; 打开 “web检查器”</li>
+<li>在 MAC 上打开 Safari 的开发菜单：顶部菜单栏 “Safari” –&gt; 偏好设置 –&gt; 高级 –&gt; 打开 在菜单栏中显示“开发”菜单 (show develop menu in menu bar)</li>
+<li>在 IOS 设备上的 Safari 浏览器中打开要调试的页面，然后切换到 MAC 的 Safari，在顶部菜单栏选择 “开发” –&gt; 找到你的 IOS 设备名称 –&gt; 右边二级菜单选择需要调试的对应标签页，即可开始远程调试</li>
+</ol>
+<h3 id="Android-上的-UC"><a href="#Android-上的-UC" class="headerlink" title="Android 上的 UC"></a>Android 上的 UC</h3><p>早前一篇有过详细描述，具体请戳 → <a href="/2016/08/11/UC-%E6%89%8B%E6%9C%BA%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E7%BB%8F%E9%AA%8C/">Here</a></p>
+<h3 id="Android-APP-Webview（类似-Android-上的-Chrome-需要梯子）"><a href="#Android-APP-Webview（类似-Android-上的-Chrome-需要梯子）" class="headerlink" title="Android APP Webview（类似 Android 上的 Chrome, 需要梯子）"></a>Android APP Webview（类似 Android 上的 Chrome, 需要梯子）</h3><ol>
+<li>通过修改代码，在APP内设置允许远程调试（安卓 &gt;&#x3D; 4.4）, <a target="_blank" rel="noopener" href="https://developers.google.com/web/tools/chrome-devtools/remote-debugging/?utm_source=dcc&utm_medium=redirect&utm_campaign=2016q3#configure-webview">具体方法在这里</a> 。然后安装 APP</li>
+<li>在 PC 上安装 Chrome 浏览器（版本&gt;&#x3D;32）和对应的 Android 设备驱动（如果找不到，可以 <a target="_blank" rel="noopener" href="https://www.wandoujia.com/">豌豆荚大法</a>）</li>
+<li>用 USB 线连接 Android 设备，开启当前 Android 设备的 USB 调试，在 PC 上的chrome地址栏输入 <code>chrome://inspect</code> 然后回车进入调试界面</li>
+<li>在移动设备上弹出的是否允许远程调试上，选择“允许”</li>
+<li>PC 的 inspect 页面列表将展示已在 Android webview 中打开的页面。点击对应的 “inspect” 按钮则可开始调试</li>
+</ol>
+<p><em>IOS APP Webview 同理</em></p>
+<h3 id="Android-上的-x5-内核（主要针对微信等）"><a href="#Android-上的-x5-内核（主要针对微信等）" class="headerlink" title="Android 上的 x5 内核（主要针对微信等）"></a>Android 上的 x5 内核（主要针对微信等）</h3><p>=&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <em>Updated 2017-06-08</em> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p><strong>感谢掘金用户 @夏空君 提醒，目前 X5 有 TBS_Studio 这种整体解决方案了</strong></p>
+<p>给个传送门吧: <a target="_blank" rel="noopener" href="http://bbs.mb.qq.com/thread-1416936-1-1.html">TBS开发调试利器——TBS Studio开篇</a></p>
+<p>=&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <em>End</em> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p>过程略繁琐，但是这个方案应该是目前调试 Webview 最强大的工具，支持断点调试、控制台打印等。以下步骤以 Wechat 举例：</p>
+<ul>
+<li><p>前期准备</p>
+<ul>
+<li><p>下载 <a target="_blank" rel="noopener" href="http://res.imtt.qq.com///tbs_inspect/TbsSuiteNew.zip">TbsSuiteNew.apk</a> 安装到手机</p>
+</li>
+<li><p>打开微信，进入任意聊天界面，输入框内输入 <code>//deletetbs</code>，点发送</p>
+</li>
+<li><p>打开 TbsSuiteNew，安装本地 tbs 内核<br><em>应用包名 微信：com.tencent.mm，qq：com.tencent.mobileqq，qq 空间：com.qzone，本例中选择微信即可</em></p>
+</li>
+<li><p>启动应用，用微信访问一个页面，停留 1 分钟左右，目的是让微信来静默安装刚导入进去的tbs_xxxx_inspector.apk 包</p>
+</li>
+<li><p>一分钟过后打开 TbsSuiteNew 检查是否安装成功。<br><em>这里还需要在检查下 打开微信 随便进入一个 webview 页面 然后长按页面文字是否有水滴 ，若有则成功</em></p>
+</li>
+</ul>
+</li>
+<li><p>ADB 安装</p>
+<ul>
+<li><p>官网下载 android-sdk ，执行 tools 文件夹下面的 android，然后选择 android sdk platform tools 安装（ 示意图 ）</p>
+</li>
+<li><p>*nix 平台 ADB 配置</p>
+<ul>
+<li><p>配置 Android 环境变量 vim ~&#x2F;.bash_profile</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export ANDROID_TOOLS=/Users/&lt;yourname&gt;/&lt;yourpath&gt;/android-sdk-macosx/platform-tools</span><br><span class="line">export PATH=$PATH:$ANDROID_TOOLS</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输入 source .bash_profile，执行下环境变量；接着在终端输入 adb，看是否已经配置 OK</p>
+</li>
+</ul>
+</li>
+<li><p>Window 平台 ADB 配置</p>
+<ul>
+<li>系统环境变量里加入 adb.exe 的文件地址，或者直接将文件复制到 system32 下即可</li>
+</ul>
+</li>
+<li><p>USB 连接手机，启动调试模式。终端输入 <code>adb devices</code>，就能看到已经连接的设备。<br><em>有时 adb devices 不能显示连接设备，需要拔掉数据线，多插几次，并且退出终端，然后重新打开，重启adb。</em></p>
+</li>
+</ul>
+</li>
+<li><p>python启动调试服务</p>
+<ul>
+<li><p>下载 <a target="_blank" rel="noopener" href="http://res.imtt.qq.com///tbs_inspect/wx_sq_webview_debug.zip">调试包</a> ，解压，找到其中的 inspector_client20150401 解压，然后进入</p>
+</li>
+<li><p>执行以下 python 命令，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python ./inspector.py —abd 你自己的adb路径</span><br><span class="line">python ./inspector.py --adb /Users/&lt;yourName&gt;/&lt;yourpath&gt;/android-sdk-macosx/platform-tools/adb</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动成功，PC 打开 Chrome 浏览器，访问 <a target="_blank" rel="noopener" href="http://localhost:9222/">http://localhost:9222/</a>; 手机打开微信任意 Webview，就能在 Chrome 看到这个页面的选项卡，点进去就是熟悉的调试界面～</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>有图有真相：</p>
+<p><img src="https://images.elevenbeans.me/wechat-debugger.png" alt="img">  </p>
+<p><img src="https://images.elevenbeans.me/wechat-debugger-pannel.png" alt="img">  </p>
+<p><img src="https://images.elevenbeans.me/wechat-debugger-view.jpeg" alt="img">  </p>
+<h3 id="spy-debugger-（最后的大招-Github-repo）"><a href="#spy-debugger-（最后的大招-Github-repo）" class="headerlink" title="spy-debugger （最后的大招, Github repo）"></a>spy-debugger （最后的大招, <a target="_blank" rel="noopener" href="https://github.com/wuchangming/spy-debugger">Github repo</a>）</h3><p>集成并简化了 weinre 繁琐的配置过程。通过代理的方式拦截所有 HTML 自动注入 weinre 所需的 js 代码。</p>
+<p>=&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <em>Updated 2017-06-09</em> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p><strong>感谢阿里师兄 @首长 提醒，同样通过 代理服务 + JS侵入 这种方式的，目前还有微软出品的 <a target="_blank" rel="noopener" href="http://www.vorlonjs.com/">vorlon</a> 工具</strong></p>
+<p>=&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <em>End</em> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<ol>
+<li><p>安装: <code>npm install spy-debugger -g</code></p>
+</li>
+<li><p>手机和 PC 保持在同一网络下（比如同时连到一个Wi-Fi下）</p>
+</li>
+<li><p>命令行输入<code>spy-debugger</code>, 按命令行提示用浏览器打开相应地址。</p>
+</li>
+<li><p>设置手机的 HTTP 代理，代理 IP 地址设置为 PC 的 IP 地址，端口为s py-debugger的启动端口。</p>
+</li>
+<li><p>用手机浏览器访问你要调试的页面即可。</p>
+</li>
+</ol>
+<p>下图是亲测 QQ 浏览器的调试：</p>
+<p><img src="https://images.elevenbeans.me/spy-debugger-pannel.png" alt="img">  </p>
+<p><img src="https://images.elevenbeans.me/phoneView.jpeg" alt="img2">  </p>
+<h2 id="At-last"><a href="#At-last" class="headerlink" title="At last"></a>At last</h2><p>如果觉得文章对你有帮助的话，去 <a target="_blank" rel="noopener" href="https://github.com/elevenBeans/elevenbeans.github.io">Github Repo</a> 给个 star 吧亲～</p>
+
+        </div>
+    
+<!-- tags -->
+
+    <div class="post-meta">
+        标签：
+        
+            <a href="/tags/JavaScript/"> / JavaScript</a>
+        
+    </div>
+
+</div>
+                <div class="footer">
+    <span>Copyright © <script>document.write(new Date().getFullYear())</script> Elevenbeans</span>
+    <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> with <a target="_blank" rel="noopener" href="https:///imzl.com/zenmind">ZenMind</a></span>
+</div>
+
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+
+            </div>
+        </div>
+    </body>
+</html>

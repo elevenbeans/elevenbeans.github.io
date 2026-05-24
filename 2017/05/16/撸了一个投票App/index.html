@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+  <meta name="robots" content="index, follow">
+  <!-- title -->
+  
+    
+  <title>全栈开发实例：如何独立开发/发布一个 WebAPP - Elevenbeans</title>
+    
+  
+  
+  <!-- open graph -->
+  <meta name="description" content="talkIsCheap( )？goto(lastParagraph):continue( ) 背景全栈工程师，也叫全端工程师(同时具备前端和后台能力)，英文 Full Stack developer。是指掌握多种技能，并能利用多种技能独立完成产品的人. （From 百度） 敲黑板：利用多种技能独立完成产品。 So, 至少需要一个人 cover 掉 前端 + 后端 + 数据库吧 ～ 搞一个活生生的投">
+<meta property="og:type" content="article">
+<meta property="og:title" content="全栈开发实例：如何独立开发&#x2F;发布一个 WebAPP">
+<meta property="og:url" content="https://elevenbeans.github.io/2017/05/16/%E6%92%B8%E4%BA%86%E4%B8%80%E4%B8%AA%E6%8A%95%E7%A5%A8App/index.html">
+<meta property="og:site_name" content="Elevenbeans">
+<meta property="og:description" content="talkIsCheap( )？goto(lastParagraph):continue( ) 背景全栈工程师，也叫全端工程师(同时具备前端和后台能力)，英文 Full Stack developer。是指掌握多种技能，并能利用多种技能独立完成产品的人. （From 百度） 敲黑板：利用多种技能独立完成产品。 So, 至少需要一个人 cover 掉 前端 + 后端 + 数据库吧 ～ 搞一个活生生的投">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-05-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-24T08:19:05.303Z">
+<meta property="article:author" content="Elevenbeans">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+  <!-- canonical -->
+  
+  <link rel="canonical" href="https://elevenbeans.github.io/2017/05/16/撸了一个投票App/">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/elevenbeans.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <!-- CSS -->
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/markdown.css">
+
+  
+<link rel="stylesheet" href="/css/fonts.css">
+
+<meta name="generator" content="Hexo 8.1.2"><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVTG7F443J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVTG7F443J');
+</script>
+</head>
+
+    <body>
+        <div class="paper">
+            <div class="paper-main">
+                
+                    <div class="post-header">
+    <a class="logo" href="/">Elevenbeans</a>
+    <!-- <div class="logo"><a href="/" title="Len"><img src="/img/logo.svg" alt="Len" aria-label="logo" height="20"></a></div> -->
+        <ul class="nav">
+            
+            <li><a href="/">Home</a></li>
+            
+            <li><a href="/archives">Archives</a></li>
+            
+            <li><a href="/tags/">Tags</a></li>
+            
+            <li><a href="/about">About</a></li>
+            
+        </ul>
+
+
+    </a>
+</div>
+
+                
+                <div class="post-main">
+    
+        <div class="post-main-title">
+            全栈开发实例：如何独立开发/发布一个 WebAPP
+        </div>
+        <div class="post-meta">
+            2017-05-16 ｜ 
+            
+                <a href="/categories/Tech/"># Tech</a>
+            
+        </div>
+        <!-- 圆角分类 -->
+        <!-- <div class="tags"> -->
+            <!--  -->
+                <!-- <a href="/categories/Tech/">Tech</a> -->
+            <!--  -->
+        <!-- </div> -->
+        <div class="post-md">
+            <p><code>talkIsCheap( )？goto(lastParagraph):continue( )</code></p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p><em>全栈工程师，也叫全端工程师(同时具备前端和后台能力)，英文 Full Stack developer。是指掌握多种技能，并能利用多种技能独立完成产品的人.</em> （From 百度）</p>
+<p>敲黑板：<strong>利用多种技能独立完成产品</strong>。</p>
+<p>So, 至少需要一个人 cover 掉 前端 + 后端 + 数据库吧 ～</p>
+<p>搞一个活生生的投票应用送给各位 : ) 具体功能为：</p>
+<ul>
+<li><p>对于已经授权用户可以：</p>
+<ul>
+<li>新建一个 poll，可自定义其中的选项</li>
+<li>存储发起的 polls，下次登陆仍旧可以看到自己发起的 polls 集合</li>
+<li>看到应用中所有用户创建的 polls 的实时投票结果 （用图表展示）</li>
+<li>向所有 polls 投票（每个 poll 每个用户号只能投一票）.</li>
+<li>可分享 poll (poll 详情页支持外部 landing)</li>
+</ul>
+</li>
+<li><p>非授权用户只能：</p>
+<ul>
+<li>看到应用中所有用户创建的 polls 的实时投票结果 （用图表展示）</li>
+</ul>
+</li>
+</ul>
+<h2 id="开发过程"><a href="#开发过程" class="headerlink" title="开发过程"></a>开发过程</h2><p><strong>整体技术目标：React + Express + Mongodb 完成一个投票 SPA</strong></p>
+<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><ul>
+<li><p>概述</p>
+<ul>
+<li>使用 JS 语言标准 <a target="_blank" rel="noopener" href="http://www.nodeclass.com/api/ECMAScript6.html">ES6</a></li>
+<li>模块化：ES6 module</li>
+<li>使用 React + ReactDOM 进行框架前端组件化开发</li>
+<li>React-Router：SPA 的核心，与后端路由配合完成应用路由</li>
+<li>React-router-transition：转场过渡效果就是要做到如丝般顺滑～</li>
+</ul>
+</li>
+<li><p>前端入口 <a target="_blank" rel="noopener" href="https://github.com/elevenBeans/WeVoting/blob/master/client/index.jsx#L25">(View source)</a></p>
+<p>利用 React router 将首页指向 Home 组件，定义三个新路由 list、detail、new，分别指向对应页面组件。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Router</span> <span class="attr">key</span>=<span class="string">&#123;Math.random()&#125;</span> <span class="attr">history</span>=<span class="string">&#123;browserHistory&#125;</span> &gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/&quot;</span> <span class="attr">component</span>=<span class="string">&#123;App&#125;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">IndexRoute</span> <span class="attr">component</span>=<span class="string">&#123;Home&#125;/</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/list(/:name)&quot;</span> <span class="attr">component</span>=<span class="string">&#123;List&#125;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/detail(/:id)&quot;</span> <span class="attr">component</span>=<span class="string">&#123;Detail&#125;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/new&quot;</span> <span class="attr">component</span>=<span class="string">&#123;New&#125;</span>&gt;</span><span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Router</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>页面级组件<br>每一个页面级组件对应一个应用页面，均继承自 <code>React.Component</code></p>
+<ul>
+<li>home <a target="_blank" rel="noopener" href="https://github.com/elevenBeans/WeVoting/blob/master/client/home.jsx">(View source)</a><ul>
+<li>作为应用的首页, 列出应用主要功能和信息</li>
+<li>对应 router: <code>/</code></li>
+</ul>
+</li>
+<li>list <a target="_blank" rel="noopener" href="https://github.com/elevenBeans/WeVoting/blob/master/client/list.jsx">(View source)</a><ul>
+<li>列表页展示所有 polls 及对应 title、owner 等概要信息</li>
+<li>对应 router: <code>/list(/:name)</code></li>
+</ul>
+</li>
+<li>detail <a target="_blank" rel="noopener" href="https://github.com/elevenBeans/WeVoting/blob/master/client/detail.jsx">(View source)</a><ul>
+<li>详情页展示指定 poll 的详细信息</li>
+<li>对应 router: <code>/detail(/:id)</code></li>
+</ul>
+</li>
+<li>new <a target="_blank" rel="noopener" href="https://github.com/elevenBeans/WeVoting/blob/master/client/new.jsx">(View source)</a><ul>
+<li>新建页收集新建 poll 的必要信息</li>
+<li>对应 router: <code>/new</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>公共组件</p>
+<ul>
+<li>header <a target="_blank" rel="noopener" href="https://github.com/elevenBeans/WeVoting/blob/master/client/components/header.jsx">(View source)</a>: 所有页面的共同头部，包含个性化 menu、用户头像姓名，登入登出按钮等等</li>
+<li>footer <a target="_blank" rel="noopener" href="https://github.com/elevenBeans/WeVoting/blob/master/client/components/footer.jsx">(View source)</a>: 可复用的页面底部，包含 copyright 信息</li>
+<li>loading: 加载动效 （推荐一个工具 <a target="_blank" rel="noopener" href="https://loading.io/">loading.io</a>）</li>
+<li>spning: 按钮等待动效</li>
+</ul>
+</li>
+<li><p>异步请求</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.phperz.com/article/15/0813/148111.html#$.ajax">zepto ajax</a> (均采用 POST, 整站开发, 不跨域)</li>
+</ul>
+</li>
+</ul>
+<h3 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h3><ul>
+<li><p>概述</p>
+<ul>
+<li>使用 Express 框架搭建后端服务，作为 SPA 的入口和容器。</li>
+<li>使用单一职责的 <code>express.Router()</code>，配合前端 React-router。处理外部直接 Landing、原地重刷新以及区分 404 页面:</li>
+<li>使用 ejs 模版引擎作为主应用的后端 View:</li>
+</ul>
+</li>
+<li><p>Views</p>
+<ul>
+<li>index <a target="_blank" rel="noopener" href="https://github.com/elevenBeans/WeVoting/blob/master/views/index.ejs">(View source)</a>: 后端入口模版，提供 <code>React.reader()</code> 的目标 DOM 节点</li>
+<li>header <a target="_blank" rel="noopener" href="https://github.com/elevenBeans/WeVoting/blob/master/views/header.ejs">(View source)</a>: 模版公共头部：HTML 的 <code>&lt;head&gt;</code> 信息，以及在其中需要同步加载的 js、css 资源</li>
+<li>footer <a target="_blank" rel="noopener" href="https://github.com/elevenBeans/WeVoting/blob/master/views/footer.ejs">(View source)</a>: 模版公共尾部： 主要用于加载 HTML 尾部 js 资源</li>
+<li>error <a target="_blank" rel="noopener" href="https://github.com/elevenBeans/WeVoting/blob/master/views/error.ejs">(View source)</a>: 错误页模版</li>
+</ul>
+</li>
+<li><p>Views Router <a target="_blank" rel="noopener" href="https://github.com/elevenBeans/WeVoting/blob/master/controller/routes/view.js">(View source)</a></p>
+<p>所有 Landing 或者页面刷新的链接都由后端同一收口到 views 中的 index，再由前端统一处理。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/detail/:id&#x27;</span>, throwToHome);</span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/detail&#x27;</span>, throwToHome);</span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/list/:name&#x27;</span>, throwToHome);</span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/list&#x27;</span>, throwToHome);</span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/new&#x27;</span>, throwToHome);</span><br><span class="line"></span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, throwToHome);</span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;*&#x27;</span>, throwToError);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">throwToHome</span>(<span class="params">request, response</span>)&#123;</span><br><span class="line">  response.<span class="title function_">render</span>(<span class="string">&#x27;index&#x27;</span>,</span><br><span class="line">  &#123;</span><br><span class="line">	<span class="attr">cdnUrl</span>: config.<span class="property">CDN_URL</span></span><br><span class="line">  &#125;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">throwToError</span>(<span class="params">request, response</span>)&#123;</span><br><span class="line">  response.<span class="title function_">render</span>(<span class="string">&#x27;error&#x27;</span>,</span><br><span class="line">  &#123;</span><br><span class="line">	<span class="attr">cdnUrl</span>: config.<span class="property">CDN_URL</span></span><br><span class="line">  &#125;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第三方用户登陆</p>
+<ul>
+<li>选择 Github API，详细见 <a target="_blank" rel="noopener" href="https://developer.github.com/v3/oauth/#web-application-flow">Github OAuth - Web Application Flow</a></li>
+</ul>
+</li>
+<li><p><strong>API</strong> <a target="_blank" rel="noopener" href="https://github.com/elevenBeans/WeVoting/blob/master/controller/routes/api.js">(View source)</a></p>
+<ul>
+<li><code>/getPollList</code>: 获取 polls 列表<ul>
+<li>入参: <code>userName</code> (用户名)，可获取该用户创建的所有 polls; 缺省 <code>userName</code> 则获取所有存在的 polls</li>
+<li>返回: 符合条件的 polls 列表</li>
+</ul>
+</li>
+<li><code>/getPollByID</code>: 获取指定的 poll 的详细信息<ul>
+<li>入参: <code>pollID</code> (poll 唯一标识)</li>
+<li>返回: 一个包含指定 poll 的单元素列表</li>
+</ul>
+</li>
+<li><code>/upDatePollByID</code>: 更新一个 poll (投票)<ul>
+<li>入参 <code>pollID</code> (poll 唯一标识); <code>index</code>（用户具体投给的选项编号）; <code>voter</code>（传递投票的用户名，避免用户对同一个 poll 多次投票)</li>
+<li>返回 <code>result</code>: <code>bool</code> 类型值，告诉你是否更新成功</li>
+</ul>
+</li>
+<li><code>/insertPoll</code>: 新建一个 poll<ul>
+<li>入参<code>title</code>(poll 题目),<code>description</code>(poll 描述),<code>options</code>: (poll 中的选项),<code>ownerName</code>(创建用户), <code>voterList</code>(投票用户，初始为空数组)</li>
+<li>返回 <code>result</code>: <code>bool</code> 类型值，告诉你是否创建成功</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><ul>
+<li><p>Mongodb<br>MongoDB 是一个基于分布式文件存储的数据库。由 C++ 语言编写。旨在为 WEB 应用提供可扩展的高性能数据存储解决方案。MongoDB 是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的。</p>
+</li>
+<li><p>环境安装和配置</p>
+<ul>
+<li><p>下载：<a target="_blank" rel="noopener" href="https://docs.mongodb.com/">Download</a></p>
+</li>
+<li><p>安装：解压压缩文件至你任何想要存放的地方</p>
+</li>
+<li><p>配置：二进制文件可以直接执行, 配置你的 <code>.bashrc</code>文件：<code>export PATH=&lt;mongodb-install-directory&gt;/bin:$PATH</code>, 例如我的是 <code>export PATH=$HOME/mongodb/bin:$PATH</code></p>
+</li>
+<li><p>运行 mongodb 服务, 默认 27017 端口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行 Cli， 用命令行对于数据库的常用操作</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongo // 进入 Cli</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show dbs // 显示所有数据库</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use &lt;dbName&gt; // 进入指定数据库</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show collections // 显示所有 collections (table)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.&lt;collectionName&gt;.find(&#123;&#125;) // 查询</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.&lt;collectionName&gt;.deleteOne(&#123;&#125;) // 删除</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Express 连接 Mongodb <a target="_blank" rel="noopener" href="https://github.com/elevenBeans/WeVoting/blob/master/controller/DBhandler.js">(View source)</a>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dbUrl = <span class="string">&#x27;mongodb://localhost:27017/voting&#x27;</span></span><br><span class="line"><span class="keyword">var</span> mongo = <span class="built_in">require</span>(<span class="string">&quot;mongodb&quot;</span>).<span class="property">MongoClient</span>;</span><br><span class="line">mongo.<span class="title function_">connect</span>(dbUrl, <span class="keyword">function</span>(<span class="params">err, db</span>)&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> pullList = db.<span class="title function_">collection</span>(<span class="string">&#x27;pollList&#x27;</span>);</span><br><span class="line">  pullList.<span class="title function_">find</span>(&#123;<span class="attr">ownerName</span>: ownerName&#125;,&#123;&#125;).<span class="title function_">sort</span>(&#123;<span class="attr">timestamp</span>: -<span class="number">1</span>&#125;).<span class="title function_">toArray</span>(<span class="keyword">function</span>(<span class="params">err, docs</span>)&#123;</span><br><span class="line">  <span class="keyword">if</span>(err)&#123;</span><br><span class="line">  	db.<span class="title function_">close</span>();</span><br><span class="line">  	<span class="title function_">errCal</span>(err);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  	db.<span class="title function_">close</span>();</span><br><span class="line">  	<span class="title function_">sucCal</span>(docs);</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数据库 collection (table) 设计</p>
+</li>
+</ul>
+<p>userList schema:  </p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;array&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;items&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;object&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;properties&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;_id&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;integer&quot;</span></span><br><span class="line">            <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;email&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;string&quot;</span></span><br><span class="line">            <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;string&quot;</span></span><br><span class="line">            <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;timestamp&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;integer&quot;</span></span><br><span class="line">            <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>pollList schema:  </p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;array&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;items&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;object&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;properties&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;_id&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;integer&quot;</span></span><br><span class="line">            <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;string&quot;</span></span><br><span class="line">            <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;options&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;array&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;items&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                    <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;object&quot;</span><span class="punctuation">,</span></span><br><span class="line">                    <span class="attr">&quot;properties&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                        <span class="attr">&quot;count&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                            <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;integer&quot;</span></span><br><span class="line">                        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">                        <span class="attr">&quot;index&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                            <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;integer&quot;</span></span><br><span class="line">                        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">                        <span class="attr">&quot;option&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                            <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;string&quot;</span></span><br><span class="line">                        <span class="punctuation">&#125;</span></span><br><span class="line">                    <span class="punctuation">&#125;</span></span><br><span class="line">                <span class="punctuation">&#125;</span></span><br><span class="line">            <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;ownerName&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;string&quot;</span></span><br><span class="line">            <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;pollID&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;string&quot;</span></span><br><span class="line">            <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;title&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;string&quot;</span></span><br><span class="line">            <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;voterList&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;array&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;items&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                    <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;string&quot;</span></span><br><span class="line">                <span class="punctuation">&#125;</span></span><br><span class="line">            <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="发布过程"><a href="#发布过程" class="headerlink" title="发布过程"></a>发布过程</h2><h3 id="heroku-发布代码至云服务"><a href="#heroku-发布代码至云服务" class="headerlink" title="heroku 发布代码至云服务"></a>heroku 发布代码至云服务</h3><p><a target="_blank" rel="noopener" href="http://www.heroku.com/">官网</a> (可能需要梯子)</p>
+<ul>
+<li><p>下载 Heroku Cli <a target="_blank" rel="noopener" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up">Download</a></p>
+</li>
+<li><p>进入项目根目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd WeVoting</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行 <code>heroku login</code> 进行登录，无账号则去官网申请</p>
+</li>
+<li><p>执行 <code>heroku create &lt;yourAppName&gt;</code> 创建 App，这里的<code>appName</code> 也是你在<code>herokuapp.com</code> 下的三级域名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heroku create we-voting-ele</span><br></pre></td></tr></table></figure>
+
+<p>最终域名为：<a target="_blank" rel="noopener" href="https://we-voting-ele.herokuapp.com/">https://we-voting-ele.herokuapp.com</a></p>
+</li>
+<li><p>推送代码到 heroku 进行发布</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push heroku master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开应用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heroku open</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个 Procfile 设置服务开启命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">web: node index.js</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Scale the app</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heroku ps:scale web=1</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="heroku-addons-部署-mongodb-云服务-mLab-MongoDB"><a href="#heroku-addons-部署-mongodb-云服务-mLab-MongoDB" class="headerlink" title="heroku addons 部署 mongodb 云服务 mLab MongoDB"></a>heroku addons 部署 mongodb 云服务 <a target="_blank" rel="noopener" href="https://elements.heroku.com/addons/mongolab">mLab MongoDB</a></h3><ul>
+<li><p>一行命令部署 mLab MongoDB 免费版</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heroku addons:create mongolab:sandbox</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取云数据库服务链接 <code>Mongodb_uri</code>, 用于后台代码连接 Mongodb 服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heroku config</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>详情请见：<a target="_blank" rel="noopener" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction">Getting Started on Heroku with Node.js</a></p>
+<p>Done ~</p>
+<h2 id="LISENCE"><a href="#LISENCE" class="headerlink" title="LISENCE"></a>LISENCE</h2><p>代码开源，<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html">一张图告诉你开源协议怎么选 by ryfeng</a></p>
+<h2 id="最后送上源码和-Demo"><a href="#最后送上源码和-Demo" class="headerlink" title="最后送上源码和 Demo"></a>最后送上源码和 Demo</h2><p><a target="_blank" rel="noopener" href="https://we-voting-ele.herokuapp.com/">Demo 在此</a></p>
+<p>看完了就去 <a target="_blank" rel="noopener" href="https://github.com/elevenBeans/WeVoting">Git repository</a> 加个星星吧 : )<br>能互相 follow 就更好了 ～</p>
+
+        </div>
+    
+<!-- tags -->
+
+    <div class="post-meta">
+        标签：
+        
+            <a href="/tags/JavaScript/"> / JavaScript</a>
+        
+            <a href="/tags/React/"> / React</a>
+        
+    </div>
+
+</div>
+                <div class="footer">
+    <span>Copyright © <script>document.write(new Date().getFullYear())</script> Elevenbeans</span>
+    <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> with <a target="_blank" rel="noopener" href="https:///imzl.com/zenmind">ZenMind</a></span>
+</div>
+
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+
+            </div>
+        </div>
+    </body>
+</html>

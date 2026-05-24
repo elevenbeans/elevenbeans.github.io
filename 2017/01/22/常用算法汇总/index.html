@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+  <meta name="robots" content="index, follow">
+  <!-- title -->
+  
+    
+  <title>常用算法汇总 - Elevenbeans</title>
+    
+  
+  
+  <!-- open graph -->
+  <meta name="description" content="发布冻结，虽然马上过年了，还是不能闲着。复习一下计算机基础。来几个小算法～   冒泡排序123456789101112bubbleSort: function(arr)&#123;    for(var i &#x3D; 0; i &lt; arr.length - 1; i++)&#123;        for(var j &#x3D; 1; j &lt; arr.length - 2; j++)&#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用算法汇总">
+<meta property="og:url" content="https://elevenbeans.github.io/2017/01/22/%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:site_name" content="Elevenbeans">
+<meta property="og:description" content="发布冻结，虽然马上过年了，还是不能闲着。复习一下计算机基础。来几个小算法～   冒泡排序123456789101112bubbleSort: function(arr)&#123;    for(var i &#x3D; 0; i &lt; arr.length - 1; i++)&#123;        for(var j &#x3D; 1; j &lt; arr.length - 2; j++)&#123;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-01-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-24T08:19:05.320Z">
+<meta property="article:author" content="Elevenbeans">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+  <!-- canonical -->
+  
+  <link rel="canonical" href="https://elevenbeans.github.io/2017/01/22/常用算法汇总/">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/elevenbeans.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <!-- CSS -->
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/markdown.css">
+
+  
+<link rel="stylesheet" href="/css/fonts.css">
+
+<meta name="generator" content="Hexo 8.1.2"><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVTG7F443J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVTG7F443J');
+</script>
+</head>
+
+    <body>
+        <div class="paper">
+            <div class="paper-main">
+                
+                    <div class="post-header">
+    <a class="logo" href="/">Elevenbeans</a>
+    <!-- <div class="logo"><a href="/" title="Len"><img src="/img/logo.svg" alt="Len" aria-label="logo" height="20"></a></div> -->
+        <ul class="nav">
+            
+            <li><a href="/">Home</a></li>
+            
+            <li><a href="/archives">Archives</a></li>
+            
+            <li><a href="/tags/">Tags</a></li>
+            
+            <li><a href="/about">About</a></li>
+            
+        </ul>
+
+
+    </a>
+</div>
+
+                
+                <div class="post-main">
+    
+        <div class="post-main-title">
+            常用算法汇总
+        </div>
+        <div class="post-meta">
+            2017-01-22 ｜ 
+            
+                <a href="/categories/Tech/"># Tech</a>
+            
+        </div>
+        <!-- 圆角分类 -->
+        <!-- <div class="tags"> -->
+            <!--  -->
+                <!-- <a href="/categories/Tech/">Tech</a> -->
+            <!--  -->
+        <!-- </div> -->
+        <div class="post-md">
+            <p>发布冻结，虽然马上过年了，还是不能闲着。<br>复习一下计算机基础。<br>来几个小算法～  </p>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">bubbleSort</span>: <span class="keyword">function</span>(<span class="params">arr</span>)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span> - <span class="number">1</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">1</span>; j &lt; arr.<span class="property">length</span> - <span class="number">2</span>; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[j-<span class="number">1</span>] &gt; arr[j])&#123;</span><br><span class="line">                temp = arr[j];</span><br><span class="line">                arr[j] = arr[j-<span class="number">1</span>];</span><br><span class="line">                arr[j-<span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">    <span class="attr">quickSort</span>: <span class="keyword">function</span>(<span class="params">arr</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr.<span class="property">length</span> &lt; <span class="number">2</span>) <span class="keyword">return</span> arr;</span><br><span class="line">        <span class="keyword">var</span> middleIndex = <span class="title class_">Math</span>.<span class="title function_">floor</span>(arr.<span class="property">length</span> / <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">var</span> middleValue = arr.<span class="title function_">splice</span>(middleIndex,<span class="number">1</span>)[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> left = [];</span><br><span class="line">        <span class="keyword">var</span> right = [];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[i] &lt; middleValue)&#123;</span><br><span class="line">                left.<span class="title function_">push</span>(arr[i]);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                right.<span class="title function_">push</span>(arr[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">quickSort</span>(left).<span class="title function_">concat</span>(middleValue,<span class="variable language_">this</span>.<span class="title function_">quickSort</span>(right));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">insertionSort</span>(<span class="params">arr</span>) &#123;</span><br><span class="line"><span class="keyword">var</span> len = arr.<span class="property">length</span>;</span><br><span class="line"><span class="keyword">var</span> preIndex, current;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">    preIndex = i - <span class="number">1</span>;</span><br><span class="line">    current = arr[i];</span><br><span class="line">    <span class="keyword">while</span>(preIndex &gt;= <span class="number">0</span> &amp;&amp; arr[preIndex] &gt; current) &#123; <span class="comment">// 找位置</span></span><br><span class="line">        arr[preIndex + <span class="number">1</span>] = arr[preIndex];</span><br><span class="line">        preIndex--;</span><br><span class="line">    &#125;</span><br><span class="line">    arr[preIndex + <span class="number">1</span>] = current; <span class="comment">// 插入</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">shellSort</span>: <span class="keyword">function</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> len = arr.<span class="property">length</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> fraction = <span class="title class_">Math</span>.<span class="title function_">floor</span>(len / <span class="number">2</span>); fraction &gt; <span class="number">0</span>;</span><br><span class="line">        fraction = <span class="title class_">Math</span>.<span class="title function_">floor</span>(fraction / <span class="number">2</span>)) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = fraction; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = i - fraction; j &gt;= <span class="number">0</span> &amp;&amp;</span><br><span class="line">            arr[j] &gt; arr[fraction + j]; j -= fraction) &#123;</span><br><span class="line">      <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">      arr[j] = arr[fraction + j];</span><br><span class="line">    arr[fraction + j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">  <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">selectionSort</span>: <span class="keyword">function</span>(<span class="params">arr</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> minIndex, temp;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> n = <span class="number">0</span>; n &lt; arr.<span class="property">length</span> - <span class="number">1</span>; n++)&#123;</span><br><span class="line">        minIndex = n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = n + <span class="number">1</span>; i &lt; arr.<span class="property">length</span>; i++ )&#123;</span><br><span class="line">          <span class="keyword">if</span>(arr[i] &lt; arr[minIndex])&#123;</span><br><span class="line">              minIndex = i;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;;</span><br><span class="line">        temp = arr[minIndex];</span><br><span class="line">        arr[minIndex] = arr[n];</span><br><span class="line">        arr[n] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">binarySearch</span>(<span class="params">data, dest</span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> h = data.<span class="property">length</span> - <span class="number">1</span>,</span><br><span class="line">      l = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span>(l &lt;= h)&#123;</span><br><span class="line">    <span class="keyword">var</span> m = <span class="title class_">Math</span>.<span class="title function_">floor</span>((h + l) / <span class="number">2</span>);</span><br><span class="line">  <span class="keyword">if</span>(data[m] == dest)&#123;</span><br><span class="line">  <span class="keyword">return</span> m;</span><br><span class="line">&#125;</span><br><span class="line">  <span class="keyword">if</span>(dest &gt; data[m])&#123;</span><br><span class="line">  l = m + <span class="number">1</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  h = m - <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">factorial</span>(<span class="params">num</span>)&#123;</span><br><span class="line">  <span class="keyword">if</span>(num == <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span>(num == <span class="number">1</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num * <span class="variable language_">this</span>.<span class="title function_">factorial</span>(num-<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+    
+<!-- tags -->
+
+    <div class="post-meta">
+        标签：
+        
+            <a href="/tags/JavaScript/"> / JavaScript</a>
+        
+    </div>
+
+</div>
+                <div class="footer">
+    <span>Copyright © <script>document.write(new Date().getFullYear())</script> Elevenbeans</span>
+    <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> with <a target="_blank" rel="noopener" href="https:///imzl.com/zenmind">ZenMind</a></span>
+</div>
+
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+
+            </div>
+        </div>
+    </body>
+</html>

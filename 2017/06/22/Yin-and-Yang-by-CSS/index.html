@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+  <meta name="robots" content="index, follow">
+  <!-- title -->
+  
+    
+  <title>【译】50 行 CSS 代码撸一个阴阳八卦的 Loading 动效 - Elevenbeans</title>
+    
+  
+  
+  <!-- open graph -->
+  <meta name="description" content="原文地址: https:&#x2F;&#x2F;css-tricks.com&#x2F;creating-yin-yang-loaders-web&#x2F;  背景网上做 Loading 动效的教程和工具比比皆是，用八卦图的还是头一次听说 &#x3D;,&#x3D; 因为一直都比较喜欢这种小而精、并且能让人眼前一亮的玩法。万万没想到居然还是个外国程序媛(推特请戳)的作品。 果断翻译过来供大家参考。 正文不久前我见到了这样的动画。这让">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】50 行 CSS 代码撸一个阴阳八卦的 Loading 动效">
+<meta property="og:url" content="https://elevenbeans.github.io/2017/06/22/Yin-and-Yang-by-CSS/index.html">
+<meta property="og:site_name" content="Elevenbeans">
+<meta property="og:description" content="原文地址: https:&#x2F;&#x2F;css-tricks.com&#x2F;creating-yin-yang-loaders-web&#x2F;  背景网上做 Loading 动效的教程和工具比比皆是，用八卦图的还是头一次听说 &#x3D;,&#x3D; 因为一直都比较喜欢这种小而精、并且能让人眼前一亮的玩法。万万没想到居然还是个外国程序媛(推特请戳)的作品。 果断翻译过来供大家参考。 正文不久前我见到了这样的动画。这让">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.css-tricks.com/wp-content/uploads/2017/06/sym_yin_yang_struct.svg">
+<meta property="article:published_time" content="2017-06-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-24T08:19:05.307Z">
+<meta property="article:author" content="Elevenbeans">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="翻译">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.css-tricks.com/wp-content/uploads/2017/06/sym_yin_yang_struct.svg">
+  <!-- canonical -->
+  
+  <link rel="canonical" href="https://elevenbeans.github.io/2017/06/22/Yin-and-Yang-by-CSS/">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/elevenbeans.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <!-- CSS -->
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/markdown.css">
+
+  
+<link rel="stylesheet" href="/css/fonts.css">
+
+<meta name="generator" content="Hexo 8.1.2"><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVTG7F443J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVTG7F443J');
+</script>
+</head>
+
+    <body>
+        <div class="paper">
+            <div class="paper-main">
+                
+                    <div class="post-header">
+    <a class="logo" href="/">Elevenbeans</a>
+    <!-- <div class="logo"><a href="/" title="Len"><img src="/img/logo.svg" alt="Len" aria-label="logo" height="20"></a></div> -->
+        <ul class="nav">
+            
+            <li><a href="/">Home</a></li>
+            
+            <li><a href="/archives">Archives</a></li>
+            
+            <li><a href="/tags/">Tags</a></li>
+            
+            <li><a href="/about">About</a></li>
+            
+        </ul>
+
+
+    </a>
+</div>
+
+                
+                <div class="post-main">
+    
+        <div class="post-main-title">
+            【译】50 行 CSS 代码撸一个阴阳八卦的 Loading 动效
+        </div>
+        <div class="post-meta">
+            2017-06-22 ｜ 
+            
+                <a href="/categories/Tech/"># Tech</a>
+            
+        </div>
+        <!-- 圆角分类 -->
+        <!-- <div class="tags"> -->
+            <!--  -->
+                <!-- <a href="/categories/Tech/">Tech</a> -->
+            <!--  -->
+        <!-- </div> -->
+        <div class="post-md">
+            <blockquote>
+<p>原文地址: <a target="_blank" rel="noopener" href="https://css-tricks.com/creating-yin-yang-loaders-web/">https://css-tricks.com/creating-yin-yang-loaders-web/</a></p>
+</blockquote>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>网上做 Loading 动效的教程和工具比比皆是，用八卦图的还是头一次听说 &#x3D;,&#x3D;</p>
+<p>因为一直都比较喜欢这种小而精、并且能让人眼前一亮的玩法。万万没想到居然还是个外国<strong>程序媛</strong><a target="_blank" rel="noopener" href="https://twitter.com/anatudor">(推特请戳)</a>的作品。</p>
+<p>果断翻译过来供大家参考。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>不久前我见到了<a target="_blank" rel="noopener" href="https://codepen.io/steveg3003/pen/oZJmwd">这样的动画</a>。这让我有了一个想法即：我要在不使用外部的库的情况下，用尽可能少的代码、使用多样化的方法（其中包括一些如今可以使用的新功能，如 CSS 变量）创建我自己的版本。</p>
+<p>本文将引导你完成构建这些 Demo 的过程。</p>
+<p>在介绍其他任何步骤之前，先给出我最终要实现的动画效果，如下：</p>
+<p><em>期望的效果: 一个旋转的八卦图，伴随着两个 “叶片” 大小循环地增加和缩小</em></p>
+<p><strong>从何处开始？</strong></p>
+<p>无论我们选择使用哪种方式重新创作上述动画，我们总是会先从静态阴阳形状开始，如下所示：</p>
+<p><em>静态的阴阳八卦图</em></p>
+<p>该起始静态形状的结构如下图所示：</p>
+<p><img src="https://cdn.css-tricks.com/wp-content/uploads/2017/06/sym_yin_yang_struct.svg"><br><em>静态八卦图的结构</em></p>
+<p>首先，我们有一个直径为 d 的大圆。在这个圆内，我们紧紧地嵌入两个较小的圆圈，每个圆圈的直径都是我们初始大圆直径的一半。 这意味着这两个较小圆的每一个的直径等于大圆的半径 r（或 0.5 * d）。在直径为 r 的这两个较小圆的内部，我们有一个更小的同心圆。</p>
+<p>如果我们画出通过所有这些圆的所有中心点的大圆的直径 - 上图中的线段 AB，它与内圆之间的交点将其分成 6 个相等的较小的段。 这意味着其中一个最小圆的直径为 r&#x2F;3（或 d&#x2F;6），其半径为 r&#x2F;6。</p>
+<p><strong>纯 HTML + CSS 版</strong></p>
+<p>在这种情况下，我们可以用一个元素和它的两个伪元素来实现。 以下动画说明了创建两个“叶片”的方式（因为整个面板将会旋转，所以切换对称轴无关紧要）：</p>
+<p>实际的元素是外层的大圆，它有一个从上到下的渐变，中间有一个尖锐的过渡。 伪元素是我们放置的较小圆。一个较小圆的直径是大圆的直径的一半。 两个较小的圆都与大圆垂直中心对齐。</p>
+<p><strong>开始编写代码！</strong></p>
+<p>首先，我们决定大圆圈的直径 <code>$d</code>。 我们使用 viewport 单位，以便在调整大小时可以很好地扩展。 我们将这个直径值设置为其 <code>width</code> 和 <code>height</code>，使用 <code>border-radius</code>使元素圆形化，并给出一个从上到下的渐变背景，中间从到黑色到白色的过渡。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$d: 80vmin;</span><br><span class="line"></span><br><span class="line">.☯ &#123;</span><br><span class="line">  width: $d; height: $d;</span><br><span class="line">  border-radius: 50%;</span><br><span class="line">  background: linear-gradient(black 50%, white 0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>So far, so good:</p>
+<p>现在我们来看看我们用伪元素创建的较小的圆。 我们给我们的元素显示：通过设置<code>align-items：center</code>，使它的孩子（或我们的例子中的伪元素）中间垂直对齐。 我们使这些伪元素具有其父元素的一半高度（50％），并且确保它们水平地覆盖大圆圈的一半。 最后，我们将它们与<code>border-radius</code>进行整合，给它们一个虚拟背景，并设置内容属性，以便我们可以看到它们：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.☯ &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  align-items: center;</span><br><span class="line">  /* same styles as before */</span><br><span class="line"></span><br><span class="line">  &amp;:before, &amp;:after &#123;</span><br><span class="line">    flex: 1;</span><br><span class="line">    height: 50%;</span><br><span class="line">    border-radius: 50%;</span><br><span class="line">    background: #f90;</span><br><span class="line">    content: &#x27;&#x27;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来，我们需要给他们不同的背景：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.☯ &#123;</span><br><span class="line">  /* same styles as before */</span><br><span class="line"></span><br><span class="line">  &amp;:before, &amp;:after &#123;</span><br><span class="line">    /* same styles as before */</span><br><span class="line">    background: black;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &amp;:after &#123; background: white &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有点像那么回事儿了对吧！</p>
+<p>在我们得到静态形状之前，要做的就是给这两个伪元素添加边框。 黑色应该是一个白色的边框，而白色的黑色边框应该是黑色的。 这些边界应该是伪元素直径的三分之一，这是大圆圈直径的三分之一，即 <code>$d/6</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.☯ &#123;</span><br><span class="line">  /* same styles as before */</span><br><span class="line"></span><br><span class="line">  &amp;:before, &amp;:after &#123;</span><br><span class="line">    /* same styles as before */</span><br><span class="line">    border: solid $d/6 white;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &amp;:after &#123;</span><br><span class="line">    /* same styles as before */</span><br><span class="line">    border-color: black;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是，结果看起来并不正确：</p>
+<p>这是因为在垂直方向上，边框被加到了<code>height</code>。 水平地，我们没有设置宽度，所以边框可以从 <code>content</code> 空间获得。 有两个修复方法：一个是在伪元素上设置<code>border-size：border-box</code>；第二个是将伪元素的高度更改为<code>$d/6</code> - 我们将使用后者：</p>
+<p>我们现在有了基本的八卦形状，所以让我们继续做动画！</p>
+<p>这个动画从第一个伪元素缩小的状态开始，让我们设定原始大小为一半（这意味着缩放因子<code>$f</code>为 0.5），而第二个伪元素已经扩展到占用所有可用的空间即：大圆圈的直径（原始尺寸的两倍）减去第一个圆圈的直径（即其原始尺寸的<code>$f</code>）; 然后状态改变到第二个伪元件的缩小到<code>$f</code>的状态，第一个伪元素已扩展到其原始大小的2 - <code>$f</code>。</p>
+<p>第一个伪元素圆相对于其最左点（因此我们需要设置0 50％的变换原点），而第二个相对于其最右点（100％50％）进行缩放。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$f: .5;</span><br><span class="line">$t: 1s;</span><br><span class="line"></span><br><span class="line">.☯ &#123;</span><br><span class="line">  /* same styles as before */</span><br><span class="line"></span><br><span class="line">  &amp;:before, &amp;:after &#123;</span><br><span class="line">    /* same styles as before */</span><br><span class="line">    transform-origin: 0 50%;</span><br><span class="line">    transform: scale($f);</span><br><span class="line">    animation: s $t ease-in-out infinite alternate;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &amp;:after &#123;</span><br><span class="line">    /* same styles as before */</span><br><span class="line">    transform-origin: 100% 50%;</span><br><span class="line">    animation-delay: -$t;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes s &#123; to &#123; transform: scale(2 - $f) &#125; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们现在有了形状变化的动画：</p>
+<p>最后一步是使整个形状旋转起来：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$t: 1s;</span><br><span class="line"></span><br><span class="line">.☯ &#123;</span><br><span class="line">  /* same styles as before */</span><br><span class="line">  animation: r 2*$t linear infinite;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes r &#123; to &#123; transform: rotate(1turn) &#125; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们得到了<a target="_blank" rel="noopener" href="https://codepen.io/thebabydino/pen/90ea38fcf56efb7df288e0f45c6fe2cc/">最后的结果</a>！</p>
+<p>然而，还有一件事情我们可以做，使编译的 CSS 更有效率：消除冗余与 CSS 变量！</p>
+<p>白色可以以 <code>hsl（0，0％，100％）</code>的形式写入 HSL 格式。 色调和饱和度无关紧要，任何 100％ 亮度的值都是白色的，所以我们将它们设置为 0，使我们的代码执行效率更高。 类似地，黑色可以写成 <code>hsl（0,0％，0％）</code>。 再次，色调和饱和度无关紧要，任何亮度为 0％ 的值都是黑色的。 鉴于此，我们的代码变成：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">.☯ &#123;</span><br><span class="line">  /* same styles as before */</span><br><span class="line"></span><br><span class="line">  &amp;:before, &amp;:after &#123;</span><br><span class="line">    /* same styles as before */</span><br><span class="line">    border: solid $d/6 hsl(0, 0%, 100% /* = 1*100% = (1 - 0)*100% */);</span><br><span class="line">    transform-origin: 0 /* = 0*100% */ 50%;</span><br><span class="line">    background: hsl(0, 0%, 0% /* 0*100% */);</span><br><span class="line">    animation: s $t ease-in-out infinite alternate;</span><br><span class="line">    animation-delay: 0 /* = 0*-$t */;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &amp;:after &#123;</span><br><span class="line">    /* same styles as before */</span><br><span class="line">    border-color: hsl(0, 0%, 0% /* = 0*100% = (1 - 1)*100% */);</span><br><span class="line">    transform-origin: 100% /* = 1*100% */ 50%;</span><br><span class="line">    background: hsl(0, 0%, 100% /* = 1*100% */);</span><br><span class="line">    animation-delay: -$t /* = 1*-$t */;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>从上述结果可以看出：</p>
+<ul>
+<li>我们的转换起点的 x 分量是第一个伪元素的<code>calc（0 * 100％）</code>，第二个是<code>calc（1 * 100％）</code></li>
+<li>我们的边框颜色是第一个伪元素的 <code>hsl（0,0％，calc（（1 - 0）* 100％））</code>和第二个 <code>hsl（0,0％，calc（（1 - 1）* 100％））</code></li>
+<li>我们的背景是第一个伪元素的<code>hsl（0,0％，calc（0 * 100％））</code>和第二个伪元素的<code>hsl（0,0％，calc（1 * 100％））</code></li>
+<li>我们的动画延迟是第一个伪元素的<code>calc（0 *＃{ - $ t}）</code>，第二个的<code>calc（1 *＃{ - $ t}）</code></li>
+</ul>
+<p>这意味着我们可以使用一个用作开关的自定义属性 <code>--i</code>，第一个伪元素为 0，第二个为伪元素为 1：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">.☯ &#123;</span><br><span class="line">  /* same styles as before */</span><br><span class="line"></span><br><span class="line">  &amp;:before, &amp;:after &#123;</span><br><span class="line">    /* same styles as before */</span><br><span class="line">    --i: 0;</span><br><span class="line">    border: solid $d/6 hsl(0, 0%, calc((1 - var(--i))*100%));</span><br><span class="line">    transform-origin: calc(var(--i)*100%) 50%;</span><br><span class="line">    background: hsl(0, 0%, calc(var(--i)*100%));</span><br><span class="line">    animation: s $t ease-in-out calc(var(--i)*#&#123;-$t&#125;) infinite alternate;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &amp;:after &#123; --i: 1 &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样就消除了所有这些规则两次的编写：我们现在需要做的就是翻转开关！</p>
+<p>可悲的是，现在只能在 WebKit 浏览器中使用，因为 Firefox 和 Edge 不支持使用<code>calc（）</code>作为动画延迟值，Firefox 不支持在 <code>hsl()</code>当中中使用它。 &#x3D;^&#x3D;</p>
+<p><strong>Canvas + JavaScript</strong></p>
+<p><a target="_blank" rel="noopener" href="https://css-tricks.com/creating-yin-yang-loaders-web/#canvas+js">还有兴趣？请戳原文吧</a></p>
+<p><strong>SVG + JavaScript</strong></p>
+<p><a target="_blank" rel="noopener" href="https://css-tricks.com/creating-yin-yang-loaders-web/#svg+js">还有兴趣？请戳原文吧</a></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>代码中的奇淫技巧固然重要，但归根结底，好的 idea 才是技术进步的源泉。</p>
+<p>如果觉得文章对你有帮助的话，去 <a target="_blank" rel="noopener" href="https://github.com/elevenbeans/elevenbeans.github.io">Github Repo</a> 给个 star 吧亲～</p>
+
+        </div>
+    
+<!-- tags -->
+
+    <div class="post-meta">
+        标签：
+        
+            <a href="/tags/CSS/"> / CSS</a>
+        
+            <a href="/tags/%E7%BF%BB%E8%AF%91/"> / 翻译</a>
+        
+    </div>
+
+</div>
+                <div class="footer">
+    <span>Copyright © <script>document.write(new Date().getFullYear())</script> Elevenbeans</span>
+    <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> with <a target="_blank" rel="noopener" href="https:///imzl.com/zenmind">ZenMind</a></span>
+</div>
+
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+
+            </div>
+        </div>
+    </body>
+</html>

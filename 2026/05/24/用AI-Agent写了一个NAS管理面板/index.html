@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+  <meta name="robots" content="index, follow">
+  <!-- title -->
+  
+    
+  <title>用 AI Agent 写了一个 NAS 管理面板 - Elevenbeans</title>
+    
+  
+  
+  <!-- open graph -->
+  <meta name="description" content="上周干了一件挺上头的事—— 花了一个周末，用 AI Agent 给我的家庭 NAS 写了一个管理面板。从搭脚手架到部署上线，全程没自己写过一行代码。 📱 起因iPhone 空间又满了。照片、视频、微信缓存，个个都是存储刺客。 以前的做法是隔段时间接电脑导一次文件，麻烦但能忍。可现在都 2026 了 AI coding 满 dy 甚至 xhs 都是了作为一个程序员还忍是不是就说不过去了？ 淘汰了一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 AI Agent 写了一个 NAS 管理面板">
+<meta property="og:url" content="https://elevenbeans.github.io/2026/05/24/%E7%94%A8AI-Agent%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AANAS%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF/index.html">
+<meta property="og:site_name" content="Elevenbeans">
+<meta property="og:description" content="上周干了一件挺上头的事—— 花了一个周末，用 AI Agent 给我的家庭 NAS 写了一个管理面板。从搭脚手架到部署上线，全程没自己写过一行代码。 📱 起因iPhone 空间又满了。照片、视频、微信缓存，个个都是存储刺客。 以前的做法是隔段时间接电脑导一次文件，麻烦但能忍。可现在都 2026 了 AI coding 满 dy 甚至 xhs 都是了作为一个程序员还忍是不是就说不过去了？ 淘汰了一">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-24T08:19:05.304Z">
+<meta property="article:author" content="Elevenbeans">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="Agent">
+<meta property="article:tag" content="NAS">
+<meta property="article:tag" content="Next.js">
+<meta name="twitter:card" content="summary">
+  <!-- canonical -->
+  
+  <link rel="canonical" href="https://elevenbeans.github.io/2026/05/24/用AI-Agent写了一个NAS管理面板/">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/elevenbeans.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <!-- CSS -->
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/markdown.css">
+
+  
+<link rel="stylesheet" href="/css/fonts.css">
+
+<meta name="generator" content="Hexo 8.1.2"><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVTG7F443J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVTG7F443J');
+</script>
+</head>
+
+    <body>
+        <div class="paper">
+            <div class="paper-main">
+                
+                    <div class="post-header">
+    <a class="logo" href="/">Elevenbeans</a>
+    <!-- <div class="logo"><a href="/" title="Len"><img src="/img/logo.svg" alt="Len" aria-label="logo" height="20"></a></div> -->
+        <ul class="nav">
+            
+            <li><a href="/">Home</a></li>
+            
+            <li><a href="/archives">Archives</a></li>
+            
+            <li><a href="/tags/">Tags</a></li>
+            
+            <li><a href="/about">About</a></li>
+            
+        </ul>
+
+
+    </a>
+</div>
+
+                
+                <div class="post-main">
+    
+        <div class="post-main-title">
+            用 AI Agent 写了一个 NAS 管理面板
+        </div>
+        <div class="post-meta">
+            2026-05-24 ｜ 
+            
+                <a href="/categories/Tech/"># Tech</a>
+            
+        </div>
+        <!-- 圆角分类 -->
+        <!-- <div class="tags"> -->
+            <!--  -->
+                <!-- <a href="/categories/Tech/">Tech</a> -->
+            <!--  -->
+        <!-- </div> -->
+        <div class="post-md">
+            <p>上周干了一件挺上头的事——</p>
+<p>花了一个周末，用 AI Agent 给我的家庭 NAS 写了一个管理面板。从搭脚手架到部署上线，全程没自己写过一行代码。</p>
+<h2 id="📱-起因"><a href="#📱-起因" class="headerlink" title="📱 起因"></a>📱 起因</h2><p>iPhone 空间又满了。照片、视频、微信缓存，个个都是存储刺客。</p>
+<p>以前的做法是隔段时间接电脑导一次文件，麻烦但能忍。可现在都 2026 了 AI coding 满 dy 甚至 xhs 都是了作为一个程序员还忍是不是就说不过去了？</p>
+<p>淘汰了一台 MBP2015，购入 Mac Mini M4，配了个 UGREEN 双盘位硬盘盒，塞了块 WD Red 3TB，SMB 共享给全家设备。MacBook、iPhone、投影仪都能直接访问。</p>
+<p>NAS 硬件搭好了，但管理起来只靠 Finder 连 SMB 吗？<br>超大文件这种低频场景还 OK，但是浏览个文件，找找（高清）图片这种高频场景还是不够方便。</p>
+<p>需求冒出来了：手机浏览器打开一个页面，能浏览照片、能看到磁盘用量、基本能浏览文件。</p>
+<p>换成以前，我会打开 VS Code，建个 Next.js 项目，自己从零搭路由、组件、API。一整套下来少说两三天。</p>
+<p>这次我决定换个姿势——试试 AI Agent Cording 到底到了什么程度。</p>
+<h2 id="⚙️-过程"><a href="#⚙️-过程" class="headerlink" title="⚙️ 过程"></a>⚙️ 过程</h2><p>用的工具链：</p>
+<ul>
+<li><strong>Opencode</strong>（terminal 里直接聊）</li>
+<li><strong>Deekseek v4</strong>（贵在量大管饱）</li>
+<li><strong>Cloudflare Tunnel</strong>（外网暴露）</li>
+</ul>
+<p>整个流程基本是：</p>
+<ol>
+<li>打开终端，跟 Agent 说”给我搭个 Next.js 15 + Tailwind v4 的项目”</li>
+<li>它自己 npm create、装依赖、建目录结构</li>
+<li>我说”加个文件浏览页面”，它几分钟就把目录树和文件列表渲染出来了</li>
+<li>遇到 HEIC 照片浏览器不兼容，它自己写了一套 <code>sips → sharp</code> 的转换管线</li>
+<li>部署的时候我说”帮我配个 Cloudflare Tunnel”，它把 brew install、launchd 自启全安排了</li>
+</ol>
+<p>全程我做的，就是：<strong>描述需求 → 审查代码 → 说”改”和”好”。</strong></p>
+<h2 id="🔍-一些观察"><a href="#🔍-一些观察" class="headerlink" title="🔍 一些观察"></a>🔍 一些观察</h2><h3 id="✅-Ace-的地方"><a href="#✅-Ace-的地方" class="headerlink" title="✅ Ace 的地方"></a>✅ Ace 的地方</h3><ul>
+<li><strong>CRUD &#x2F; 页面 &#x2F; 路由</strong>这类模式化的东西，AI 几乎零失误。一个页面从描述到产出，2-3 分钟。</li>
+<li><strong>Tailwind 样式</strong>出乎意料地好。我给了它一个页面样式参考，它还原得八九不离十。</li>
+<li><strong>Debug 能力</strong>够用。照片转码出了问题，它自己查了 sharp 文档，试了 sips 方案，几次迭代就修好了。</li>
+</ul>
+<h3 id="🕳️-坑"><a href="#🕳️-坑" class="headerlink" title="🕳️ 坑"></a>🕳️ 坑</h3><ul>
+<li><strong>上下文窗口有限</strong>。聊得久了之后，改一处可能牵连其他地方，AI 会忘记前面的背景约定。需要时不时提醒。（比如刚用 brew 装了一个东西，发现命令不可用，其实是需要再简单配置入口，但他仿佛失忆一般，换了npm打算再装一遍。。）</li>
+<li><strong>审美还是差点</strong>。还原设计稿 OK，但自己在一开始”创意地设计”一个页面，出来的东西就是标准的 AI 味——能用，不好看。人工干预制定了 design skill。</li>
+</ul>
+<h2 id="💡-对我来说改变最大的是什么"><a href="#💡-对我来说改变最大的是什么" class="headerlink" title="💡 对我来说改变最大的是什么"></a>💡 对我来说改变最大的是什么</h2><p>以前写代码，80% 的时间花在”翻译”上：把需求翻译成代码片段，把设计稿翻译成 CSS，把逻辑翻译成 API 调用。这些翻译工作，AI 现在做得比我快。</p>
+<p>剩下 20% 的时间——架构设计、技术选型、边界情况、安全考虑——才是真正产生价值的地方。</p>
+<p>我觉得，<strong>以后工程师的分水岭，是你知不知道自己想要什么，以及能不能让 AI 帮你高效地实现它。</strong> 不再是”你会不会写这个函数”，而是”你能不能把一个问题清晰地拆成 AI 能理解的任务”。</p>
+<h2 id="📝-一些实用的建议"><a href="#📝-一些实用的建议" class="headerlink" title="📝 一些实用的建议"></a>📝 一些实用的建议</h2><ol>
+<li><strong>开始前先定好规则</strong>。跟 Agent 说清楚 tech stack、命名规范、文件结构，避免它自由发挥。</li>
+<li><strong>时常审查代码</strong>。Agent 生成的代码能跑，但不一定干净。偶尔会有重复逻辑、缺少错误处理。</li>
+<li><strong>一个对话做一个功能</strong>。Agent 的记忆有限，一个对话里塞太多需求，后半段会开始犯傻。</li>
+<li><strong>Agent 和 Copilot 不一样</strong>。Copilot 是你写它补，Agent 是你说它写。后者对需求描述能力要求更高。</li>
+</ol>
+<p>最终效果：<a target="_blank" rel="noopener" href="https://nas.elevenbeans.me/">https://nas.elevenbeans.me</a> 现已稳定运行，全家在用。AI 写的，我签收的。</p>
+<p>GitHub：<a target="_blank" rel="noopener" href="https://github.com/elevenbeans/nas">https://github.com/elevenbeans/nas</a></p>
+
+        </div>
+    
+<!-- tags -->
+
+    <div class="post-meta">
+        标签：
+        
+            <a href="/tags/AI/"> / AI</a>
+        
+            <a href="/tags/NAS/"> / NAS</a>
+        
+            <a href="/tags/Next-js/"> / Next.js</a>
+        
+            <a href="/tags/Agent/"> / Agent</a>
+        
+    </div>
+
+</div>
+                <div class="footer">
+    <span>Copyright © <script>document.write(new Date().getFullYear())</script> Elevenbeans</span>
+    <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> with <a target="_blank" rel="noopener" href="https:///imzl.com/zenmind">ZenMind</a></span>
+</div>
+
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+
+            </div>
+        </div>
+    </body>
+</html>

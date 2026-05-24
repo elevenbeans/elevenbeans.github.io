@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+  <meta name="robots" content="index, follow">
+  <!-- title -->
+  
+    
+  <title>UC 手机浏览器调试经验 - Elevenbeans</title>
+    
+  
+  
+  <!-- open graph -->
+  <meta name="description" content="更多文章参见： https:&#x2F;&#x2F;github.com&#x2F;elevenbeans&#x2F;elevenbeans.github.io  缘起接了一个业务方的小需求，做一个代替 JS 原生confirm 功能的弹框。 弹框样式 UED 提供，不表，开发过程 easy，不表。 在做视觉还原＋多机适配的时候，发现某手机中安装的 UC 浏览器下点击确认／取消／关闭弹框均不消失。于是在众多机器均安装了 UC 回归测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UC 手机浏览器调试经验">
+<meta property="og:url" content="https://elevenbeans.github.io/2016/08/11/UC-%E6%89%8B%E6%9C%BA%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E7%BB%8F%E9%AA%8C/index.html">
+<meta property="og:site_name" content="Elevenbeans">
+<meta property="og:description" content="更多文章参见： https:&#x2F;&#x2F;github.com&#x2F;elevenbeans&#x2F;elevenbeans.github.io  缘起接了一个业务方的小需求，做一个代替 JS 原生confirm 功能的弹框。 弹框样式 UED 提供，不表，开发过程 easy，不表。 在做视觉还原＋多机适配的时候，发现某手机中安装的 UC 浏览器下点击确认／取消／关闭弹框均不消失。于是在众多机器均安装了 UC 回归测试">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-08-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-24T08:19:05.318Z">
+<meta property="article:author" content="Elevenbeans">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+  <!-- canonical -->
+  
+  <link rel="canonical" href="https://elevenbeans.github.io/2016/08/11/UC-手机浏览器调试经验/">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/elevenbeans.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <!-- CSS -->
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/markdown.css">
+
+  
+<link rel="stylesheet" href="/css/fonts.css">
+
+<meta name="generator" content="Hexo 8.1.2"><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVTG7F443J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVTG7F443J');
+</script>
+</head>
+
+    <body>
+        <div class="paper">
+            <div class="paper-main">
+                
+                    <div class="post-header">
+    <a class="logo" href="/">Elevenbeans</a>
+    <!-- <div class="logo"><a href="/" title="Len"><img src="/img/logo.svg" alt="Len" aria-label="logo" height="20"></a></div> -->
+        <ul class="nav">
+            
+            <li><a href="/">Home</a></li>
+            
+            <li><a href="/archives">Archives</a></li>
+            
+            <li><a href="/tags/">Tags</a></li>
+            
+            <li><a href="/about">About</a></li>
+            
+        </ul>
+
+
+    </a>
+</div>
+
+                
+                <div class="post-main">
+    
+        <div class="post-main-title">
+            UC 手机浏览器调试经验
+        </div>
+        <div class="post-meta">
+            2016-08-11 ｜ 
+            
+                <a href="/categories/Tech/"># Tech</a>
+            
+        </div>
+        <!-- 圆角分类 -->
+        <!-- <div class="tags"> -->
+            <!--  -->
+                <!-- <a href="/categories/Tech/">Tech</a> -->
+            <!--  -->
+        <!-- </div> -->
+        <div class="post-md">
+            <blockquote>
+<p><strong>更多文章参见：</strong> <a target="_blank" rel="noopener" href="https://github.com/elevenbeans/elevenbeans.github.io">https://github.com/elevenbeans/elevenbeans.github.io</a></p>
+</blockquote>
+<h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>接了一个业务方的小需求，做一个代替 JS 原生<code>confirm</code> 功能的弹框。</p>
+<p>弹框样式 UED 提供，不表，开发过程 easy，不表。</p>
+<p>在做视觉还原＋多机适配的时候，发现某手机中安装的 UC 浏览器下点击确认／取消／关闭弹框均不消失。于是在众多机器均安装了 UC 回归测试， 定位问题确实出在 UC 上面。</p>
+<h2 id="UC-调试环境准备"><a href="#UC-调试环境准备" class="headerlink" title="UC 调试环境准备"></a>UC 调试环境准备</h2><p>早前所在部门 App 均采用 UC 内核，有相关调试经验。然而因同属一个集团，相关的 debug 包，调试方法，均有 UC 技术部的支持。</p>
+<p>自己尝试，过程如下：</p>
+<h3 id="1-移动端下载并安装-UC-浏览器-Debug-版"><a href="#1-移动端下载并安装-UC-浏览器-Debug-版" class="headerlink" title="1. 移动端下载并安装 UC 浏览器 Debug 版"></a>1. 移动端下载并安装 UC 浏览器 Debug 版</h3><p><a target="_blank" rel="noopener" href="http://pdds.ucweb.com/download/newest/UCBrowser/zh-cn/145/33533/developer">Download 地址</a></p>
+<p>注意： 安装成功不代表能用，试了自己的坚果手机，打开的时候显示初始化失败。借了测试人员的测试机器，成功。 可能需要 root 权限 ＝,＝</p>
+<p>=&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <em>Updated 2017-06-06</em> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p><strong>最新的 Debug 包已经没有 root 权限的困扰了 : )</strong></p>
+<p>=&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <em>End</em> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<h3 id="2-PC-安装-adb-工具包"><a href="#2-PC-安装-adb-工具包" class="headerlink" title="2. PC 安装 adb 工具包"></a>2. PC 安装 adb 工具包</h3><p>这个工具包网上一搜一大把，但是注意 <strong>文件及动态链接库是否齐全</strong>.</p>
+<p><a target="_blank" rel="noopener" href="http://www.uc.cn/business/download/adb_tool.zip">Download adb</a></p>
+<p>例如：window 下需有 adb.exe + AdbWinApi.dll + AdbWinUsbApi.dll + fastboot.exe</p>
+<p>下载解压到你想存放的任何文件夹均可。</p>
+<h3 id="3-连接移动设备开启调试"><a href="#3-连接移动设备开启调试" class="headerlink" title="3. 连接移动设备开启调试"></a>3. 连接移动设备开启调试</h3><ul>
+<li>移动设备连接 PC：采用 USB 直连，<strong>移动设备需开启 USB 调试模式</strong>，采用 WI-FI 连接，<strong>移动设备和 PC 需在同一网段</strong></li>
+<li>运行 adb：打开 PC 终端， <strong>进入 adb 可执行文件(如 adb.exe&#x2F;adb.sh)所在目录</strong>，输入命令 <code>adb</code>，提示 “Android Debug Bridge …” 表示安装成功</li>
+</ul>
+<p>=&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <em>Updated 2017-06-06</em> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p><strong>最新的 Debug 包已经无需端口映射了 : )，直接<code>chrome://inspect</code>即可开启调试</strong></p>
+<p>=&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <em>End</em> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<ul>
+<li>运行 端口映射：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb forward tcp:9998 tcp:9998</span><br></pre></td></tr></table></figure>
+
+<p>当然，你也可键入 <code>adb devices</code> 命令，查看当前设备连接状态。如果 device 状态正常，此时，在手机上启动UC浏览器开发者版，并打开需要调试的页面,</p>
+<p>PC 浏览器(推荐 Chrome)中输入 <code>locahost:9998</code>，便可开始前端调试。</p>
+<p><strong>常见问题：</strong></p>
+<ul>
+<li>UC 开发者版，安装好后打开失败：请用有 root 权限的手机</li>
+<li>failed to start damon： 一定是 adb 运行所需库文件缺失，或者路径配置不对，详细 check 一下吧</li>
+<li>device not found：检查你的手机和电脑的连接是否 OK，确认OK，检查一下是否正确安装了 UC debug 版，如果以上都 OK，那建议换手机</li>
+<li>device offline: 检查手机是否开启 USB 调试模式，如果确认开启，则开关 USB 调试按钮重试，还是不OK的话，请检查 adb 工具版本是否足够新。最后，换手机 …</li>
+</ul>
+<p>=&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <em>Updated 2017-06-06</em> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<ul>
+<li>新增一个 <a target="_blank" rel="noopener" href="https://www.wandoujia.com/">豌豆荚</a> 大法，精准选择最合适的设备驱动</li>
+</ul>
+<p>=&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <em>End</em> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<h2 id="水落石出"><a href="#水落石出" class="headerlink" title="水落石出"></a>水落石出</h2><p>UC 内核不支持 <code>domObj.remove()</code> 方法，哎。。。。。</p>
+<p>统一使用：<code>document.body.removeChild(element)</code> 代替。</p>
+<p>Over ~</p>
+
+        </div>
+    
+<!-- tags -->
+
+    <div class="post-meta">
+        标签：
+        
+            <a href="/tags/JavaScript/"> / JavaScript</a>
+        
+    </div>
+
+</div>
+                <div class="footer">
+    <span>Copyright © <script>document.write(new Date().getFullYear())</script> Elevenbeans</span>
+    <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> with <a target="_blank" rel="noopener" href="https:///imzl.com/zenmind">ZenMind</a></span>
+</div>
+
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+  <meta name="robots" content="index, follow">
+  <!-- title -->
+  
+    
+  <title>node 小试牛刀之 mysql 增删改查 - Elevenbeans</title>
+    
+  
+  
+  <!-- open graph -->
+  <meta name="description" content="node 应该是如今最火热的技术了。 看完了朴灵的《深入浅出 nodejs》，终是要练练手吧。 第一反应是操作数据库，废话不多说，直接开始。 Mysql 服务搭建先用brew安装mysql1brew install mysql  安装完，尝试登录使用，启动。1mysql.server start  这时就可以登录使用mysql了，1mysql -h localhost -u root -p XXX">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node 小试牛刀之 mysql 增删改查">
+<meta property="og:url" content="https://elevenbeans.github.io/2016/05/31/node-mysql-CRUD/index.html">
+<meta property="og:site_name" content="Elevenbeans">
+<meta property="og:description" content="node 应该是如今最火热的技术了。 看完了朴灵的《深入浅出 nodejs》，终是要练练手吧。 第一反应是操作数据库，废话不多说，直接开始。 Mysql 服务搭建先用brew安装mysql1brew install mysql  安装完，尝试登录使用，启动。1mysql.server start  这时就可以登录使用mysql了，1mysql -h localhost -u root -p XXX">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-05-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-24T08:19:05.315Z">
+<meta property="article:author" content="Elevenbeans">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+  <!-- canonical -->
+  
+  <link rel="canonical" href="https://elevenbeans.github.io/2016/05/31/node-mysql-CRUD/">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/elevenbeans.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <!-- CSS -->
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/markdown.css">
+
+  
+<link rel="stylesheet" href="/css/fonts.css">
+
+<meta name="generator" content="Hexo 8.1.2"><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVTG7F443J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVTG7F443J');
+</script>
+</head>
+
+    <body>
+        <div class="paper">
+            <div class="paper-main">
+                
+                    <div class="post-header">
+    <a class="logo" href="/">Elevenbeans</a>
+    <!-- <div class="logo"><a href="/" title="Len"><img src="/img/logo.svg" alt="Len" aria-label="logo" height="20"></a></div> -->
+        <ul class="nav">
+            
+            <li><a href="/">Home</a></li>
+            
+            <li><a href="/archives">Archives</a></li>
+            
+            <li><a href="/tags/">Tags</a></li>
+            
+            <li><a href="/about">About</a></li>
+            
+        </ul>
+
+
+    </a>
+</div>
+
+                
+                <div class="post-main">
+    
+        <div class="post-main-title">
+            node 小试牛刀之 mysql 增删改查
+        </div>
+        <div class="post-meta">
+            2016-05-31 ｜ 
+            
+                <a href="/categories/Tech/"># Tech</a>
+            
+        </div>
+        <!-- 圆角分类 -->
+        <!-- <div class="tags"> -->
+            <!--  -->
+                <!-- <a href="/categories/Tech/">Tech</a> -->
+            <!--  -->
+        <!-- </div> -->
+        <div class="post-md">
+            <p>node 应该是如今最火热的技术了。</p>
+<p>看完了朴灵的《深入浅出 nodejs》，终是要练练手吧。</p>
+<p>第一反应是操作数据库，废话不多说，直接开始。</p>
+<h2 id="Mysql-服务搭建"><a href="#Mysql-服务搭建" class="headerlink" title="Mysql 服务搭建"></a>Mysql 服务搭建</h2><h3 id="先用brew安装mysql"><a href="#先用brew安装mysql" class="headerlink" title="先用brew安装mysql"></a>先用<code>brew</code>安装mysql</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mysql</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装完，尝试登录使用，启动。"><a href="#安装完，尝试登录使用，启动。" class="headerlink" title="安装完，尝试登录使用，启动。"></a>安装完，尝试登录使用，启动。</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql.server start</span><br></pre></td></tr></table></figure>
+
+<h3 id="这时就可以登录使用mysql了，"><a href="#这时就可以登录使用mysql了，" class="headerlink" title="这时就可以登录使用mysql了，"></a>这时就可以登录使用mysql了，</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h localhost -u root -p XXX</span><br></pre></td></tr></table></figure>
+
+<p>其中 -h 后参数是地址的意思，-u 后是用户名（默认root），-p后是密码(初始为空)</p>
+<h3 id="可以试着查看数据库。"><a href="#可以试着查看数据库。" class="headerlink" title="可以试着查看数据库。"></a>可以试着查看数据库。</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show databases</span><br></pre></td></tr></table></figure>
+
+<h3 id="可以试着查看数据库中的表。"><a href="#可以试着查看数据库中的表。" class="headerlink" title="可以试着查看数据库中的表。"></a>可以试着查看数据库中的表。</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use &lt;databaseName&gt;</span><br><span class="line">show tables</span><br></pre></td></tr></table></figure>
+
+<h2 id="node-代码"><a href="#node-代码" class="headerlink" title="node 代码"></a>node 代码</h2><h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mysql = <span class="built_in">require</span>(<span class="string">&#x27;mysql&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> connection = mysql.<span class="title function_">createConnection</span>(&#123;</span><br><span class="line">    host     : <span class="string">&#x27;localhost&#x27;</span>,</span><br><span class="line">    user     : <span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">    password : <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    database : <span class="string">&#x27;school&#x27;</span>,</span><br><span class="line">    <span class="attr">port</span>:<span class="string">&#x27;3306&#x27;</span></span><br><span class="line">&#125;);</span><br><span class="line">connection.<span class="title function_">connect</span>();</span><br></pre></td></tr></table></figure>
+
+<h3 id="插入一个user"><a href="#插入一个user" class="headerlink" title="插入一个user"></a>插入一个user</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> usr = &#123;<span class="attr">id</span>:<span class="string">&#x27;2334&#x27;</span>,<span class="attr">name</span>:<span class="string">&#x27;zhangsan&#x27;</span>,<span class="attr">address</span>:<span class="string">&#x27;zhangsan&#x27;</span>,<span class="attr">year</span>:<span class="string">&#x27;2016-06-01&#x27;</span>&#125;;</span><br><span class="line"></span><br><span class="line">connection.<span class="title function_">query</span>(<span class="string">&#x27;insert into teacher set ?&#x27;</span>, usr, <span class="keyword">function</span>(<span class="params">err, result</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;inserted zhangsan&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(result);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">connection.<span class="title function_">query</span>(<span class="string">&#x27;select * from teacher&#x27;</span>, <span class="keyword">function</span>(<span class="params">err, rows, fields</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;selected after inserted&#x27;</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i= <span class="number">0</span>,usr;usr=rows[i++];)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;user name=&#x27;</span>+usr.<span class="property">name</span> + <span class="string">&#x27;, address=&#x27;</span>+usr.<span class="property">address</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="更新user，带条件"><a href="#更新user，带条件" class="headerlink" title="更新user，带条件"></a>更新user，带条件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">connection.<span class="title function_">query</span>(<span class="string">&#x27;update teacher set address=&quot;hangzhou&quot; where name=&quot;libin&quot;&#x27;</span>, &#123;<span class="attr">address</span>:<span class="string">&#x27;shanghai&#x27;</span>&#125;, <span class="keyword">function</span>(<span class="params">err, result</span>) &#123;</span><br><span class="line">     <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line"></span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;updated zhangsan\&#x27;s address to ddd&#x27;</span>);</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(result);</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line"> &#125;);</span><br><span class="line"></span><br><span class="line"> connection.<span class="title function_">query</span>(<span class="string">&#x27;select * from teacher&#x27;</span>, <span class="keyword">function</span>(<span class="params">err, rows, fields</span>) &#123;</span><br><span class="line">     <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line"></span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;selected after updated&#x27;</span>);</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">var</span> i= <span class="number">0</span>,usr;usr=rows[i++];)&#123;</span><br><span class="line">         <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;user name=&#x27;</span>+usr.<span class="property">name</span> + <span class="string">&#x27;, address=&#x27;</span>+usr.<span class="property">address</span>);</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除-user，带条件"><a href="#删除-user，带条件" class="headerlink" title="删除 user，带条件"></a>删除 user，带条件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">connection.<span class="title function_">query</span>(<span class="string">&#x27;delete from  teacher where name=&quot;zhangsan&quot;&#x27;</span>, &#123;<span class="attr">address</span>:<span class="string">&#x27;zhangsan&#x27;</span>&#125;, <span class="keyword">function</span>(<span class="params">err, result</span>) &#123;</span><br><span class="line">     <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;deleted zhangsan&#x27;</span>);</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(result);</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="查询user，所有"><a href="#查询user，所有" class="headerlink" title="查询user，所有"></a>查询user，所有</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> connection.<span class="title function_">query</span>(<span class="string">&#x27;select * from teacher&#x27;</span>, <span class="keyword">function</span>(<span class="params">err, rows, fields</span>) &#123;</span><br><span class="line">   <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;selected after deleted&#x27;</span>);</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">var</span> i= <span class="number">0</span>,usr;usr=rows[i++];)&#123;</span><br><span class="line">         <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;user name=&#x27;</span>+usr.<span class="property">name</span> + <span class="string">&#x27;, address=&#x27;</span>+usr.<span class="property">address</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="关闭连接"><a href="#关闭连接" class="headerlink" title="关闭连接"></a>关闭连接</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connection.<span class="title function_">end</span>();</span><br></pre></td></tr></table></figure>
+
+        </div>
+    
+<!-- tags -->
+
+    <div class="post-meta">
+        标签：
+        
+            <a href="/tags/JavaScript/"> / JavaScript</a>
+        
+    </div>
+
+</div>
+                <div class="footer">
+    <span>Copyright © <script>document.write(new Date().getFullYear())</script> Elevenbeans</span>
+    <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> with <a target="_blank" rel="noopener" href="https:///imzl.com/zenmind">ZenMind</a></span>
+</div>
+
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+
+            </div>
+        </div>
+    </body>
+</html>

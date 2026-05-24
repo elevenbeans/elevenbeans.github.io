@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+  <meta name="robots" content="index, follow">
+  <!-- title -->
+  
+    
+  <title>Javascript 中的设计模式（三）：结构型设计模式 - Elevenbeans</title>
+    
+  
+  
+  <!-- open graph -->
+  <meta name="description" content="更多文章参见： https:&#x2F;&#x2F;github.com&#x2F;elevenbeans&#x2F;elevenbeans.github.io  前言本系列可以看作是我个人对于 Addy Osmani 的著作《Learning JavaScript Design Patterns》中内容的提炼，类似阅读笔记，目的是为了简单快速、又不失全面地了解设计模式的相关概念、特点、分类及其在 Javascript 中的实际用法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript 中的设计模式（三）：结构型设计模式">
+<meta property="og:url" content="https://elevenbeans.github.io/2018/04/06/javascript-design-patterns-2/index.html">
+<meta property="og:site_name" content="Elevenbeans">
+<meta property="og:description" content="更多文章参见： https:&#x2F;&#x2F;github.com&#x2F;elevenbeans&#x2F;elevenbeans.github.io  前言本系列可以看作是我个人对于 Addy Osmani 的著作《Learning JavaScript Design Patterns》中内容的提炼，类似阅读笔记，目的是为了简单快速、又不失全面地了解设计模式的相关概念、特点、分类及其在 Javascript 中的实际用法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-04-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-24T08:19:05.311Z">
+<meta property="article:author" content="Elevenbeans">
+<meta property="article:tag" content="Design patterns">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+  <!-- canonical -->
+  
+  <link rel="canonical" href="https://elevenbeans.github.io/2018/04/06/javascript-design-patterns-2/">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/elevenbeans.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <!-- CSS -->
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/markdown.css">
+
+  
+<link rel="stylesheet" href="/css/fonts.css">
+
+<meta name="generator" content="Hexo 8.1.2"><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVTG7F443J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVTG7F443J');
+</script>
+</head>
+
+    <body>
+        <div class="paper">
+            <div class="paper-main">
+                
+                    <div class="post-header">
+    <a class="logo" href="/">Elevenbeans</a>
+    <!-- <div class="logo"><a href="/" title="Len"><img src="/img/logo.svg" alt="Len" aria-label="logo" height="20"></a></div> -->
+        <ul class="nav">
+            
+            <li><a href="/">Home</a></li>
+            
+            <li><a href="/archives">Archives</a></li>
+            
+            <li><a href="/tags/">Tags</a></li>
+            
+            <li><a href="/about">About</a></li>
+            
+        </ul>
+
+
+    </a>
+</div>
+
+                
+                <div class="post-main">
+    
+        <div class="post-main-title">
+            Javascript 中的设计模式（三）：结构型设计模式
+        </div>
+        <div class="post-meta">
+            2018-04-06 ｜ 
+            
+                <a href="/categories/Tech/"># Tech</a>
+            
+        </div>
+        <!-- 圆角分类 -->
+        <!-- <div class="tags"> -->
+            <!--  -->
+                <!-- <a href="/categories/Tech/">Tech</a> -->
+            <!--  -->
+        <!-- </div> -->
+        <div class="post-md">
+            <blockquote>
+<p><strong>更多文章参见：</strong> <a target="_blank" rel="noopener" href="https://github.com/elevenbeans/elevenbeans.github.io">https://github.com/elevenbeans/elevenbeans.github.io</a></p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本系列可以看作是我个人对于 Addy Osmani 的著作《Learning JavaScript Design Patterns》中内容的提炼，类似阅读笔记，目的是为了简单快速、又不失全面地了解设计模式的相关概念、特点、分类及其在 Javascript 中的实际用法。</p>
+<p>分为五篇：</p>
+<ol>
+<li><a href="http://elevenbeans.github.io/2018/03/25/javascript-design-patterns-0/">概述</a></li>
+<li><a href="http://elevenbeans.github.io/2018/03/30/javascript-design-patterns-1/">创建型</a></li>
+<li><strong>结构型设计模式（本篇）</strong></li>
+<li><a href="http://elevenbeans.github.io/2018/04/11/javascript-design-patterns-3/">行为型</a></li>
+<li>MV*（待补充）</li>
+</ol>
+<h2 id="结构型设计模式"><a href="#结构型设计模式" class="headerlink" title="结构型设计模式"></a><strong>结构型设计模式</strong></h2><h3 id="1-Decorator-装饰者-模式"><a href="#1-Decorator-装饰者-模式" class="headerlink" title="1. Decorator(装饰者) 模式"></a><strong>1. Decorator(装饰者) 模式</strong></h3><p>Decorator 模式修改现有类创建的对象，为其添加额外功能。<br>比如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vehicle 构造函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">vehicle</span>(<span class="params">type</span>) &#123;</span><br><span class="line">	<span class="comment">// 默认</span></span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">vehicleType</span> = type || <span class="string">&#x27;car&#x27;</span>;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">model</span> = <span class="string">&#x27;default&#x27;</span>;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">setModel</span> = <span class="keyword">function</span>(<span class="params">modelName</span>) &#123;</span><br><span class="line">		<span class="variable language_">this</span>.<span class="property">model</span> = modelName;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> car = <span class="keyword">new</span> <span class="title function_">vehicle</span>(<span class="string">&#x27;car&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(car); <span class="comment">// vehicleType: car, model: default, ...</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 装饰一个 vehicle 实例为 truck</span></span><br><span class="line"><span class="keyword">var</span> truck = <span class="keyword">new</span> <span class="title function_">vehicle</span>(<span class="string">&#x27;truck&#x27;</span>);</span><br><span class="line">truck.<span class="property">setColor</span> = <span class="keyword">function</span>(<span class="params">color</span>) &#123; <span class="comment">// 新方法</span></span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">color</span> = color;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证</span></span><br><span class="line">truck.<span class="title function_">setColor</span>(<span class="string">&#x27;blue&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(truck); <span class="comment">// vehicleType: truck, model: default, color: blue, ...</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// vehicle 类本身不受影响</span></span><br><span class="line"><span class="keyword">var</span> secondCar = <span class="keyword">new</span> <span class="title function_">vehicle</span>(<span class="string">&#x27;car&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(secondCar); <span class="comment">// vehicle: car, model: default</span></span><br></pre></td></tr></table></figure>
+
+<p>上述例子是为原对象<strong>新增</strong>方法，同样也可以<strong>修改</strong>实例中现有的方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> thirdCar = <span class="keyword">new</span> <span class="title function_">vehicle</span>(<span class="string">&#x27;truck&#x27;</span>);</span><br><span class="line">thirdCar.<span class="property">setModel</span> = <span class="keyword">function</span>(<span class="params">modelType</span>)&#123; <span class="comment">// 修改现有方法</span></span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">model</span> = modelType + <span class="string">&#x27;-truck&#x27;</span>;</span><br><span class="line">&#125;;</span><br><span class="line">thirdCar.<span class="title function_">setModel</span>(<span class="string">&#x27;CAT&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(thirdCar); <span class="comment">// vehicle: car, model: CAT-truck, ...</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>优点：使用透明 &amp;&amp; 灵活</strong>，随心所欲的改造成自己想要的心对象，不用担心对原对象类的污染。</p>
+<p>**缺点：**引入了太多小型而又类似的对象，数量一单太多，不方便管理。</p>
+<h3 id="2-Facade-外观-模式"><a href="#2-Facade-外观-模式" class="headerlink" title="2. Facade(外观) 模式"></a><strong>2. Facade(外观) 模式</strong></h3><p>Facade 模式核心是为更复杂的代码逻辑提供一个方便的高层次入口。尽管支持广泛的行为，但实用的方法只有一个相同的 “外观”。</p>
+<p>在 jQuery 中，这样的例子特别多。比如，一个相同的外观下 get 和 set 功能都予以囊括。</p>
+<ul>
+<li><code>$(element).css()</code>: <strong>*Get</strong> the value of a computed style property for the first element in the <strong>set</strong> of matched elements or set one or more CSS properties for every matched element.*</li>
+<li><code>val()</code>: <strong>*Get</strong> the current value of the first element in the set of matched elements or <strong>set</strong> the value of every matched element.**</li>
+</ul>
+<p>当然，还有 <code>$(document).ready()</code>, <a href="http://elevenbeans.github.io/2016/06/03/DomReady/">发散一下</a></p>
+<p><strong>优点：使用简单</strong>。</p>
+<p>**缺点：**抽象存在的隐形成本，比如性能啊。</p>
+<h3 id="3-Flyweight-享元-模式"><a href="#3-Flyweight-享元-模式" class="headerlink" title="3. Flyweight(享元) 模式"></a><strong>3. Flyweight(享元) 模式</strong></h3><p>首先，Flyweight(享元)模式的目标是：在对象之间，尽可能多的共享数据来减少开销。</p>
+<p>在 Javascript 中，Flyweight(享元)模式主要有两种应用方式。</p>
+<h4 id="1-数据中的应用"><a href="#1-数据中的应用" class="headerlink" title="1. 数据中的应用"></a>1. 数据中的应用</h4><p>区分系统的内部数据和外部数据。具有相同内部数据的对象可以被替换成工厂方法创建的<strong>单一共享对象</strong>（具体可以参考 <a href="http://elevenbeans.github.io/2018/03/25/javascript-design-patterns-1/">前一篇</a> 中提到的 Singleton 模式），极大减少我们存储数据的总量。然后用管理器来处理外部状态。</p>
+<p>例如，设计一个图书馆的 Book 类：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title class_">Book</span> = <span class="keyword">function</span>(<span class="params">id, title, author, genre, pageCount,publisherID, ISBN, checkoutDate, checkoutMember, dueReturnDate, availability</span>) &#123;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">id</span> = id;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">title</span> = title;</span><br><span class="line">	...</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">checkoutDate</span> = checkoutDate;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">availability</span> = availability;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>内部状态有：title、author 等。<br>外部状态：checkoutMember、checkoutDate 等</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var Book = function(id, title, author, genre, pageCount,publisherID, ISBN) &#123;</span><br><span class="line">	this.id = id;</span><br><span class="line">	this.title = title;</span><br><span class="line">	...</span><br><span class="line">	this.ISBN = ISBN;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Book.prototype = &#123;</span><br><span class="line">	// ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>外部状态已删除，统一交由管理器管理。</p>
+<h4 id="2-Dom-中的应用"><a href="#2-Dom-中的应用" class="headerlink" title="2. Dom 中的应用"></a>2. Dom 中的应用</h4><p>这个也很好理解，举个例子：<strong>事件代理</strong>，懂的可以直接略过。</p>
+<p>假设有一个 <code>UL</code> 的父节点，包含了很多个 <code>Li</code> 的子节点：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;list&quot;</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;li-1&quot;</span>&gt;</span>Li 1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;li-2&quot;</span>&gt;</span>Li 2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;li-3&quot;</span>&gt;</span>Li 3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;li-4&quot;</span>&gt;</span>Li 4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;li-5&quot;</span>&gt;</span>Li 5<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>当某个Li被点击的时候需要触发相应的处理事件。我们通常的写法，是为每个<code>Li</code>都添加一些类似<code>onClick</code>之类的事件监听。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">addListenersLi</span>(<span class="params">liElement</span>) &#123;</span><br><span class="line">  liElement.<span class="property">onclick</span> = <span class="keyword">function</span> <span class="title function_">clickHandler</span>(<span class="params"></span>) &#123;</span><br><span class="line">   <span class="comment">//TODO</span></span><br><span class="line">  &#125;;</span><br><span class="line">  liElement.<span class="property">onmouseover</span> = <span class="keyword">function</span> <span class="title function_">mouseOverHandler</span>(<span class="params"></span>) &#123;</span><br><span class="line">   <span class="comment">//TODO</span></span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="variable language_">window</span>.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> ulElement = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;list&quot;</span>);</span><br><span class="line">  <span class="keyword">var</span> liElements = ulElement.<span class="title function_">getElementByTagName</span>(<span class="string">&quot;Li&quot;</span>);</span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">var</span> i = liElements.<span class="property">length</span> - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">    <span class="title function_">addListenersLi</span>(liElements[i]);</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果这个<code>UL</code>中的<code>Li</code>子元素会频繁地添加或者删除，我们就需要在每次添加<code>Li</code>的时候都调用这个<code>addListenersLi</code>方法来为每个<code>Li</code>节点添加事件处理函数。这会造成添加或者删除过程的复杂度和出错的可能性。</p>
+<p>解决问题方法是使用事件代理机制，当事件被抛到更上层的父节点的时候，我们通过检查事件的目标对象（target）来判断并获取事件源<code>Li</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取父节点，并为它添加一个 click 事件</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;list&quot;</span>).<span class="title function_">addEventListener</span>(<span class="string">&quot;click&quot;</span>,<span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line"> <span class="comment">// 检查事件源 e.targe 是否为Li</span></span><br><span class="line"> <span class="keyword">if</span>(e.<span class="property">target</span> &amp;&amp; e.<span class="property">target</span>.<span class="property">nodeName</span>.<span class="property">toUpperCase</span> == <span class="string">&quot;LI&quot;</span>) &#123;</span><br><span class="line"> <span class="comment">//</span></span><br><span class="line"> <span class="comment">//TODO</span></span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;List item &quot;</span>,e.<span class="property">target</span>.<span class="property">id</span>,<span class="string">&quot; was clicked!&quot;</span>);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-Adapter-适配器-模式"><a href="#4-Adapter-适配器-模式" class="headerlink" title="4. Adapter(适配器) 模式"></a><strong>4. Adapter(适配器) 模式</strong></h3><p>适配器模式很像 Facade(外观) 模式。她们都要对别的对象进行包装并改变其呈现的接口。</p>
+<p>二者的区别在于：</p>
+<p>Facade 展现的是一个简化的接口，支持广泛的行为，但并不提供额外的选择，而且有时为了方便完成任务她还会做出一些预设。</p>
+<p>Adapter 适配器则是简单的<strong>把一个接口转换为另一个接口，她并不滤除某些能力，也不会简化接口</strong>。</p>
+<p>假设有一个对象，还有一个以三个字符串为参数的函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> clientObject = &#123;</span><br><span class="line">    <span class="attr">string1</span>: <span class="string">&#x27;foo&#x27;</span>,</span><br><span class="line">    <span class="attr">string1</span>: <span class="string">&#x27;bar&#x27;</span>,</span><br><span class="line">    <span class="attr">string1</span>: <span class="string">&#x27;baz&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">interfaceMethod</span>(<span class="params">str1, str2, str3</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;ehhe&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>为了把<code>clientObject</code>作为参数传递给<code>interfaceMethod</code>，需要用到适配器。如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">clientToInterfaceAdapter</span>(<span class="params">o</span>)&#123;<span class="comment">//适配器</span></span><br><span class="line">    <span class="title function_">interfaceMethod</span>(o.<span class="property">string1</span>, o.<span class="property">string2</span>, o.<span class="property">string3</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>适配器适用于客户系统期待的接口与现有 API 提供的接口不兼容这种场合。她只能用来协调语法上的差异问题。适配器所适配的两个方法执行的应该是类似的任务，否则她就解决不了问题。</p>
+<p><strong>优点：避免大规模改写现有客户代码</strong>。</p>
+<p><strong>缺点</strong>：如果现有API还未定形，或者新接口还未定形，那么适配器可能不会一直管用。</p>
+<h3 id="5-Proxy-代理-模式"><a href="#5-Proxy-代理-模式" class="headerlink" title="5. Proxy(代理) 模式"></a><strong>5. Proxy(代理) 模式</strong></h3><p>代理模式可以通俗的解释为：在 source 到 target 之间通过一道中间层进行作业的方式。</p>
+<p>通过代理模式，从而可以操作真实对象，同时代理对象提供与真实对象相同的接口以便在任何时刻都能代替真实对象。</p>
+<p>jQuery 中 <code>JQuery.proxy(function,context)</code> 有实现方法；<a target="_blank" rel="noopener" href="http://api.jquery.com/jQuery.proxy/">官方 API</a></p>
+<p>ECMAScript 6 中已经有了具体实现：<a target="_blank" rel="noopener" href="http://es6.ruanyifeng.com/#docs/proxy">ES6 Proxy</a>。</p>
+<p><strong>结构型设计模式汇总介绍到此结束,持续关注请 Star and Watch <a target="_blank" rel="noopener" href="https://github.com/elevenbeans/elevenbeans.github.io">This github repo</a>， 谢谢 ：）</strong></p>
+
+        </div>
+    
+<!-- tags -->
+
+    <div class="post-meta">
+        标签：
+        
+            <a href="/tags/JavaScript/"> / JavaScript</a>
+        
+            <a href="/tags/Design-patterns/"> / Design patterns</a>
+        
+    </div>
+
+</div>
+                <div class="footer">
+    <span>Copyright © <script>document.write(new Date().getFullYear())</script> Elevenbeans</span>
+    <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> with <a target="_blank" rel="noopener" href="https:///imzl.com/zenmind">ZenMind</a></span>
+</div>
+
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+
+            </div>
+        </div>
+    </body>
+</html>

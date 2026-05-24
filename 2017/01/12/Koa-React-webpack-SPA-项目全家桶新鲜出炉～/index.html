@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+  <meta name="robots" content="index, follow">
+  <!-- title -->
+  
+    
+  <title>SPA 项目全家桶新鲜出炉（Koa+React+webpack） ～ - Elevenbeans</title>
+    
+  
+  
+  <!-- open graph -->
+  <meta name="description" content="来豚厂还不满半年就又一次被 “拥抱变化”。 不过，无论是之前的无线 H5 团队，还是现在的机票 H5 团队。始终维持着一个创业型团队的规模 （一只手数得清）。 新老板提到：机票 H5 team 作为一个小团队，会类似“小白鼠”的角色，需要快速迭代、敏捷开发，作为创新项目的试验田。 对于我个人来讲，最深刻的，其实是无尽的危机感。 跟在阿里的师兄从 React 的易用性，讨论到前端新技术技术迭代升级的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SPA 项目全家桶新鲜出炉（Koa+React+webpack） ～">
+<meta property="og:url" content="https://elevenbeans.github.io/2017/01/12/Koa-React-webpack-SPA-%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%96%B0%E9%B2%9C%E5%87%BA%E7%82%89%EF%BD%9E/index.html">
+<meta property="og:site_name" content="Elevenbeans">
+<meta property="og:description" content="来豚厂还不满半年就又一次被 “拥抱变化”。 不过，无论是之前的无线 H5 团队，还是现在的机票 H5 团队。始终维持着一个创业型团队的规模 （一只手数得清）。 新老板提到：机票 H5 team 作为一个小团队，会类似“小白鼠”的角色，需要快速迭代、敏捷开发，作为创新项目的试验田。 对于我个人来讲，最深刻的，其实是无尽的危机感。 跟在阿里的师兄从 React 的易用性，讨论到前端新技术技术迭代升级的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-01-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-24T08:19:05.317Z">
+<meta property="article:author" content="Elevenbeans">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+  <!-- canonical -->
+  
+  <link rel="canonical" href="https://elevenbeans.github.io/2017/01/12/Koa-React-webpack-SPA-项目全家桶新鲜出炉～/">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/elevenbeans.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <!-- CSS -->
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/markdown.css">
+
+  
+<link rel="stylesheet" href="/css/fonts.css">
+
+<meta name="generator" content="Hexo 8.1.2"><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVTG7F443J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVTG7F443J');
+</script>
+</head>
+
+    <body>
+        <div class="paper">
+            <div class="paper-main">
+                
+                    <div class="post-header">
+    <a class="logo" href="/">Elevenbeans</a>
+    <!-- <div class="logo"><a href="/" title="Len"><img src="/img/logo.svg" alt="Len" aria-label="logo" height="20"></a></div> -->
+        <ul class="nav">
+            
+            <li><a href="/">Home</a></li>
+            
+            <li><a href="/archives">Archives</a></li>
+            
+            <li><a href="/tags/">Tags</a></li>
+            
+            <li><a href="/about">About</a></li>
+            
+        </ul>
+
+
+    </a>
+</div>
+
+                
+                <div class="post-main">
+    
+        <div class="post-main-title">
+            SPA 项目全家桶新鲜出炉（Koa+React+webpack） ～
+        </div>
+        <div class="post-meta">
+            2017-01-12 ｜ 
+            
+                <a href="/categories/Tech/"># Tech</a>
+            
+        </div>
+        <!-- 圆角分类 -->
+        <!-- <div class="tags"> -->
+            <!--  -->
+                <!-- <a href="/categories/Tech/">Tech</a> -->
+            <!--  -->
+        <!-- </div> -->
+        <div class="post-md">
+            <p>来豚厂还不满半年就又一次被 “拥抱变化”。</p>
+<p>不过，无论是之前的无线 H5 团队，还是现在的机票 H5 团队。始终维持着一个创业型团队的规模 （一只手数得清）。</p>
+<p>新老板提到：机票 H5 team 作为一个小团队，会类似“小白鼠”的角色，需要快速迭代、敏捷开发，作为创新项目的试验田。</p>
+<p>对于我个人来讲，最深刻的，其实是无尽的危机感。</p>
+<p>跟在阿里的师兄从 React 的易用性，讨论到前端新技术技术迭代升级的意义，最后总结到到一切技术都是辣鸡，升级说的直白一点就是换一种砖继续搬。深感无奈～</p>
+<p>一线的开发是资源、是螺丝钉，没毛病。</p>
+<p>先做一颗万能螺丝钉行不行？</p>
+<p>抑或说，假如现在有机会让我一个初创公司的技术 leader， 我应该做到什么呢？</p>
+<p>想太多不幸福，不如直接干～</p>
+<h2 id="THE-WAY-TO-FULL-STACK"><a href="#THE-WAY-TO-FULL-STACK" class="headerlink" title="THE WAY TO FULL STACK"></a>THE WAY TO FULL STACK</h2><p>SPA 项目全家桶新鲜出炉： <strong>Node + Koa + React</strong> <a target="_blank" rel="noopener" href="https://github.com/elevenBeans/TW2FS">View on github</a></p>
+<h3 id="后端框架-Koa"><a href="#后端框架-Koa" class="headerlink" title="后端框架 Koa"></a>后端框架 <a target="_blank" rel="noopener" href="http://koa.rednode.cn/">Koa</a></h3><p><em>由 Express 原班人马打造的 koa,仅提供了一个轻量优雅的函数库，使得编写 Web 应用变得得心应手。</em></p>
+<ul>
+<li><p>使用Koa 框架搭建后端服务，作为 SPA 的入口和容器。</p>
+</li>
+<li><p>使用单一职责的 Koa-Router，配合前端 React-router。处理外部直接 Landing、原地重刷新以及区分 404 页面:</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title class_">ThrowToHomePage</span> = <span class="keyword">async</span> <span class="keyword">function</span> (<span class="params">ctx, next</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;EVR in router:&#x27;</span>,process.<span class="property">env</span>.<span class="property">NODE_ENV</span>);</span><br><span class="line">  ctx.<span class="property">state</span> = &#123;</span><br><span class="line">    <span class="attr">env</span>: process.<span class="property">env</span>.<span class="property">NODE_ENV</span>,</span><br><span class="line">    <span class="attr">cdnUrl</span>: <span class="variable constant_">CDN_URL</span></span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">await</span> ctx.<span class="title function_">render</span>(<span class="string">&#x27;index&#x27;</span>, &#123; <span class="comment">//去前端根路由</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">ThrowToErroPage</span> = <span class="keyword">async</span> <span class="keyword">function</span> (<span class="params">ctx, next</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;EVR in router:&#x27;</span>,process.<span class="property">env</span>.<span class="property">NODE_ENV</span>);</span><br><span class="line">  ctx.<span class="property">state</span> = &#123;</span><br><span class="line">  	<span class="attr">env</span>: process.<span class="property">env</span>.<span class="property">NODE_ENV</span>,</span><br><span class="line">    <span class="attr">cdnUrl</span>: <span class="variable constant_">CDN_URL</span>,</span><br><span class="line">    <span class="attr">message</span>: <span class="string">&#x27;error&#x27;</span>,</span><br><span class="line">    <span class="attr">error</span>: &#123;<span class="attr">status</span>:<span class="number">404</span>,<span class="attr">stack</span>:<span class="string">&#x27;stack:&#x27;</span>&#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">await</span> ctx.<span class="title function_">render</span>(<span class="string">&#x27;error&#x27;</span>, &#123; <span class="comment">//去 404</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="title class_">ThrowToHomePage</span>);</span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;flight&#x27;</span>, <span class="title class_">ThrowToHomePage</span>);</span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;hotel&#x27;</span>, <span class="title class_">ThrowToHomePage</span>);</span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;train&#x27;</span>, <span class="title class_">ThrowToHomePage</span>);</span><br><span class="line"></span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;*&#x27;</span>, <span class="title class_">ThrowToErroPage</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用 ejs 模版引擎作为主应用的后端唯一 View:</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;%- include(&#x27;header&#x27;) -%&gt;</span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&#x27;app&#x27;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&lt;%- include(&#x27;footer&#x27;) -%&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="前端相关技术架构"><a href="#前端相关技术架构" class="headerlink" title="前端相关技术架构"></a>前端相关技术架构</h3><ul>
+<li>使用日趋成熟的 JS 语言标准 ES6， 使用 Less 预处理语言: <a target="_blank" rel="noopener" href="https://github.com/elevenBeans/TW2FS/blob/master/public/javascripts/home/index.jsx">示例代码</a></li>
+<li>使用 React + ReactDOM 进行框架前端组件化开发</li>
+<li>React-Router：<strong>SPA 的核心</strong>，与后端路由配合完成应用 Router</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Router</span> <span class="attr">key</span>=<span class="string">&#123;Math.random()&#125;</span> <span class="attr">history</span>=<span class="string">&#123;browserHistory&#125;</span> &gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/&quot;</span> <span class="attr">component</span>=<span class="string">&#123;App&#125;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">IndexRoute</span> <span class="attr">component</span>=<span class="string">&#123;Home&#125;/</span>&gt;</span></span><br><span class="line"></span><br><span class="line">       <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;flight&quot;</span> <span class="attr">component</span>=<span class="string">&#123;Flight&#125;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span><br><span class="line"></span><br><span class="line">       <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;flight/:citys&quot;</span> <span class="attr">component</span>=<span class="string">&#123;FlightList&#125;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span><br><span class="line"></span><br><span class="line">       <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;train&quot;</span> <span class="attr">component</span>=<span class="string">&#123;Train&#125;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span><br><span class="line"></span><br><span class="line">       <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;hotel&quot;</span> <span class="attr">component</span>=<span class="string">&#123;Hotel&#125;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">Router</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>模块化：ES6 module</li>
+<li>转场过渡效果：React-router-transition，作为一个 SPA，就是要做到如丝般顺滑～</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title class_">App</span> = <span class="keyword">function</span> (<span class="params">&#123; children, location &#125;</span>) &#123; <span class="comment">//children = React.children</span></span><br><span class="line">  styles = location.<span class="property">action</span> === <span class="string">&#x27;POP&#x27;</span>? presets.<span class="property">slideRight</span>: presets.<span class="property">slideLeft</span>;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">Header</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">RouteTransition</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">className</span>=<span class="string">&quot;transition-wrapper&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">pathname</span>=<span class="string">&#123;location.pathname&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">runOnMount</span>=<span class="string">&#123;false&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      &#123;<span class="attr">...styles</span>&#125;&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;children&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">RouteTransition</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="编译构建：Webpack-Babel"><a href="#编译构建：Webpack-Babel" class="headerlink" title="编译构建：Webpack + Babel"></a>编译构建：Webpack + Babel</h3><p>Webpack 简直就是为了 SPA 和 ES6 量身打造的打包工具 ！！！<br>对于 webpack.config.js 的配置：</p>
+<ul>
+<li>库文件 external</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">externals</span>: &#123;</span><br><span class="line">  <span class="string">&#x27;zepto&#x27;</span>: <span class="string">&#x27;window.$&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;react&#x27;</span>:<span class="string">&#x27;window.React&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;react-dom&#x27;</span>:<span class="string">&#x27;window.ReactDOM&#x27;</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>像是 Jquery、zepto、React 这种官方已有编译好库文件的，直接挂载到全局对象引用即可。没有必要再通过 webpack 的流程在编译一次。</p>
+<ul>
+<li>公共组件 CommonsChunkPlugin</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">entry</span>: &#123;</span><br><span class="line">  <span class="attr">router</span>: [<span class="string">&#x27;react-router&#x27;</span>] <span class="comment">// CommonsChunkPlugin</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="attr">plugins</span>:  [</span><br><span class="line">  <span class="keyword">new</span> webpack.<span class="property">optimize</span>.<span class="title class_">CommonsChunkPlugin</span>(<span class="string">&#x27;router&#x27;</span>,<span class="string">&#x27;[name].bundle.js&#x27;</span>)<span class="comment">// CommonsChunk</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>对于 React-router 这种非官方的插件，最好还是下载 stable 版本的源码，自行编译。</p>
+<ul>
+<li>样式文件单独打包</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">ExtractTextPlugin</span>(<span class="string">&quot;./css/IBU.H5.flight.css&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>Hot Module Replacement</strong></li>
+</ul>
+<p><strong>狂!!! 拽!!! 酷炫!!! 吊炸天!!! 的新功能</strong>，详情请戳 –&gt;<a target="_blank" rel="noopener" href="http://webpack.github.io/docs/hot-module-replacement-with-webpack.html#tutorial">tutorial</a>。</p>
+<p>据说可以在生产环境中使用，但是官方承认还不稳定. 耿直！<a target="_blank" rel="noopener" href="http://webpack.github.io/docs/hot-module-replacement-with-webpack.html#caveats">请戳戳</a></p>
+<p>官方的才是可信赖的，嗯。</p>
+<h3 id="结束也不是结束"><a href="#结束也不是结束" class="headerlink" title="结束也不是结束"></a>结束也不是结束</h3><p>写到这里，总觉得还少点什么？</p>
+<p>这样就可以开始全栈开发 SPA 了？</p>
+<p>前端有了，后端也有了。数据呢？</p>
+<p><a href="http://elevenbeans.github.io/2016/05/31/node-mysql-CRUD/">刀耕火种之 Node 直接查 DB</a></p>
+<p>真正成为一个专业的后端乃至全栈开发人员，任重而道远。</p>
+
+        </div>
+    
+<!-- tags -->
+
+    <div class="post-meta">
+        标签：
+        
+            <a href="/tags/React/"> / React</a>
+        
+    </div>
+
+</div>
+                <div class="footer">
+    <span>Copyright © <script>document.write(new Date().getFullYear())</script> Elevenbeans</span>
+    <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> with <a target="_blank" rel="noopener" href="https:///imzl.com/zenmind">ZenMind</a></span>
+</div>
+
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+
+            </div>
+        </div>
+    </body>
+</html>
