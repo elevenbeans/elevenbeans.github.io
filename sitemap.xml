@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://elevenbeans.github.io/2026/06/28/%E8%82%9D%E4%BA%86%E5%87%A0%E4%B8%AA%E6%99%9A%E4%B8%8A%E6%80%BB%E7%BB%93%E7%9A%84%E5%A3%B0%E9%9F%B3%E5%85%8B%E9%9A%86%E6%96%B9%E6%B3%95%E5%85%A8%E5%9C%A8%E8%BF%99%E9%87%8C%E4%BA%86%EF%BC%81/</loc>
+    
+    <lastmod>2026-06-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://elevenbeans.github.io/2026/05/30/%E6%88%91%E5%9C%A8%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2%E9%87%8C%E8%97%8F%E4%BA%86%E4%B8%80%E4%B8%AAAI%E7%BC%96%E7%A8%8BAgent/</loc>
     
     <lastmod>2026-05-30</lastmod>
@@ -110,15 +119,6 @@
   </url>
   
   <url>
-    <loc>https://elevenbeans.github.io/2017/01/22/%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E6%B1%87%E6%80%BB/</loc>
-    
-    <lastmod>2026-05-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://elevenbeans.github.io/2018/03/17/mister-fan-gao/</loc>
     
     <lastmod>2026-05-24</lastmod>
@@ -137,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://elevenbeans.github.io/2016/08/18/URL-Scheme-%E5%94%A4%E8%B5%B7%E9%97%AE%E9%A2%98%E8%B8%A9%E5%9D%91/</loc>
+    <loc>https://elevenbeans.github.io/2017/01/22/%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E6%B1%87%E6%80%BB/</loc>
     
     <lastmod>2026-05-24</lastmod>
     
@@ -146,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://elevenbeans.github.io/2018/01/23/nothing-is-impossible-for-javascript/</loc>
+    <loc>https://elevenbeans.github.io/2016/08/18/URL-Scheme-%E5%94%A4%E8%B5%B7%E9%97%AE%E9%A2%98%E8%B8%A9%E5%9D%91/</loc>
     
     <lastmod>2026-05-24</lastmod>
     
@@ -164,6 +164,15 @@
   </url>
   
   <url>
+    <loc>https://elevenbeans.github.io/2018/01/23/nothing-is-impossible-for-javascript/</loc>
+    
+    <lastmod>2026-05-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://elevenbeans.github.io/2016/05/04/%E6%B5%85%E6%9E%90-JavaScript-%E4%B8%AD%E7%9A%84%E9%97%AD%E5%8C%85/</loc>
     
     <lastmod>2026-05-24</lastmod>
@@ -173,7 +182,7 @@
   </url>
   
   <url>
-    <loc>https://elevenbeans.github.io/2016/10/24/1024/</loc>
+    <loc>https://elevenbeans.github.io/2016/08/11/UC-%E6%89%8B%E6%9C%BA%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E7%BB%8F%E9%AA%8C/</loc>
     
     <lastmod>2026-05-24</lastmod>
     
@@ -182,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://elevenbeans.github.io/2016/08/11/UC-%E6%89%8B%E6%9C%BA%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E7%BB%8F%E9%AA%8C/</loc>
+    <loc>https://elevenbeans.github.io/2016/10/24/1024/</loc>
     
     <lastmod>2026-05-24</lastmod>
     
@@ -389,7 +398,7 @@
   </url>
   
   <url>
-    <loc>https://elevenbeans.github.io/2017/06/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/</loc>
+    <loc>https://elevenbeans.github.io/2018/09/10/react-native-animation/</loc>
     
     <lastmod>2026-05-24</lastmod>
     
@@ -407,7 +416,7 @@
   </url>
   
   <url>
-    <loc>https://elevenbeans.github.io/2018/09/10/react-native-animation/</loc>
+    <loc>https://elevenbeans.github.io/2017/06/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/</loc>
     
     <lastmod>2026-05-24</lastmod>
     
@@ -499,7 +508,7 @@
 
   <url>
     <loc>https://elevenbeans.github.io/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -507,105 +516,119 @@
   
   <url>
     <loc>https://elevenbeans.github.io/tags/JavaScript/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://elevenbeans.github.io/tags/%E4%B8%80%E5%B9%B4%E5%B0%8F%E7%BB%93/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://elevenbeans.github.io/tags/CSS/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://elevenbeans.github.io/tags/React/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://elevenbeans.github.io/tags/%E6%88%BF%E5%AD%90/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://elevenbeans.github.io/tags/React/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://elevenbeans.github.io/tags/ES6/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://elevenbeans.github.io/tags/%E7%BF%BB%E8%AF%91/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://elevenbeans.github.io/tags/Design-patterns/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://elevenbeans.github.io/tags/React-Native/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://elevenbeans.github.io/tags/AI/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://elevenbeans.github.io/tags/NAS/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://elevenbeans.github.io/tags/Next-js/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://elevenbeans.github.io/tags/Agent/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://elevenbeans.github.io/tags/HTML/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://elevenbeans.github.io/tags/EasterEgg/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://elevenbeans.github.io/tags/NAS/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://elevenbeans.github.io/tags/Next-js/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://elevenbeans.github.io/tags/Agent/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://elevenbeans.github.io/tags/voice-cloning/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://elevenbeans.github.io/tags/tutorial/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -614,14 +637,14 @@
   
   <url>
     <loc>https://elevenbeans.github.io/categories/Tech/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://elevenbeans.github.io/categories/Life/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
