@@ -15,7 +15,7 @@
   <meta name="description" content="更多文章参见： https:&#x2F;&#x2F;github.com&#x2F;elevenbeans&#x2F;elevenbeans.github.io  前言本系列可以看作是我个人对于 Addy Osmani 的著作《Learning JavaScript Design Patterns》中内容的提炼，类似阅读笔记，目的是为了简单快速、又不失全面地了解设计模式的相关概念、特点、分类及其在 Javascript 中的实际用法。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javascript 中的设计模式（三）：结构型设计模式">
-<meta property="og:url" content="https://elevenbeans.github.io/2018/04/06/javascript-design-patterns-2/index.html">
+<meta property="og:url" content="https://blog.elevenbeans.me/2018/04/06/javascript-design-patterns-2/index.html">
 <meta property="og:site_name" content="Elevenbeans">
 <meta property="og:description" content="更多文章参见： https:&#x2F;&#x2F;github.com&#x2F;elevenbeans&#x2F;elevenbeans.github.io  前言本系列可以看作是我个人对于 Addy Osmani 的著作《Learning JavaScript Design Patterns》中内容的提炼，类似阅读笔记，目的是为了简单快速、又不失全面地了解设计模式的相关概念、特点、分类及其在 Javascript 中的实际用法。">
 <meta property="og:locale" content="zh_CN">
@@ -27,7 +27,7 @@
 <meta name="twitter:card" content="summary">
   <!-- canonical -->
   
-  <link rel="canonical" href="https://elevenbeans.github.io/2018/04/06/javascript-design-patterns-2/">
+  <link rel="canonical" href="https://blog.elevenbeans.me/2018/04/06/javascript-design-patterns-2/">
   
   <!-- Favicon -->
   <link rel="icon" href="/elevenbeans.ico">
@@ -103,10 +103,10 @@
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本系列可以看作是我个人对于 Addy Osmani 的著作《Learning JavaScript Design Patterns》中内容的提炼，类似阅读笔记，目的是为了简单快速、又不失全面地了解设计模式的相关概念、特点、分类及其在 Javascript 中的实际用法。</p>
 <p>分为五篇：</p>
 <ol>
-<li><a href="http://elevenbeans.github.io/2018/03/25/javascript-design-patterns-0/">概述</a></li>
-<li><a href="http://elevenbeans.github.io/2018/03/30/javascript-design-patterns-1/">创建型</a></li>
+<li><a target="_blank" rel="noopener" href="http://elevenbeans.github.io/2018/03/25/javascript-design-patterns-0/">概述</a></li>
+<li><a target="_blank" rel="noopener" href="http://elevenbeans.github.io/2018/03/30/javascript-design-patterns-1/">创建型</a></li>
 <li><strong>结构型设计模式（本篇）</strong></li>
-<li><a href="http://elevenbeans.github.io/2018/04/11/javascript-design-patterns-3/">行为型</a></li>
+<li><a target="_blank" rel="noopener" href="http://elevenbeans.github.io/2018/04/11/javascript-design-patterns-3/">行为型</a></li>
 <li>MV*（待补充）</li>
 </ol>
 <h2 id="结构型设计模式"><a href="#结构型设计模式" class="headerlink" title="结构型设计模式"></a><strong>结构型设计模式</strong></h2><h3 id="1-Decorator-装饰者-模式"><a href="#1-Decorator-装饰者-模式" class="headerlink" title="1. Decorator(装饰者) 模式"></a><strong>1. Decorator(装饰者) 模式</strong></h3><p>Decorator 模式修改现有类创建的对象，为其添加额外功能。<br>比如：</p>
@@ -123,12 +123,12 @@
 <li><code>$(element).css()</code>: <strong>*Get</strong> the value of a computed style property for the first element in the <strong>set</strong> of matched elements or set one or more CSS properties for every matched element.*</li>
 <li><code>val()</code>: <strong>*Get</strong> the current value of the first element in the set of matched elements or <strong>set</strong> the value of every matched element.**</li>
 </ul>
-<p>当然，还有 <code>$(document).ready()</code>, <a href="http://elevenbeans.github.io/2016/06/03/DomReady/">发散一下</a></p>
+<p>当然，还有 <code>$(document).ready()</code>, <a target="_blank" rel="noopener" href="http://elevenbeans.github.io/2016/06/03/DomReady/">发散一下</a></p>
 <p><strong>优点：使用简单</strong>。</p>
 <p>**缺点：**抽象存在的隐形成本，比如性能啊。</p>
 <h3 id="3-Flyweight-享元-模式"><a href="#3-Flyweight-享元-模式" class="headerlink" title="3. Flyweight(享元) 模式"></a><strong>3. Flyweight(享元) 模式</strong></h3><p>首先，Flyweight(享元)模式的目标是：在对象之间，尽可能多的共享数据来减少开销。</p>
 <p>在 Javascript 中，Flyweight(享元)模式主要有两种应用方式。</p>
-<h4 id="1-数据中的应用"><a href="#1-数据中的应用" class="headerlink" title="1. 数据中的应用"></a>1. 数据中的应用</h4><p>区分系统的内部数据和外部数据。具有相同内部数据的对象可以被替换成工厂方法创建的<strong>单一共享对象</strong>（具体可以参考 <a href="http://elevenbeans.github.io/2018/03/25/javascript-design-patterns-1/">前一篇</a> 中提到的 Singleton 模式），极大减少我们存储数据的总量。然后用管理器来处理外部状态。</p>
+<h4 id="1-数据中的应用"><a href="#1-数据中的应用" class="headerlink" title="1. 数据中的应用"></a>1. 数据中的应用</h4><p>区分系统的内部数据和外部数据。具有相同内部数据的对象可以被替换成工厂方法创建的<strong>单一共享对象</strong>（具体可以参考 <a target="_blank" rel="noopener" href="http://elevenbeans.github.io/2018/03/25/javascript-design-patterns-1/">前一篇</a> 中提到的 Singleton 模式），极大减少我们存储数据的总量。然后用管理器来处理外部状态。</p>
 <p>例如，设计一个图书馆的 Book 类：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> <span class="hljs-title class_">Book</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">id, title, author, genre, pageCount,publisherID, ISBN, checkoutDate, checkoutMember, dueReturnDate, availability</span>) &#123;<br>	<span class="hljs-variable language_">this</span>.<span class="hljs-property">id</span> = id;<br>	<span class="hljs-variable language_">this</span>.<span class="hljs-property">title</span> = title;<br>	...<br>	<span class="hljs-variable language_">this</span>.<span class="hljs-property">checkoutDate</span> = checkoutDate;<br>	<span class="hljs-variable language_">this</span>.<span class="hljs-property">availability</span> = availability;<br>&#125;<br></code></pre></td></tr></table></figure>
 
