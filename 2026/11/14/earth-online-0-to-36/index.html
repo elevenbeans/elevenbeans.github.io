@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+  <meta name="robots" content="index, follow">
+  <!-- title -->
+  
+    
+  <title>一个地球，36 座城市：Earth Online 从 0 到 1 - Elevenbeans</title>
+    
+  
+  
+  <!-- open graph -->
+  <meta name="description" content="Earth Online 首先是一个地球，不是一张世界地图。 它可以旋转、缩放、点击城市，进入城市后还能看到真实地图上的建筑、地标、天气和共享积分。城市不是一开始就有的，而是从 0 开始，一座一座长到 36 座。  代码：github.com&#x2F;elevenbeans&#x2F;myprofile&#x2F;tree&#x2F;main&#x2F;earth-online 项目说明：ear">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个地球，36 座城市：Earth Online 从 0 到 1">
+<meta property="og:url" content="https://blog.elevenbeans.me/2026/11/14/earth-online-0-to-36/index.html">
+<meta property="og:site_name" content="Elevenbeans">
+<meta property="og:description" content="Earth Online 首先是一个地球，不是一张世界地图。 它可以旋转、缩放、点击城市，进入城市后还能看到真实地图上的建筑、地标、天气和共享积分。城市不是一开始就有的，而是从 0 开始，一座一座长到 36 座。  代码：github.com&#x2F;elevenbeans&#x2F;myprofile&#x2F;tree&#x2F;main&#x2F;earth-online 项目说明：ear">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-11-14T15:35:00.000Z">
+<meta property="article:modified_time" content="2026-11-14T15:35:35.445Z">
+<meta property="article:author" content="Elevenbeans">
+<meta property="article:tag" content="Earth Online">
+<meta property="article:tag" content="MapLibre">
+<meta property="article:tag" content="OSM">
+<meta property="article:tag" content="Three.js">
+<meta property="article:tag" content="Web Audio">
+<meta property="article:tag" content="WebGL">
+<meta property="article:tag" content="项目复盘">
+<meta name="twitter:card" content="summary">
+  <!-- canonical -->
+  
+  <link rel="canonical" href="https://blog.elevenbeans.me/2026/11/14/earth-online-0-to-36/">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/elevenbeans.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <!-- CSS -->
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/markdown.css">
+
+  
+<link rel="stylesheet" href="/css/fonts.css">
+
+<meta name="generator" content="Hexo 8.1.2"><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVTG7F443J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVTG7F443J');
+</script>
+</head>
+
+    <body>
+        <div class="paper">
+            <div class="paper-main">
+                
+                    <div class="post-header">
+    <a class="logo" href="/">Elevenbeans</a>
+    <!-- <div class="logo"><a href="/" title="Len"><img src="/img/logo.svg" alt="Len" aria-label="logo" height="20"></a></div> -->
+        <ul class="nav">
+            
+            <li><a href="/">Home</a></li>
+            
+            <li><a href="/archives">Archives</a></li>
+            
+            <li><a href="/tags/">Tags</a></li>
+            
+            <li><a href="/about">About</a></li>
+            
+        </ul>
+
+
+    </a>
+</div>
+
+                
+                <div class="post-main">
+    
+        <div class="post-main-title">
+            一个地球，36 座城市：Earth Online 从 0 到 1
+        </div>
+        <div class="post-meta">
+            2026-11-14 ｜ 
+            
+                <a href="/categories/Tech/"># Tech</a>
+            
+        </div>
+        <!-- 圆角分类 -->
+        <!-- <div class="tags"> -->
+            <!--  -->
+                <!-- <a href="/categories/Tech/">Tech</a> -->
+            <!--  -->
+        <!-- </div> -->
+        <div class="post-md">
+            <p>Earth Online 首先是一个<strong>地球</strong>，不是一张世界地图。</p>
+<p>它可以旋转、缩放、点击城市，进入城市后还能看到真实地图上的建筑、地标、天气和共享积分。城市不是一开始就有的，而是从 0 开始，一座一座长到 36 座。</p>
+<ul>
+<li>代码：<a target="_blank" rel="noopener" href="https://github.com/elevenbeans/myprofile/tree/main/earth-online">github.com&#x2F;elevenbeans&#x2F;myprofile&#x2F;tree&#x2F;main&#x2F;earth-online</a></li>
+<li>项目说明：<a target="_blank" rel="noopener" href="https://github.com/elevenbeans/myprofile/blob/main/earth-online/README.md">earth-online&#x2F;README.md</a></li>
+<li>在线体验：<a target="_blank" rel="noopener" href="https://elevenbeans.me/earth-online/">elevenbeans.me&#x2F;earth-online</a></li>
+</ul>
+<p>这篇文章按“从零搭起来”的顺序，讲这个项目怎么从空白页面变成一个可交互的实时地球，以及中间做了哪些技术取舍。</p>
+<h2 id="1-先做一个地球，而不是一张图"><a href="#1-先做一个地球，而不是一张图" class="headerlink" title="1. 先做一个地球，而不是一张图"></a>1. 先做一个地球，而不是一张图</h2><p>项目起点只有几个约束：</p>
+<ul>
+<li>静态托管，最好没有构建步骤；</li>
+<li>不用框架，原生 HTML&#x2F;CSS&#x2F;ES Module；</li>
+<li>不申请地图&#x2F;地球的 API Key；</li>
+<li>手机和微信也要能打开。</li>
+</ul>
+<p>所以地球用 Three.js 直接画：</p>
+<ul>
+<li>一个球体，贴 NASA 日景&#x2F;夜景纹理；</li>
+<li>自定义 shader 按真实太阳位置混合日夜；</li>
+<li>叠加云层、星空、大气边缘光；</li>
+<li>城市之间用大圆弧连接；</li>
+<li>城市点不是 Sprite，而是 HTML 按钮，每帧从 3D 位置投影到屏幕。</li>
+</ul>
+<p>日夜混合的核心是太阳方向和法线的点积：</p>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs glsl"><span class="hljs-type">float</span> sun = <span class="hljs-built_in">dot</span>(normal, sunDirection);<br><span class="hljs-type">float</span> day = <span class="hljs-built_in">smoothstep</span>(<span class="hljs-number">-0.18</span>, <span class="hljs-number">0.22</span>, sun);<br><span class="hljs-type">vec3</span> surface = <span class="hljs-built_in">mix</span>(nightColor, dayColor, day);<br></code></pre></td></tr></table></figure>
+
+<p>太阳方向由当前时间的 subsolar point 计算，不是固定光照。不同时间打开，晨昏线位置是对的。</p>
+<p>纹理分两级：默认 2K WebP，桌面端相机拉近到 <code>orbit.dist &lt; 2.75</code> 后异步加载 4K 日&#x2F;夜 + 2K 云；移动端和微信保持 2K。这样首屏不会为了 4K 付出太大代价。</p>
+<p>城市标签用 HTML 而不是 WebGL 字体：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> v = city.<span class="hljs-property">pos</span>.<span class="hljs-title function_">clone</span>().<span class="hljs-title function_">project</span>(camera);<br><span class="hljs-keyword">const</span> facing = city.<span class="hljs-property">pos</span>.<span class="hljs-title function_">dot</span>(camDir) / <span class="hljs-number">1.002</span>;<br><span class="hljs-keyword">const</span> isFront = facing &gt; <span class="hljs-number">0.035</span> &amp;&amp; v.<span class="hljs-property">z</span> &lt; <span class="hljs-number">1</span>;<br><br>el.<span class="hljs-property">style</span>.<span class="hljs-property">transform</span> =<br>  <span class="hljs-string">`translate3d(<span class="hljs-subst">$&#123;x - <span class="hljs-number">15</span>&#125;</span>px,<span class="hljs-subst">$&#123;y - <span class="hljs-number">15</span>&#125;</span>px,0)`</span>;<br></code></pre></td></tr></table></figure>
+
+<p>好处是标签始终清晰、可点击、可键盘聚焦；代价是每帧都要做投影和标签避让。</p>
+<p>首次访问不请求定位权限，而是用浏览器时区推断大洲，把地球转到该大洲。隐私友好，代价是推断不精确。</p>
+<h2 id="2-城市从-0-开始"><a href="#2-城市从-0-开始" class="headerlink" title="2. 城市从 0 开始"></a>2. 城市从 0 开始</h2><p>一开始城市列表是空的。第一个城市加进来之后，整个产品才真正开始：</p>
+<ul>
+<li>地球上出现一个可点击的点；</li>
+<li>点击后相机飞向该城市，打开天气面板；</li>
+<li>面板显示当地时间、天气、空气质量、日出日落；</li>
+<li>分数 +5。</li>
+</ul>
+<p>然后抽象出唯一的数据源：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-variable constant_">CITIES</span> = [<br>  &#123; <span class="hljs-attr">id</span>:<span class="hljs-string">&#x27;paris&#x27;</span>, <span class="hljs-attr">name</span>:&#123;<span class="hljs-attr">zh</span>:<span class="hljs-string">&#x27;巴黎&#x27;</span>,<span class="hljs-attr">en</span>:<span class="hljs-string">&#x27;Paris&#x27;</span>&#125;, <span class="hljs-attr">lat</span>:<span class="hljs-number">48.8566</span>, <span class="hljs-attr">lon</span>:<span class="hljs-number">2.3522</span>, <span class="hljs-attr">tz</span>:<span class="hljs-string">&#x27;Europe/Paris&#x27;</span> &#125;,<br>  <span class="hljs-comment">// ...</span><br>];<br></code></pre></td></tr></table></figure>
+
+<p>这一份数据同时驱动地球、积分榜、天气面板和城市详情：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">CITIES<br>  ├── globe markers / camera<br>  ├── shared score board<br>  ├── weather + AQI panel<br>  └── city detail (MapLibre + landmark layer)<br></code></pre></td></tr></table></figure>
+
+<p>城市从 0 加到 36，绝大多数工作只是加数据和详情配置，不需要改地球和榜单。这是项目能从 1 座城市顺利长到 36 座的关键。</p>
+<p>天气和空气质量都来自 Open-Meteo，分开请求、10 分钟 <code>sessionStorage</code> 缓存，各自有失败状态。空气质量用 US AQI、PM2.5，和天气互不阻塞。</p>
+<h2 id="3-城市详情：从程序化沙盘到真实地图"><a href="#3-城市详情：从程序化沙盘到真实地图" class="headerlink" title="3. 城市详情：从程序化沙盘到真实地图"></a>3. 城市详情：从程序化沙盘到真实地图</h2><p>最早的详情页是程序化沙盘：盒子、圆柱、圆锥拼一个地标，加一些道路和树。它能跑，但很快遇到瓶颈：</p>
+<ul>
+<li>和真实城市无关；</li>
+<li>地标比例靠肉眼调；</li>
+<li>每加一座城市都要重新建模。</li>
+</ul>
+<p>后来整个详情页换成 MapLibre + OpenFreeMap&#x2F;OSM：</p>
+<ul>
+<li>真实建筑 footprint，用 <code>fill-extrusion</code> 按 <code>render_height</code> 拉伸；</li>
+<li>Esri Dark Gray &#x2F; Light Gray 作为无 Key 栅格兜底；</li>
+<li>倾斜、旋转的 district 视图；</li>
+<li>深海军蓝&#x2F;浅纸色的 Orbital Blueprint HUD。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js">&#123;<br>  <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;buildings-3d&#x27;</span>,<br>  <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;fill-extrusion&#x27;</span>,<br>  <span class="hljs-attr">source</span>: <span class="hljs-string">&#x27;omt&#x27;</span>,<br>  <span class="hljs-string">&#x27;source-layer&#x27;</span>: <span class="hljs-string">&#x27;building&#x27;</span>,<br>  <span class="hljs-attr">filter</span>: [<span class="hljs-string">&#x27;!&#x27;</span>, [<span class="hljs-string">&#x27;has&#x27;</span>, <span class="hljs-string">&#x27;hide_3d&#x27;</span>]],<br>  <span class="hljs-attr">paint</span>: &#123;<br>    <span class="hljs-string">&#x27;fill-extrusion-height&#x27;</span>: [<span class="hljs-string">&#x27;coalesce&#x27;</span>, [<span class="hljs-string">&#x27;get&#x27;</span>, <span class="hljs-string">&#x27;render_height&#x27;</span>], <span class="hljs-number">12</span>],<br>    <span class="hljs-string">&#x27;fill-extrusion-base&#x27;</span>: [<span class="hljs-string">&#x27;coalesce&#x27;</span>, [<span class="hljs-string">&#x27;get&#x27;</span>, <span class="hljs-string">&#x27;render_min_height&#x27;</span>], <span class="hljs-number">0</span>]<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>hide_3d</code> 必须过滤：OSM 里主楼常被标成 <code>hide_3d</code>，真正渲染的是 <code>building:part</code>。</p>
+<h2 id="4-36-座城市的地标系统"><a href="#4-36-座城市的地标系统" class="headerlink" title="4. 36 座城市的地标系统"></a>4. 36 座城市的地标系统</h2><p>这是整个项目里技术密度最高的一块。</p>
+<p>最初每座城市用 Three.js 拼一个程序化地标，转成青色线框叠在地图上。问题是：OSM 里本来就有帝国大厦、哈利法塔、台北 101 的体量，线框等于在真实建筑外面又套了一层简化模型，而且比例对不上。</p>
+<h3 id="4-1-先去-z14-矢量瓦片里核对数据"><a href="#4-1-先去-z14-矢量瓦片里核对数据" class="headerlink" title="4.1 先去 z14 矢量瓦片里核对数据"></a>4.1 先去 z14 矢量瓦片里核对数据</h3><p>OpenFreeMap 的 planet 瓦片最大 z14，城市视图是 overzoom。用 <code>queryRenderedFeatures</code> 查地标会得到大量假阴性，因为瓦片没加载完、或者层级不对。</p>
+<p>直接解瓦片后：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> tile = <span class="hljs-keyword">new</span> <span class="hljs-title class_">VectorTile</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Pbf</span>(buf));<br><span class="hljs-keyword">const</span> layer = tile.<span class="hljs-property">layers</span>.<span class="hljs-property">building</span>;<br><span class="hljs-keyword">const</span> f = layer.<span class="hljs-title function_">feature</span>(i);<br><br>f.<span class="hljs-property">properties</span>.<span class="hljs-property">render_height</span>;<br>f.<span class="hljs-property">properties</span>.<span class="hljs-property">render_min_height</span>;<br>f.<span class="hljs-property">properties</span>.<span class="hljs-property">hide_3d</span>;<br></code></pre></td></tr></table></figure>
+
+<p>几个真实案例：</p>
+<ul>
+<li>埃菲尔铁塔：48×48m footprint，277&#x2F;300&#x2F;330m 三段 part，地图会拉成一根方柱；</li>
+<li>帝国大厦：主楼带 <code>hide_3d</code>，真正渲染的是 7 段收分 part；</li>
+<li>台北 101：508m part 存在，但相对标记点偏移 31–80m；</li>
+<li>罗马斗兽场：49m 环墙，不是三层拱廊。</li>
+</ul>
+<p>结论是：</p>
+<blockquote>
+<p>OSM 里有高度，不等于地图上能读出这个地标。</p>
+</blockquote>
+<p>最终把 36 座城市分成三类：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>数量</th>
+<th>适用条件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OSM 体量 + 瞄准框</td>
+<td>32</td>
+<td>OSM 体量能读出轮廓</td>
+</tr>
+<tr>
+<td>地面街区高亮</td>
+<td>2</td>
+<td>线性&#x2F;面状景区，或没有可用建筑体量</td>
+</tr>
+<tr>
+<td>结构线框</td>
+<td>2</td>
+<td>完全无法用 OSM 表达形体</td>
+</tr>
+</tbody></table>
+<p><strong>OSM + 瞄准框</strong>不画第二套建筑，只加地面测量环、收分引导棱线、高度尺、信标和 <code>ALT</code>。它明确是“标注”，不是“建筑”。</p>
+<p><strong>街区模式</strong>用于西安大唐不夜城和乌鲁木齐大巴扎：用 MapLibre 的 <code>fill</code> + 虚线 <code>line</code> 在地面画街区轮廓，不做 3D 锁。因为钟楼、城墙、大雁塔在 OSM 里没有可用 <code>building</code> 体量，硬套瞄准框只会悬空。</p>
+<p><strong>结构线框</strong>只剩拉萨布达拉宫和拉斯维加斯豪客摩天轮：前者 OSM 没有体量，后者不是建筑。</p>
+<h3 id="4-2-锁定框的实现"><a href="#4-2-锁定框的实现" class="headerlink" title="4.2 锁定框的实现"></a>4.2 锁定框的实现</h3><p>MapLibre 和 Three.js 共用同一个 WebGL 上下文，地标是一个 <code>custom</code> 3D 图层：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">this</span>.<span class="hljs-property">renderer</span> = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">WebGLRenderer</span>(&#123;<br>  <span class="hljs-attr">canvas</span>: map.<span class="hljs-title function_">getCanvas</span>(),<br>  <span class="hljs-attr">context</span>: gl,<br>  <span class="hljs-attr">antialias</span>: <span class="hljs-literal">true</span><br>&#125;);<br><span class="hljs-variable language_">this</span>.<span class="hljs-property">renderer</span>.<span class="hljs-property">autoClear</span> = <span class="hljs-literal">false</span>;<br></code></pre></td></tr></table></figure>
+
+<p>经纬度对齐用 Mercator：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> origin = maplibregl.<span class="hljs-property">MercatorCoordinate</span>.<span class="hljs-title function_">fromLngLat</span>(active.<span class="hljs-property">origin</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">const</span> scale = origin.<span class="hljs-title function_">meterInMercatorCoordinateUnits</span>();<br><br><span class="hljs-keyword">const</span> s = scale * modelScale;<br><span class="hljs-keyword">const</span> sx = s * modelXZ;<br><br><span class="hljs-keyword">const</span> m = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Matrix4</span>()<br>  .<span class="hljs-title function_">makeTranslation</span>(origin.<span class="hljs-property">x</span>, origin.<span class="hljs-property">y</span>, origin.<span class="hljs-property">z</span>)<br>  .<span class="hljs-title function_">multiply</span>(<span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Matrix4</span>().<span class="hljs-title function_">makeRotationX</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span> / <span class="hljs-number">2</span>))<br>  .<span class="hljs-title function_">scale</span>(<span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Vector3</span>(sx, s, sx));<br></code></pre></td></tr></table></figure>
+
+<p>线框从 <code>wireframe: true</code> 改成 <code>EdgesGeometry</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> lines = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">LineSegments</span>(<br>  <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">EdgesGeometry</span>(mesh.<span class="hljs-property">geometry</span>, <span class="hljs-number">12</span>),<br>  edgeMaterial<br>);<br>lines.<span class="hljs-property">renderOrder</span> = <span class="hljs-number">3</span>;<br>mesh.<span class="hljs-title function_">add</span>(lines);<br>mesh.<span class="hljs-property">material</span> = ghostMaterial;<br></code></pre></td></tr></table></figure>
+
+<p>12° 阈值保留盒子的棱、圆柱的环和母线、球体的经纬线，去掉共面三角形的对角线；再叠一层半透明 ghost 体量，让线框有体积但不遮挡地图。</p>
+<p>真实高度会暴露宽度问题：斗兽场 48m 高、模型只有 62m 宽，而真实足迹 188m。于是加了只拉伸 X&#x2F;Z 的系数：斗兽场 3.0、王宫 2.4、MASP 12.0、布达拉宫 3.4、歌剧院 1.9。</p>
+<h2 id="5-昼夜主题"><a href="#5-昼夜主题" class="headerlink" title="5. 昼夜主题"></a>5. 昼夜主题</h2><p>按城市当地太阳高度切换两套调色：</p>
+<ul>
+<li>夜间：深海军蓝 + 青色线 + 琥珀标签；</li>
+<li>白天：浅纸色 + 中蓝楼体 + 深青线 + 同色琥珀强调。</li>
+</ul>
+<p>不是换贴图，而是 CSS 变量 + MapLibre <code>paint</code> + Three.js 颜色同步：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js">cityPhaseDay = !!isDay;<br><span class="hljs-variable constant_">BP_CYAN</span> = cityPhaseDay ? <span class="hljs-number">0x0b7188</span> : <span class="hljs-number">0x39d0ff</span>;<br><span class="hljs-variable constant_">BP_AMBER</span> = cityPhaseDay ? <span class="hljs-number">0xb86a08</span> : <span class="hljs-number">0xffb347</span>;<br><span class="hljs-variable constant_">BP_FILL</span> = cityPhaseDay ? <span class="hljs-number">0xd6ebf0</span> : <span class="hljs-number">0x082432</span>;<br><br>cityViewEl.<span class="hljs-property">classList</span>.<span class="hljs-title function_">toggle</span>(<span class="hljs-string">&#x27;is-day&#x27;</span>, cityPhaseDay);<br></code></pre></td></tr></table></figure>
+
+<p>城市保持打开时每 5 分钟检查一次，日出日落会原地重绘，HUD 显示 <code>DAY / NIGHT</code>。</p>
+<h2 id="6-没有账号的全局共享积分"><a href="#6-没有账号的全局共享积分" class="headerlink" title="6. 没有账号的全局共享积分"></a>6. 没有账号的全局共享积分</h2><p>规则很简单：聚焦 +5，进入详情 +10。难的是没有账号时怎么防刷和保证一致性。</p>
+<p>客户端乐观更新，立即发送带 <code>eventId</code> 的事件；失败进入 <code>localStorage</code> 队列。服务端（NAS 上的 Next.js route handlers）用短期 session token、每个 token&#x2F;城市&#x2F;动作的冷却、IP 限流和幂等 <code>eventId</code>，分数持久化到 JSON 文件。</p>
+<p>无账号 + 全局共享可行，代价是极快重复点击会被丢弃，以及需要维护一个 NAS 服务。</p>
+<h2 id="7-声音与纹理"><a href="#7-声音与纹理" class="headerlink" title="7. 声音与纹理"></a>7. 声音与纹理</h2><p>声音最终只有一首原创钢琴曲，全部 Web Audio 合成，没有音频文件、没有版权旋律。它从首页贯穿到城市视图，切换城市不换曲。微信 WebView 做 72Hz 高通，去掉低频嗡鸣。</p>
+<p>之前做过多城市主题原型，后来移除了：维护 36 套主题复杂度高，城市间切换也容易突兀。单一音轨牺牲了“每城一景”，换来一致性和更少的代码。</p>
+<p>纹理则是 2K&#x2F;4K 分层：默认 2K，桌面拉近后 4K，移动端保持 2K。这个策略比“所有人 4K”更稳，尤其是微信里。</p>
+<h2 id="8-约束、降级与测试"><a href="#8-约束、降级与测试" class="headerlink" title="8. 约束、降级与测试"></a>8. 约束、降级与测试</h2><table>
+<thead>
+<tr>
+<th>决策</th>
+<th>收益</th>
+<th>代价</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>无构建、无框架</td>
+<td>部署简单、加载直接</td>
+<td>单文件变大、状态管理靠自觉</td>
+</tr>
+<tr>
+<td>OSM + Esri，无 Key</td>
+<td>零配置、可公开部署</td>
+<td>瓦片质量&#x2F;可用性不可控</td>
+</tr>
+<tr>
+<td>真实高度</td>
+<td>和地图一致</td>
+<td>低矮地标变小，需要调 zoom</td>
+</tr>
+<tr>
+<td>OSM + 瞄准框</td>
+<td>不重复建模</td>
+<td>依赖 OSM 体量可读</td>
+</tr>
+<tr>
+<td>街区模式</td>
+<td>线性&#x2F;面状地标不悬空</td>
+<td>多一种呈现语言</td>
+</tr>
+<tr>
+<td>单一音轨</td>
+<td>一致、代码少</td>
+<td>没有每城音乐</td>
+</tr>
+<tr>
+<td>2K&#x2F;4K 分层</td>
+<td>移动端稳</td>
+<td>桌面首屏不是最高清</td>
+</tr>
+<tr>
+<td>无账号共享积分</td>
+<td>低摩擦</td>
+<td>需要冷却&#x2F;IP 限流</td>
+</tr>
+</tbody></table>
+<p>已知限制：</p>
+<ul>
+<li>矢量瓦片加载不稳定时，瞄准框可能悬空；</li>
+<li>OSM 高度标签质量参差，部分地标只有底座；</li>
+<li><code>EdgesGeometry</code> 只有 1px 线，没有 fat lines；</li>
+<li>街区多边形是手工近似，不是精确 OSM 地块；</li>
+<li>4K 纹理只适合桌面。</li>
+</ul>
+<p>工程验证方面：</p>
+<ul>
+<li>26 个零依赖 Node 测试：助手命令解析 + 内嵌浏览器检测；</li>
+<li>视觉验证用 headless Chrome + CDP 的小工具批量截图，逐城检查；</li>
+<li>MapLibre 失败时回退到旧的程序化 Three.js 街区；</li>
+<li>矢量瓦片失败时用 Esri 栅格底图，城市和标签仍可读；</li>
+<li><code>?proc=1</code> 跳过纹理、<code>?shot=1</code> 截图模式、<code>?textures=4k</code> 强制高清、<code>?audio-debug=1</code> 音频诊断。</li>
+</ul>
+<p>城市从 1 到 36 的过程中，最大的教训是：<strong>每加一座城市，都要回到真实数据里核对一次</strong>。配置里一个 540m 的坐标偏差、OSM 里一个 <code>hide_3d</code>，都会让画面看起来“差不多但不对”。</p>
+<h2 id="9-从-0-到-36-的经验"><a href="#9-从-0-到-36-的经验" class="headerlink" title="9. 从 0 到 36 的经验"></a>9. 从 0 到 36 的经验</h2><ol>
+<li><strong>先做一个地球，而不是一张图。</strong> 球体、太阳、纹理、标记，是这个产品的第一性。</li>
+<li><strong>城市用一份数据驱动。</strong> 加城市是加数据，不是加页面。</li>
+<li><strong>地图负责真实，Three.js 负责注释。</strong> 能用 OSM 体量就不要画第二套建筑。</li>
+<li><strong>“有高度”不等于“能读”。</strong> fill-extrusion 表达不了收分、镂空、拱廊。</li>
+<li><strong>真实比例会暴露宽度问题。</strong> 需要 X&#x2F;Z 单独缩放，而不是继续放大整体。</li>
+<li><strong>线性&#x2F;面状地标不要硬做 3D 锁。</strong> 街区高亮比悬空瞄准框诚实。</li>
+<li><strong>给降级留位置。</strong> 瓦片失败、OSM 缺失、音频被拦截，都要有退路。</li>
+<li><strong>无构建也能做出实时感。</strong> 静态托管 + NAS 计分，足够撑起一个共享产品。</li>
+</ol>
+<p>最终，36 座城市里 32 座用 OSM 体量 + 瞄准框，2 座用街区模式，2 座保留结构线框。地球、城市、地标、昼夜、积分和声音，都是从 0 开始一层层加上去的。</p>
+<p>这个项目最核心的工程原则，不是某个 shader 或某个几何算法，而是：</p>
+<blockquote>
+<p><strong>地图负责真实，注释负责表达；两者不要互相假装。</strong></p>
+</blockquote>
+<h2 id="代码与项目说明"><a href="#代码与项目说明" class="headerlink" title="代码与项目说明"></a>代码与项目说明</h2><ul>
+<li>代码仓库：<a target="_blank" rel="noopener" href="https://github.com/elevenbeans/myprofile/tree/main/earth-online">github.com&#x2F;elevenbeans&#x2F;myprofile&#x2F;tree&#x2F;main&#x2F;earth-online</a></li>
+<li>项目说明：<a target="_blank" rel="noopener" href="https://github.com/elevenbeans/myprofile/blob/main/earth-online/README.md">earth-online&#x2F;README.md</a></li>
+<li>在线体验：<a target="_blank" rel="noopener" href="https://elevenbeans.me/earth-online/">elevenbeans.me&#x2F;earth-online</a></li>
+<li>个人主页：<a target="_blank" rel="noopener" href="https://elevenbeans.me/">elevenbeans.me</a></li>
+</ul>
+
+        </div>
+    
+<!-- tags -->
+
+    <div class="post-meta">
+        标签：
+        
+            <a href="/tags/Earth-Online/"> / Earth Online</a>
+        
+            <a href="/tags/Three-js/"> / Three.js</a>
+        
+            <a href="/tags/MapLibre/"> / MapLibre</a>
+        
+            <a href="/tags/WebGL/"> / WebGL</a>
+        
+            <a href="/tags/OSM/"> / OSM</a>
+        
+            <a href="/tags/Web-Audio/"> / Web Audio</a>
+        
+            <a href="/tags/%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%9B%98/"> / 项目复盘</a>
+        
+    </div>
+
+</div>
+                <div class="footer">
+    <span>Copyright © <script>document.write(new Date().getFullYear())</script> Elevenbeans</span>
+    <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> with <a target="_blank" rel="noopener" href="https:///imzl.com/zenmind">ZenMind</a></span>
+</div>
+
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+
+            </div>
+        </div>
+    </body>
+</html>
