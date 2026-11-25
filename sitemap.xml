@@ -371,7 +371,7 @@
   </url>
   
   <url>
-    <loc>https://blog.elevenbeans.me/2018/04/06/javascript-design-patterns-2/</loc>
+    <loc>https://blog.elevenbeans.me/2018/04/23/javascript-design-patterns-4/</loc>
     
     <lastmod>2026-05-24</lastmod>
     
@@ -380,7 +380,7 @@
   </url>
   
   <url>
-    <loc>https://blog.elevenbeans.me/2018/04/23/javascript-design-patterns-4/</loc>
+    <loc>https://blog.elevenbeans.me/2018/04/06/javascript-design-patterns-2/</loc>
     
     <lastmod>2026-05-24</lastmod>
     
@@ -517,7 +517,7 @@
 
   <url>
     <loc>https://blog.elevenbeans.me/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -525,168 +525,168 @@
   
   <url>
     <loc>https://blog.elevenbeans.me/tags/CSS/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.elevenbeans.me/tags/JavaScript/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.elevenbeans.me/tags/%E4%B8%80%E5%B9%B4%E5%B0%8F%E7%BB%93/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.elevenbeans.me/tags/React/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.elevenbeans.me/tags/%E6%88%BF%E5%AD%90/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.elevenbeans.me/tags/ES6/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.elevenbeans.me/tags/%E7%BF%BB%E8%AF%91/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.elevenbeans.me/tags/Design-patterns/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.elevenbeans.me/tags/React-Native/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.elevenbeans.me/tags/AI/</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.elevenbeans.me/tags/HTML/</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.elevenbeans.me/tags/EasterEgg/</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.elevenbeans.me/tags/voice-cloning/</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.elevenbeans.me/tags/tutorial/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.elevenbeans.me/tags/NAS/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.elevenbeans.me/tags/Next-js/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.elevenbeans.me/tags/Agent/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.elevenbeans.me/tags/HTML/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.elevenbeans.me/tags/EasterEgg/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.elevenbeans.me/tags/voice-cloning/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.elevenbeans.me/tags/tutorial/</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.elevenbeans.me/tags/Earth-Online/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.elevenbeans.me/tags/Three-js/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.elevenbeans.me/tags/MapLibre/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.elevenbeans.me/tags/WebGL/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.elevenbeans.me/tags/OSM/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.elevenbeans.me/tags/Web-Audio/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.elevenbeans.me/tags/%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%9B%98/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -695,14 +695,14 @@
   
   <url>
     <loc>https://blog.elevenbeans.me/categories/Tech/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.elevenbeans.me/categories/Life/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

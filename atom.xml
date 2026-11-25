@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author>
+    <name>Elevenbeans</name>
+  </author>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  <id>https://blog.elevenbeans.me/</id>
+  <link href="https://blog.elevenbeans.me/" rel="alternate"/>
+  <link href="https://blog.elevenbeans.me/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, Elevenbeans</rights>
+  <subtitle>life, tech</subtitle>
+  <title>Elevenbeans</title>
+  <updated>2026-11-14T15:35:35.445Z</updated>
+  <entry>
+    <author>
+      <name>Elevenbeans</name>
+    </author>
+    <category term="Tech" scheme="https://blog.elevenbeans.me/categories/Tech/"/>
+    <category term="Earth Online" scheme="https://blog.elevenbeans.me/tags/Earth-Online/"/>
+    <category term="Three.js" scheme="https://blog.elevenbeans.me/tags/Three-js/"/>
+    <category term="MapLibre" scheme="https://blog.elevenbeans.me/tags/MapLibre/"/>
+    <category term="WebGL" scheme="https://blog.elevenbeans.me/tags/WebGL/"/>
+    <category term="OSM" scheme="https://blog.elevenbeans.me/tags/OSM/"/>
+    <category term="Web Audio" scheme="https://blog.elevenbeans.me/tags/Web-Audio/"/>
+    <category term="项目复盘" scheme="https://blog.elevenbeans.me/tags/%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%9B%98/"/>
+    <id>https://blog.elevenbeans.me/2026/11/14/earth-online-0-to-36/</id>
+    <link href="https://blog.elevenbeans.me/2026/11/14/earth-online-0-to-36/"/>
+    <published>2026-11-14T15:35:00.000Z</published>
+    <summary>
+      <![CDATA[<p>Earth Online 首先是一个<strong>地球</strong>，不是一张世界地图。</p>
+<p>它可以旋转、缩放、点击城市，进入城市后还能看到真实地图上的建筑、地标、天气和共享积分。城市不是一开始就有的，而是从 0 开始，一座一座长到 36 座。</p>
+<u]]>
+    </summary>
+    <title>一个地球，36 座城市：Earth Online 从 0 到 1</title>
+    <updated>2026-11-14T15:35:35.445Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Elevenbeans</name>
+    </author>
+    <category term="AI" scheme="https://blog.elevenbeans.me/tags/AI/"/>
+    <category term="voice-cloning" scheme="https://blog.elevenbeans.me/tags/voice-cloning/"/>
+    <category term="tutorial" scheme="https://blog.elevenbeans.me/tags/tutorial/"/>
+    <id>https://blog.elevenbeans.me/2026/06/28/%E8%82%9D%E4%BA%86%E5%87%A0%E4%B8%AA%E6%99%9A%E4%B8%8A%E6%80%BB%E7%BB%93%E7%9A%84%E5%A3%B0%E9%9F%B3%E5%85%8B%E9%9A%86%E6%96%B9%E6%B3%95%E5%85%A8%E5%9C%A8%E8%BF%99%E9%87%8C%E4%BA%86%EF%BC%81/</id>
+    <link href="https://blog.elevenbeans.me/2026/06/28/%E8%82%9D%E4%BA%86%E5%87%A0%E4%B8%AA%E6%99%9A%E4%B8%8A%E6%80%BB%E7%BB%93%E7%9A%84%E5%A3%B0%E9%9F%B3%E5%85%8B%E9%9A%86%E6%96%B9%E6%B3%95%E5%85%A8%E5%9C%A8%E8%BF%99%E9%87%8C%E4%BA%86%EF%BC%81/"/>
+    <published>2026-06-27T16:05:14.000Z</published>
+    <summary>
+      <![CDATA[<div class="paid-paywall" style="
+    max-width:480px;margin:48px auto;padding:40px 32px;
+    text-align:center;border:1px solid #e0e0e0;bor]]>
+    </summary>
+    <title>肝了几个晚上总结的声音克隆方法全在这里了！</title>
+    <updated>2026-06-30T16:40:45.615Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Elevenbeans</name>
+    </author>
+    <category term="Tech" scheme="https://blog.elevenbeans.me/categories/Tech/"/>
+    <category term="CSS" scheme="https://blog.elevenbeans.me/tags/CSS/"/>
+    <category term="JavaScript" scheme="https://blog.elevenbeans.me/tags/JavaScript/"/>
+    <category term="AI" scheme="https://blog.elevenbeans.me/tags/AI/"/>
+    <category term="HTML" scheme="https://blog.elevenbeans.me/tags/HTML/"/>
+    <category term="EasterEgg" scheme="https://blog.elevenbeans.me/tags/EasterEgg/"/>
+    <id>https://blog.elevenbeans.me/2026/05/30/%E6%88%91%E5%9C%A8%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2%E9%87%8C%E8%97%8F%E4%BA%86%E4%B8%80%E4%B8%AAAI%E7%BC%96%E7%A8%8BAgent/</id>
+    <link href="https://blog.elevenbeans.me/2026/05/30/%E6%88%91%E5%9C%A8%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2%E9%87%8C%E8%97%8F%E4%BA%86%E4%B8%80%E4%B8%AAAI%E7%BC%96%E7%A8%8BAgent/"/>
+    <published>2026-05-29T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p><a href="https://elevenbeans.me/">https://elevenbeans.me</a> - 一个纯静态的个人 profile 页面。有头像、有履历、有个暗色模式，平平无奇。</p>
+<p>直到你按下 Ctrl+&#96;。</p>
+<p>终]]>
+    </summary>
+    <title>我在静态页面里藏了一个 AI 编程 Agent</title>
+    <updated>2026-05-30T15:44:06.476Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Elevenbeans</name>
+    </author>
+    <category term="Tech" scheme="https://blog.elevenbeans.me/categories/Tech/"/>
+    <category term="AI" scheme="https://blog.elevenbeans.me/tags/AI/"/>
+    <category term="NAS" scheme="https://blog.elevenbeans.me/tags/NAS/"/>
+    <category term="Next.js" scheme="https://blog.elevenbeans.me/tags/Next-js/"/>
+    <category term="Agent" scheme="https://blog.elevenbeans.me/tags/Agent/"/>
+    <id>https://blog.elevenbeans.me/2026/05/24/%E7%94%A8AI-Agent%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AANAS%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF/</id>
+    <link href="https://blog.elevenbeans.me/2026/05/24/%E7%94%A8AI-Agent%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AANAS%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF/"/>
+    <published>2026-05-23T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>上周干了一件挺上头的事——</p>
+<p>花了一个周末，用 AI Agent 给我的家庭 NAS 写了一个管理面板。从搭脚手架到部署上线，全程没自己写过一行代码。</p>
+<h2 id="📱-起因"><a href="#📱-起因" class="headerlink"]]>
+    </summary>
+    <title>用 AI Agent 写了一个 NAS 管理面板</title>
+    <updated>2026-05-24T10:26:51.411Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Elevenbeans</name>
+    </author>
+    <category term="Life" scheme="https://blog.elevenbeans.me/categories/Life/"/>
+    <category term="房子" scheme="https://blog.elevenbeans.me/tags/%E6%88%BF%E5%AD%90/"/>
+    <category term="AI" scheme="https://blog.elevenbeans.me/tags/AI/"/>
+    <id>https://blog.elevenbeans.me/2026/05/15/AI-%E5%8A%A0%E9%80%9F%E7%BE%8E%E5%A5%BD%E7%94%9F%E6%B4%BB/</id>
+    <link href="https://blog.elevenbeans.me/2026/05/15/AI-%E5%8A%A0%E9%80%9F%E7%BE%8E%E5%A5%BD%E7%94%9F%E6%B4%BB/"/>
+    <published>2026-05-15T04:42:20.000Z</published>
+    <summary>
+      <![CDATA[<p>去年花了三四个月，设计自己搞，施工自己盯，每天下班肝 2 小时，周末全天搭上，把 dream house 从脑子抠进现实里了 🥹</p>
+<p>入住大半年，今天复盘下全程，给想自装的盆友一点真实参考。<br>话不多说，先看结果 ⬇️</p>
+<h2 id="效果图-vs-]]>
+    </summary>
+    <title>🏡 没请设计师！自己用酷家乐落地 200㎡ 别墅装修设计方案</title>
+    <updated>2026-05-24T09:35:09.796Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Elevenbeans</name>
+    </author>
+    <category term="Life" scheme="https://blog.elevenbeans.me/categories/Life/"/>
+    <category term="一年小结" scheme="https://blog.elevenbeans.me/tags/%E4%B8%80%E5%B9%B4%E5%B0%8F%E7%BB%93/"/>
+    <id>https://blog.elevenbeans.me/2019/09/22/summary-of-my-2018-2019/</id>
+    <link href="https://blog.elevenbeans.me/2019/09/22/summary-of-my-2018-2019/"/>
+    <published>2019-09-21T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>过去一年生活和工作整体上越来越稳定，自己心态变化的也十分明显。</p>
+<p>关于 2018 - 2019：</p>
+<ol>
+<li><strong>搬新家</strong>。住房面积乘以 3，到公司距离乘以 6，有得有失。而后发现生活不易，再后来又察觉何止我一人；</l]]>
+    </summary>
+    <title>2018-2019 小结</title>
+    <updated>2026-05-24T08:19:05.320Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Elevenbeans</name>
+    </author>
+    <category term="Tech" scheme="https://blog.elevenbeans.me/categories/Tech/"/>
+    <category term="React Native" scheme="https://blog.elevenbeans.me/tags/React-Native/"/>
+    <id>https://blog.elevenbeans.me/2019/07/18/react-native-ui-tips/</id>
+    <link href="https://blog.elevenbeans.me/2019/07/18/react-native-ui-tips/"/>
+    <published>2019-07-17T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="画一条精细无比的实线"><a href="#画一条精细无比的实线" class="headerlink" title="画一条精细无比的实线"></a><strong>画一条精细无比的实线</strong></h2><p>还记得一开始作为前端小萌新，被 0.5px]]>
+    </summary>
+    <title>React Native 视觉还原小（da）技（shen）巧（keng）若干</title>
+    <updated>2026-05-24T08:19:05.308Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Elevenbeans</name>
+    </author>
+    <category term="Life" scheme="https://blog.elevenbeans.me/categories/Life/"/>
+    <category term="房子" scheme="https://blog.elevenbeans.me/tags/%E6%88%BF%E5%AD%90/"/>
+    <id>https://blog.elevenbeans.me/2019/03/05/lazy/</id>
+    <link href="https://blog.elevenbeans.me/2019/03/05/lazy/"/>
+    <published>2019-03-04T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<blockquote>
+<p>不知道别人怎么说，我觉得自己是在 2019 年变老的。</p>
+</blockquote>
+<h2 id="站在临近-30-岁的路口"><a href="#站在临近-30-岁的路口" class="headerlink" title="站在临近 3]]>
+    </summary>
+    <title>真的是越来越懒了</title>
+    <updated>2026-05-24T08:19:05.317Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Elevenbeans</name>
+    </author>
+    <category term="Tech" scheme="https://blog.elevenbeans.me/categories/Tech/"/>
+    <category term="JavaScript" scheme="https://blog.elevenbeans.me/tags/JavaScript/"/>
+    <category term="翻译" scheme="https://blog.elevenbeans.me/tags/%E7%BF%BB%E8%AF%91/"/>
+    <id>https://blog.elevenbeans.me/2018/11/14/8-tips-for-great-code-reviews/</id>
+    <link href="https://blog.elevenbeans.me/2018/11/14/8-tips-for-great-code-reviews/"/>
+    <published>2018-11-13T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<blockquote>
+<p>原文地址：<a href="https://kellysutton.com/2018/10/08/8-tips-for-great-code-reviews.html">https://kellysutton.com/2018/10/08/8-ti]]>
+    </summary>
+    <title>【译】8 个 Tips 让你更好的进行 Code Review</title>
+    <updated>2026-05-24T08:19:05.313Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Elevenbeans</name>
+    </author>
+    <category term="Tech" scheme="https://blog.elevenbeans.me/categories/Tech/"/>
+    <category term="React Native" scheme="https://blog.elevenbeans.me/tags/React-Native/"/>
+    <id>https://blog.elevenbeans.me/2018/09/10/react-native-animation/</id>
+    <link href="https://blog.elevenbeans.me/2018/09/10/react-native-animation/"/>
+    <published>2018-09-09T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>最近在选座的新项目中试用了一下 React Native，熟悉新框架的同时，可以略微将交互效果和 Native 看齐了。</p>
+<p>分享一下项目本身比较重要的一个交互动画的做法, RT。</p>
+<p><strong>这次我们就不装大象了，因为我真的买了冰箱 &#x3D]]>
+    </summary>
+    <title>使用 RN Animated 做一个“添加购物车”动画</title>
+    <updated>2026-05-24T08:19:05.308Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Elevenbeans</name>
+    </author>
+    <category term="Life" scheme="https://blog.elevenbeans.me/categories/Life/"/>
+    <category term="一年小结" scheme="https://blog.elevenbeans.me/tags/%E4%B8%80%E5%B9%B4%E5%B0%8F%E7%BB%93/"/>
+    <id>https://blog.elevenbeans.me/2018/08/02/summary-of-my-2017-2018/</id>
+    <link href="https://blog.elevenbeans.me/2018/08/02/summary-of-my-2017-2018/"/>
+    <published>2018-08-01T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>一年小结必不可少，今年来的比以往晚一些。</p>
+<p>现在总喜欢等到尘埃落定，这样写出来的文字不矫情。并且多年以后回头再看就不至于想抽自己大嘴巴子。</p>
+<p>关于 2017 - 2018：</p>
+<ol>
+<li><strong>娶媳妇😄😄😄</strong]]>
+    </summary>
+    <title>2017-2018 小结</title>
+    <updated>2026-05-24T08:19:05.313Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Elevenbeans</name>
+    </author>
+    <category term="Tech" scheme="https://blog.elevenbeans.me/categories/Tech/"/>
+    <category term="JavaScript" scheme="https://blog.elevenbeans.me/tags/JavaScript/"/>
+    <id>https://blog.elevenbeans.me/2018/06/26/enable-goback-on-h5-popup/</id>
+    <link href="https://blog.elevenbeans.me/2018/06/26/enable-goback-on-h5-popup/"/>
+    <published>2018-06-25T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a><strong>引言</strong></h2><p>有一些 H5 开发者耳熟能详的问题。</p>
+<p>比如，老板会问你：“你这个 H5 页面为什么这么卡？为]]>
+    </summary>
+    <title>H5：“同样是返回，我们不一样”</title>
+    <updated>2026-05-24T08:19:05.302Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Elevenbeans</name>
+    </author>
+    <category term="Tech" scheme="https://blog.elevenbeans.me/categories/Tech/"/>
+    <category term="JavaScript" scheme="https://blog.elevenbeans.me/tags/JavaScript/"/>
+    <category term="Design patterns" scheme="https://blog.elevenbeans.me/tags/Design-patterns/"/>
+    <id>https://blog.elevenbeans.me/2018/04/23/javascript-design-patterns-4/</id>
+    <link href="https://blog.elevenbeans.me/2018/04/23/javascript-design-patterns-4/"/>
+    <published>2018-04-22T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<blockquote>
+<p><strong>更多文章参见：</strong> <a href="https://github.com/elevenbeans/elevenbeans.github.io">https://github.com/elevenbeans/eleve]]>
+    </summary>
+    <title>Javascript 中的设计模式（五）：MV*</title>
+    <updated>2026-05-24T08:19:05.311Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Elevenbeans</name>
+    </author>
+    <category term="Tech" scheme="https://blog.elevenbeans.me/categories/Tech/"/>
+    <category term="JavaScript" scheme="https://blog.elevenbeans.me/tags/JavaScript/"/>
+    <category term="ES6" scheme="https://blog.elevenbeans.me/tags/ES6/"/>
+    <id>https://blog.elevenbeans.me/2018/04/15/es6-tips/</id>
+    <link href="https://blog.elevenbeans.me/2018/04/15/es6-tips/"/>
+    <published>2018-04-14T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<blockquote>
+<p>原文地址：<a href="https://medium.freecodecamp.org/make-your-code-cleaner-shorter-and-easier-to-read-es6-tips-and-tricks-afd4ce25]]>
+    </summary>
+    <title>【译】ES6 中的一些技巧，使你的代码更清晰，更简短，更易读！</title>
+    <updated>2026-05-24T08:19:05.323Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Elevenbeans</name>
+    </author>
+    <category term="Tech" scheme="https://blog.elevenbeans.me/categories/Tech/"/>
+    <category term="JavaScript" scheme="https://blog.elevenbeans.me/tags/JavaScript/"/>
+    <category term="Design patterns" scheme="https://blog.elevenbeans.me/tags/Design-patterns/"/>
+    <id>https://blog.elevenbeans.me/2018/04/11/javascript-design-patterns-3/</id>
+    <link href="https://blog.elevenbeans.me/2018/04/11/javascript-design-patterns-3/"/>
+    <published>2018-04-10T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<blockquote>
+<p><strong>更多文章参见：</strong> <a href="https://github.com/elevenbeans/elevenbeans.github.io">https://github.com/elevenbeans/eleve]]>
+    </summary>
+    <title>Javascript 中的设计模式（四）：行为设计模式</title>
+    <updated>2026-05-24T08:19:05.314Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Elevenbeans</name>
+    </author>
+    <category term="Tech" scheme="https://blog.elevenbeans.me/categories/Tech/"/>
+    <category term="JavaScript" scheme="https://blog.elevenbeans.me/tags/JavaScript/"/>
+    <category term="Design patterns" scheme="https://blog.elevenbeans.me/tags/Design-patterns/"/>
+    <id>https://blog.elevenbeans.me/2018/04/06/javascript-design-patterns-2/</id>
+    <link href="https://blog.elevenbeans.me/2018/04/06/javascript-design-patterns-2/"/>
+    <published>2018-04-05T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<blockquote>
+<p><strong>更多文章参见：</strong> <a href="https://github.com/elevenbeans/elevenbeans.github.io">https://github.com/elevenbeans/eleve]]>
+    </summary>
+    <title>Javascript 中的设计模式（三）：结构型设计模式</title>
+    <updated>2026-05-24T08:19:05.311Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Elevenbeans</name>
+    </author>
+    <category term="Tech" scheme="https://blog.elevenbeans.me/categories/Tech/"/>
+    <category term="JavaScript" scheme="https://blog.elevenbeans.me/tags/JavaScript/"/>
+    <category term="Design patterns" scheme="https://blog.elevenbeans.me/tags/Design-patterns/"/>
+    <id>https://blog.elevenbeans.me/2018/03/30/javascript-design-patterns-1/</id>
+    <link href="https://blog.elevenbeans.me/2018/03/30/javascript-design-patterns-1/"/>
+    <published>2018-03-29T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<blockquote>
+<p><strong>更多文章参见：</strong> <a href="https://github.com/elevenbeans/elevenbeans.github.io">https://github.com/elevenbeans/eleve]]>
+    </summary>
+    <title>Javascript 中的设计模式（二）：创建型设计模式</title>
+    <updated>2026-05-24T08:19:05.321Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Elevenbeans</name>
+    </author>
+    <category term="Tech" scheme="https://blog.elevenbeans.me/categories/Tech/"/>
+    <category term="JavaScript" scheme="https://blog.elevenbeans.me/tags/JavaScript/"/>
+    <category term="Design patterns" scheme="https://blog.elevenbeans.me/tags/Design-patterns/"/>
+    <id>https://blog.elevenbeans.me/2018/03/25/javascript-design-patterns-0/</id>
+    <link href="https://blog.elevenbeans.me/2018/03/25/javascript-design-patterns-0/"/>
+    <published>2018-03-24T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<blockquote>
+<p><strong>更多文章参见：</strong> <a href="https://github.com/elevenbeans/elevenbeans.github.io">https://github.com/elevenbeans/eleve]]>
+    </summary>
+    <title>Javascript 中的设计模式（一）：概述</title>
+    <updated>2026-05-24T08:19:05.312Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Elevenbeans</name>
+    </author>
+    <category term="Life" scheme="https://blog.elevenbeans.me/categories/Life/"/>
+    <id>https://blog.elevenbeans.me/2018/03/17/mister-fan-gao/</id>
+    <link href="https://blog.elevenbeans.me/2018/03/17/mister-fan-gao/"/>
+    <published>2018-03-16T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="不幸或庆幸"><a href="#不幸或庆幸" class="headerlink" title="不幸或庆幸"></a><strong>不幸或庆幸</strong></h2><p>北方人，从生长发育期开始，饮食就比较重口味：爱盐，嗜醋，辣子必须异常多。</p>]]>
+    </summary>
+    <title>请你告诉我如何悲伤</title>
+    <updated>2026-05-24T08:19:05.320Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Elevenbeans</name>
+    </author>
+    <category term="Tech" scheme="https://blog.elevenbeans.me/categories/Tech/"/>
+    <category term="JavaScript" scheme="https://blog.elevenbeans.me/tags/JavaScript/"/>
+    <category term="翻译" scheme="https://blog.elevenbeans.me/tags/%E7%BF%BB%E8%AF%91/"/>
+    <id>https://blog.elevenbeans.me/2018/03/10/10-Tips-for-JS-Debugging-with-Console/</id>
+    <link href="https://blog.elevenbeans.me/2018/03/10/10-Tips-for-JS-Debugging-with-Console/"/>
+    <published>2018-03-09T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<blockquote>
+<p>原文见：<a href="https://medium.com/appsflyer/10-tips-for-javascript-debugging-like-a-pro-with-console-7140027eb5f6">https://med]]>
+    </summary>
+    <title>【译】10 个技巧，让你更专业地使用 console 进行 JS 调试</title>
+    <updated>2026-05-24T08:19:05.307Z</updated>
+  </entry>
+</feed>

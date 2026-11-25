@@ -1,40 +1,52 @@
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="zh-CN">
+    
+<head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-  <meta name="robots" content="index, follow">
-  <!-- title -->
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Elevenbeans">
+  <!-- title：先决定"这一页是什么"，再拼站点名，避免分页分支盖掉归档/标签 -->
   
-    
   <title>60 行 JS 代码搞定一个下拉刷新组件 - Elevenbeans</title>
-    
-  
-  
-  <!-- open graph -->
-  <meta name="description" content="更多文章参见： https:&#x2F;&#x2F;github.com&#x2F;elevenbeans&#x2F;elevenbeans.github.io  神马？ 浏览器不都有自带的刷新按钮么？ Web 页为什么要下（zi）拉（xing）刷（che）新 ?这里特指移动端，原因如下：  相较于点击右上角刷新按钮（还有可能要点两次，第一次先展开 menu bar，然后才能看到 refresh 按钮），直接了当地下拉刷新无疑提供了更">
+
+  <!-- open graph / twitter -->
+  <meta name="description" content="更多文章参见： https:&#x2F;&#x2F;github.com&#x2F;elevenbeans&#x2F;elevenbeans.github.io 神马？ 浏览器不都有自带的刷新按钮么？ Web 页为什么要下（zi）拉（xing）刷（che）新 ?这里特指移动端，原因如下： 相较于点击右上角刷新…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="60 行 JS 代码搞定一个下拉刷新组件">
-<meta property="og:url" content="https://blog.elevenbeans.me/2017/09/19/pull-to-refresh/index.html">
+<meta property="og:url" content="https://blog.elevenbeans.me/2017/09/19/pull-to-refresh/">
 <meta property="og:site_name" content="Elevenbeans">
-<meta property="og:description" content="更多文章参见： https:&#x2F;&#x2F;github.com&#x2F;elevenbeans&#x2F;elevenbeans.github.io  神马？ 浏览器不都有自带的刷新按钮么？ Web 页为什么要下（zi）拉（xing）刷（che）新 ?这里特指移动端，原因如下：  相较于点击右上角刷新按钮（还有可能要点两次，第一次先展开 menu bar，然后才能看到 refresh 按钮），直接了当地下拉刷新无疑提供了更">
+<meta property="og:description" content="更多文章参见： https:&#x2F;&#x2F;github.com&#x2F;elevenbeans&#x2F;elevenbeans.github.io 神马？ 浏览器不都有自带的刷新按钮么？ Web 页为什么要下（zi）拉（xing）刷（che）新 ?这里特指移动端，原因如下： 相较于点击右上角刷新…">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://images.elevenbeans.me/iscroll.png">
-<meta property="og:image" content="https://images.elevenbeans.me/iscroll+lazyload.png">
-<meta property="og:image" content="https://images.elevenbeans.me/native_scroll+ptr.png">
+<meta property="og:image" content="https://blog.elevenbeans.me/img/og-default.png">
 <meta property="article:published_time" content="2017-09-18T16:00:00.000Z">
 <meta property="article:modified_time" content="2026-05-24T08:19:05.315Z">
 <meta property="article:author" content="Elevenbeans">
 <meta property="article:tag" content="JavaScript">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://images.elevenbeans.me/iscroll.png">
-  <!-- canonical -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.elevenbeans.me/img/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- canonical / pagination -->
   
   <link rel="canonical" href="https://blog.elevenbeans.me/2017/09/19/pull-to-refresh/">
   
+  
+  <link rel="alternate" type="application/atom+xml" title="Elevenbeans" href="https://blog.elevenbeans.me/atom.xml">
+
+  <!-- structured data -->
+  
+  
+    
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.elevenbeans.me/2017/09/19/pull-to-refresh/"},"headline":"60 行 JS 代码搞定一个下拉刷新组件","description":"更多文章参见： https://github.com/elevenbeans/elevenbeans.github.io 神马？ 浏览器不都有自带的刷新按钮么？ Web 页为什么要下（zi）拉（xing）刷（che）新 ?这里特指移动端，原因如下： 相较于点击右上角刷新…","image":["https://blog.elevenbeans.me/img/og-default.png"],"datePublished":"2017-09-18T16:00:00.000Z","dateModified":"2026-05-24T08:19:05.315Z","author":{"@type":"Person","name":"Elevenbeans","url":"https://blog.elevenbeans.me/about/"},"publisher":{"@type":"Person","name":"Elevenbeans"},"inLanguage":"zh-CN","keywords":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://blog.elevenbeans.me/"},{"@type":"ListItem","position":2,"name":"Tech","item":"https://blog.elevenbeans.me/categories/Tech/"},{"@type":"ListItem","position":3,"name":"60 行 JS 代码搞定一个下拉刷新组件","item":"https://blog.elevenbeans.me/2017/09/19/pull-to-refresh/"}]}</script>
+  
+
   <!-- Favicon -->
   <link rel="icon" href="/elevenbeans.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <!-- CSS -->
   
 <link rel="stylesheet" href="/css/reset.css">
@@ -84,9 +96,9 @@
                 
                 <div class="post-main">
     
-        <div class="post-main-title">
+        <h1 class="post-main-title">
             60 行 JS 代码搞定一个下拉刷新组件
-        </div>
+        </h1>
         <div class="post-meta">
             2017-09-19 ｜ 
             
@@ -137,9 +149,9 @@
 <li><p>react-pull-to-refresh：我遇到了一个很多人都遇到过的问题：<a target="_blank" rel="noopener" href="https://github.com/bryaneaton13/react-pull-to-refresh/issues/12">issues#12: Can’t scroll on mobile</a>。作者的回复是: *this is a <strong>due to the default touch-action in hammerjs is ‘none’</strong>. A fix could be to set the default to ‘pan-y’. Like this: let hammer &#x3D; require(‘hammerjs’); hammer.defaults.touchAction &#x3D; ‘pan-y’;*。实力甩锅 hammerjs。小爷我也懒得继续死磕下去了，如果一行布丁代码就能解决的问题，干嘛不在自己组件里面兼容掉？果断弃之，不可惜</p>
 </li>
 <li><p>iscroll：性能问题</p>
-<p><img src="https://images.elevenbeans.me/iscroll.png" alt="img">  </p>
-<p><img src="https://images.elevenbeans.me/iscroll+lazyload.png" alt="img">  </p>
-<p><img src="https://images.elevenbeans.me/native_scroll+ptr.png" alt="img"></p>
+<p><img src="https://images.elevenbeans.me/iscroll.png" alt="img" decoding="async" fetchpriority="high">  </p>
+<p><img src="https://images.elevenbeans.me/iscroll+lazyload.png" alt="img" loading="lazy" decoding="async">  </p>
+<p><img src="https://images.elevenbeans.me/native_scroll+ptr.png" alt="img" loading="lazy" decoding="async"></p>
 </li>
 </ul>
 <p>对于一个 150 个元素的列表，左图为 <a target="_blank" rel="noopener" href="https://github.com/cubiq/iscroll">iScroll</a> 的 FPS；中间图为<a target="_blank" rel="noopener" href="https://github.com/cubiq/iscroll">iScroll</a>+<a target="_blank" rel="noopener" href="https://github.com/jasonslyvia/react-lazyload">lazyload</a> 的 FPS；最右图为 native scroll +<a target="_blank" rel="noopener" href="https://github.com/elevenbeans/my-utils/blob/master/src/pulltorefresh.js">my pulltorefresh</a> （下一段落详细说）的 FPS，看曲线，别看瞬时帧频，其实差距挺大但没有那么大。</p>

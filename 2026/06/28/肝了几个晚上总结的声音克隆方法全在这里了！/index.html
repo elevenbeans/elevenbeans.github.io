@@ -1,38 +1,54 @@
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="zh-CN">
+    
+<head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-  <meta name="robots" content="index, follow">
-  <!-- title -->
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Elevenbeans">
+  <!-- title：先决定"这一页是什么"，再拼站点名，避免分页分支盖掉归档/标签 -->
   
-    
   <title>肝了几个晚上总结的声音克隆方法全在这里了！ - Elevenbeans</title>
-    
-  
-  
-  <!-- open graph -->
-  <meta name="description" content="🔒     付费内容            此文章为付费内容，请在下方输入邀请码以解锁全文。                        解锁               验证中...            (function(){     var SLUG &#x3D; &#39;voice-clone&#39;;     var paywall &#x3D; document.querySelector(&#39;.pai">
+
+  <!-- open graph / twitter -->
+  <meta name="description" content="这篇文章汇总了目前主流的开源声音克隆方案，从原理到实操一步步教你如何克隆声音。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="肝了几个晚上总结的声音克隆方法全在这里了！">
-<meta property="og:url" content="https://blog.elevenbeans.me/2026/06/28/%E8%82%9D%E4%BA%86%E5%87%A0%E4%B8%AA%E6%99%9A%E4%B8%8A%E6%80%BB%E7%BB%93%E7%9A%84%E5%A3%B0%E9%9F%B3%E5%85%8B%E9%9A%86%E6%96%B9%E6%B3%95%E5%85%A8%E5%9C%A8%E8%BF%99%E9%87%8C%E4%BA%86%EF%BC%81/index.html">
+<meta property="og:url" content="https://blog.elevenbeans.me/2026/06/28/%E8%82%9D%E4%BA%86%E5%87%A0%E4%B8%AA%E6%99%9A%E4%B8%8A%E6%80%BB%E7%BB%93%E7%9A%84%E5%A3%B0%E9%9F%B3%E5%85%8B%E9%9A%86%E6%96%B9%E6%B3%95%E5%85%A8%E5%9C%A8%E8%BF%99%E9%87%8C%E4%BA%86%EF%BC%81/">
 <meta property="og:site_name" content="Elevenbeans">
-<meta property="og:description" content="🔒     付费内容            此文章为付费内容，请在下方输入邀请码以解锁全文。                        解锁               验证中...            (function(){     var SLUG &#x3D; &#39;voice-clone&#39;;     var paywall &#x3D; document.querySelector(&#39;.pai">
+<meta property="og:description" content="这篇文章汇总了目前主流的开源声音克隆方案，从原理到实操一步步教你如何克隆声音。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.elevenbeans.me/img/og-default.png">
 <meta property="article:published_time" content="2026-06-27T16:05:14.000Z">
 <meta property="article:modified_time" content="2026-06-30T16:40:45.615Z">
 <meta property="article:author" content="Elevenbeans">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="tutorial">
 <meta property="article:tag" content="voice-cloning">
-<meta name="twitter:card" content="summary">
-  <!-- canonical -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.elevenbeans.me/img/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- canonical / pagination -->
   
-  <link rel="canonical" href="https://blog.elevenbeans.me/2026/06/28/肝了几个晚上总结的声音克隆方法全在这里了！/">
+  <link rel="canonical" href="https://blog.elevenbeans.me/2026/06/28/%E8%82%9D%E4%BA%86%E5%87%A0%E4%B8%AA%E6%99%9A%E4%B8%8A%E6%80%BB%E7%BB%93%E7%9A%84%E5%A3%B0%E9%9F%B3%E5%85%8B%E9%9A%86%E6%96%B9%E6%B3%95%E5%85%A8%E5%9C%A8%E8%BF%99%E9%87%8C%E4%BA%86%EF%BC%81/">
   
+  
+  <link rel="alternate" type="application/atom+xml" title="Elevenbeans" href="https://blog.elevenbeans.me/atom.xml">
+
+  <!-- structured data -->
+  
+  
+    
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.elevenbeans.me/2026/06/28/%E8%82%9D%E4%BA%86%E5%87%A0%E4%B8%AA%E6%99%9A%E4%B8%8A%E6%80%BB%E7%BB%93%E7%9A%84%E5%A3%B0%E9%9F%B3%E5%85%8B%E9%9A%86%E6%96%B9%E6%B3%95%E5%85%A8%E5%9C%A8%E8%BF%99%E9%87%8C%E4%BA%86%EF%BC%81/"},"headline":"肝了几个晚上总结的声音克隆方法全在这里了！","description":"这篇文章汇总了目前主流的开源声音克隆方案，从原理到实操一步步教你如何克隆声音。","image":["https://blog.elevenbeans.me/img/og-default.png"],"datePublished":"2026-06-27T16:05:14.000Z","dateModified":"2026-06-30T16:40:45.615Z","author":{"@type":"Person","name":"Elevenbeans","url":"https://blog.elevenbeans.me/about/"},"publisher":{"@type":"Person","name":"Elevenbeans"},"inLanguage":"zh-CN","keywords":"AI, voice-cloning, tutorial"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://blog.elevenbeans.me/"},{"@type":"ListItem","position":2,"name":"肝了几个晚上总结的声音克隆方法全在这里了！","item":"https://blog.elevenbeans.me/2026/06/28/%E8%82%9D%E4%BA%86%E5%87%A0%E4%B8%AA%E6%99%9A%E4%B8%8A%E6%80%BB%E7%BB%93%E7%9A%84%E5%A3%B0%E9%9F%B3%E5%85%8B%E9%9A%86%E6%96%B9%E6%B3%95%E5%85%A8%E5%9C%A8%E8%BF%99%E9%87%8C%E4%BA%86%EF%BC%81/"}]}</script>
+  
+
   <!-- Favicon -->
   <link rel="icon" href="/elevenbeans.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <!-- CSS -->
   
 <link rel="stylesheet" href="/css/reset.css">
@@ -82,9 +98,9 @@
                 
                 <div class="post-main">
     
-        <div class="post-main-title">
+        <h1 class="post-main-title">
             肝了几个晚上总结的声音克隆方法全在这里了！
-        </div>
+        </h1>
         <div class="post-meta">
             2026-06-28 ｜ 
             

@@ -1,37 +1,53 @@
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="zh-CN">
+    
+<head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-  <meta name="robots" content="index, follow">
-  <!-- title -->
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Elevenbeans">
+  <!-- title：先决定"这一页是什么"，再拼站点名，避免分页分支盖掉归档/标签 -->
   
-    
   <title>【译】10 种最常见的 Javascript 错误 - Elevenbeans</title>
-    
-  
-  
-  <!-- open graph -->
-  <meta name="description" content="—— 总结于 1000+ 个项目，并阐述如何避免 原文地址：https:&#x2F;&#x2F;rollbar.com&#x2F;blog&#x2F;top-10-javascript-errors&#x2F;更多文章参见： https:&#x2F;&#x2F;github.com&#x2F;elevenbeans&#x2F;elevenbeans.github.io  为了回馈我们的开发者社区，我们查看了数千个项目的数据库，发现了 JavaScript 中频度最高的 10 种错误。我">
+
+  <!-- open graph / twitter -->
+  <meta name="description" content="—— 总结于 1000+ 个项目，并阐述如何避免 原文地址：https:&#x2F;&#x2F;rollbar.com&#x2F;blog&#x2F;top-10-javascript-errors&#x2F;更多文章参见： https:&#x2F;&#x2F;github.com&#x2F;eleve…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【译】10 种最常见的 Javascript 错误">
-<meta property="og:url" content="https://blog.elevenbeans.me/2018/02/05/top-10-javascript-errors/index.html">
+<meta property="og:url" content="https://blog.elevenbeans.me/2018/02/05/top-10-javascript-errors/">
 <meta property="og:site_name" content="Elevenbeans">
-<meta property="og:description" content="—— 总结于 1000+ 个项目，并阐述如何避免 原文地址：https:&#x2F;&#x2F;rollbar.com&#x2F;blog&#x2F;top-10-javascript-errors&#x2F;更多文章参见： https:&#x2F;&#x2F;github.com&#x2F;elevenbeans&#x2F;elevenbeans.github.io  为了回馈我们的开发者社区，我们查看了数千个项目的数据库，发现了 JavaScript 中频度最高的 10 种错误。我">
+<meta property="og:description" content="—— 总结于 1000+ 个项目，并阐述如何避免 原文地址：https:&#x2F;&#x2F;rollbar.com&#x2F;blog&#x2F;top-10-javascript-errors&#x2F;更多文章参见： https:&#x2F;&#x2F;github.com&#x2F;eleve…">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.elevenbeans.me/img/og-default.png">
 <meta property="article:published_time" content="2018-02-04T16:00:00.000Z">
 <meta property="article:modified_time" content="2026-05-24T08:19:05.310Z">
 <meta property="article:author" content="Elevenbeans">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="翻译">
-<meta name="twitter:card" content="summary">
-  <!-- canonical -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.elevenbeans.me/img/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- canonical / pagination -->
   
   <link rel="canonical" href="https://blog.elevenbeans.me/2018/02/05/top-10-javascript-errors/">
   
+  
+  <link rel="alternate" type="application/atom+xml" title="Elevenbeans" href="https://blog.elevenbeans.me/atom.xml">
+
+  <!-- structured data -->
+  
+  
+    
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.elevenbeans.me/2018/02/05/top-10-javascript-errors/"},"headline":"【译】10 种最常见的 Javascript 错误","description":"—— 总结于 1000+ 个项目，并阐述如何避免 原文地址：https://rollbar.com/blog/top-10-javascript-errors/更多文章参见： https://github.com/eleve…","image":["https://blog.elevenbeans.me/img/og-default.png"],"datePublished":"2018-02-04T16:00:00.000Z","dateModified":"2026-05-24T08:19:05.310Z","author":{"@type":"Person","name":"Elevenbeans","url":"https://blog.elevenbeans.me/about/"},"publisher":{"@type":"Person","name":"Elevenbeans"},"inLanguage":"zh-CN","keywords":"JavaScript, 翻译"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://blog.elevenbeans.me/"},{"@type":"ListItem","position":2,"name":"Tech","item":"https://blog.elevenbeans.me/categories/Tech/"},{"@type":"ListItem","position":3,"name":"【译】10 种最常见的 Javascript 错误","item":"https://blog.elevenbeans.me/2018/02/05/top-10-javascript-errors/"}]}</script>
+  
+
   <!-- Favicon -->
   <link rel="icon" href="/elevenbeans.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <!-- CSS -->
   
 <link rel="stylesheet" href="/css/reset.css">
@@ -81,9 +97,9 @@
                 
                 <div class="post-main">
     
-        <div class="post-main-title">
+        <h1 class="post-main-title">
             【译】10 种最常见的 Javascript 错误
-        </div>
+        </h1>
         <div class="post-meta">
             2018-02-05 ｜ 
             

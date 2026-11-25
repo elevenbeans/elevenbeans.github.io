@@ -1,37 +1,53 @@
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="zh-CN">
+    
+<head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-  <meta name="robots" content="index, follow">
-  <!-- title -->
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Elevenbeans">
+  <!-- title：先决定"这一页是什么"，再拼站点名，避免分页分支盖掉归档/标签 -->
   
-    
   <title>全栈开发实例：如何独立开发/发布一个 WebAPP - Elevenbeans</title>
-    
-  
-  
-  <!-- open graph -->
-  <meta name="description" content="talkIsCheap( )？goto(lastParagraph):continue( ) 背景全栈工程师，也叫全端工程师(同时具备前端和后台能力)，英文 Full Stack developer。是指掌握多种技能，并能利用多种技能独立完成产品的人. （From 百度） 敲黑板：利用多种技能独立完成产品。 So, 至少需要一个人 cover 掉 前端 + 后端 + 数据库吧 ～ 搞一个活生生的投">
+
+  <!-- open graph / twitter -->
+  <meta name="description" content="talkIsCheap( )？goto(lastParagraph):continue( ) 背景全栈工程师，也叫全端工程师(同时具备前端和后台能力)，英文 Full Stack developer。是指掌握多种技能，并能利用多种技能独立完成产品的人. （From 百度） 敲黑板：利用多种技能独立完成产品。…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="全栈开发实例：如何独立开发&#x2F;发布一个 WebAPP">
-<meta property="og:url" content="https://blog.elevenbeans.me/2017/05/16/%E6%92%B8%E4%BA%86%E4%B8%80%E4%B8%AA%E6%8A%95%E7%A5%A8App/index.html">
+<meta property="og:url" content="https://blog.elevenbeans.me/2017/05/16/%E6%92%B8%E4%BA%86%E4%B8%80%E4%B8%AA%E6%8A%95%E7%A5%A8App/">
 <meta property="og:site_name" content="Elevenbeans">
-<meta property="og:description" content="talkIsCheap( )？goto(lastParagraph):continue( ) 背景全栈工程师，也叫全端工程师(同时具备前端和后台能力)，英文 Full Stack developer。是指掌握多种技能，并能利用多种技能独立完成产品的人. （From 百度） 敲黑板：利用多种技能独立完成产品。 So, 至少需要一个人 cover 掉 前端 + 后端 + 数据库吧 ～ 搞一个活生生的投">
+<meta property="og:description" content="talkIsCheap( )？goto(lastParagraph):continue( ) 背景全栈工程师，也叫全端工程师(同时具备前端和后台能力)，英文 Full Stack developer。是指掌握多种技能，并能利用多种技能独立完成产品的人. （From 百度） 敲黑板：利用多种技能独立完成产品。…">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.elevenbeans.me/img/og-default.png">
 <meta property="article:published_time" content="2017-05-15T16:00:00.000Z">
 <meta property="article:modified_time" content="2026-05-24T08:19:05.303Z">
 <meta property="article:author" content="Elevenbeans">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="React">
-<meta name="twitter:card" content="summary">
-  <!-- canonical -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.elevenbeans.me/img/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- canonical / pagination -->
   
-  <link rel="canonical" href="https://blog.elevenbeans.me/2017/05/16/撸了一个投票App/">
+  <link rel="canonical" href="https://blog.elevenbeans.me/2017/05/16/%E6%92%B8%E4%BA%86%E4%B8%80%E4%B8%AA%E6%8A%95%E7%A5%A8App/">
   
+  
+  <link rel="alternate" type="application/atom+xml" title="Elevenbeans" href="https://blog.elevenbeans.me/atom.xml">
+
+  <!-- structured data -->
+  
+  
+    
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.elevenbeans.me/2017/05/16/%E6%92%B8%E4%BA%86%E4%B8%80%E4%B8%AA%E6%8A%95%E7%A5%A8App/"},"headline":"全栈开发实例：如何独立开发/发布一个 WebAPP","description":"talkIsCheap( )？goto(lastParagraph):continue( ) 背景全栈工程师，也叫全端工程师(同时具备前端和后台能力)，英文 Full Stack developer。是指掌握多种技能，并能利用多种技能独立完成产品的人. （From 百度） 敲黑板：利用多种技能独立完成产品。…","image":["https://blog.elevenbeans.me/img/og-default.png"],"datePublished":"2017-05-15T16:00:00.000Z","dateModified":"2026-05-24T08:19:05.303Z","author":{"@type":"Person","name":"Elevenbeans","url":"https://blog.elevenbeans.me/about/"},"publisher":{"@type":"Person","name":"Elevenbeans"},"inLanguage":"zh-CN","keywords":"JavaScript, React"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://blog.elevenbeans.me/"},{"@type":"ListItem","position":2,"name":"Tech","item":"https://blog.elevenbeans.me/categories/Tech/"},{"@type":"ListItem","position":3,"name":"全栈开发实例：如何独立开发/发布一个 WebAPP","item":"https://blog.elevenbeans.me/2017/05/16/%E6%92%B8%E4%BA%86%E4%B8%80%E4%B8%AA%E6%8A%95%E7%A5%A8App/"}]}</script>
+  
+
   <!-- Favicon -->
   <link rel="icon" href="/elevenbeans.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <!-- CSS -->
   
 <link rel="stylesheet" href="/css/reset.css">
@@ -81,9 +97,9 @@
                 
                 <div class="post-main">
     
-        <div class="post-main-title">
+        <h1 class="post-main-title">
             全栈开发实例：如何独立开发/发布一个 WebAPP
-        </div>
+        </h1>
         <div class="post-meta">
             2017-05-16 ｜ 
             

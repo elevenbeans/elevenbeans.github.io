@@ -1,36 +1,52 @@
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="zh-CN">
+    
+<head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-  <meta name="robots" content="index, follow">
-  <!-- title -->
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Elevenbeans">
+  <!-- title：先决定"这一页是什么"，再拼站点名，避免分页分支盖掉归档/标签 -->
   
-    
   <title>SPA 项目全家桶新鲜出炉（Koa+React+webpack） ～ - Elevenbeans</title>
-    
-  
-  
-  <!-- open graph -->
-  <meta name="description" content="来豚厂还不满半年就又一次被 “拥抱变化”。 不过，无论是之前的无线 H5 团队，还是现在的机票 H5 团队。始终维持着一个创业型团队的规模 （一只手数得清）。 新老板提到：机票 H5 team 作为一个小团队，会类似“小白鼠”的角色，需要快速迭代、敏捷开发，作为创新项目的试验田。 对于我个人来讲，最深刻的，其实是无尽的危机感。 跟在阿里的师兄从 React 的易用性，讨论到前端新技术技术迭代升级的">
+
+  <!-- open graph / twitter -->
+  <meta name="description" content="来豚厂还不满半年就又一次被 “拥抱变化”。 不过，无论是之前的无线 H5 团队，还是现在的机票 H5 团队。始终维持着一个创业型团队的规模 （一只手数得清）。 新老板提到：机票 H5 team 作为一个小团队，会类似“小白鼠”的角色，需要快速迭代、敏捷开发，作为创新项目的试验田。 对于我个人来讲，最深刻…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SPA 项目全家桶新鲜出炉（Koa+React+webpack） ～">
-<meta property="og:url" content="https://blog.elevenbeans.me/2017/01/12/Koa-React-webpack-SPA-%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%96%B0%E9%B2%9C%E5%87%BA%E7%82%89%EF%BD%9E/index.html">
+<meta property="og:url" content="https://blog.elevenbeans.me/2017/01/12/Koa-React-webpack-SPA-%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%96%B0%E9%B2%9C%E5%87%BA%E7%82%89%EF%BD%9E/">
 <meta property="og:site_name" content="Elevenbeans">
-<meta property="og:description" content="来豚厂还不满半年就又一次被 “拥抱变化”。 不过，无论是之前的无线 H5 团队，还是现在的机票 H5 团队。始终维持着一个创业型团队的规模 （一只手数得清）。 新老板提到：机票 H5 team 作为一个小团队，会类似“小白鼠”的角色，需要快速迭代、敏捷开发，作为创新项目的试验田。 对于我个人来讲，最深刻的，其实是无尽的危机感。 跟在阿里的师兄从 React 的易用性，讨论到前端新技术技术迭代升级的">
+<meta property="og:description" content="来豚厂还不满半年就又一次被 “拥抱变化”。 不过，无论是之前的无线 H5 团队，还是现在的机票 H5 团队。始终维持着一个创业型团队的规模 （一只手数得清）。 新老板提到：机票 H5 team 作为一个小团队，会类似“小白鼠”的角色，需要快速迭代、敏捷开发，作为创新项目的试验田。 对于我个人来讲，最深刻…">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.elevenbeans.me/img/og-default.png">
 <meta property="article:published_time" content="2017-01-11T16:00:00.000Z">
 <meta property="article:modified_time" content="2026-05-24T08:19:05.317Z">
 <meta property="article:author" content="Elevenbeans">
 <meta property="article:tag" content="React">
-<meta name="twitter:card" content="summary">
-  <!-- canonical -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.elevenbeans.me/img/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- canonical / pagination -->
   
-  <link rel="canonical" href="https://blog.elevenbeans.me/2017/01/12/Koa-React-webpack-SPA-项目全家桶新鲜出炉～/">
+  <link rel="canonical" href="https://blog.elevenbeans.me/2017/01/12/Koa-React-webpack-SPA-%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%96%B0%E9%B2%9C%E5%87%BA%E7%82%89%EF%BD%9E/">
   
+  
+  <link rel="alternate" type="application/atom+xml" title="Elevenbeans" href="https://blog.elevenbeans.me/atom.xml">
+
+  <!-- structured data -->
+  
+  
+    
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.elevenbeans.me/2017/01/12/Koa-React-webpack-SPA-%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%96%B0%E9%B2%9C%E5%87%BA%E7%82%89%EF%BD%9E/"},"headline":"SPA 项目全家桶新鲜出炉（Koa+React+webpack） ～","description":"来豚厂还不满半年就又一次被 “拥抱变化”。 不过，无论是之前的无线 H5 团队，还是现在的机票 H5 团队。始终维持着一个创业型团队的规模 （一只手数得清）。 新老板提到：机票 H5 team 作为一个小团队，会类似“小白鼠”的角色，需要快速迭代、敏捷开发，作为创新项目的试验田。 对于我个人来讲，最深刻…","image":["https://blog.elevenbeans.me/img/og-default.png"],"datePublished":"2017-01-11T16:00:00.000Z","dateModified":"2026-05-24T08:19:05.317Z","author":{"@type":"Person","name":"Elevenbeans","url":"https://blog.elevenbeans.me/about/"},"publisher":{"@type":"Person","name":"Elevenbeans"},"inLanguage":"zh-CN","keywords":"React"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://blog.elevenbeans.me/"},{"@type":"ListItem","position":2,"name":"Tech","item":"https://blog.elevenbeans.me/categories/Tech/"},{"@type":"ListItem","position":3,"name":"SPA 项目全家桶新鲜出炉（Koa+React+webpack） ～","item":"https://blog.elevenbeans.me/2017/01/12/Koa-React-webpack-SPA-%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%96%B0%E9%B2%9C%E5%87%BA%E7%82%89%EF%BD%9E/"}]}</script>
+  
+
   <!-- Favicon -->
   <link rel="icon" href="/elevenbeans.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <!-- CSS -->
   
 <link rel="stylesheet" href="/css/reset.css">
@@ -80,9 +96,9 @@
                 
                 <div class="post-main">
     
-        <div class="post-main-title">
+        <h1 class="post-main-title">
             SPA 项目全家桶新鲜出炉（Koa+React+webpack） ～
-        </div>
+        </h1>
         <div class="post-meta">
             2017-01-12 ｜ 
             

@@ -1,27 +1,24 @@
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="zh-CN">
+    
+<head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-  <meta name="robots" content="index, follow">
-  <!-- title -->
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Elevenbeans">
+  <!-- title：先决定"这一页是什么"，再拼站点名，避免分页分支盖掉归档/标签 -->
   
-    
   <title>用 AI Agent 写了一个 NAS 管理面板 - Elevenbeans</title>
-    
-  
-  
-  <!-- open graph -->
-  <meta name="description" content="上周干了一件挺上头的事—— 花了一个周末，用 AI Agent 给我的家庭 NAS 写了一个管理面板。从搭脚手架到部署上线，全程没自己写过一行代码。 📱 起因iPhone 空间又满了。照片、视频、微信缓存，个个都是存储刺客。 以前的做法是隔段时间接电脑导一次文件，麻烦但能忍。可现在都 2026 了 AI coding 满 dy 甚至 xhs 都是了作为一个程序员还忍是不是就说不过去了？ 淘汰了一">
+
+  <!-- open graph / twitter -->
+  <meta name="description" content="上周干了一件挺上头的事—— 花了一个周末，用 AI Agent 给我的家庭 NAS 写了一个管理面板。从搭脚手架到部署上线，全程没自己写过一行代码。 📱 起因iPhone 空间又满了。照片、视频、微信缓存，个个都是存储刺客。 以前的做法是隔段时间接电脑导一次文件，麻烦但能忍。可现在都 2026 了…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用 AI Agent 写了一个 NAS 管理面板">
-<meta property="og:url" content="https://blog.elevenbeans.me/2026/05/24/%E7%94%A8AI-Agent%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AANAS%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF/index.html">
+<meta property="og:url" content="https://blog.elevenbeans.me/2026/05/24/%E7%94%A8AI-Agent%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AANAS%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF/">
 <meta property="og:site_name" content="Elevenbeans">
-<meta property="og:description" content="上周干了一件挺上头的事—— 花了一个周末，用 AI Agent 给我的家庭 NAS 写了一个管理面板。从搭脚手架到部署上线，全程没自己写过一行代码。 📱 起因iPhone 空间又满了。照片、视频、微信缓存，个个都是存储刺客。 以前的做法是隔段时间接电脑导一次文件，麻烦但能忍。可现在都 2026 了 AI coding 满 dy 甚至 xhs 都是了作为一个程序员还忍是不是就说不过去了？ 淘汰了一">
+<meta property="og:description" content="上周干了一件挺上头的事—— 花了一个周末，用 AI Agent 给我的家庭 NAS 写了一个管理面板。从搭脚手架到部署上线，全程没自己写过一行代码。 📱 起因iPhone 空间又满了。照片、视频、微信缓存，个个都是存储刺客。 以前的做法是隔段时间接电脑导一次文件，麻烦但能忍。可现在都 2026 了…">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://images.elevenbeans.me/IMG_5673.jpeg">
-<meta property="og:image" content="https://images.elevenbeans.me/IMG_5674.jpeg">
-<meta property="og:image" content="https://images.elevenbeans.me/IMG_5699.jpeg">
+<meta property="og:image" content="https://blog.elevenbeans.me/img/og-default.png">
 <meta property="article:published_time" content="2026-05-23T16:00:00.000Z">
 <meta property="article:modified_time" content="2026-05-24T10:26:51.411Z">
 <meta property="article:author" content="Elevenbeans">
@@ -29,15 +26,30 @@
 <meta property="article:tag" content="Agent">
 <meta property="article:tag" content="NAS">
 <meta property="article:tag" content="Next.js">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://images.elevenbeans.me/IMG_5673.jpeg">
-  <!-- canonical -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.elevenbeans.me/img/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- canonical / pagination -->
   
-  <link rel="canonical" href="https://blog.elevenbeans.me/2026/05/24/用AI-Agent写了一个NAS管理面板/">
+  <link rel="canonical" href="https://blog.elevenbeans.me/2026/05/24/%E7%94%A8AI-Agent%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AANAS%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF/">
   
+  
+  <link rel="alternate" type="application/atom+xml" title="Elevenbeans" href="https://blog.elevenbeans.me/atom.xml">
+
+  <!-- structured data -->
+  
+  
+    
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.elevenbeans.me/2026/05/24/%E7%94%A8AI-Agent%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AANAS%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF/"},"headline":"用 AI Agent 写了一个 NAS 管理面板","description":"上周干了一件挺上头的事—— 花了一个周末，用 AI Agent 给我的家庭 NAS 写了一个管理面板。从搭脚手架到部署上线，全程没自己写过一行代码。 📱 起因iPhone 空间又满了。照片、视频、微信缓存，个个都是存储刺客。 以前的做法是隔段时间接电脑导一次文件，麻烦但能忍。可现在都 2026 了…","image":["https://blog.elevenbeans.me/img/og-default.png"],"datePublished":"2026-05-23T16:00:00.000Z","dateModified":"2026-05-24T10:26:51.411Z","author":{"@type":"Person","name":"Elevenbeans","url":"https://blog.elevenbeans.me/about/"},"publisher":{"@type":"Person","name":"Elevenbeans"},"inLanguage":"zh-CN","keywords":"AI, NAS, Next.js, Agent"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://blog.elevenbeans.me/"},{"@type":"ListItem","position":2,"name":"Tech","item":"https://blog.elevenbeans.me/categories/Tech/"},{"@type":"ListItem","position":3,"name":"用 AI Agent 写了一个 NAS 管理面板","item":"https://blog.elevenbeans.me/2026/05/24/%E7%94%A8AI-Agent%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AANAS%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF/"}]}</script>
+  
+
   <!-- Favicon -->
   <link rel="icon" href="/elevenbeans.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <!-- CSS -->
   
 <link rel="stylesheet" href="/css/reset.css">
@@ -87,9 +99,9 @@
                 
                 <div class="post-main">
     
-        <div class="post-main-title">
+        <h1 class="post-main-title">
             用 AI Agent 写了一个 NAS 管理面板
-        </div>
+        </h1>
         <div class="post-meta">
             2026-05-24 ｜ 
             
@@ -110,11 +122,11 @@
 <p>淘汰了一台 MBP2015，购入 Mac Mini M4，配了个 UGREEN 双盘位硬盘盒，塞了块 WD Red 3TB，SMB 共享给全家设备。MacBook、iPhone、投影仪都能直接访问。</p>
 <div style="display:flex;gap:10px;max-width:900px;margin:0 auto">
   <div style="flex:1">
-    <img src="https://images.elevenbeans.me/IMG_5673.jpeg" style="width:100%;height:100%;object-fit:cover;border-radius:8px">
+    <img src="https://images.elevenbeans.me/IMG_5673.jpeg" style="width:100%;height:100%;object-fit:cover;border-radius:8px" decoding="async" fetchpriority="high">
   </div>
   <div style="flex:1;display:flex;flex-direction:column;gap:10px">
-    <img src="https://images.elevenbeans.me/IMG_5674.jpeg" style="width:100%;flex:1;object-fit:cover;border-radius:8px">
-    <img src="https://images.elevenbeans.me/IMG_5699.jpeg" style="width:100%;flex:1;object-fit:cover;border-radius:8px">
+    <img src="https://images.elevenbeans.me/IMG_5674.jpeg" style="width:100%;flex:1;object-fit:cover;border-radius:8px" loading="lazy" decoding="async">
+    <img src="https://images.elevenbeans.me/IMG_5699.jpeg" style="width:100%;flex:1;object-fit:cover;border-radius:8px" loading="lazy" decoding="async">
   </div>
 </div>
 

@@ -1,39 +1,53 @@
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="zh-CN">
+    
+<head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-  <meta name="robots" content="index, follow">
-  <!-- title -->
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Elevenbeans">
+  <!-- title：先决定"这一页是什么"，再拼站点名，避免分页分支盖掉归档/标签 -->
   
-    
   <title>【译】50 行 CSS 代码撸一个阴阳八卦的 Loading 动效 - Elevenbeans</title>
-    
-  
-  
-  <!-- open graph -->
-  <meta name="description" content="原文地址: https:&#x2F;&#x2F;css-tricks.com&#x2F;creating-yin-yang-loaders-web&#x2F;  背景网上做 Loading 动效的教程和工具比比皆是，用八卦图的还是头一次听说 &#x3D;,&#x3D; 因为一直都比较喜欢这种小而精、并且能让人眼前一亮的玩法。万万没想到居然还是个外国程序媛(推特请戳)的作品。 果断翻译过来供大家参考。 正文不久前我见到了这样的动画。这让">
+
+  <!-- open graph / twitter -->
+  <meta name="description" content="原文地址: https:&#x2F;&#x2F;css-tricks.com&#x2F;creating-yin-yang-loaders-web&#x2F; 背景网上做 Loading 动效的教程和工具比比皆是，用八卦图的还是头一次听说 &#x3D;,&#x3D; 因为一直都比较喜欢这种小而精、并且能让…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【译】50 行 CSS 代码撸一个阴阳八卦的 Loading 动效">
-<meta property="og:url" content="https://blog.elevenbeans.me/2017/06/22/Yin-and-Yang-by-CSS/index.html">
+<meta property="og:url" content="https://blog.elevenbeans.me/2017/06/22/Yin-and-Yang-by-CSS/">
 <meta property="og:site_name" content="Elevenbeans">
-<meta property="og:description" content="原文地址: https:&#x2F;&#x2F;css-tricks.com&#x2F;creating-yin-yang-loaders-web&#x2F;  背景网上做 Loading 动效的教程和工具比比皆是，用八卦图的还是头一次听说 &#x3D;,&#x3D; 因为一直都比较喜欢这种小而精、并且能让人眼前一亮的玩法。万万没想到居然还是个外国程序媛(推特请戳)的作品。 果断翻译过来供大家参考。 正文不久前我见到了这样的动画。这让">
+<meta property="og:description" content="原文地址: https:&#x2F;&#x2F;css-tricks.com&#x2F;creating-yin-yang-loaders-web&#x2F; 背景网上做 Loading 动效的教程和工具比比皆是，用八卦图的还是头一次听说 &#x3D;,&#x3D; 因为一直都比较喜欢这种小而精、并且能让…">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.css-tricks.com/wp-content/uploads/2017/06/sym_yin_yang_struct.svg">
+<meta property="og:image" content="https://blog.elevenbeans.me/img/og-default.png">
 <meta property="article:published_time" content="2017-06-21T16:00:00.000Z">
 <meta property="article:modified_time" content="2026-05-24T08:19:05.307Z">
 <meta property="article:author" content="Elevenbeans">
 <meta property="article:tag" content="CSS">
 <meta property="article:tag" content="翻译">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.css-tricks.com/wp-content/uploads/2017/06/sym_yin_yang_struct.svg">
-  <!-- canonical -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.elevenbeans.me/img/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- canonical / pagination -->
   
   <link rel="canonical" href="https://blog.elevenbeans.me/2017/06/22/Yin-and-Yang-by-CSS/">
   
+  
+  <link rel="alternate" type="application/atom+xml" title="Elevenbeans" href="https://blog.elevenbeans.me/atom.xml">
+
+  <!-- structured data -->
+  
+  
+    
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.elevenbeans.me/2017/06/22/Yin-and-Yang-by-CSS/"},"headline":"【译】50 行 CSS 代码撸一个阴阳八卦的 Loading 动效","description":"原文地址: https://css-tricks.com/creating-yin-yang-loaders-web/ 背景网上做 Loading 动效的教程和工具比比皆是，用八卦图的还是头一次听说 =,= 因为一直都比较喜欢这种小而精、并且能让…","image":["https://blog.elevenbeans.me/img/og-default.png"],"datePublished":"2017-06-21T16:00:00.000Z","dateModified":"2026-05-24T08:19:05.307Z","author":{"@type":"Person","name":"Elevenbeans","url":"https://blog.elevenbeans.me/about/"},"publisher":{"@type":"Person","name":"Elevenbeans"},"inLanguage":"zh-CN","keywords":"CSS, 翻译"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://blog.elevenbeans.me/"},{"@type":"ListItem","position":2,"name":"Tech","item":"https://blog.elevenbeans.me/categories/Tech/"},{"@type":"ListItem","position":3,"name":"【译】50 行 CSS 代码撸一个阴阳八卦的 Loading 动效","item":"https://blog.elevenbeans.me/2017/06/22/Yin-and-Yang-by-CSS/"}]}</script>
+  
+
   <!-- Favicon -->
   <link rel="icon" href="/elevenbeans.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <!-- CSS -->
   
 <link rel="stylesheet" href="/css/reset.css">
@@ -83,9 +97,9 @@
                 
                 <div class="post-main">
     
-        <div class="post-main-title">
+        <h1 class="post-main-title">
             【译】50 行 CSS 代码撸一个阴阳八卦的 Loading 动效
-        </div>
+        </h1>
         <div class="post-meta">
             2017-06-22 ｜ 
             
@@ -113,7 +127,7 @@
 <p>无论我们选择使用哪种方式重新创作上述动画，我们总是会先从静态阴阳形状开始，如下所示：</p>
 <p><em>静态的阴阳八卦图</em></p>
 <p>该起始静态形状的结构如下图所示：</p>
-<p><img src="https://cdn.css-tricks.com/wp-content/uploads/2017/06/sym_yin_yang_struct.svg"><br><em>静态八卦图的结构</em></p>
+<p><img src="https://cdn.css-tricks.com/wp-content/uploads/2017/06/sym_yin_yang_struct.svg" decoding="async" fetchpriority="high"><br><em>静态八卦图的结构</em></p>
 <p>首先，我们有一个直径为 d 的大圆。在这个圆内，我们紧紧地嵌入两个较小的圆圈，每个圆圈的直径都是我们初始大圆直径的一半。 这意味着这两个较小圆的每一个的直径等于大圆的半径 r（或 0.5 * d）。在直径为 r 的这两个较小圆的内部，我们有一个更小的同心圆。</p>
 <p>如果我们画出通过所有这些圆的所有中心点的大圆的直径 - 上图中的线段 AB，它与内圆之间的交点将其分成 6 个相等的较小的段。 这意味着其中一个最小圆的直径为 r&#x2F;3（或 d&#x2F;6），其半径为 r&#x2F;6。</p>
 <p><strong>纯 HTML + CSS 版</strong></p>

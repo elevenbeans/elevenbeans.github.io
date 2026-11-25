@@ -63,8 +63,14 @@ a
     font-size: 2rem;
     font-weight: 600;
     color: var(--font-color-1);
-    margin-bottom: 23px;
+    margin: 0 0 23px;
     flex: 0 0 100%;
+    line-height: 1.2;
+}
+/* 首页 logo 是 h1 包着 a，颜色要继承标题，否则会被全局 a 规则染灰 */
+.logo a
+{
+    color: inherit;
 }
 .nav
 {
@@ -289,7 +295,7 @@ a
 .post-main-title
 {
     flex: 0 0 100%;
-    margin-bottom: 12px;
+    margin: 0 0 12px;
     font-size: 1.6rem;
     font-weight: 600;
     line-height: 1.5;
